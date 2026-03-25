@@ -43,31 +43,36 @@
     "price_new": 1599,
     "summary": "The benchmark all-around kite that excels in every condition. Known for its incredible wind range, easy handling, and versatility across twin-tip, surfboard, and foil riding.",
     "best_for": "All-around freeriding",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 38,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-2025",
-          "score": 4.5,
-          "summary": "Riders praise the Evo's incredible versatility and wind range, calling it the best all-around kite on the market."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+2025",
-          "score": 4.4,
-          "summary": "Frequently recommended as the go-to kite for riders wanting one quiver. Great low-end and smooth power delivery."
-        },
-        {
-          "source": "YouTube - Kite Lounge",
-          "url": "https://www.youtube.com/results?search_query=duotone+evo+2025+review",
-          "score": 4.6,
-          "summary": "Praised for predictable power delivery, excellent depower, and the ability to handle gusty conditions gracefully.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 38,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-2025",
+              "score": 4.5,
+              "summary": "Riders praise the Evo's incredible versatility and wind range, calling it the best all-around kite on the market."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+2025",
+              "score": 4.4,
+              "summary": "Frequently recommended as the go-to kite for riders wanting one quiver. Great low-end and smooth power delivery."
+            },
+            {
+              "source": "YouTube - Kite Lounge",
+              "url": "https://www.youtube.com/results?search_query=duotone+evo+2025+review",
+              "score": 4.6,
+              "summary": "Praised for predictable power delivery, excellent depower, and the ability to handle gusty conditions gracefully.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -138,32 +143,37 @@
     "price_new": 1749,
     "summary": "Duotone's dedicated big air machine built for massive boosts and megaloops. The 5-strut design provides rock-solid stability in strong winds with explosive pop and extended hangtime.",
     "best_for": "Big air and megaloops",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 32,
-      "sources": [
-        {
-          "source": "Jason Montreal",
-          "url": "https://www.youtube.com/results?search_query=jason+montreal+duotone+rebel+2025",
-          "score": 4.5,
-          "summary": "Jason highlights the Rebel's explosive pop and long hangtime, noting it remains one of the top big air kites on the market.",
-          "video_id": "placeholder_rebel_review",
-          "jason_montreal": true
-        },
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-rebel-2025",
-          "score": 4.4,
-          "summary": "Big air enthusiasts love the raw power and lift. Some note it's less versatile than the Evo but unmatched for boosting."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+rebel+2025",
-          "score": 4.5,
-          "summary": "Considered a top-tier big air kite. Riders report insane hangtime and predictable looping characteristics."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 32,
+          "sources": [
+            {
+              "source": "Jason Montreal",
+              "url": "https://www.youtube.com/results?search_query=jason+montreal+duotone+rebel+2025",
+              "score": 4.5,
+              "summary": "Jason highlights the Rebel's explosive pop and long hangtime, noting it remains one of the top big air kites on the market.",
+              "video_id": "placeholder_rebel_review",
+              "jason_montreal": true
+            },
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-rebel-2025",
+              "score": 4.4,
+              "summary": "Big air enthusiasts love the raw power and lift. Some note it's less versatile than the Evo but unmatched for boosting."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+rebel+2025",
+              "score": 4.5,
+              "summary": "Considered a top-tier big air kite. Riders report insane hangtime and predictable looping characteristics."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -233,31 +243,36 @@
     "price_new": 1649,
     "summary": "A freestyle-oriented kite that bridges the gap between freestyle and freeride. Quick turning, great pop off the water, and slack for unhooked tricks while remaining fun for freeriding.",
     "best_for": "Freestyle and freeride crossover",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 22,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-2025",
-          "score": 4.3,
-          "summary": "Riders appreciate the fast turning and freestyle capabilities while noting it's still fun for everyday freeriding."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+2025",
-          "score": 4.2,
-          "summary": "Popular among freestyle riders progressing from freeride. Good pop and slack for unhooked tricks."
-        },
-        {
-          "source": "YouTube - Kevin Langeree",
-          "url": "https://www.youtube.com/results?search_query=duotone+dice+2025+review",
-          "score": 4.4,
-          "summary": "Highlighted as the best Dice yet with improved low-end power and more direct steering.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 22,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-2025",
+              "score": 4.3,
+              "summary": "Riders appreciate the fast turning and freestyle capabilities while noting it's still fun for everyday freeriding."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+2025",
+              "score": 4.2,
+              "summary": "Popular among freestyle riders progressing from freeride. Good pop and slack for unhooked tricks."
+            },
+            {
+              "source": "YouTube - Kevin Langeree",
+              "url": "https://www.youtube.com/results?search_query=duotone+dice+2025+review",
+              "score": 4.4,
+              "summary": "Highlighted as the best Dice yet with improved low-end power and more direct steering.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -498,31 +513,36 @@
     "price_new": 1649,
     "summary": "Duotone's dedicated wave kite designed for excellent drift, quick turning, and intuitive handling on the wave face. Perfect for strapless surfboard riding in onshore and side-shore conditions.",
     "best_for": "Wave riding and strapless freestyle",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 18,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-2026",
-          "score": 4.4,
-          "summary": "Wave riders love the drift and turning speed. Excellent for onshore conditions where you need the kite to stay out of the way."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+2026",
-          "score": 4.3,
-          "summary": "Highly regarded among wave riders. The drift is class-leading and relaunch in the surf zone is reliable."
-        },
-        {
-          "source": "YouTube - Kite Buddy",
-          "url": "https://www.youtube.com/results?search_query=duotone+neo+2026+review",
-          "score": 4.5,
-          "summary": "Described as the ultimate wave kite with improved pivot turning and better low-end compared to the 2025 version.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 18,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-2026",
+              "score": 4.4,
+              "summary": "Wave riders love the drift and turning speed. Excellent for onshore conditions where you need the kite to stay out of the way."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+2026",
+              "score": 4.3,
+              "summary": "Highly regarded among wave riders. The drift is class-leading and relaunch in the surf zone is reliable."
+            },
+            {
+              "source": "YouTube - Kite Buddy",
+              "url": "https://www.youtube.com/results?search_query=duotone+neo+2026+review",
+              "score": 4.5,
+              "summary": "Described as the ultimate wave kite with improved pivot turning and better low-end compared to the 2025 version.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -594,31 +614,36 @@
     "price_new": 1043,
     "summary": "Cabrinha's legendary all-around kite now in its 20th+ iteration. The Switchblade delivers reliable performance across all conditions with excellent depower and a forgiving power delivery.",
     "best_for": "All-around freeriding",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 30,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-2025",
-          "score": 4.3,
-          "summary": "A reliable workhorse that does everything well. Riders appreciate the predictable power and wide wind range."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+2025",
-          "score": 4.2,
-          "summary": "Often recommended for beginners and intermediate riders. Solid build quality and forgiving characteristics."
-        },
-        {
-          "source": "YouTube - Progression",
-          "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+2025+review",
-          "score": 4.4,
-          "summary": "Praised for its consistency year after year. Great depower range and a kite you can trust in varying conditions.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 30,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-2025",
+              "score": 4.3,
+              "summary": "A reliable workhorse that does everything well. Riders appreciate the predictable power and wide wind range."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+2025",
+              "score": 4.2,
+              "summary": "Often recommended for beginners and intermediate riders. Solid build quality and forgiving characteristics."
+            },
+            {
+              "source": "YouTube - Progression",
+              "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+2025+review",
+              "score": 4.4,
+              "summary": "Praised for its consistency year after year. Great depower range and a kite you can trust in varying conditions.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -776,31 +801,36 @@
     "price_new": 989,
     "summary": "Cabrinha's dedicated wave and light-wind kite known for exceptional drift and quick pivot turning. A favorite among wave riders for its ability to park and stay out of the way on the wave.",
     "best_for": "Wave riding and foiling",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 20,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-drifter-2025",
-          "score": 4.5,
-          "summary": "One of the best wave kites available. The drift is phenomenal and it pivots beautifully on the wave."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+drifter+2025",
-          "score": 4.3,
-          "summary": "Highly rated for wave riding. Also works well for foiling in lighter winds thanks to its smooth power delivery."
-        },
-        {
-          "source": "YouTube - Kite Buddy",
-          "url": "https://www.youtube.com/results?search_query=cabrinha+drifter+2025+review",
-          "score": 4.4,
-          "summary": "Called a pure wave weapon with the best drift in the Cabrinha lineup. Great for strapless freestyle too.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 20,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-drifter-2025",
+              "score": 4.5,
+              "summary": "One of the best wave kites available. The drift is phenomenal and it pivots beautifully on the wave."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+drifter+2025",
+              "score": 4.3,
+              "summary": "Highly rated for wave riding. Also works well for foiling in lighter winds thanks to its smooth power delivery."
+            },
+            {
+              "source": "YouTube - Kite Buddy",
+              "url": "https://www.youtube.com/results?search_query=cabrinha+drifter+2025+review",
+              "score": 4.4,
+              "summary": "Called a pure wave weapon with the best drift in the Cabrinha lineup. Great for strapless freestyle too.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -869,31 +899,36 @@
     "price_new": 2049,
     "summary": "Cabrinha's dedicated big air weapon built for maximum altitude and hangtime. The 5-strut design provides exceptional rigidity at speed and in strong gusts for confident megaloops.",
     "best_for": "Dedicated big air and megaloops",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 10,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-nitro-apex-2026",
-          "score": 4.5,
-          "summary": "A serious big air contender. The 5-strut frame holds shape incredibly well in strong winds."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+nitro+apex+2026",
-          "score": 4.3,
-          "summary": "Early reports suggest massive lift potential. Designed for the King of the Air crowd."
-        },
-        {
-          "source": "YouTube - Big Air Kite League",
-          "url": "https://www.youtube.com/results?search_query=cabrinha+nitro+apex+2026+review",
-          "score": 4.4,
-          "summary": "Positioned as Cabrinha's answer to the Core XR and Duotone Rebel for pure big air performance.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 10,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-nitro-apex-2026",
+              "score": 4.5,
+              "summary": "A serious big air contender. The 5-strut frame holds shape incredibly well in strong winds."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+nitro+apex+2026",
+              "score": 4.3,
+              "summary": "Early reports suggest massive lift potential. Designed for the King of the Air crowd."
+            },
+            {
+              "source": "YouTube - Big Air Kite League",
+              "url": "https://www.youtube.com/results?search_query=cabrinha+nitro+apex+2026+review",
+              "score": 4.4,
+              "summary": "Positioned as Cabrinha's answer to the Core XR and Duotone Rebel for pure big air performance.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -965,31 +1000,36 @@
     "price_new": 2049,
     "summary": "The next evolution of the Switchblade featuring Cabrinha's Apex construction for improved durability and lighter weight. Retains the legendary Switchblade versatility with refined performance.",
     "best_for": "All-around freeriding with premium build",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-apex-2026",
-          "score": 4.4,
-          "summary": "Refinements over the 2025 model include lighter weight and improved upwind performance. Still the reliable Switchblade at its core."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+apex+2026",
-          "score": 4.2,
-          "summary": "A solid update to an already great kite. The Apex construction adds noticeable crispness to the ride."
-        },
-        {
-          "source": "YouTube - Progression",
-          "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+apex+2026+review",
-          "score": 4.3,
-          "summary": "Incremental but welcome improvements to the Switchblade formula. Still a top choice for one-kite quivers.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-apex-2026",
+              "score": 4.4,
+              "summary": "Refinements over the 2025 model include lighter weight and improved upwind performance. Still the reliable Switchblade at its core."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+apex+2026",
+              "score": 4.2,
+              "summary": "A solid update to an already great kite. The Apex construction adds noticeable crispness to the ride."
+            },
+            {
+              "source": "YouTube - Progression",
+              "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+apex+2026+review",
+              "score": 4.3,
+              "summary": "Incremental but welcome improvements to the Switchblade formula. Still a top choice for one-kite quivers.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1064,32 +1104,37 @@
     "price_new": 1899,
     "summary": "One of the most iconic big air kites ever made. The XR7 delivers massive lift, extended hangtime, and surprisingly good freeride capabilities. A staple in competitive big air.",
     "best_for": "Big air and powered freeriding",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 45,
-      "sources": [
-        {
-          "source": "Jason Montreal",
-          "url": "https://www.youtube.com/results?search_query=jason+montreal+core+xr7+2025",
-          "score": 4.7,
-          "summary": "Jason raves about the XR7's unmatched combination of massive lift and versatile freeride capability. A top pick for big air.",
-          "video_id": "placeholder_xr7_review",
-          "jason_montreal": true
-        },
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr7-2025",
-          "score": 4.6,
-          "summary": "Widely considered the best big air kite on the market. Phenomenal lift and a surprisingly broad wind range."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr7+2025",
-          "score": 4.5,
-          "summary": "The gold standard for big air. Riders consistently report the longest hangtime of any kite they've tried."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 45,
+          "sources": [
+            {
+              "source": "Jason Montreal",
+              "url": "https://www.youtube.com/results?search_query=jason+montreal+core+xr7+2025",
+              "score": 4.7,
+              "summary": "Jason raves about the XR7's unmatched combination of massive lift and versatile freeride capability. A top pick for big air.",
+              "video_id": "placeholder_xr7_review",
+              "jason_montreal": true
+            },
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr7-2025",
+              "score": 4.6,
+              "summary": "Widely considered the best big air kite on the market. Phenomenal lift and a surprisingly broad wind range."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr7+2025",
+              "score": 4.5,
+              "summary": "The gold standard for big air. Riders consistently report the longest hangtime of any kite they've tried."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1160,31 +1205,36 @@
     "price_new": 1799,
     "summary": "Core's performance freeride kite that combines quick turning with great upwind ability. A refined all-around kite for riders who want a sportier feel than typical freeride kites.",
     "best_for": "Performance freeriding",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 28,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-gts6-2025",
-          "score": 4.4,
-          "summary": "A sharp, responsive freeride kite that rewards active piloting. Great upwind performance and turning speed."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+gts6+2025",
-          "score": 4.3,
-          "summary": "Excellent for riders who want something sportier than a typical freeride kite. Quick bar input response."
-        },
-        {
-          "source": "YouTube - Kite Lounge",
-          "url": "https://www.youtube.com/results?search_query=core+gts6+2025+review",
-          "score": 4.5,
-          "summary": "Praised for its direct bar feel and responsive character. A high-performance freeride machine for skilled riders.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 28,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-gts6-2025",
+              "score": 4.4,
+              "summary": "A sharp, responsive freeride kite that rewards active piloting. Great upwind performance and turning speed."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+gts6+2025",
+              "score": 4.3,
+              "summary": "Excellent for riders who want something sportier than a typical freeride kite. Quick bar input response."
+            },
+            {
+              "source": "YouTube - Kite Lounge",
+              "url": "https://www.youtube.com/results?search_query=core+gts6+2025+review",
+              "score": 4.5,
+              "summary": "Praised for its direct bar feel and responsive character. A high-performance freeride machine for skilled riders.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1258,31 +1308,36 @@
     "price_new": 1949,
     "summary": "The next generation of Core's legendary big air platform. The XR8 builds on the XR7's reputation with refined aerodynamics for even more lift and a wider usable wind range.",
     "best_for": "Next-gen big air performance",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr8-2026",
-          "score": 4.7,
-          "summary": "Early reports suggest it improves on the XR7 in low-end power and turning speed while maintaining the massive boost."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr8+2026",
-          "score": 4.5,
-          "summary": "Riders upgrading from the XR7 notice better low-end and slightly faster turning without sacrificing hangtime."
-        },
-        {
-          "source": "YouTube - The Kite Show",
-          "url": "https://www.youtube.com/results?search_query=core+xr8+2026+review",
-          "score": 4.6,
-          "summary": "Described as the evolution big air riders wanted. More refined power delivery with the same massive boost potential.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr8-2026",
+              "score": 4.7,
+              "summary": "Early reports suggest it improves on the XR7 in low-end power and turning speed while maintaining the massive boost."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr8+2026",
+              "score": 4.5,
+              "summary": "Riders upgrading from the XR7 notice better low-end and slightly faster turning without sacrificing hangtime."
+            },
+            {
+              "source": "YouTube - The Kite Show",
+              "url": "https://www.youtube.com/results?search_query=core+xr8+2026+review",
+              "score": 4.6,
+              "summary": "Described as the evolution big air riders wanted. More refined power delivery with the same massive boost potential.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1522,31 +1577,36 @@
     "price_new": 1699,
     "summary": "North's flagship big air kite designed for maximum boost and hangtime. The 5-strut frame provides stability in strong winds while maintaining surprisingly good freeride capabilities.",
     "best_for": "Big air with freeride versatility",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 35,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-2025",
-          "score": 4.4,
-          "summary": "A strong big air kite that also works well for powered freeriding. Competitive with the Rebel and XR7."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+2025",
-          "score": 4.3,
-          "summary": "Great for big air enthusiasts who also want to freeride. Reliable relaunch and good wind range."
-        },
-        {
-          "source": "YouTube - Ride with Blake",
-          "url": "https://www.youtube.com/results?search_query=north+orbit+2025+review",
-          "score": 4.5,
-          "summary": "A solid performer in the big air category. Riders appreciate the balance between boost and usability.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 35,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-2025",
+              "score": 4.4,
+              "summary": "A strong big air kite that also works well for powered freeriding. Competitive with the Rebel and XR7."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+2025",
+              "score": 4.3,
+              "summary": "Great for big air enthusiasts who also want to freeride. Reliable relaunch and good wind range."
+            },
+            {
+              "source": "YouTube - Ride with Blake",
+              "url": "https://www.youtube.com/results?search_query=north+orbit+2025+review",
+              "score": 4.5,
+              "summary": "A solid performer in the big air category. Riders appreciate the balance between boost and usability.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1617,31 +1677,36 @@
     "price_new": 1320,
     "summary": "North's 3-strut all-around freeride kite with unparalleled versatility and wind range. Lively and playful with easy jumps, upwind performance, and effortless relaunch. A true one-kite quiver solution.",
     "best_for": "All-around freeride and versatility",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 22,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-reach-2025",
-          "score": 4.3,
-          "summary": "Excellent for foiling with great upwind ability. The single strut keeps weight down for impressive low-end."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+reach+2025",
-          "score": 4.2,
-          "summary": "A dedicated foil kite that gets you on the water earlier than most. Relaunch can be tricky in very light wind."
-        },
-        {
-          "source": "YouTube - Foil Academy",
-          "url": "https://www.youtube.com/results?search_query=north+reach+2025+review",
-          "score": 4.4,
-          "summary": "The best foil-specific kite from North. Smooth power delivery and excellent drift for foil riding.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 22,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-reach-2025",
+              "score": 4.3,
+              "summary": "Excellent for foiling with great upwind ability. The single strut keeps weight down for impressive low-end."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+reach+2025",
+              "score": 4.2,
+              "summary": "A dedicated foil kite that gets you on the water earlier than most. Relaunch can be tricky in very light wind."
+            },
+            {
+              "source": "YouTube - Foil Academy",
+              "url": "https://www.youtube.com/results?search_query=north+reach+2025+review",
+              "score": 4.4,
+              "summary": "The best foil-specific kite from North. Smooth power delivery and excellent drift for foil riding.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1807,31 +1872,36 @@
     "price_new": 2399,
     "summary": "North's premium big air kite designed for competition-level performance. Features ultra-lightweight construction for maximum response and explosive lift in all conditions.",
     "best_for": "Premium big air competition",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-pro-2026",
-          "score": 4.6,
-          "summary": "The Orbit Pro takes North's big air game to the next level. Lighter and more responsive than the standard Orbit."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+pro+2026",
-          "score": 4.5,
-          "summary": "Worth the premium for serious big air riders. The weight savings translate directly to better performance."
-        },
-        {
-          "source": "YouTube - Ride with Blake",
-          "url": "https://www.youtube.com/results?search_query=north+orbit+pro+2026+review",
-          "score": 4.7,
-          "summary": "North's flagship big air kite delivers on its premium promise. Incredible lift and a refined bar feel.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-pro-2026",
+              "score": 4.6,
+              "summary": "The Orbit Pro takes North's big air game to the next level. Lighter and more responsive than the standard Orbit."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+pro+2026",
+              "score": 4.5,
+              "summary": "Worth the premium for serious big air riders. The weight savings translate directly to better performance."
+            },
+            {
+              "source": "YouTube - Ride with Blake",
+              "url": "https://www.youtube.com/results?search_query=north+orbit+pro+2026+review",
+              "score": 4.7,
+              "summary": "North's flagship big air kite delivers on its premium promise. Incredible lift and a refined bar feel.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1902,31 +1972,36 @@
     "price_new": 1719,
     "summary": "North's dedicated wave kite built for excellent drift, quick pivot turning, and intuitive wave riding. Designed to stay out of the way while you focus on the wave face.",
     "best_for": "Wave riding",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-carve-2026",
-          "score": 4.3,
-          "summary": "A solid wave kite with great drift and quick turning. Competes well with the Duotone Neo and Cabrinha Drifter."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+carve+2026",
-          "score": 4.2,
-          "summary": "Good wave performance with reliable relaunch. The 3-strut design keeps it light and responsive."
-        },
-        {
-          "source": "YouTube - Kite Buddy",
-          "url": "https://www.youtube.com/results?search_query=north+carve+2026+review",
-          "score": 4.4,
-          "summary": "North's best wave kite yet with improved drift and a more intuitive feel on the wave face.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-carve-2026",
+              "score": 4.3,
+              "summary": "A solid wave kite with great drift and quick turning. Competes well with the Duotone Neo and Cabrinha Drifter."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+carve+2026",
+              "score": 4.2,
+              "summary": "Good wave performance with reliable relaunch. The 3-strut design keeps it light and responsive."
+            },
+            {
+              "source": "YouTube - Kite Buddy",
+              "url": "https://www.youtube.com/results?search_query=north+carve+2026+review",
+              "score": 4.4,
+              "summary": "North's best wave kite yet with improved drift and a more intuitive feel on the wave face.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -1997,31 +2072,36 @@
     "price_new": 1449,
     "summary": "Eleveight's flagship performance freeride kite with a higher aspect ratio for excellent upwind ability and strong low-end power. A versatile performer that punches above its price point.",
     "best_for": "Performance freeride at great value",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 20,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-rs-v6-2025",
-          "score": 4.4,
-          "summary": "Incredible value for money. The RS V6 performs at a level that rivals kites costing significantly more."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+rs+v6+2025",
-          "score": 4.3,
-          "summary": "A hidden gem in the freeride category. Great build quality from Eleveight with impressive performance."
-        },
-        {
-          "source": "YouTube - Kite Lounge",
-          "url": "https://www.youtube.com/results?search_query=eleveight+rs+v6+2025+review",
-          "score": 4.5,
-          "summary": "One of the best value propositions in kiteboarding. High-performance freeride at a competitive price.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 20,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-rs-v6-2025",
+              "score": 4.4,
+              "summary": "Incredible value for money. The RS V6 performs at a level that rivals kites costing significantly more."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+rs+v6+2025",
+              "score": 4.3,
+              "summary": "A hidden gem in the freeride category. Great build quality from Eleveight with impressive performance."
+            },
+            {
+              "source": "YouTube - Kite Lounge",
+              "url": "https://www.youtube.com/results?search_query=eleveight+rs+v6+2025+review",
+              "score": 4.5,
+              "summary": "One of the best value propositions in kiteboarding. High-performance freeride at a competitive price.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2088,31 +2168,36 @@
     "price_new": 2449,
     "summary": "Eleveight's premium big air kite featuring Aluula construction in the leading edge and XT Light fabric throughout. The 5-strut high aspect ratio design delivers explosive lift and hangtime for serious big air riders.",
     "best_for": "Big air and megaloops with Aluula performance",
-    "reviews": {
-      "aggregate_score": 4.2,
-      "review_count": 12,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-xs-2025",
-          "score": 4.2,
-          "summary": "A capable wave kite at a great price. Very fast turning and good drift for the money."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+xs+2025",
-          "score": 4.1,
-          "summary": "Good value wave kite. Performs well in onshore conditions with reliable relaunch from the surf."
-        },
-        {
-          "source": "YouTube - Wave Tribe",
-          "url": "https://www.youtube.com/results?search_query=eleveight+xs+2025+review",
-          "score": 4.3,
-          "summary": "Impressive wave performance from Eleveight at a price point below the big brands. Quick turning and good drift.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.2,
+          "review_count": 12,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-xs-2025",
+              "score": 4.2,
+              "summary": "A capable wave kite at a great price. Very fast turning and good drift for the money."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+xs+2025",
+              "score": 4.1,
+              "summary": "Good value wave kite. Performs well in onshore conditions with reliable relaunch from the surf."
+            },
+            {
+              "source": "YouTube - Wave Tribe",
+              "url": "https://www.youtube.com/results?search_query=eleveight+xs+2025+review",
+              "score": 4.3,
+              "summary": "Impressive wave performance from Eleveight at a price point below the big brands. Quick turning and good drift.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2266,31 +2351,36 @@
     "price_new": 1499,
     "summary": "Eleveight's freestyle and big air hybrid with an Open-C shape for explosive pop and great slack for unhooked tricks. The 5-strut frame provides stability for big boosts.",
     "best_for": "Freestyle and big air crossover",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 10,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-fs-v8-2026",
-          "score": 4.3,
-          "summary": "Great for riders who want both freestyle slack and big air lift. The Open-C shape provides excellent pop."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+fs+v8+2026",
-          "score": 4.2,
-          "summary": "A solid freestyle/big air option at a great price. Good slack and predictable looping."
-        },
-        {
-          "source": "YouTube - Progression",
-          "url": "https://www.youtube.com/results?search_query=eleveight+fs+v8+2026+review",
-          "score": 4.4,
-          "summary": "Positioned between a pure freestyle kite and a big air machine. Versatile for riders who want both.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 10,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-fs-v8-2026",
+              "score": 4.3,
+              "summary": "Great for riders who want both freestyle slack and big air lift. The Open-C shape provides excellent pop."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+fs+v8+2026",
+              "score": 4.2,
+              "summary": "A solid freestyle/big air option at a great price. Good slack and predictable looping."
+            },
+            {
+              "source": "YouTube - Progression",
+              "url": "https://www.youtube.com/results?search_query=eleveight+fs+v8+2026+review",
+              "score": 4.4,
+              "summary": "Positioned between a pure freestyle kite and a big air machine. Versatile for riders who want both.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2362,31 +2452,36 @@
     "price_new": 1549,
     "summary": "F-One's iconic all-around kite that has been refined over many generations. The Bandit delivers a perfect balance of performance, ease of use, and versatility across all riding styles.",
     "best_for": "All-around versatility",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 30,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-bandit-2025",
-          "score": 4.4,
-          "summary": "A true do-everything kite. The Bandit continues to impress with its versatility and refined performance."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+bandit+2025",
-          "score": 4.3,
-          "summary": "One of the longest-running kite models for good reason. Great for one-kite quivers and progressing riders."
-        },
-        {
-          "source": "YouTube - The Kite Show",
-          "url": "https://www.youtube.com/results?search_query=f-one+bandit+2025+review",
-          "score": 4.5,
-          "summary": "Praised for its consistency across generations. The Bandit remains a benchmark for all-around performance.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 30,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-bandit-2025",
+              "score": 4.4,
+              "summary": "A true do-everything kite. The Bandit continues to impress with its versatility and refined performance."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+bandit+2025",
+              "score": 4.3,
+              "summary": "One of the longest-running kite models for good reason. Great for one-kite quivers and progressing riders."
+            },
+            {
+              "source": "YouTube - The Kite Show",
+              "url": "https://www.youtube.com/results?search_query=f-one+bandit+2025+review",
+              "score": 4.5,
+              "summary": "Praised for its consistency across generations. The Bandit remains a benchmark for all-around performance.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2454,31 +2549,36 @@
     "price_new": 1449,
     "summary": "F-One's high-aspect foil specialist built for maximum efficiency in ultra-light wind. The single-strut design and very high aspect ratio deliver unmatched low-end power for foiling.",
     "best_for": "Foil specialist in light wind",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 15,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-breeze-2025",
-          "score": 4.4,
-          "summary": "The ultimate light-wind foil kite. Gets you on the water when nothing else can with incredible upwind ability."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+breeze+2025",
-          "score": 4.2,
-          "summary": "Incredible low-end power but relaunch can be challenging in very light wind. Purpose-built for foiling."
-        },
-        {
-          "source": "YouTube - Foil Academy",
-          "url": "https://www.youtube.com/results?search_query=f-one+breeze+2025+review",
-          "score": 4.3,
-          "summary": "Best-in-class for ultra-light wind foiling. The high AR design is incredibly efficient but requires experience.",
-          "video_id": null
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 15,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-breeze-2025",
+              "score": 4.4,
+              "summary": "The ultimate light-wind foil kite. Gets you on the water when nothing else can with incredible upwind ability."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+breeze+2025",
+              "score": 4.2,
+              "summary": "Incredible low-end power but relaunch can be challenging in very light wind. Purpose-built for foiling."
+            },
+            {
+              "source": "YouTube - Foil Academy",
+              "url": "https://www.youtube.com/results?search_query=f-one+breeze+2025+review",
+              "score": 4.3,
+              "summary": "Best-in-class for ultra-light wind foiling. The high AR design is incredibly efficient but requires experience.",
+              "video_id": null
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2718,31 +2818,36 @@
     "price_new_aluula": 3299,
     "summary": "The Ozone Edge V11 is a high-aspect big air and race kite offering massive hangtime and upwind performance. Its 5-strut frame provides excellent canopy stability at the top of loops.",
     "best_for": "Big air competitors and riders wanting maximum hangtime and upwind ability",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 22,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399870",
-          "score": 4.7,
-          "summary": "Consistently rated among the top big air kites on the market, riders note the incredible hangtime and upwind performance that sets it apart from competitors."
-        },
-        {
-          "source": "YouTube - Kevin Langeree Review",
-          "url": "https://www.youtube.com/watch?v=ozone_edge_v11_review",
-          "score": 4.6,
-          "summary": "Professional big air rider demonstrates the Edge V11's massive boost potential and smooth loop characteristics at high wind.",
-          "video_id": "ozone_edge_v11_review"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_v11",
-          "score": null,
-          "summary": "Widely considered the benchmark for big air kites, though beginners are warned about the high aspect ratio requiring more skill to manage."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 22,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399870",
+              "score": 4.7,
+              "summary": "Consistently rated among the top big air kites on the market, riders note the incredible hangtime and upwind performance that sets it apart from competitors."
+            },
+            {
+              "source": "YouTube - Kevin Langeree Review",
+              "url": "https://www.youtube.com/watch?v=ozone_edge_v11_review",
+              "score": 4.6,
+              "summary": "Professional big air rider demonstrates the Edge V11's massive boost potential and smooth loop characteristics at high wind.",
+              "video_id": "ozone_edge_v11_review"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_v11",
+              "score": null,
+              "summary": "Widely considered the benchmark for big air kites, though beginners are warned about the high aspect ratio requiring more skill to manage."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2814,31 +2919,36 @@
     "price_new": 1649,
     "summary": "The Ozone Enduro V3 is a versatile freeride kite with excellent depower range and predictable handling. Great for twin-tip cruising, foilboarding, and progressing riders.",
     "best_for": "Freeriders and progressing kiters wanting a forgiving all-around kite",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 18,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399880",
-          "score": 4.5,
-          "summary": "Praised for its smooth power delivery, excellent depower, and easy relaunch. Many riders call it one of the best all-around freeride kites available."
-        },
-        {
-          "source": "YouTube - Progression Kite Review",
-          "url": "https://www.youtube.com/watch?v=ozone_enduro_v3_rev",
-          "score": 4.4,
-          "summary": "Reviewer highlights the Enduro V3's user-friendly nature and impressive wind range, making it a top choice for intermediate riders.",
-          "video_id": "ozone_enduro_v3_rev"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v3",
-          "score": null,
-          "summary": "Popular recommendation for anyone looking for a do-it-all kite. Users note it pairs well with both twin-tips and foilboards."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 18,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399880",
+              "score": 4.5,
+              "summary": "Praised for its smooth power delivery, excellent depower, and easy relaunch. Many riders call it one of the best all-around freeride kites available."
+            },
+            {
+              "source": "YouTube - Progression Kite Review",
+              "url": "https://www.youtube.com/watch?v=ozone_enduro_v3_rev",
+              "score": 4.4,
+              "summary": "Reviewer highlights the Enduro V3's user-friendly nature and impressive wind range, making it a top choice for intermediate riders.",
+              "video_id": "ozone_enduro_v3_rev"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v3",
+              "score": null,
+              "summary": "Popular recommendation for anyone looking for a do-it-all kite. Users note it pairs well with both twin-tips and foilboards."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -2911,32 +3021,37 @@
     "price_new": 3299,
     "summary": "The Ozone Edge Aluula is the premium version of their flagship big air kite, using Aluula composite material for dramatically reduced weight and increased rigidity. The result is extended hangtime and broader wind range.",
     "best_for": "Elite big air riders wanting the absolute best performance with no budget constraints",
-    "reviews": {
-      "aggregate_score": 4.8,
-      "review_count": 16,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399890",
-          "score": 4.8,
-          "summary": "Universally praised as the gold standard for big air kites. The Aluula construction noticeably improves low-end performance and hangtime over the standard Edge."
-        },
-        {
-          "source": "YouTube - Jason Montreal",
-          "url": "https://www.youtube.com/watch?v=ozone_edge_aluula_2025",
-          "score": 4.7,
-          "summary": "Jason calls it the ultimate big air weapon, noting the Aluula version feels like riding a size larger in light wind while maintaining the same top-end control.",
-          "video_id": "ozone_edge_aluula_2025",
-          "jason_montreal": true
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_aluula",
-          "score": null,
-          "summary": "Riders who have tried it agree the Aluula version is significantly better than the standard Edge, but debate whether the price premium is worth it for non-competitors."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.8,
+          "review_count": 16,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399890",
+              "score": 4.8,
+              "summary": "Universally praised as the gold standard for big air kites. The Aluula construction noticeably improves low-end performance and hangtime over the standard Edge."
+            },
+            {
+              "source": "YouTube - Jason Montreal",
+              "url": "https://www.youtube.com/watch?v=ozone_edge_aluula_2025",
+              "score": 4.7,
+              "summary": "Jason calls it the ultimate big air weapon, noting the Aluula version feels like riding a size larger in light wind while maintaining the same top-end control.",
+              "video_id": "ozone_edge_aluula_2025",
+              "jason_montreal": true
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_aluula",
+              "score": null,
+              "summary": "Riders who have tried it agree the Aluula version is significantly better than the standard Edge, but debate whether the price premium is worth it for non-competitors."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3094,31 +3209,36 @@
     "price_new": 1699,
     "summary": "The Ozone Enduro V4 builds on the beloved V3 freeride platform with updated canopy profiling and refined tip shape for improved turning and slightly better upwind performance.",
     "best_for": "Freeriders and all-around kiters wanting Ozone's latest versatile platform",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 6,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400210",
-          "score": 4.4,
-          "summary": "Initial reviews highlight improved turning speed and slightly better upwind angle over the V3, while maintaining the same user-friendly character."
-        },
-        {
-          "source": "YouTube - Freeride Kite Review",
-          "url": "https://www.youtube.com/watch?v=ozone_enduro_v4_2026",
-          "score": 4.5,
-          "summary": "Reviewer finds the V4 to be a solid incremental update with noticeable improvements in light wind performance and turning response.",
-          "video_id": "ozone_enduro_v4_2026"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v4",
-          "score": null,
-          "summary": "Users appreciate the refinements and continue to recommend the Enduro line as one of the best freeride options on the market."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 6,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400210",
+              "score": 4.4,
+              "summary": "Initial reviews highlight improved turning speed and slightly better upwind angle over the V3, while maintaining the same user-friendly character."
+            },
+            {
+              "source": "YouTube - Freeride Kite Review",
+              "url": "https://www.youtube.com/watch?v=ozone_enduro_v4_2026",
+              "score": 4.5,
+              "summary": "Reviewer finds the V4 to be a solid incremental update with noticeable improvements in light wind performance and turning response.",
+              "video_id": "ozone_enduro_v4_2026"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v4",
+              "score": null,
+              "summary": "Users appreciate the refinements and continue to recommend the Enduro line as one of the best freeride options on the market."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3188,31 +3308,36 @@
     "price_new": 1499,
     "summary": "The Slingshot RPM is a pure C-kite built for freestyle and wakestyle riders. Its low aspect ratio and fast turning deliver explosive pop and slack line for unhooked tricks.",
     "best_for": "Freestyle and wakestyle riders wanting a dedicated C-kite",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 15,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399700",
-          "score": 4.3,
-          "summary": "Freestyle riders love the RPM's explosive pop and slack line, calling it one of the last true C-kites on the market."
-        },
-        {
-          "source": "YouTube - Wakestyle Review",
-          "url": "https://www.youtube.com/watch?v=slingshot_rpm_2025",
-          "score": 4.4,
-          "summary": "Reviewer demonstrates smooth unhooked performance and consistent kite loops, noting the RPM delivers on its freestyle promise.",
-          "video_id": "slingshot_rpm_2025"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rpm_25",
-          "score": null,
-          "summary": "Community appreciates Slingshot keeping the C-kite alive, though riders note the limited depower range makes it less suitable for beginners."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 15,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399700",
+              "score": 4.3,
+              "summary": "Freestyle riders love the RPM's explosive pop and slack line, calling it one of the last true C-kites on the market."
+            },
+            {
+              "source": "YouTube - Wakestyle Review",
+              "url": "https://www.youtube.com/watch?v=slingshot_rpm_2025",
+              "score": 4.4,
+              "summary": "Reviewer demonstrates smooth unhooked performance and consistent kite loops, noting the RPM delivers on its freestyle promise.",
+              "video_id": "slingshot_rpm_2025"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rpm_25",
+              "score": null,
+              "summary": "Community appreciates Slingshot keeping the C-kite alive, though riders note the limited depower range makes it less suitable for beginners."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3284,31 +3409,36 @@
     "price_new": 1399,
     "summary": "The Slingshot Rally GT V2 is Slingshot's all-around freeride kite with excellent depower range and forgiving handling. A great choice for progressing riders and freeriders alike.",
     "best_for": "All-around freeriders and progressing kiters on a budget",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399710",
-          "score": 4.2,
-          "summary": "Riders praise the Rally GT V2's ease of use, excellent relaunch, and great value proposition. A solid do-everything kite without breaking the bank."
-        },
-        {
-          "source": "YouTube - Kite Review Channel",
-          "url": "https://www.youtube.com/watch?v=slingshot_rally_gt_v2",
-          "score": 4.3,
-          "summary": "Reviewer highlights the predictable power delivery and wide wind range, recommending it as an ideal first kite for riders who want to grow into it.",
-          "video_id": "slingshot_rally_gt_v2"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rally_gt_v2",
-          "score": null,
-          "summary": "Frequently recommended as a budget-friendly alternative to premium freeride kites. Users note it punches above its price point."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399710",
+              "score": 4.2,
+              "summary": "Riders praise the Rally GT V2's ease of use, excellent relaunch, and great value proposition. A solid do-everything kite without breaking the bank."
+            },
+            {
+              "source": "YouTube - Kite Review Channel",
+              "url": "https://www.youtube.com/watch?v=slingshot_rally_gt_v2",
+              "score": 4.3,
+              "summary": "Reviewer highlights the predictable power delivery and wide wind range, recommending it as an ideal first kite for riders who want to grow into it.",
+              "video_id": "slingshot_rally_gt_v2"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rally_gt_v2",
+              "score": null,
+              "summary": "Frequently recommended as a budget-friendly alternative to premium freeride kites. Users note it punches above its price point."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3378,31 +3508,36 @@
     "price_new": 1739,
     "summary": "The Slingshot Code V2 bridges freeride and big air with a hybrid design offering good pop and hangtime while remaining versatile enough for everyday sessions.",
     "best_for": "Riders wanting big air capability without sacrificing freeride fun",
-    "reviews": {
-      "aggregate_score": 4.2,
-      "review_count": 11,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399720",
-          "score": 4.2,
-          "summary": "Riders appreciate the Code V2's versatility, noting it handles everything from boosting to cruising without being a specialist at either."
-        },
-        {
-          "source": "YouTube - Slingshot Code V2 Review",
-          "url": "https://www.youtube.com/watch?v=slingshot_code_v2_2025",
-          "score": 4.3,
-          "summary": "Reviewer calls it a great quiver-of-one option for riders who want some big air performance but also value everyday usability.",
-          "video_id": "slingshot_code_v2_2025"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_code_v2",
-          "score": null,
-          "summary": "Users compare it favorably to other hybrid kites, noting the 3-strut design keeps weight down while still providing enough rigidity for boosting."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.2,
+          "review_count": 11,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399720",
+              "score": 4.2,
+              "summary": "Riders appreciate the Code V2's versatility, noting it handles everything from boosting to cruising without being a specialist at either."
+            },
+            {
+              "source": "YouTube - Slingshot Code V2 Review",
+              "url": "https://www.youtube.com/watch?v=slingshot_code_v2_2025",
+              "score": 4.3,
+              "summary": "Reviewer calls it a great quiver-of-one option for riders who want some big air performance but also value everyday usability.",
+              "video_id": "slingshot_code_v2_2025"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_code_v2",
+              "score": null,
+              "summary": "Users compare it favorably to other hybrid kites, noting the 3-strut design keeps weight down while still providing enough rigidity for boosting."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3470,31 +3605,36 @@
     "price_new": 1949,
     "summary": "The Slingshot Machine V3 is an old-school big air C-kite with 5 struts for maximum rigidity and explosive power. Built for committed riders who want raw performance and aggressive loops.",
     "best_for": "Old-school big air riders who prefer C-kite characteristics",
-    "reviews": {
-      "aggregate_score": 4.2,
-      "review_count": 9,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399730",
-          "score": 4.1,
-          "summary": "A niche kite for dedicated big air riders who prefer the direct feel of a C-kite. Not for everyone, but those who love it really love it."
-        },
-        {
-          "source": "YouTube - Big Air C-Kite Review",
-          "url": "https://www.youtube.com/watch?v=slingshot_machine_v3",
-          "score": 4.3,
-          "summary": "Reviewer demonstrates aggressive megaloops and explains why the Machine's direct bar-to-kite connection appeals to old-school riders.",
-          "video_id": "slingshot_machine_v3"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_machine_v3",
-          "score": null,
-          "summary": "Niche following appreciates that Slingshot keeps making a true C-kite big air platform. Not recommended for intermediate riders due to limited depower."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.2,
+          "review_count": 9,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399730",
+              "score": 4.1,
+              "summary": "A niche kite for dedicated big air riders who prefer the direct feel of a C-kite. Not for everyone, but those who love it really love it."
+            },
+            {
+              "source": "YouTube - Big Air C-Kite Review",
+              "url": "https://www.youtube.com/watch?v=slingshot_machine_v3",
+              "score": 4.3,
+              "summary": "Reviewer demonstrates aggressive megaloops and explains why the Machine's direct bar-to-kite connection appeals to old-school riders.",
+              "video_id": "slingshot_machine_v3"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_machine_v3",
+              "score": null,
+              "summary": "Niche following appreciates that Slingshot keeps making a true C-kite big air platform. Not recommended for intermediate riders due to limited depower."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3565,31 +3705,36 @@
     "price_new": 1225,
     "summary": "The Slingshot UFO V2 is a zero-strut ultralight LEI kite designed for foilboarding. Its strutless design packs down incredibly small and provides excellent low-end power for light wind foiling.",
     "best_for": "Foilboarders wanting an ultralight single-skin-like kite in LEI form",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 12,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399740",
-          "score": 4.2,
-          "summary": "Foil riders love the UFO V2's light wind performance and tiny packed size. Some note the relaunch requires technique but is manageable once learned."
-        },
-        {
-          "source": "YouTube - Foil Kite Comparison",
-          "url": "https://www.youtube.com/watch?v=slingshot_ufo_v2_review",
-          "score": 4.4,
-          "summary": "Reviewer compares the UFO V2 to other foil-specific kites, praising its drift characteristics and light wind grunt for hydrofoiling.",
-          "video_id": "slingshot_ufo_v2_review"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_ufo_v2",
-          "score": null,
-          "summary": "Popular choice among the foiling community for travel due to its minimal pack size. Users note it pairs perfectly with compact foil setups."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 12,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399740",
+              "score": 4.2,
+              "summary": "Foil riders love the UFO V2's light wind performance and tiny packed size. Some note the relaunch requires technique but is manageable once learned."
+            },
+            {
+              "source": "YouTube - Foil Kite Comparison",
+              "url": "https://www.youtube.com/watch?v=slingshot_ufo_v2_review",
+              "score": 4.4,
+              "summary": "Reviewer compares the UFO V2 to other foil-specific kites, praising its drift characteristics and light wind grunt for hydrofoiling.",
+              "video_id": "slingshot_ufo_v2_review"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_ufo_v2",
+              "score": null,
+              "summary": "Popular choice among the foiling community for travel due to its minimal pack size. Users note it pairs perfectly with compact foil setups."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3745,31 +3890,36 @@
     "price_new": 1399,
     "summary": "The Naish Trident is a 1-strut foil-specific kite with high aspect ratio and excellent drift. Its lightweight design excels in light wind foiling and provides incredible low-end power.",
     "best_for": "Dedicated foilboarders wanting maximum light wind performance",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 13,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399610",
-          "score": 4.4,
-          "summary": "Foil riders praise the Trident's exceptional drift and light wind capability. The 1-strut design keeps weight minimal for excellent foil kite performance."
-        },
-        {
-          "source": "YouTube - Foil Kite Review",
-          "url": "https://www.youtube.com/watch?v=naish_trident_2025",
-          "score": 4.5,
-          "summary": "Reviewer showcases the Trident's ability to stay flying in extremely light conditions, noting its drift is among the best of any LEI foil kite.",
-          "video_id": "naish_trident_2025"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_trident_2025",
-          "score": null,
-          "summary": "Recommended alongside the Duotone Juice as top foil-specific LEI kites. Users note the Trident edges ahead in drift performance."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 13,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399610",
+              "score": 4.4,
+              "summary": "Foil riders praise the Trident's exceptional drift and light wind capability. The 1-strut design keeps weight minimal for excellent foil kite performance."
+            },
+            {
+              "source": "YouTube - Foil Kite Review",
+              "url": "https://www.youtube.com/watch?v=naish_trident_2025",
+              "score": 4.5,
+              "summary": "Reviewer showcases the Trident's ability to stay flying in extremely light conditions, noting its drift is among the best of any LEI foil kite.",
+              "video_id": "naish_trident_2025"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/naish_trident_2025",
+              "score": null,
+              "summary": "Recommended alongside the Duotone Juice as top foil-specific LEI kites. Users note the Trident edges ahead in drift performance."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -3926,31 +4076,36 @@
     "price_new": 1549,
     "summary": "The Naish Triad is a freeride kite designed for accessible performance across all skill levels. Its forgiving handling and wide depower range make it an excellent choice for progression and everyday sessions.",
     "best_for": "Freeriders and progressing kiters wanting a user-friendly platform",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 7,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400310",
-          "score": 4.3,
-          "summary": "Early reviews praise the Triad's smooth power delivery and ease of use. Sits nicely between the Pivot and entry-level kites in terms of performance."
-        },
-        {
-          "source": "YouTube - Naish Triad First Look",
-          "url": "https://www.youtube.com/watch?v=naish_triad_2026",
-          "score": 4.2,
-          "summary": "Reviewer finds the Triad to be an excellent freeride option with predictable handling and a wide wind range suitable for most conditions.",
-          "video_id": "naish_triad_2026"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_triad_26",
-          "score": null,
-          "summary": "Community sees it as Naish's answer to the Ozone Enduro and Core Nexus, offering solid freeride performance at a competitive price."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 7,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400310",
+              "score": 4.3,
+              "summary": "Early reviews praise the Triad's smooth power delivery and ease of use. Sits nicely between the Pivot and entry-level kites in terms of performance."
+            },
+            {
+              "source": "YouTube - Naish Triad First Look",
+              "url": "https://www.youtube.com/watch?v=naish_triad_2026",
+              "score": 4.2,
+              "summary": "Reviewer finds the Triad to be an excellent freeride option with predictable handling and a wide wind range suitable for most conditions.",
+              "video_id": "naish_triad_2026"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/naish_triad_26",
+              "score": null,
+              "summary": "Community sees it as Naish's answer to the Ozone Enduro and Core Nexus, offering solid freeride performance at a competitive price."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4021,31 +4176,36 @@
     "price_new": 1999,
     "summary": "The Airush Ultra V4 uses Brainchild construction technology for a lighter, more responsive big air kite. It delivers impressive hangtime and boost while remaining accessible to intermediate riders.",
     "best_for": "Big air riders wanting Brainchild performance at a 3-strut weight",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 13,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399500",
-          "score": 4.4,
-          "summary": "Riders appreciate the Brainchild construction making the Ultra lighter and more responsive. The 3-strut design keeps it manageable while still delivering big air performance."
-        },
-        {
-          "source": "YouTube - Airush Ultra V4 Review",
-          "url": "https://www.youtube.com/watch?v=airush_ultra_v4_2025",
-          "score": 4.5,
-          "summary": "Reviewer highlights the Ultra V4's impressive hangtime relative to its medium aspect ratio, crediting the Brainchild tech for improved canopy response.",
-          "video_id": "airush_ultra_v4_2025"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v4",
-          "score": null,
-          "summary": "Seen as a strong competitor to the Core GTS and Duotone Rebel, with the Brainchild construction giving it a weight and responsiveness advantage."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 13,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399500",
+              "score": 4.4,
+              "summary": "Riders appreciate the Brainchild construction making the Ultra lighter and more responsive. The 3-strut design keeps it manageable while still delivering big air performance."
+            },
+            {
+              "source": "YouTube - Airush Ultra V4 Review",
+              "url": "https://www.youtube.com/watch?v=airush_ultra_v4_2025",
+              "score": 4.5,
+              "summary": "Reviewer highlights the Ultra V4's impressive hangtime relative to its medium aspect ratio, crediting the Brainchild tech for improved canopy response.",
+              "video_id": "airush_ultra_v4_2025"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v4",
+              "score": null,
+              "summary": "Seen as a strong competitor to the Core GTS and Duotone Rebel, with the Brainchild construction giving it a weight and responsiveness advantage."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4117,31 +4277,36 @@
     "price_new": 899,
     "summary": "The Airush Lithium V13 is a long-running freeride platform now in its 13th iteration. It offers predictable handling, wide depower range, and excellent relaunch for riders of all levels.",
     "best_for": "All-level freeriders wanting a proven and reliable kite",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 16,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399510",
-          "score": 4.3,
-          "summary": "The Lithium continues to be a reliable all-around performer. V13 brings minor refinements to an already well-proven platform."
-        },
-        {
-          "source": "YouTube - Freeride Kite Comparison",
-          "url": "https://www.youtube.com/watch?v=airush_lithium_v13",
-          "score": 4.2,
-          "summary": "Reviewer compares the Lithium to other freeride kites and finds it competitive on all fronts, praising its consistency and beginner-friendly nature.",
-          "video_id": "airush_lithium_v13"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lithium_v13",
-          "score": null,
-          "summary": "A common recommendation for first-time buyers. Users note the Lithium has been refined over 13 versions into a very polished freeride kite."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 16,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399510",
+              "score": 4.3,
+              "summary": "The Lithium continues to be a reliable all-around performer. V13 brings minor refinements to an already well-proven platform."
+            },
+            {
+              "source": "YouTube - Freeride Kite Comparison",
+              "url": "https://www.youtube.com/watch?v=airush_lithium_v13",
+              "score": 4.2,
+              "summary": "Reviewer compares the Lithium to other freeride kites and finds it competitive on all fronts, praising its consistency and beginner-friendly nature.",
+              "video_id": "airush_lithium_v13"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lithium_v13",
+              "score": null,
+              "summary": "A common recommendation for first-time buyers. Users note the Lithium has been refined over 13 versions into a very polished freeride kite."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4210,31 +4375,36 @@
     "price_new": 1070,
     "summary": "The Airush Lift is a big air kite featuring Airush's welded construction for improved durability and canopy consistency. Designed to deliver massive boost and hangtime with manageable bar pressure.",
     "best_for": "Big air riders wanting a durable and accessible boosting machine",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 7,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400400",
-          "score": 4.3,
-          "summary": "Early reviews highlight the welded construction's durability benefits and the kite's accessible big air performance for intermediate-to-advanced riders."
-        },
-        {
-          "source": "YouTube - Airush Lift Review",
-          "url": "https://www.youtube.com/watch?v=airush_lift_2026",
-          "score": 4.4,
-          "summary": "Reviewer demonstrates impressive boosting and notes the Lift fills a gap in Airush's lineup between the Lithium and Ultra.",
-          "video_id": "airush_lift_2026"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lift_26",
-          "score": null,
-          "summary": "Community sees it as a more affordable entry into Airush's big air lineup, with the welded construction being a selling point for durability."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 7,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400400",
+              "score": 4.3,
+              "summary": "Early reviews highlight the welded construction's durability benefits and the kite's accessible big air performance for intermediate-to-advanced riders."
+            },
+            {
+              "source": "YouTube - Airush Lift Review",
+              "url": "https://www.youtube.com/watch?v=airush_lift_2026",
+              "score": 4.4,
+              "summary": "Reviewer demonstrates impressive boosting and notes the Lift fills a gap in Airush's lineup between the Lithium and Ultra.",
+              "video_id": "airush_lift_2026"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lift_26",
+              "score": null,
+              "summary": "Community sees it as a more affordable entry into Airush's big air lineup, with the welded construction being a selling point for durability."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4304,31 +4474,36 @@
     "price_new": 1419,
     "summary": "The Airush Ultra V5 is the latest evolution of Airush's flagship big air kite, featuring refined canopy profiling and updated bridle geometry for improved boost and more predictable looping behavior.",
     "best_for": "Advanced riders chasing maximum hangtime with a refined big air platform",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 6,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400410",
-          "score": 4.5,
-          "summary": "Riders upgrading from the V4 note improved looping predictability and slightly better low-end power. Considered a meaningful upgrade."
-        },
-        {
-          "source": "YouTube - Big Air Kite 2026",
-          "url": "https://www.youtube.com/watch?v=airush_ultra_v5_2026",
-          "score": 4.6,
-          "summary": "Reviewer praises the V5's hangtime improvements and smoother power curve through megaloops, calling it Airush's best big air kite yet.",
-          "video_id": "airush_ultra_v5_2026"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v5",
-          "score": null,
-          "summary": "Positive early reception with riders noting the V5 competes directly with the Core GTS and Ozone Edge in the big air category."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 6,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400410",
+              "score": 4.5,
+              "summary": "Riders upgrading from the V4 note improved looping predictability and slightly better low-end power. Considered a meaningful upgrade."
+            },
+            {
+              "source": "YouTube - Big Air Kite 2026",
+              "url": "https://www.youtube.com/watch?v=airush_ultra_v5_2026",
+              "score": 4.6,
+              "summary": "Reviewer praises the V5's hangtime improvements and smoother power curve through megaloops, calling it Airush's best big air kite yet.",
+              "video_id": "airush_ultra_v5_2026"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v5",
+              "score": null,
+              "summary": "Positive early reception with riders noting the V5 competes directly with the Core GTS and Ozone Edge in the big air category."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4399,31 +4574,36 @@
     "price_new": 1699,
     "summary": "The Reedin Super Model V3 is a performance freeride kite with a higher aspect ratio than typical all-around kites. It delivers excellent upwind ability and good boost while remaining user-friendly.",
     "best_for": "Performance-oriented freeriders wanting upwind ability and versatility",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 11,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399400",
-          "score": 4.4,
-          "summary": "Riders impressed by the Super Model's combination of freeride comfort and performance capability. The higher aspect ratio gives it an edge upwind."
-        },
-        {
-          "source": "YouTube - Reedin Super Model V3",
-          "url": "https://www.youtube.com/watch?v=reedin_supermodel_v3",
-          "score": 4.5,
-          "summary": "Reviewer highlights the Super Model's excellent upwind performance and versatile nature, noting it bridges the gap between freeride and performance categories.",
-          "video_id": "reedin_supermodel_v3"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_supermodel_v3",
-          "score": null,
-          "summary": "Growing fan base for Reedin's innovative approach. Users note the Super Model offers a unique feel compared to established brands."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 11,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399400",
+              "score": 4.4,
+              "summary": "Riders impressed by the Super Model's combination of freeride comfort and performance capability. The higher aspect ratio gives it an edge upwind."
+            },
+            {
+              "source": "YouTube - Reedin Super Model V3",
+              "url": "https://www.youtube.com/watch?v=reedin_supermodel_v3",
+              "score": 4.5,
+              "summary": "Reviewer highlights the Super Model's excellent upwind performance and versatile nature, noting it bridges the gap between freeride and performance categories.",
+              "video_id": "reedin_supermodel_v3"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_supermodel_v3",
+              "score": null,
+              "summary": "Growing fan base for Reedin's innovative approach. Users note the Super Model offers a unique feel compared to established brands."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4742,31 +4922,48 @@
     "price_new": 2499,
     "summary": "The Flysurfer Sonic V4 is a high-performance ram-air foil kite designed for racing and ultra-light wind foiling. Its very high aspect ratio delivers unmatched upwind performance and low-end power.",
     "best_for": "Foil racers and ultra-light wind specialists",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2399300",
-          "score": 4.5,
-          "summary": "The benchmark for foil racing kites. Riders praise the Sonic V4's incredible upwind angle and ability to generate power in virtually no wind."
-        },
-        {
-          "source": "YouTube - Foil Racing Review",
-          "url": "https://www.youtube.com/watch?v=flysurfer_sonic_v4",
-          "score": 4.6,
-          "summary": "Detailed review of the Sonic V4's racing performance, showcasing its superior upwind VMG and light wind capabilities compared to LEI alternatives.",
-          "video_id": "flysurfer_sonic_v4"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic_v4",
-          "score": null,
-          "summary": "Respected as the top open-cell foil kite for racing. Users note the relaunch difficulty is the main trade-off for its exceptional performance."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2399300",
+              "score": 4.5,
+              "summary": "The benchmark for foil racing kites. Riders praise the Sonic V4's incredible upwind angle and ability to generate power in virtually no wind."
+            },
+            {
+              "source": "YouTube - Foil Racing Review",
+              "url": "https://www.youtube.com/watch?v=flysurfer_sonic_v4",
+              "score": 4.6,
+              "summary": "Detailed review of the Sonic V4's racing performance, showcasing its superior upwind VMG and light wind capabilities compared to LEI alternatives.",
+              "video_id": "flysurfer_sonic_v4"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic_v4",
+              "score": null,
+              "summary": "Respected as the top open-cell foil kite for racing. Users note the relaunch difficulty is the main trade-off for its exceptional performance."
+            }
+          ]
         }
-      ]
-    },
+      },
+      {
+        "source": "youtube",
+        "reviewer": "Our Kite Life",
+        "channel": "Our Kite Life",
+        "channel_url": "https://youtube.com/@OurKiteLife",
+        "video_id": "jkE0ZoRELVU",
+        "video_title": "Flysurfer SONIC4 Review",
+        "video_url": "https://youtube.com/watch?v=jkE0ZoRELVU",
+        "excerpt": "it's always exciting when we've got a brand new kite to review and in this video we're going to be doing a deep dive on the 10 meter fly Surfer Sonic 4. [Music] [Applause] before we get started it's important to mention that kite reviews are tricky because the quality of wind can greatly influence how you feel about a kite for that reason when we t",
+        "verdict": "model right they haven't veered away too too far away from it in fact they've improved it in the past I always told myself I would not buy a Sonic because of my age and kiting style but I would definitely consider the Sonic 4. if you're a Sonic flyer the new Sonics I like it I really do so there you have it our review of the 10 meter fly Surfer Sonic 4. let us know in the comments below what you think and if you're excited to try this kite thank you for watching and we'll see you in the next one",
+        "full_transcript": "it's always exciting when we've got a brand new kite to review and in this video we're going to be doing a deep dive on the 10 meter fly Surfer Sonic 4. [Music] [Applause] before we get started it's important to mention that kite reviews are tricky because the quality of wind can greatly influence how you feel about a kite for that reason when we test a kite we like to do it in a variety of conditions over multiple weeks and have our friends try the kite as well so that they can share their honest unbiased opinions many of the writers in this video are already fans of the Soul or the Sonic 3 so naturally there will be comparisons to both kites throughout this video as always a special thanks to silent sports for supporting our Channel and for making this review video happen the Sonic Forest fly Surfers high performance foil kite meant for Big Air hydrofoiling and Free Ride in our view while the Sonic 3 was a Pure Performance Beast that required expert level skills to handle the Sonic 4 is basically a supercharged sole it offers The Best of Both Worlds performance and user friendliness not surprisingly fly Surfer has designed the kite for those Riders who are looking for an upgrade from the soul or who already enjoy Sonic Heights and want more accessible performance so what's changed well according to Pfizer for pretty much everything as the Sonic 4 has a completely new design but this shouldn't scare you as it's still a Sonic most importantly the aspect ratio of the kite was slightly reduced to a range of 5.8 to 6.8 compared to the Sonic 3's aspect ratio range of 6.6 to 7.2 just like the Sonic 3 as the kite size decreases so does the aspect ratio another huge change are the sizes there's no longer a Sonic 9 11 or 13 meter and instead we have a Sonic 8 10 and 12 meter there's no more Sonic 21 but there is now a 6 meter on the Practical side according to fly Surfer the outline of the kite was redesigned to increase performance improve wingtip stability and improve launch behavior and turning we can't really comment about the performance of Sonic 4 versus Sonic 3 as comparing a 10 meter kite size versus an older 9 or 11 meter Sonic 3 wouldn't produce an objective comparison same goes for turning behavior from our tests the wing tips are as stable as the sole and will only fold if you oversteer other changes include the removal of mini ribs from the inside of the canopy but they remain on the Leading Edge just like the Sonic 3. there's also new adjustments on the Z main to change flight Behavior originally we had no idea what it was for so we did try it on various settings it basically changed the bar pressure from medium to high or low after trying all three we left it at the medium setting the fabric appears to be the same as the sole 2 and while we weren't crazy about the design at first it did eventually grow on us and we liked it in the end all right let's get into the rider reviews an important point to keep in mind is that none of the Riders including ourselves knew what had been changed or had any technical info about the kite at the time of filming so I had the opportunity to test out or try out the new Sonic Sonic 4 was is a wonderful kite it's a definite improvement over the two and three Sonics that I've tried I had the pleasure to try the 10 meter one here in in Hatteras so I've flown Seoul to sole three is there sulfury I have not been paid to do this interview I wish I was paid if I weren't looking up at this kite as far as the way it felt in the air indiscernible from the Sonic 3 to me identical bar feel to the the Sonic 3 so I have owned Sonic twos Sonic threes I fly the 11 90 of the time flew it all day yesterday and then came here and flew this so that's why I feel like the bar feel everything seems very very similar because I had a same line length too we put 17s on today my first impression flying the Sonic 4 was that it was actually quite stable it almost felt like flying a soul that tips didn't really kind of flap over the cuts flew really well which was surprising because normally when you fly a sonic you really have to be experienced you need to be able to handle the kite and fly it a certain way I must say that the modifications they've made has improved in how the Sonic flies seems a lot more stable I did notice that the Sonic 4 doesn't collapse like the Sonic 3. I find with the Sonic 3 every now and then you see the wing tips collapse depending on what I'm doing from my experience of flying Sonic 3 I found that it wasn't as forgiving in the past so with the new model Sonic 4 if you over fly the kite if you if you're doing a back roll and you land it a little bit short-sighted that Kai will forgive you if I make a mistake there's no Consequence the kite is not going to fall out of the sky lose its shape or anything of that sort so that way Sonic 4 is way closer to Seoul than to Sonic 3 and that to me is a big selling point it is a much much safer kite than the older Sonics the wingtips does not collapse like the older ones do the kite really feels like a soul on steroids it's got incredible boosting and jumping and power for a 10 meter kite for a big guy like me I would say in general less tip action but it's still there and it may just be the higher aspect kite and lighter or marginal wind so it that that is still there that behavior is still there but not as much as a Sonic 3. it's not a stable assault but it's definitely much more stable than Sonic 3 there's no wingtip collapse I mean you can collapse them if you over steer it but it will be a user error so the tips the tips problem is gone also too if you notice the inlets right on the new Sonic the inlet's a little closer to the tips right the end ones versus the Sonic 3 and that probably helps with keeping the tips get a little more stable getting air in there a lot quicker that way better behaved right on the edge of marginal wind like right at the edge of the window where the Sonic 3 will tend to Taco or tip fold um it still does that but it seems to be much more forgiving that way the the major difference I think is on a loop it has a way way bigger power Spike well it has a power Spike like a soul the Sonic doesn't you unless you have enough wind you don't get any extra oomph when you Loop the Sonic and the Sonic 3 this thing really pulled me out of the hole almost like a soul if I wasn't looking up I think it was a soul and you also feel it on a down Loop even off the wind it's got a a much bigger power Spike so maybe maybe better boosting I don't know I didn't get to try it much with much wind in order for me to go down when I had to continuously Loop the kite and it was a 14 mile down winter and uh I would say I did a couple hundred loops with this kite and you know what it Loops very nice very smooth as as the kite's going through the loop put generated the the pole that I needed when I needed it yeah no I I really do I'm definitely gonna get one of these right on this trip I flew both a 10 meter Sonic 4 and a 10 meter sole two now when I flew the Sonic 4 it was better win conditions it was a really smooth session I really enjoyed it the Sonic 4 was pretty stable the Soul 2 was also stable I don't know if I could really tell I felt a difference it did feel better when I flew the Sonic 4 but it was better win conditions so I don't know if it was the kite or if it was just a better wind yeah Sonic 4 was great it actually gives you enough time I think it's a lot more responsive than Seoul as when you've got some air time when you're boosting and gives you enough time to swing the kite back and forth the Sonic 4 launches as easily as the Sonic 3. the only thing that we noticed that was unlike the sole is that it may take a bit longer for the wingtips to fully inflate a solution is just to pull in the bar and back stall so the kite will open up from our test relaunching is noticeably improved as the new Sonic doesn't as easily bow tie compared to the previous iteration of the kite as you saw I dropped it in what five knots it was five knots Leading Edge down it seemed to want to come off the water backwards more than than a Sonic 3. did the usual foil crumple opened right up and it rolled over and came right off so relaunch seemed good the Sonic 4 is a great kite definitely an improvement over the Sonic 3 and previous Sonics I think that the Sonic 4 is a way more user friendly and beginner friendly than the Sonic 3 kite and it's very forgiving in terms of doing any back rolls or learning new new things with it it would be a lot more of a bigger bang for your buck for sure it really does feel a quarter of the way toward a soul from from Sonic like just just a little bit toward that behavior like the power the power Spike on a loop um the the more stable tips if the design point was to make it more like a soul it's uh I think I think that's achieved it's it's just a little less uh racy than than the Sonic 3. the modifications do that they've made to the new Sonic 4 does still let's call it adhere to the style of the Sonic right model right they haven't veered away too too far away from it in fact they've improved it in the past I always told myself I would not buy a Sonic because of my age and kiting style but I would definitely consider the Sonic 4. if you're a Sonic flyer the new Sonics I like it I really do so there you have it our review of the 10 meter fly Surfer Sonic 4. let us know in the comments below what you think and if you're excited to try this kite thank you for watching and we'll see you in the next one"
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4835,32 +5032,37 @@
     "price_new": 2699,
     "summary": "The Flysurfer Sonic 5 is a groundbreaking closed-cell foil kite designed for big air. Combining ram-air efficiency with water relaunchability, it delivers massive hangtime and unique boosting characteristics unlike any LEI kite.",
     "best_for": "Big air riders wanting the unique boost and hangtime of a foil kite",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400600",
-          "score": 4.4,
-          "summary": "A genuinely innovative kite that creates a new category. Riders report hangtime that exceeds even the best LEI big air kites, though the flying feel is different."
-        },
-        {
-          "source": "YouTube - Jason Montreal",
-          "url": "https://www.youtube.com/watch?v=flysurfer_sonic5_2026",
-          "score": 4.5,
-          "summary": "Jason is impressed by the unique big air characteristics, noting the Sonic 5 delivers a floaty, extended hangtime that no tube kite can match.",
-          "video_id": "flysurfer_sonic5_2026",
-          "jason_montreal": true
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic5",
-          "score": null,
-          "summary": "Generating huge buzz as the first dedicated big-air foil kite. Some riders find the transition from LEI challenging but rewarding once adapted."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400600",
+              "score": 4.4,
+              "summary": "A genuinely innovative kite that creates a new category. Riders report hangtime that exceeds even the best LEI big air kites, though the flying feel is different."
+            },
+            {
+              "source": "YouTube - Jason Montreal",
+              "url": "https://www.youtube.com/watch?v=flysurfer_sonic5_2026",
+              "score": 4.5,
+              "summary": "Jason is impressed by the unique big air characteristics, noting the Sonic 5 delivers a floaty, extended hangtime that no tube kite can match.",
+              "video_id": "flysurfer_sonic5_2026",
+              "jason_montreal": true
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic5",
+              "score": null,
+              "summary": "Generating huge buzz as the first dedicated big-air foil kite. Some riders find the transition from LEI challenging but rewarding once adapted."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -4932,31 +5134,48 @@
     "price_new": 2199,
     "summary": "The Flysurfer Soul 3 is a closed-cell foil kite designed for all-around use including land kiting, snow kiting, and water. Its easy relaunch and forgiving nature make it accessible to all levels while delivering excellent light wind performance.",
     "best_for": "All-around foil kite riders and multi-surface kiters",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 12,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=2400610",
-          "score": 4.4,
-          "summary": "Popular among riders who want a foil kite that works on water, snow, and land. The Soul 3's easy relaunch sets it apart from traditional open-cell foils."
-        },
-        {
-          "source": "YouTube - Flysurfer Soul 3 Review",
-          "url": "https://www.youtube.com/watch?v=flysurfer_soul3_2026",
-          "score": 4.3,
-          "summary": "Reviewer demonstrates the Soul 3's versatility across multiple surfaces and praises its beginner-friendly handling while noting it still performs well for experienced riders.",
-          "video_id": "flysurfer_soul3_2026"
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_soul3",
-          "score": null,
-          "summary": "Recommended for riders interested in foil kites but intimidated by open-cell designs. The closed-cell construction makes water relaunch straightforward."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 12,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=2400610",
+              "score": 4.4,
+              "summary": "Popular among riders who want a foil kite that works on water, snow, and land. The Soul 3's easy relaunch sets it apart from traditional open-cell foils."
+            },
+            {
+              "source": "YouTube - Flysurfer Soul 3 Review",
+              "url": "https://www.youtube.com/watch?v=flysurfer_soul3_2026",
+              "score": 4.3,
+              "summary": "Reviewer demonstrates the Soul 3's versatility across multiple surfaces and praises its beginner-friendly handling while noting it still performs well for experienced riders.",
+              "video_id": "flysurfer_soul3_2026"
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_soul3",
+              "score": null,
+              "summary": "Recommended for riders interested in foil kites but intimidated by open-cell designs. The closed-cell construction makes water relaunch straightforward."
+            }
+          ]
         }
-      ]
-    },
+      },
+      {
+        "source": "youtube",
+        "reviewer": "Our Kite Life",
+        "channel": "Our Kite Life",
+        "channel_url": "https://youtube.com/@OurKiteLife",
+        "video_id": "YpA-_7XoEg8",
+        "video_title": "Flysurfer SOUL3 Review",
+        "video_url": "https://youtube.com/watch?v=YpA-_7XoEg8",
+        "excerpt": "[Music] in this video we'll be reviewing the fly Surfer Soul 3 we were excited to try this kite to see what had been changed as well as to share it with our friends to get their honest unbiased opinions we were able to try the soul three in a variety of conditions and spots including this year's KP classic event I that was a blast it was different ",
+        "verdict": "pletely different kite I felt it it's like soul soul three it flies much better I definitely buy one no it was good I definitely want to give it another shot again maybe a bigger kite get big floats and it was a blast it's a great feel on these ones compared to what I had experience before it's it's a big step up let us know what you think of the Soul 3 are you excited to try it or have you already drop us a comment below as always thank you so much for watching and we'll see you in the next one",
+        "full_transcript": "[Music] in this video we'll be reviewing the fly Surfer Soul 3 we were excited to try this kite to see what had been changed as well as to share it with our friends to get their honest unbiased opinions we were able to try the soul three in a variety of conditions and spots including this year's KP classic event I that was a blast it was different from uh from riding like the Lei I don't know probably my third time riding a a foil kite but it was fun it was floaty I probably crashed more than I've crashed in a long time but it was worth it it's very different from flying a Leading Edge inflatable you have to think about turning before you actually turn the reaction time's a little bit slower but once you get used to that and you can grab an edge against the kite it'll boost you forever it's as much Hang Time as I've had on any kite it's a beautiful kite it's lofty boost ey and it flies amazingly first couple of jumps I landed on my bum and my back but it was the timing is a lot different than an Lei but after about 15 minutes I had it I think I had it dialed and I had some big jumps so what's new with the S 3 the outline of the kite has been updated for better turning the aspect ratio was lowered to give the kite less span and to tighten the turning radius the area on the wing tip was also increased from the sole too these changes make the kite more reactive and agile for sure turns quickers in the Sal two 10 m kite 8 m probably about the same I have nothing to compare to Dan against previous foil kites really but uh it was a little slower than I'm used to but uh I mean I think that's part of it you're so used to you know popping and turning the kite at the same time with this thing you've almost got to anticipate turning the kite turn the kite downwind and then pop to kind of get your air for me at least it's a bit slower than the Lei but I mean once you once you crank the bar the kite's there you just got to get used to it it's for so many years I was using only fly Surfer I had from speed one I had psycho pretty much I was flying all of the skes the last one I flew was the speed 4 I a speed three before that they were tough to fly there's different way different than this this is way way closer to Lei I I have a 6 M so 2 that I only exclusively ride foiling I have Sol one 12 M and 8 m and 10 m so too I notice a difference in structure and uh the hang time and uh the speed of the sale for the 12 met which is completely different than mine after the Soler I launched Soul 2 and it was like two different kites Soul 2 I didn't like because it's a bit slower and it was feeling a little bit weaker not that power that not that powerful as so 3 Soul three is much better kite than Soul two yeah it's soft nice controlling Left Right Loops it flies better than there is no bar pressure but still it's a soul it's a soul right the soul 3 definitely feels more like a foil kite I feel like it reminds me more of speed five in terms of hand handling it has a nice foil kite feel and still has high enough bar pressures that you can figure out where's the kite is if you're coming from riding inflatable kites like I usually ride switch blades so there's tons of bar pressure on it so it was a lot lighter than that so that was something I'm getting used to too but it it was good it was a nice change it's very light very very light your arms not going to get tired R in this all day my hel Loop or down loop after my jump it's the second time in my life I did a double so it slipped around twice and caught me and I think I fell in at the end of it but I was so excited that it went around twice and didn't kill myself no it was awesome the lift is incredible down looping was fun and fast after landing I worked great that way the biggest thing I saw is you know I worked my way down through the pack and in two tacks I was above the whole pack it goes up when like crazy doesn't compare this thing goes up when like a like a bath the soul 3 comes in sizes 6 8 10 12 15 and 18 there's no more 21 M though which isn't all that surprising there was a slight change to the number of cells on the so 3 compared to the Soul 2 I put it in the water and it was no issue it came up licky split yeah I did Crush that kite yesterday I relaunched it without any any problem oh it's super easy the kind relaunch on itself like I I I'm sorry I crashed it but yeah it just push the bar out and kind went on the window pull the line that's it the design of the so 3 gives a slight nod to the Third Edition it's also a nice colorful upgrade to the previous versions of the sole and the colors really do pop in the sky there's more hang time it's not a direct pull up as you can get with an inflatable which sometimes you can just go up like an elevator this is more of a gradual rise and then you could stay up there and have a cup of tea if you like but you know you can't overseed it you have to you have to let it out and let it breathe to get that lift I find my first uh like back roll transitions I wasn't getting any lift cuz I had the bar all the way in you just need to let it go out and and it'll lift you as you're turning around it's amazing it's so much floatier than uh than inflatable so you have a little bit more time before you hit the water and oh yeah yeah massive it wouldn't come down just gling like this it was crazy I sheet it out all the way pulled hard sent it to the top as fast as I could go and it just lifted me right up out of the stratosphere a bit different material the material is a triple rip stop in the Leading Edge ad durable Deluxe fabric that increases the kite's durability I like what fly Surfer did those nuts this is steering pressure bar pressure there's also a performance tuner to change the kite's camber moving the Z Main Line affects the bar pressure and the performance of The Kite something like this does not exist on so 2 and soul one 100% fly Ser has always prioritize the durability and longevity of their kite and the Soul three is no exception and I notice those lines across which is really good idea when kite goes in the power Zone all what's happening they're not going like a sides right this line will hold it right now which created perfect shape this was taken from the vmg and provides better stability in the top end of the wind range because the air intake can't deform it was stable in the sky it wasn't moving too much it was yeah once you get your Edge you're going and the kite just stays there it's not you know and uh I haven't bow TI yet which I'm I'm amazed with so which is really good yeah it was super stable I don't think the window was wasn't really Gusty today but I didn't noce any twitching or anything it was just right where you put it and stayed there and it it was perfect compared to Sonic 4 Souls 3 is much more user friendly it's much more stable and it's just a great free R kite at the same time the Sonic 4 does jump higher I think it has a little bit more performance but it tends to overfly more easy compared to the soul 3 my main objective would be to buy a kite that I can foil with until it comes up to like 18 20 knots and then jump on my twin tip and go from the same kite right which would be amazing so Soul 3 it's the way more polished than Soul 2 it's completely different kite I felt it it's like soul soul three it flies much better I definitely buy one no it was good I definitely want to give it another shot again maybe a bigger kite get big floats and it was a blast it's a great feel on these ones compared to what I had experience before it's it's a big step up let us know what you think of the Soul 3 are you excited to try it or have you already drop us a comment below as always thank you so much for watching and we'll see you in the next one"
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5030,24 +5249,29 @@
     "price_new": 1639,
     "summary": "North's 3rd generation single-strut performer built for foiling, wave riding, and light-wind freeride. Features N-Max2 airframe for faster response, superb drift, dynamic agile steering, and easy relaunch.",
     "best_for": "Foiling, wave riding, and light wind",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-code-zero-pro-2025",
-          "score": 4.4,
-          "summary": "Riders love the drift and light-wind capability. Top choice for foiling and wave sessions."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+code+zero+pro+2025",
-          "score": 4.3,
-          "summary": "Highly recommended for foil riders. The single-strut design keeps weight minimal for impressive light-wind performance."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-code-zero-pro-2025",
+              "score": 4.4,
+              "summary": "Riders love the drift and light-wind capability. Top choice for foiling and wave sessions."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+code+zero+pro+2025",
+              "score": 4.3,
+              "summary": "Highly recommended for foil riders. The single-strut design keeps weight minimal for impressive light-wind performance."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5109,24 +5333,29 @@
     "price_new": 1799,
     "summary": "North's Modern-C freestyle kite delivering explosive pop and powerful fast turns for technical unhooked riding. Requires a 5-line control bar. Engineered for handle passes, board-offs, and progressive freestyle manoeuvres.",
     "best_for": "Freestyle, unhooked tricks, and wakestyle",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 10,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=north-pulse-2025",
-          "score": 4.3,
-          "summary": "Freestyle riders appreciate the Modern-C geometry and direct feel. The 5-line system locks in the shape perfectly."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+pulse+2025",
-          "score": 4.2,
-          "summary": "Niche but well-loved by dedicated freestyle riders. The C-kite feel is authentic and the pop is explosive."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 10,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=north-pulse-2025",
+              "score": 4.3,
+              "summary": "Freestyle riders appreciate the Modern-C geometry and direct feel. The 5-line system locks in the shape perfectly."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+pulse+2025",
+              "score": 4.2,
+              "summary": "Niche but well-loved by dedicated freestyle riders. The C-kite feel is authentic and the pop is explosive."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5191,24 +5420,29 @@
     "price_new": 1609,
     "summary": "Slingshot's single-luff-strut freeride and foil crossover. Framelite construction keeps the Ghost V4 ultra-light and responsive. Excellent drift, refined canopy layout that resists bagging, and a versatile feel across foil and wave sessions.",
     "best_for": "Freeride, foil, and light wind crossover",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-ghost-v4-2026",
-          "score": 4.3,
-          "summary": "A refined update to the Ghost line. Light, responsive, and versatile for foil and freeride."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+ghost+v4+2026",
-          "score": 4.2,
-          "summary": "Well received for its light wind capability and drift. Good upgrade over the V3."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-ghost-v4-2026",
+              "score": 4.3,
+              "summary": "A refined update to the Ghost line. Light, responsive, and versatile for foil and freeride."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+ghost+v4+2026",
+              "score": 4.2,
+              "summary": "Well received for its light wind capability and drift. Good upgrade over the V3."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5273,24 +5507,29 @@
     "price_new": 1709,
     "summary": "Developed with big wave rider Ben Wilson, the Fuse is Slingshot's dedicated wave weapon. Deep drift bridle keeps it in the pocket down the line, clean depower for slack on the face, and instant redirect for fast turns and downloops. Purpose-built for strapless surfing.",
     "best_for": "Wave riding and strapless surfing",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 7,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-fuse-2026",
-          "score": 4.4,
-          "summary": "Dedicated wave riders are impressed by the deep drift and clean depower. Ben Wilson's input shows."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+fuse+2026",
-          "score": 4.3,
-          "summary": "Strong early reviews from wave riders. The drift is class-leading and the redirect is lightning fast."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 7,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-fuse-2026",
+              "score": 4.4,
+              "summary": "Dedicated wave riders are impressed by the deep drift and clean depower. Ben Wilson's input shows."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+fuse+2026",
+              "score": 4.3,
+              "summary": "Strong early reviews from wave riders. The drift is class-leading and the redirect is lightning fast."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5434,24 +5673,29 @@
     "price_new": 2199,
     "summary": "The original Reedin Hyper Model using Brainchild construction for a lighter, more responsive big air and freeride platform. Delivers impressive hangtime and boost with the weight savings of Brainchild's advanced materials.",
     "best_for": "Big air/freeride riders wanting Brainchild performance from Reedin",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=reedin-hypermodel-2025",
-          "score": 4.4,
-          "summary": "The Brainchild construction brings real performance gains. Riders praise the lighter feel and responsive character."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/kiteboarding/search/?q=reedin+hypermodel+2025",
-          "score": 4.3,
-          "summary": "Solid big air performance with Brainchild's weight savings. A strong entry from Reedin into the premium category."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=reedin-hypermodel-2025",
+              "score": 4.4,
+              "summary": "The Brainchild construction brings real performance gains. Riders praise the lighter feel and responsive character."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/kiteboarding/search/?q=reedin+hypermodel+2025",
+              "score": 4.3,
+              "summary": "Solid big air performance with Brainchild's weight savings. A strong entry from Reedin into the premium category."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5517,24 +5761,29 @@
     "price_new": 1399,
     "summary": "Duotone's lightwind freeride machine with a 6-point bridle for a slimmer LE, redesigned tip geometry for sharper steering, and thinner LE for faster window speed. Effortless early planing and water relaunch in minimal breeze.",
     "best_for": "Lightwind freeride and foiling sessions",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 9,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-2026",
-          "score": 4.3,
-          "summary": "Lightwind riders love the effortless early planing and smooth power delivery. The 6-point bridle is a game changer for the category."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+juice+2026",
-          "score": 4.2,
-          "summary": "Solid lightwind option from Duotone. The thinner LE makes a real difference in low-end grunt."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 9,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-2026",
+              "score": 4.3,
+              "summary": "Lightwind riders love the effortless early planing and smooth power delivery. The 6-point bridle is a game changer for the category."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+juice+2026",
+              "score": 4.2,
+              "summary": "Solid lightwind option from Duotone. The thinner LE makes a real difference in low-end grunt."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5593,18 +5842,23 @@
     "price_new": 2199,
     "summary": "The Juice D/LAB takes Duotone's lightwind freeride machine to the next level with Aluula construction for maximum weight savings and stiffness. Even earlier planing, more responsive steering, and lighter feel than the standard Juice.",
     "best_for": "Premium lightwind freeride with Aluula performance",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 5,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-dlab-2026",
-          "score": 4.5,
-          "summary": "The Aluula upgrade makes a tangible difference in light wind. Noticeably more responsive and earlier planing than the standard Juice."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 5,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-dlab-2026",
+              "score": 4.5,
+              "summary": "The Aluula upgrade makes a tangible difference in light wind. Noticeably more responsive and earlier planing than the standard Juice."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5666,24 +5920,29 @@
     "price_new": 1249,
     "summary": "Duotone's single-strut lightweight freeride and foil kite. Extraordinary travel convenience, easy relaunch, forgiving for beginners yet quick-turning enough for experienced foilers. Progressive power development with multiple tip tuning options.",
     "best_for": "Foiling, travel, and light wind versatility",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 11,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-mono-2026",
-          "score": 4.3,
-          "summary": "Great travel kite. The single-strut design makes packing effortless and relaunch is confidence-inspiring even in light wind."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+mono+2026",
-          "score": 4.2,
-          "summary": "Ideal for foilers and travelers. Not for high-wind shredding but brilliant in its lane."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 11,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-mono-2026",
+              "score": 4.3,
+              "summary": "Great travel kite. The single-strut design makes packing effortless and relaunch is confidence-inspiring even in light wind."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+mono+2026",
+              "score": 4.2,
+              "summary": "Ideal for foilers and travelers. Not for high-wind shredding but brilliant in its lane."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -5994,24 +6253,29 @@
     "price_new": 1449,
     "summary": "Core's Future-C shape all-rounder. Agile and reactive with linear power delivery for playful freeride, wave sessions, kiteloops, and freestyle. CORE Intelligent Trim system lets you tune per discipline. ExoTex 2 LE and ExoTex Light struts.",
     "best_for": "True all-around versatility across freeride, wave, and freestyle",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 18,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-nexus-4-2025",
-          "score": 4.5,
-          "summary": "The gold standard all-rounder. The Future-C shape makes it incredibly versatile \u2014 genuinely good in waves, solid jumps, smooth freestyle. Nothing else does everything as well."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+nexus+4+2025",
-          "score": 4.4,
-          "summary": "Best all-around kite Core has ever made. The Intelligent Trim system is actually useful \u2014 not just marketing."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 18,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-nexus-4-2025",
+              "score": 4.5,
+              "summary": "The gold standard all-rounder. The Future-C shape makes it incredibly versatile \u2014 genuinely good in waves, solid jumps, smooth freestyle. Nothing else does everything as well."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+nexus+4+2025",
+              "score": 4.4,
+              "summary": "Best all-around kite Core has ever made. The Intelligent Trim system is actually useful \u2014 not just marketing."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6072,24 +6336,29 @@
     "price_new": 1449,
     "summary": "Core's world-class wave kite tested by GKA World Champion Gabriel Benetton in Indonesian reef breaks. Future-C shape with intelligent volume distribution for wingtip stability and ultra-direct steering. Perfectly matched to Core surfboards for all surf disciplines and foiling.",
     "best_for": "World-class wave riding and strapless freestyle",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-section-5-2025",
-          "score": 4.6,
-          "summary": "Gabriel Benetton won the GKA on this kite. The steering feedback is extraordinary \u2014 you feel every gust through the bar. Best wave kite Core has ever built."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+section+5+2025",
-          "score": 4.5,
-          "summary": "The Section 5 is legit. Ultra-direct, great drift, and it handles overhead surf better than anything else in Core's lineup."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-section-5-2025",
+              "score": 4.6,
+              "summary": "Gabriel Benetton won the GKA on this kite. The steering feedback is extraordinary \u2014 you feel every gust through the bar. Best wave kite Core has ever built."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+section+5+2025",
+              "score": 4.5,
+              "summary": "The Section 5 is legit. Ultra-direct, great drift, and it handles overhead surf better than anything else in Core's lineup."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6152,24 +6421,29 @@
     "price_new": 1349,
     "summary": "Core's new state-of-the-art lightwind 3-strut all-rounder with fixed bridle. High aspect ratio, ExoTex 2 LE, positioned between XR LW and Nexus LW. Guaranteed progression from beginner to air styler. Requires Sensor 4 or Sensor 4 Pro bar only.",
     "best_for": "Lightwind freeride, foiling, and progression",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-air-2025",
-          "score": 4.3,
-          "summary": "Core nailed the accessible lightwind brief. Impressive power for the wind range and the fixed bridle gives it a direct feel. Remember: Sensor 4 bar only."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+air+2025",
-          "score": 4.2,
-          "summary": "Great option if you're already in the Core ecosystem. The bar compatibility restriction is real \u2014 don't mix it with older bars."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-air-2025",
+              "score": 4.3,
+              "summary": "Core nailed the accessible lightwind brief. Impressive power for the wind range and the fixed bridle gives it a direct feel. Remember: Sensor 4 bar only."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+air+2025",
+              "score": 4.2,
+              "summary": "Great option if you're already in the Core ecosystem. The bar compatibility restriction is real \u2014 don't mix it with older bars."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6225,18 +6499,23 @@
     "price_new": 2199,
     "summary": "Core's Aluula lightwind weapon. Ultra-stiff Aluula airframe, very high aspect ratio, 3-strut fixed bridle delivering massive lift and hangtime at 10 knots. Serious lightwind big air potential. Only 2 sizes (15m, 17m). Requires Sensor 4 or Sensor 4 Pro bar only.",
     "best_for": "Lightwind big air and premium foil performance",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 6,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-air-pro-2025",
-          "score": 4.4,
-          "summary": "Redefines what's possible in light wind. The Aluula stiffness makes 10-knot big air not just possible but enjoyable. Only 15m and 17m limits the audience but nails its brief."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 6,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-air-pro-2025",
+              "score": 4.4,
+              "summary": "Redefines what's possible in light wind. The Aluula stiffness makes 10-knot big air not just possible but enjoyable. Only 15m and 17m limits the audience but nails its brief."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6301,24 +6580,29 @@
     "price_new": 1349,
     "summary": "Core's dedicated single-strut foil kite. 30% lighter than the Nexus, CoreTex 2.0 canopy with improved tear resistance, anti-snag bridles. Fuses Nexus power with Section wave drift. Now includes 2m and 3m sizes for racing and gorge conditions. Reverse launch capable.",
     "best_for": "Foiling and light wind in all conditions",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 16,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xlite-2-2025",
-          "score": 4.5,
-          "summary": "The XLite 2 is the real deal for foil kiting. The tiny 2m and 3m sizes are a genuine innovation for high-wind foil racing. Incredibly light and responsive."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xlite+2+2025",
-          "score": 4.4,
-          "summary": "Best foil kite Core has made. The new canopy is noticeably more durable than the original XLite."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 16,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-xlite-2-2025",
+              "score": 4.5,
+              "summary": "The XLite 2 is the real deal for foil kiting. The tiny 2m and 3m sizes are a genuine innovation for high-wind foil racing. Incredibly light and responsive."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xlite+2+2025",
+              "score": 4.4,
+              "summary": "Best foil kite Core has made. The new canopy is noticeably more durable than the original XLite."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6378,24 +6662,29 @@
     "price_new": 1449,
     "summary": "Core's deep-C 5-line pure wakestyle machine. Square wingtips for direct line connection, consistent uniform pull for extreme pop, predictable slack for rotations and handle passes. Slightly higher AR than Impact 1 for improved speed and wind range. ExoTex Dacron for rigidity.",
     "best_for": "Wakestyle, unhooked freestyle, and C-kite purists",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 11,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=core-impact-2-2025",
-          "score": 4.4,
-          "summary": "The most authentic C-kite feel in Core's lineup. The square tips and deep-C canopy deliver exactly the pop and slack you expect. No frills, pure freestyle performance."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+impact+2+2025",
-          "score": 4.3,
-          "summary": "Dedicated C-kite riders will love it. Not for everyone but absolutely nails the brief for serious freestylers."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 11,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=core-impact-2-2025",
+              "score": 4.4,
+              "summary": "The most authentic C-kite feel in Core's lineup. The square tips and deep-C canopy deliver exactly the pop and slack you expect. No frills, pure freestyle performance."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+impact+2+2025",
+              "score": 4.3,
+              "summary": "Dedicated C-kite riders will love it. Not for everyone but absolutely nails the brief for serious freestylers."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6455,24 +6744,29 @@
     "price_new": 1999,
     "summary": "The precision wave kite. Penta TX and Trinity TX materials for exceptional shape retention in powered turns. Hybrid Flex Strut for explosive turning, lightweight trailing edge battens for canopy stability, massive drift for aggressive down-the-line surfing.",
     "best_for": "Precision wave riding and strapless freestyle",
-    "reviews": {
-      "aggregate_score": 4.6,
-      "review_count": 13,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-sls-2026",
-          "score": 4.6,
-          "summary": "The SLS materials take the Neo to another level. Shape retention in powered turns is exceptional and the drift is world-class. The Hybrid Flex Strut delivers explosive redirects."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+sls+2026",
-          "score": 4.5,
-          "summary": "If you're a serious wave rider and budget isn't the top concern, the Neo SLS over the standard Neo is worth every penny."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.6,
+          "review_count": 13,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-sls-2026",
+              "score": 4.6,
+              "summary": "The SLS materials take the Neo to another level. Shape retention in powered turns is exceptional and the drift is world-class. The Hybrid Flex Strut delivers explosive redirects."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+sls+2026",
+              "score": 4.5,
+              "summary": "If you're a serious wave rider and budget isn't the top concern, the Neo SLS over the standard Neo is worth every penny."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6533,24 +6827,29 @@
     "price_new": 1999,
     "summary": "The ultimate freestyle and wave all-rounder. Penta TX and Trinity TX build, 3-strut pure control. Explosive pop and crisp slack for tricks, effortless drift for waves. Refined arc shape with open center and pulled-in tips for longer depower stroke and lighter steering.",
     "best_for": "Freestyle, wave riding, and sporty all-around riding",
-    "reviews": {
-      "aggregate_score": 4.5,
-      "review_count": 14,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-sls-2026",
-          "score": 4.5,
-          "summary": "The Dice SLS is the most versatile kite in the Duotone range \u2014 genuinely excellent at freestyle and waves. The longer depower stroke and lighter steering are meaningful upgrades over the standard Dice."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+sls+2026",
-          "score": 4.4,
-          "summary": "Best two-in-one kite Duotone makes. If you want one kite that handles both freestyle and surf, the Dice SLS is the answer."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.5,
+          "review_count": 14,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-sls-2026",
+              "score": 4.5,
+              "summary": "The Dice SLS is the most versatile kite in the Duotone range \u2014 genuinely excellent at freestyle and waves. The longer depower stroke and lighter steering are meaningful upgrades over the standard Dice."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+sls+2026",
+              "score": 4.4,
+              "summary": "Best two-in-one kite Duotone makes. If you want one kite that handles both freestyle and surf, the Dice SLS is the answer."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6702,24 +7001,41 @@
     "price_new": 1049,
     "summary": "Flysurfer's 3-strut open-C LEI kite with a 3-stage adjustable bridle: set it to Wave mode for more depower and bar force, Freeride mode for kiteloops and stability, or Freestyle mode for explosive pop and slack. Explosive, responsive, and deeply versatile.",
     "best_for": "Riders who want one kite that does freestyle, waves, and freeride",
-    "reviews": {
-      "aggregate_score": 4.3,
-      "review_count": 12,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=flysurfer-stoke-3-2025",
-          "score": 4.3,
-          "summary": "The 3-stage bridle system is genuinely useful. Switching between wave and freestyle mode makes a real difference. Great open-C feel at a Flysurfer price point."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=flysurfer+stoke+3",
-          "score": 4.2,
-          "summary": "Underrated kite. The open-C pop is real and it waves better than you'd expect. Good option for riders who switch between sessions."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.3,
+          "review_count": 12,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=flysurfer-stoke-3-2025",
+              "score": 4.3,
+              "summary": "The 3-stage bridle system is genuinely useful. Switching between wave and freestyle mode makes a real difference. Great open-C feel at a Flysurfer price point."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=flysurfer+stoke+3",
+              "score": 4.2,
+              "summary": "Underrated kite. The open-C pop is real and it waves better than you'd expect. Good option for riders who switch between sessions."
+            }
+          ]
         }
-      ]
-    },
+      },
+      {
+        "source": "youtube",
+        "reviewer": "Our Kite Life",
+        "channel": "Our Kite Life",
+        "channel_url": "https://youtube.com/@OurKiteLife",
+        "video_id": "TSMMdDk9q2Y",
+        "video_title": "Our Friends Review the Flysurfer Stoke v2",
+        "video_url": "https://youtube.com/watch?v=TSMMdDk9q2Y",
+        "excerpt": "[Music] today we are sharing the Stoke with our friends who are going to be reviewing this brand-new 12 meter kite the fly surfer Stoke v2 is a three struct kite marketed towards wave riding and freestyle kite boarding features taejun techno force d2 fabric high load force frame which improves airflow and flight stability and non snagged pads which",
+        "verdict": "at's brand-new Civic with a with a nice turbo like a postive turbo there is a lot of ideas put into the design of it inflating valve it has a su p valve built in and the adapter for it actually is installed in the front strut and within the special pocket overall is pretty lively I really enjoyed the kite how did you like I loved it got great upwind I find myself way more upwind and I wanted to do great loved it very very precise movements and I'll do it again if anybody would lend me their kite",
+        "full_transcript": "[Music] today we are sharing the Stoke with our friends who are going to be reviewing this brand-new 12 meter kite the fly surfer Stoke v2 is a three struct kite marketed towards wave riding and freestyle kite boarding features taejun techno force d2 fabric high load force frame which improves airflow and flight stability and non snagged pads which prevents the lines from snagging at the tip of the kite all right why do you think it's like I don't know this is a fly surfer yep it has that initial fool wasteful job and the looping speed it says Brigitte faster giving that health extension it's got a nice bar pressure not too light not like a soul but also not too heavy like other see kites it's really playful fast turns pretty quick oops not too hard doesn't pull you down window gives you a good yank but overall great Molokai food great nice and loose nice and light feel good power on the jumps good enough there like that boy ok that's for sure it's not bad it would be good to have in the way so you can actually see the drift ability of it but when I went downwind you had no problem following me down thank you better than this thing I'm gladly I came back from this is completely different fly circle I would say it's not the fly surfer it's a mattress mattress on four lines the bar the bar is good I like that it's oops plastic so it feels like it's gonna last a long time it's really comfy in the hand probably can't be out there for a few hours the bar is very comfortable yeah it's sleek about ten of them yeah there are sometimes it swapped around a little bit but that's just I think because of a light feel in there steering lines Bridal system is a clever idea the way how bullies are they use a propriety fully setup where the scent doesn't have any anywhere to go compared to the old style for the force bar features adjustable width option built-in floaters single line front line safety an industry proven jam cleat front line adjuster the bar also comes equipped with a push away ironheart chicken the foil is like driving a civics but the soup is like you have a civic where that's brand-new Civic with a with a nice turbo like a postive turbo there is a lot of ideas put into the design of it inflating valve it has a su p valve built in and the adapter for it actually is installed in the front strut and within the special pocket overall is pretty lively I really enjoyed the kite how did you like I loved it got great upwind I find myself way more upwind and I wanted to do great loved it very very precise movements and I'll do it again if anybody would lend me their kite"
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -6786,24 +7102,29 @@
     "price_new": 1349,
     "summary": "Ozone's single-strut wave and foil crossover. Exceptional drift down the line, agile turning for surf, and light wind efficiency for foiling. The Hyperlink V3 keeps power delivery clean and consistent from wave riding to full foil sessions.",
     "best_for": "Wave riding and foiling in the same session",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 11,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=ozone-hyperlink-v3-2025",
-          "score": 4.4,
-          "summary": "The drift is genuinely excellent. Ozone dialed in the Hyperlink for riders who split time between surf and foil \u2014 it handles both without compromise."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=ozone+hyperlink+v3+2025",
-          "score": 4.3,
-          "summary": "Best Ozone option for wave and foil crossover. The single-strut keeps it light and the drift is class-competitive with anything in this category."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 11,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=ozone-hyperlink-v3-2025",
+              "score": 4.4,
+              "summary": "The drift is genuinely excellent. Ozone dialed in the Hyperlink for riders who split time between surf and foil \u2014 it handles both without compromise."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=ozone+hyperlink+v3+2025",
+              "score": 4.3,
+              "summary": "Best Ozone option for wave and foil crossover. The single-strut keeps it light and the drift is class-competitive with anything in this category."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
@@ -7021,24 +7342,29 @@
     "price_new": 2194,
     "summary": "Aaron Hadlow's freestyle legacy reborn. PRoWELD LE, Flight_X canopy for a softer controlled feel, Mylar struts. Only 3 sizes (9, 11, 13m). Designed as a complete system with the dedicated Hadlow Pro bar and Descent board. Built to revive and push freestyle performance forward.",
     "best_for": "Dedicated freestyle and unhooked trick riders",
-    "reviews": {
-      "aggregate_score": 4.4,
-      "review_count": 8,
-      "sources": [
-        {
-          "source": "Kiteforum",
-          "url": "https://www.kiteforum.com/viewtopic.php?t=harlem-hadlow-pro-2025",
-          "score": 4.4,
-          "summary": "Aaron Hadlow's passion project and it's the real deal. The Flight_X canopy gives a distinctly different feel to the Thrive \u2014 more precise slack and pop for unhooked moves. Very niche but excellent."
-        },
-        {
-          "source": "Reddit r/kiteboarding",
-          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=harlem+hadlow+pro+2025",
-          "score": 4.3,
-          "summary": "If you care about freestyle, this is the most interesting new C-style kite in years. Aaron Hadlow built what he wanted and riders who've tried it are impressed."
+    "reviews": [
+      {
+        "source": "aggregate_placeholder",
+        "data": {
+          "aggregate_score": 4.4,
+          "review_count": 8,
+          "sources": [
+            {
+              "source": "Kiteforum",
+              "url": "https://www.kiteforum.com/viewtopic.php?t=harlem-hadlow-pro-2025",
+              "score": 4.4,
+              "summary": "Aaron Hadlow's passion project and it's the real deal. The Flight_X canopy gives a distinctly different feel to the Thrive \u2014 more precise slack and pop for unhooked moves. Very niche but excellent."
+            },
+            {
+              "source": "Reddit r/kiteboarding",
+              "url": "https://www.reddit.com/r/Kiteboarding/search/?q=harlem+hadlow+pro+2025",
+              "score": 4.3,
+              "summary": "If you care about freestyle, this is the most interesting new C-style kite in years. Aaron Hadlow built what he wanted and riders who've tried it are impressed."
+            }
+          ]
         }
-      ]
-    },
+      }
+    ],
     "buy_links": {
       "new": [
         {
