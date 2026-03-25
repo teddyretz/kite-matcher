@@ -34,7 +34,7 @@ export default function AboutPage() {
             <a href="https://www.kiteforum.com/" target="_blank" rel="noopener noreferrer" className="text-ocean hover:underline font-medium">Kiteforum</a>
             , which has been around forever and still has solid discussion if you dig through it.
             And{' '}
-            <a href="https://www.portraitkite.com/" target="_blank" rel="noopener noreferrer" className="text-ocean hover:underline font-medium">Portrait Kite</a>
+            <a href="https://www.youtube.com/@portraitpremium" target="_blank" rel="noopener noreferrer" className="text-ocean hover:underline font-medium">Portrait Kite</a>
             , which does really thoughtful breakdowns.
             That&apos;s the data source for a lot of what I build here.
           </p>
