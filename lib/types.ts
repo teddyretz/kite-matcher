@@ -12,6 +12,39 @@ export interface ReviewSource {
   jason_montreal?: boolean;
 }
 
+export interface StructuredReview {
+  rating: number;
+  summary: string;
+  pros: string[];
+  cons: string[];
+  best_for: string;
+  not_for: string;
+  rec_blurb: string;
+  sources: string[];
+}
+
+export type ReviewEntry =
+  | {
+      source: 'youtube';
+      reviewer: string;
+      channel: string;
+      channel_url: string;
+      video_id: string;
+      video_title: string;
+      video_url: string;
+      excerpt: string;
+      verdict: string;
+      full_transcript?: string;
+    }
+  | {
+      source: 'aggregate_placeholder';
+      data: {
+        aggregate_score: number;
+        review_count: number;
+        sources: ReviewSource[];
+      };
+    };
+
 export interface BuyLink {
   retailer: string;
   url: string;
@@ -27,9 +60,9 @@ export interface Kite {
   image: string;
 
   // Style matching
-  style_spectrum: number;       // 0-20=foil, 21-40=surf, 41-60=freestyle, 61-80=freeride, 81-100=big air
-  shape_spectrum: number;       // 0=low aspect C, 100=high aspect bow/LEI
-  wave_spectrum: number;        // 0-100, how capable in waves
+  style_spectrum: number;
+  shape_spectrum: number;
+  wave_spectrum: number;
   style_tags: string[];
   skill_level: SkillLevel[];
   discontinued?: boolean;
@@ -43,11 +76,11 @@ export interface Kite {
   aluula: boolean;
   brainchild: boolean;
   turning_speed: TurningSpeed;
-  low_end_power: number;        // 1-10
-  depower_range: number;        // 1-10
+  low_end_power: number;
+  depower_range: number;
   relaunch: RelaunchDifficulty;
-  wind_range_low: number;       // knots
-  wind_range_high: number;      // knots
+  wind_range_low: number;
+  wind_range_high: number;
   sizes: number[];
   price_new: number;
   price_new_aluula?: number;
@@ -56,12 +89,11 @@ export interface Kite {
   summary: string;
   best_for: string;
 
-  // Reviews
-  reviews: {
-    aggregate_score: number;
-    review_count: number;
-    sources: ReviewSource[];
-  };
+  // Reviews — now an array of mixed entry types
+  reviews: ReviewEntry[];
+
+  // Structured review derived from YouTube transcripts (25 kites have this)
+  structured_review?: StructuredReview;
 
   // Shopping
   buy_links: {

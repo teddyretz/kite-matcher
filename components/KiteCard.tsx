@@ -102,7 +102,7 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
           {kite.discontinued && <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">Discontinued</span>}
         </div>
 
-        <StarRating score={kite.reviews.aggregate_score} />
+        <StarRating score={kite.structured_review?.rating ?? 0} />
 
         <p className="text-sm font-semibold text-slate">
           From ${kite.price_new.toLocaleString()}

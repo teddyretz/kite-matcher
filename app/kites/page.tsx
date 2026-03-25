@@ -60,7 +60,7 @@ export default function BrowsePage() {
       case 'price-high':
         return [...list].sort((a, b) => b.price_new - a.price_new);
       case 'rating':
-        return [...list].sort((a, b) => b.reviews.aggregate_score - a.reviews.aggregate_score);
+        return [...list].sort((a, b) => (b.structured_review?.rating ?? 0) - (a.structured_review?.rating ?? 0));
       default:
         return list;
     }

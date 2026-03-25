@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import kiteData from '@/data/kites.json';
-import { Kite } from '@/lib/types';
+import { Kite, ReviewSource } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import SpectrumBar from '@/components/SpectrumBar';
 import ReviewSources from '@/components/ReviewSources';
@@ -114,9 +114,9 @@ export default function KiteProfilePage() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
         <h2 className="text-lg font-bold text-slate mb-4">Reviews</h2>
         <ReviewSources
-          sources={kite.reviews.sources}
-          aggregateScore={kite.reviews.aggregate_score}
-          reviewCount={kite.reviews.review_count}
+          sources={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.sources) ?? []}
+          aggregateScore={kite.structured_review?.rating ?? ((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.aggregate_score) ?? 0}
+          reviewCount={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.review_count) ?? 0}
         />
       </div>
 

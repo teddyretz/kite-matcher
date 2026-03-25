@@ -43,7 +43,7 @@ function CompareContent() {
       case 'price': return `$${k.price_new.toLocaleString()}`;
       case 'aluula': return k.aluula ? 'Yes' : 'No';
       case 'brainchild': return k.brainchild ? 'Yes' : 'No';
-      case 'review_score': return k.reviews.aggregate_score.toFixed(1);
+      case 'review_score': return (k.structured_review?.rating ?? 0).toFixed(1);
       default: return '';
     }
   };
