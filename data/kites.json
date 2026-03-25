@@ -383,7 +383,27 @@
         }
       ]
     },
-    "wave_spectrum": 10
+    "wave_spectrum": 10,
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "The Rebel SLS sits just a step below the D/LAB in raw performance but is still one of the best big air kites on the market. Jason would take it over most of the competition. Better looper than the older D/LAB, impressive hang time, and meaningfully more accessible than the D/LAB tier.",
+      "pros": [
+        "Top-tier boosting and hang time",
+        "Better looping than the older D/LAB",
+        "More accessible than D/LAB at a lower price",
+        "Solid all-conditions big air performer"
+      ],
+      "cons": [
+        "Not quite D/LAB-level ceiling",
+        "Still a premium price for the SLS tier"
+      ],
+      "best_for": "Serious big air riders who want near-D/LAB performance without the D/LAB cost",
+      "not_for": "Wave riders or anyone who doesn't want to commit to the big air discipline",
+      "rec_blurb": "The smart pick if you want Rebel performance without the D/LAB price tag.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "duotone-evo-sls-2026",
@@ -468,7 +488,26 @@
         }
       ]
     },
-    "wave_spectrum": 47
+    "wave_spectrum": 47,
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "The Evo SLS surprised Jason Montreal in the boosting department \u2014 very impressive even when compared to the D/LAB version. Covers the full Evo range in one video alongside the Rebel SLS. A genuinely competitive big air kite at the SLS tier.",
+      "pros": [
+        "Surprisingly competitive boosting vs D/LAB",
+        "Strong hang time for an SLS model",
+        "The tried-and-true Evo character in a premium shell"
+      ],
+      "cons": [
+        "D/LAB still edges it out at the top end",
+        "Less character differentiation vs Rebel SLS for pure big air"
+      ],
+      "best_for": "Evo fans who want to step up to SLS construction without changing their kite feel",
+      "not_for": "Riders who need the absolute ceiling \u2014 go D/LAB",
+      "rec_blurb": "The Evo SLS punches above its weight in the boosting department.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "duotone-neo-2026",
@@ -755,7 +794,26 @@
         }
       ]
     },
-    "wave_spectrum": 20
+    "wave_spectrum": 20,
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "Cabrinha's first Aluula big air release. Jason compared it directly to the Nitro Apex and found them to share a lot of DNA. A solid entry into the premium big air segment for Cabrinha, though not quite at the ceiling of Rebel D/LAB or Code NXT.",
+      "pros": [
+        "Cabrinha's first Aluula big air kite",
+        "Solid boosting \u2014 competitive in the Aluula segment",
+        "Familiar Cabrinha feel in a premium shell"
+      ],
+      "cons": [
+        "Shares a lot of DNA with Nitro Apex \u2014 limited differentiation",
+        "Not at the very top of the boosting ceiling"
+      ],
+      "best_for": "Cabrinha loyalists who want to step into the Aluula/big air tier",
+      "not_for": "Riders who want the absolute ceiling \u2014 look at Rebel D/LAB or Code NXT",
+      "rec_blurb": "Cabrinha joins the Aluula big air conversation with the Moto X. A proper step up.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "cabrinha-drifter-2025",
@@ -1449,7 +1507,26 @@
         }
       ]
     },
-    "wave_spectrum": 40
+    "wave_spectrum": 40,
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "Kitemana compared the Pace and Pace Pro directly with the Core team in France. The Pace sits below the Pace Pro in performance but is more accessible. Good option for riders who want Core quality without the full Pace Pro commitment.",
+      "pros": [
+        "More accessible than Pace Pro",
+        "Core build quality",
+        "Good all-round big air performance"
+      ],
+      "cons": [
+        "Pace Pro clearly outperforms at the top end",
+        "Less character than Pace Pro for advanced riders"
+      ],
+      "best_for": "Intermediate big air riders who want Core DNA without the Pace Pro price/commitment",
+      "not_for": "Advanced riders chasing the ceiling \u2014 step up to Pace Pro",
+      "rec_blurb": "The accessible entry point to Core's big air lineup.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "core-xr-pro-2-2026",
@@ -1532,7 +1609,26 @@
         }
       ]
     },
-    "wave_spectrum": 8
+    "wave_spectrum": 8,
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "Kitemana tested the XR Pro 2 in strong conditions with 22m and 18m lines, getting serious loops off the pier. A proper big air weapon that delivers the goods when conditions are right. Strong core community around this kite.",
+      "pros": [
+        "Purpose-built big air performance",
+        "Excellent in strong conditions",
+        "Core build quality and heritage"
+      ],
+      "cons": [
+        "Specialist kite \u2014 not versatile",
+        "Needs proper wind to shine"
+      ],
+      "best_for": "Dedicated big air and megaloop riders who want Core's flagship",
+      "not_for": "All-round riders or anyone in lighter winds",
+      "rec_blurb": "Core's flagship big air weapon. Built around megaloops and world-class performance.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "north-orbit-2025",
@@ -1828,7 +1924,28 @@
         }
       ]
     },
-    "wave_spectrum": 12
+    "wave_spectrum": 12,
+    "structured_review": {
+      "rating": 4.5,
+      "summary": "The Orbit 2026 gets a major update \u2014 lighter construction, revised arc, and a noticeably different feel from the 2025. Kitemana noted it needs proper wind to fully evaluate, but early impressions are positive. Jason considers it one of the best kites for the vast majority of riders despite not keeping up with the very top of the market in raw performance.",
+      "pros": [
+        "One of the best all-round kites for most riders",
+        "Excellent wind range and accessibility",
+        "2026 construction is noticeably lighter",
+        "Huge rider following and community"
+      ],
+      "cons": [
+        "Top-end performance ceiling has slipped behind Rebel/Evo D/LAB tier",
+        "2026 changes take some adjustment"
+      ],
+      "best_for": "All-round freeride and big air riders who want a forgiving, high-performance kite",
+      "not_for": "Riders chasing the absolute maximum boosting ceiling",
+      "rec_blurb": "The most popular big air kite for a reason \u2014 accessible, powerful, huge wind range.",
+      "sources": [
+        "Jason Montreal",
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "north-orbit-pro-2026",
@@ -2307,7 +2424,26 @@
         }
       ]
     },
-    "wave_spectrum": 35
+    "wave_spectrum": 35,
+    "structured_review": {
+      "rating": 4.4,
+      "summary": "Kitemana's first time testing an Eleveight kite \u2014 and it exceeded expectations. The RS Pro V10 is a solid, well-built big air kite that impressed a reviewer coming in with no prior Eleveight experience. A hidden gem in the big air segment.",
+      "pros": [
+        "Exceeded expectations from a first-time Eleveight rider",
+        "Well built, solid performance",
+        "Good build quality and spec sheet"
+      ],
+      "cons": [
+        "Less brand recognition than Duotone/North/Core in the big air space",
+        "Fewer peer reviews to cross-reference"
+      ],
+      "best_for": "Riders open to stepping outside the major brands for a capable big air kite",
+      "not_for": "Brand-loyal Duotone/North/Core riders",
+      "rec_blurb": "A sleeper in the big air segment. Kitemana was genuinely impressed on first ride.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "eleveight-fs-v8-2026",
@@ -2689,7 +2825,26 @@
         }
       ]
     },
-    "wave_spectrum": 44
+    "wave_spectrum": 44,
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "A departure from pure big air \u2014 the Bandit Brainchild is a freeride/do-it-all kite that can surprise you with its boosting in the right conditions. Jason loves it for foil and wave riding and calls it an ideal quiver addition alongside a more dedicated big air kite.",
+      "pros": [
+        "Versatile \u2014 foil, wave, freeride, occasional big air",
+        "Can keep up with moderate big air kites in the right conditions",
+        "Excellent for quiver pairing with a dedicated big air kite"
+      ],
+      "cons": [
+        "Not consistent enough for dedicated big air sessions",
+        "Boosting not as reliable as purpose-built big air kites"
+      ],
+      "best_for": "Freeride/foil/wave riders who want one kite that can do most things well",
+      "not_for": "Anyone whose primary goal is big air",
+      "rec_blurb": "The best quiver companion if you want Brainchild quality in a versatile freeride package.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "f-one-trigger-2026",
@@ -2771,7 +2926,27 @@
         }
       ]
     },
-    "wave_spectrum": 10
+    "wave_spectrum": 10,
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "Jason's third Brainchild kite \u2014 and he loves it. The Trigger is where the Brainchild build shines best in looping: confidence-inducing, excellent progressive feel, and great for both progression and top-end riders. Hang time is a shade below Rebel/NXT but the tradeoff is worth it for the looping character.",
+      "pros": [
+        "Exceptional looping feel \u2014 confidence-inducing",
+        "Great for progression and competition alike",
+        "Brainchild construction quality",
+        "Strong performance across a wide skill range"
+      ],
+      "cons": [
+        "Hang time and power slightly below Rebel D/LAB and NXT",
+        "Not the absolute best pure booster"
+      ],
+      "best_for": "Riders focused on loop progression and performance who want a fun, forgiving ride",
+      "not_for": "Riders whose only goal is maximum height over loop feel",
+      "rec_blurb": "The best looping feel in the Brainchild lineup. A serious progression kite.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "ozone-edge-v11-2025",
@@ -3163,7 +3338,27 @@
         }
       ]
     },
-    "wave_spectrum": 8
+    "wave_spectrum": 8,
+    "structured_review": {
+      "rating": 4.4,
+      "summary": "Solid sheet-and-go power, accessible for all levels, and a great fit for riders with existing Ozone/low-V bar quivers. Aluula brings strong value for money in 3-strut kites. Best when you want a fun all-conditions kite rather than a pure performance ceiling chaser.",
+      "pros": [
+        "Sheet-and-go power accessible at all levels",
+        "Aluula delivers strong value for money in 3-strut format",
+        "Good wind range",
+        "Bar-compatible with other Ozone kites (low-V system)"
+      ],
+      "cons": [
+        "Not the top performer for pure big air ceiling",
+        "3-strut feel vs 5-strut stability tradeoff"
+      ],
+      "best_for": "All-round riders with Ozone quivers, or anyone wanting accessible Aluula performance",
+      "not_for": "Dedicated big air specialists chasing maximum height",
+      "rec_blurb": "Best value Aluula big air kite in the 3-strut category. Easy to ride well.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "ozone-enduro-v4-2026",
@@ -3846,7 +4041,26 @@
         }
       ]
     },
-    "wave_spectrum": 50
+    "wave_spectrum": 50,
+    "structured_review": {
+      "rating": 4.2,
+      "summary": "Kitemana spoke with Naish kite designer Jasmine live from Cape Town \u2014 a deep product knowledge perspective. The Pivot is Naish's all-around freeride workhorse, with broad appeal across skill levels.",
+      "pros": [
+        "Designed with direct input from Naish's own team",
+        "Broad appeal \u2014 beginner to advanced",
+        "Reliable freeride performance"
+      ],
+      "cons": [
+        "Not a specialist big air or wave kite",
+        "2026 NVision version adds meaningful upgrades"
+      ],
+      "best_for": "Freeride riders looking for a reliable, well-supported all-rounder from a major brand",
+      "not_for": "Anyone chasing specialised big air or wave performance",
+      "rec_blurb": "Naish's evergreen freeride workhorse. Versatile, well-documented, broadly loved.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "naish-trident-2025",
@@ -4030,7 +4244,26 @@
         }
       ]
     },
-    "wave_spectrum": 52
+    "wave_spectrum": 52,
+    "structured_review": {
+      "rating": 4.4,
+      "summary": "The 2026 NVision is meaningfully better than 2025 \u2014 10% lighter, new closing seam, lighter bar feel, smoother turning, quicker response. A genuine upgrade worth the step up if you're already a Pivot rider.",
+      "pros": [
+        "10% lighter than 2025",
+        "New closing seam improves twist and turning",
+        "Lighter bar feel, smoother turns, quicker response",
+        "A genuine upgrade \u2014 not just a refresh"
+      ],
+      "cons": [
+        "Still a freeride generalist \u2014 not a specialist big air or wave kite"
+      ],
+      "best_for": "2025 Pivot owners ready to upgrade, or riders wanting a premium all-rounder",
+      "not_for": "Riders who need specialised big air or wave performance",
+      "rec_blurb": "The 2026 Pivot NVision is a meaningful upgrade \u2014 lighter, quicker, more responsive.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "naish-triad-2026",
@@ -4713,7 +4946,25 @@
         }
       ]
     },
-    "wave_spectrum": 40
+    "wave_spectrum": 40,
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "Kitemana tested the SuperModel with Kevin Langeree. A well-rounded freeride/big air crossover that lives in the space between pure big air and all-round riding. Kevin's involvement gives it strong credibility.",
+      "pros": [
+        "Kevin Langeree design involvement",
+        "Good balance of freeride and big air",
+        "Reedin brand quality"
+      ],
+      "cons": [
+        "Not the most specialised option in any one category"
+      ],
+      "best_for": "Freeride-oriented riders who want some big air capability without going fully specialised",
+      "not_for": "Riders who need the top of the big air performance chart",
+      "rec_blurb": "Kevin Langeree's signature kite \u2014 a freeride weapon with big air potential.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "reedin-hypermodel-2026",
@@ -4797,7 +5048,27 @@
         }
       ]
     },
-    "wave_spectrum": 15
+    "wave_spectrum": 15,
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "The Reedin HyperModel Brainchild is fun and confidence-inspiring but doesn't quite hit the same floaty feeling as the better big air boosters. Jason preferred the F-One Trigger in the loop consistency department. Best for progression and multi-discipline riders who want to cover a lot of ground.",
+      "pros": [
+        "Fun and accessible across multiple disciplines",
+        "Brainchild construction quality",
+        "Great for progression with confidence",
+        "Do-it-all capability"
+      ],
+      "cons": [
+        "Doesn't match the floaty feeling of top big air boosters",
+        "Loop consistency slightly behind F-One Trigger"
+      ],
+      "best_for": "Riders who want to progress across multiple disciplines with a premium construction kite",
+      "not_for": "Dedicated big air riders who want maximum specialisation",
+      "rec_blurb": "One of the best multi-discipline Brainchild kites. Fun above everything else.",
+      "sources": [
+        "Jason Montreal"
+      ]
+    }
   },
   {
     "id": "reedin-mastermodel-2026",
@@ -4879,7 +5150,26 @@
         }
       ]
     },
-    "wave_spectrum": 8
+    "wave_spectrum": 8,
+    "structured_review": {
+      "rating": 4.5,
+      "summary": "Kitemana's staff rider called it one of the easiest 5-strut kites he'd ever ridden \u2014 quick loops, excellent hang time, very easy to fly. The name says Master but the feel is accessible. A kite that punches above its approachability.",
+      "pros": [
+        "One of the easiest 5-strut kites to fly",
+        "Quick loops, good hang time",
+        "Accessible despite the 'Master' branding",
+        "Strong build quality"
+      ],
+      "cons": [
+        "'Easy' feel may disappoint riders wanting a more challenging, rewarding kite"
+      ],
+      "best_for": "Riders who want elite big air specs in an accessible, forgiving package",
+      "not_for": "Riders who want a high-effort, high-reward kite feel",
+      "rec_blurb": "Don't let the name fool you \u2014 the MasterModel is surprisingly approachable. Easy loops, good height.",
+      "sources": [
+        "Kitemana"
+      ]
+    }
   },
   {
     "id": "flysurfer-sonic-v4-2025",
@@ -4990,7 +5280,26 @@
       ]
     },
     "wave_spectrum": 10,
-    "discontinued": true
+    "discontinued": true,
+    "structured_review": {
+      "rating": 4.5,
+      "summary": "Our Kite Life did a deep dive on the 10m Sonic 4. They wouldn't normally buy a Sonic given their age and style, but the Sonic 4 won them over. Improved on the already strong Sonic formula \u2014 a kite they'd genuinely consider adding to the quiver.",
+      "pros": [
+        "Best foil kite feel refined over multiple generations",
+        "Improved over Sonic 3 in key areas",
+        "Converted a non-foil-kite rider into considering it"
+      ],
+      "cons": [
+        "Foil kite handling is a departure from LEI",
+        "Not for LEI riders who don't want to learn foil kite skills"
+      ],
+      "best_for": "Foil boarders and riders who want maximum efficiency and low-end power",
+      "not_for": "Riders who don't want to invest in foil kite skills",
+      "rec_blurb": "The Sonic 4 won over riders who never thought they'd buy a foil kite.",
+      "sources": [
+        "Our Kite Life"
+      ]
+    }
   },
   {
     "id": "flysurfer-sonic-5-2026",
@@ -5201,7 +5510,26 @@
         }
       ]
     },
-    "wave_spectrum": 30
+    "wave_spectrum": 30,
+    "structured_review": {
+      "rating": 4.4,
+      "summary": "Our Kite Life tested with multiple friends for unbiased opinions. The Soul 3 is a completely different kite from its predecessors \u2014 flies much better, more floaty, and earned genuine enthusiasm from riders who were trying foil kites for the first time.",
+      "pros": [
+        "Major improvement over Soul 2 \u2014 completely different feel",
+        "Accessible to foil kite newcomers",
+        "Great big float potential in larger sizes"
+      ],
+      "cons": [
+        "Foil kite still requires different skills vs LEI",
+        "Reviewers wanted more sessions to fully evaluate"
+      ],
+      "best_for": "Foil kite curious riders and anyone upgrading from an older Soul",
+      "not_for": "Riders with no interest in foil kite dynamics",
+      "rec_blurb": "The Soul 3 is a generational jump over previous Souls. New riders were won over immediately.",
+      "sources": [
+        "Our Kite Life"
+      ]
+    }
   },
   {
     "id": "north-code-zero-pro-2025",
@@ -5627,6 +5955,26 @@
           "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Code+NXT"
         }
       ]
+    },
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "Jason's first Slingshot experience and it immediately impressed. The Code NXT \u2014 developed by current world champion Jeremy Burlando \u2014 is Slingshot's Aluula big air flagship. Boosting and hang time just a shade below Rebel, but the looping and confidence-inducing character make it a serious competitor at the top of the market.",
+      "pros": [
+        "World champion-developed and tested",
+        "Competitive boosting and hang time near the top of the market",
+        "Aluula construction brings the best Slingshot has ever made",
+        "Excellent looping feel"
+      ],
+      "cons": [
+        "Power and hang time still slightly below Rebel D/LAB ceiling",
+        "Premium price for Aluula tier"
+      ],
+      "best_for": "Advanced riders who want a top-tier Aluula big air kite with world-class pedigree",
+      "not_for": "Anyone below advanced level",
+      "rec_blurb": "Developed by the current world champion. Slingshot's best kite, period.",
+      "sources": [
+        "Jason Montreal"
+      ]
     }
   },
   {
@@ -6043,6 +6391,28 @@
           "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Rebel+DLAB"
         }
       ]
+    },
+    "structured_review": {
+      "rating": 4.8,
+      "summary": "The 2026 Rebel D/LAB is one of the best all-round big air kites on the market \u2014 massive boosting, exceptional hang time, and noticeably improved looping over the previous D/LAB. A cleaner, smoother loop feel than the SLS. If you're already on Evos you won't feel the need to switch, but if you're kite shopping it should be on your shortlist.",
+      "pros": [
+        "Best-in-class hang time and boosting",
+        "Improved looping over previous D/LAB \u2014 cleaner and smoother",
+        "Precise but accessible power delivery",
+        "High-Y bar feel is intuitive"
+      ],
+      "cons": [
+        "Requires precision to unlock full boosting potential",
+        "Not the easiest looper compared to dedicated loop-focused kites",
+        "Premium price"
+      ],
+      "best_for": "Advanced riders focused on big air, megaloops, and maximum height",
+      "not_for": "Beginners or riders who prioritise wave/freestyle over pure lift",
+      "rec_blurb": "If you want the highest ceiling in a big air kite right now, the Rebel D/LAB 2026 is the benchmark.",
+      "sources": [
+        "Jason Montreal",
+        "Kitemana"
+      ]
     }
   },
   {
@@ -6129,6 +6499,28 @@
           "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+DLAB"
         }
       ]
+    },
+    "structured_review": {
+      "rating": 4.8,
+      "summary": "The Evo D/LAB is an absolute monster booster \u2014 impressively even more so than the SLS in the boosting department. Holds the Evo DNA: predictable, confidence-inspiring sheet-and-go power with familiar bar feel. The 2026 update keeps the character while refining the experience.",
+      "pros": [
+        "Exceptional boosting even for a 3-strut kite",
+        "Predictable, sheet-and-go power for all levels",
+        "Familiar Evo bar feel \u2014 easy to pick up",
+        "D/LAB construction delivers a lighter, more responsive kite"
+      ],
+      "cons": [
+        "Looping not as specialised as the Rebel",
+        "Better loopers and easier boosters exist at extremes",
+        "High price point"
+      ],
+      "best_for": "Intermediate to advanced riders who want a do-it-all big air kite with accessible power",
+      "not_for": "Riders who want a dedicated loop machine or pure wave kite",
+      "rec_blurb": "The Evo D/LAB is Jason Montreal's personal quiver \u2014 says everything you need to know.",
+      "sources": [
+        "Jason Montreal",
+        "Kitemana"
+      ]
     }
   },
   {
@@ -6202,6 +6594,25 @@
           "source": "Kiteboarder Classifieds",
           "url": "https://www.kiteboarder.com/classifieds/?search=Core+Pace+Pro"
         }
+      ]
+    },
+    "structured_review": {
+      "rating": 4.5,
+      "summary": "A high-performance debut for Core's Pace Pro with a world champion already riding it. Clearly designed for higher-level riders who love the Core feel, though also a great upgrade path for riders coming from older Core models like the XR6.",
+      "pros": [
+        "Elite performance ceiling \u2014 world champion pedigree",
+        "Classic Core feel in a new model",
+        "Great upgrade from older Core models"
+      ],
+      "cons": [
+        "Designed for higher-level riders \u2014 not the most approachable",
+        "Best appreciated if you already know and love Core"
+      ],
+      "best_for": "Intermediate\u2013advanced Core loyalists and big air competitors",
+      "not_for": "New to Core or riders who prefer a more neutral feel",
+      "rec_blurb": "Core's most performance-focused big air kite. Zahra Jajugan rides it to win contests.",
+      "sources": [
+        "Jason Montreal"
       ]
     }
   },
@@ -6955,6 +7366,27 @@
           "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Era"
         }
       ]
+    },
+    "structured_review": {
+      "rating": 4.6,
+      "summary": "Jason's favourite Dacron kite on the market right now, possibly even his top pick overall. An exceptional balance of everything \u2014 not the best in any one category but impressively competitive across all of them. Kitemana tested it with Luke McGillewie against the Era 1 and found meaningful improvements.",
+      "pros": [
+        "Jason's personal top 2-3 Dacron kite on the market",
+        "Exceptional balance of boosting, hang time, looping, and feel",
+        "Meaningful improvements over Era 1",
+        "Great value relative to Aluula tier"
+      ],
+      "cons": [
+        "Not the absolute best in any single performance metric",
+        "Dacron construction means slightly behind Aluula ceiling"
+      ],
+      "best_for": "Riders who want the best overall big air Dacron kite without the Aluula premium",
+      "not_for": "Riders who need the absolute top of the performance chart",
+      "rec_blurb": "Jason's personal favourite. The best-balanced Dacron big air kite on the market.",
+      "sources": [
+        "Jason Montreal",
+        "Kitemana"
+      ]
     }
   },
   {
@@ -7054,6 +7486,25 @@
           "source": "Kiteboarder Classifieds",
           "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Stoke"
         }
+      ]
+    },
+    "structured_review": {
+      "rating": 4.3,
+      "summary": "Our Kite Life shared with friends \u2014 lively, well-designed 3-strut wave/freeride kite. Notable design details: built-in SUP valve in the front strut with a special adapter pocket. Riders found it pretty lively and enjoyable overall.",
+      "pros": [
+        "Lively, fun wave/freeride character",
+        "Clever design details (integrated SUP valve)",
+        "3-strut construction keeps it light and drifty"
+      ],
+      "cons": [
+        "Not a specialist big air kite",
+        "3-strut feel in challenging conditions"
+      ],
+      "best_for": "Wave riders and freeride surfers who want Flysurfer quality in an LEI format",
+      "not_for": "Big air and boosting-focused riders",
+      "rec_blurb": "A fun, well-designed wave/freeride kite from Flysurfer. Great for surf and downwind sessions.",
+      "sources": [
+        "Our Kite Life"
       ]
     }
   },
@@ -7225,6 +7676,28 @@
           "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Peak"
         }
       ]
+    },
+    "structured_review": {
+      "rating": 4.7,
+      "summary": "The Harlem Peak is the best boosting Brainchild kite Jason has tested \u2014 hang time is easily accessible without having to perfectly pilot the kite overhead. Slightly behind Rebel D/LAB and Slingshot NXT at the absolute ceiling, but genuinely competitive. Kitemana found it performs best in strong winds but noted good low-end for a big air specialist.",
+      "pros": [
+        "Best boosting of any Brainchild kite tested",
+        "Hang time accessible without perfect piloting",
+        "Excellent for new school doubles and SL loops",
+        "Brainchild build quality"
+      ],
+      "cons": [
+        "Slightly behind Rebel D/LAB / Code NXT at absolute ceiling",
+        "Not ideal for light wind \u2014 strong wind specialist",
+        "Premium Brainchild price"
+      ],
+      "best_for": "Advanced riders who want elite big air with a focus on loops and new school",
+      "not_for": "Light wind riders or anyone below advanced level",
+      "rec_blurb": "Top of the Brainchild big air tier. If you want the Harlem brand and maximum lift, this is it.",
+      "sources": [
+        "Jason Montreal",
+        "Kitemana"
+      ]
     }
   },
   {
@@ -7301,6 +7774,26 @@
           "source": "Kiteboarder Classifieds",
           "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Thrive"
         }
+      ]
+    },
+    "structured_review": {
+      "rating": 4.5,
+      "summary": "Jason considers Harlem kites the top of the market for new school doubles and SL loop variations \u2014 and the Thrive is no exception. Fast, loop-focused, with that characteristic Brainchild feel. His top pick for 6m in the range.",
+      "pros": [
+        "Best-in-class for new school doubles and SL loops",
+        "Fast turning, responsive feel",
+        "Brainchild build quality",
+        "The go-to small kite for loops"
+      ],
+      "cons": [
+        "More loop-focused than boosting-focused",
+        "Brainchild pricing"
+      ],
+      "best_for": "Riders focused on new school freestyle, doubles, and megaloop progression",
+      "not_for": "Riders who want maximum boosting height over loop feel",
+      "rec_blurb": "If loops are your thing, Harlem Thrive is at the top of the market right now.",
+      "sources": [
+        "Jason Montreal"
       ]
     }
   },
