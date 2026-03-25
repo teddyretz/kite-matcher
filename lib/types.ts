@@ -33,6 +33,8 @@ export interface Kite {
   style_tags: string[];
   skill_level: SkillLevel[];
   discontinued?: boolean;
+  snow_kite?: boolean;
+  teds_pick?: boolean;
 
   // Specs
   aspect_ratio: 'low' | 'medium' | 'medium-high' | 'high' | 'very-high';

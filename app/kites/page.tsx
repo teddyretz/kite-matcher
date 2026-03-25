@@ -14,7 +14,20 @@ const allKites = getActiveKites(kiteData as Kite[]).sort((a, b) =>
 type Construction = 'all' | 'dacron' | 'aluula' | 'brainchild';
 type SortOption = 'alpha' | 'match' | 'price-low' | 'price-high' | 'rating';
 
-const styleLabels = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
+const styleZones = [
+  { label: 'Foil', color: 'text-teal-600' },
+  { label: 'Surf', color: 'text-emerald-600' },
+  { label: 'Freestyle', color: 'text-violet-600' },
+  { label: 'Freeride', color: 'text-blue-600' },
+  { label: 'Big Air', color: 'text-orange-600' },
+];
+function getActiveZone(value: number): number {
+  if (value <= 20) return 0;
+  if (value <= 40) return 1;
+  if (value <= 60) return 2;
+  if (value <= 80) return 3;
+  return 4;
+}
 
 export default function BrowsePage() {
   const [filtersOpen, setFiltersOpen] = useState(true);
@@ -87,14 +100,14 @@ export default function BrowsePage() {
             <div className="grid sm:grid-cols-2 gap-6">
               {/* Style Slider */}
               <div>
-                <label className="block text-xs font-semibold text-ocean mb-2">Riding Style</label>
+                <label className="block text-xs font-semibold text-ocean mb-1">Riding Style: <span className={`${styleZones[getActiveZone(styleValue)].color}`}>{styleZones[getActiveZone(styleValue)].label}</span></label>
                 <input
                   type="range" min={0} max={100} value={styleValue}
                   onChange={e => { setStyleValue(Number(e.target.value)); setSortBy('match'); }}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
-                  {styleLabels.map(l => <span key={l} className="text-[10px] text-gray-400">{l}</span>)}
+                  {styleZones.map((zone, i) => <span key={zone.label} className={`text-[10px] font-medium ${i === getActiveZone(styleValue) ? zone.color : 'text-gray-400'}`}>{zone.label}</span>)}
                 </div>
               </div>
 

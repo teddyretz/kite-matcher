@@ -8,7 +8,21 @@ import { getTopMatches, getActiveKites } from '@/lib/matcher';
 
 const kites = getActiveKites(kiteData as Kite[]);
 
-const styleLabels = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
+const styleZones = [
+  { label: 'Foil', color: 'text-teal-600' },
+  { label: 'Surf', color: 'text-emerald-600' },
+  { label: 'Freestyle', color: 'text-violet-600' },
+  { label: 'Freeride', color: 'text-blue-600' },
+  { label: 'Big Air', color: 'text-orange-600' },
+];
+
+function getActiveZone(value: number): number {
+  if (value <= 20) return 0;
+  if (value <= 40) return 1;
+  if (value <= 60) return 2;
+  if (value <= 80) return 3;
+  return 4;
+}
 
 const shapeLabels = [
   { label: 'Low Aspect (C/Delta)', position: 0 },
@@ -47,9 +61,12 @@ export default function StyleMatcher() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-8">
         {/* Style Slider */}
         <div>
-          <label className="block text-sm font-semibold text-ocean mb-4">
+          <label className="block text-sm font-semibold text-ocean mb-1">
             Your Riding Style
           </label>
+          <p className={`text-lg font-bold mb-3 ${styleZones[getActiveZone(styleValue)].color}`}>
+            {styleZones[getActiveZone(styleValue)].label}
+          </p>
           <input
             type="range"
             min={0}
@@ -59,8 +76,10 @@ export default function StyleMatcher() {
             className="w-full"
           />
           <div className="flex justify-between mt-2">
-            {styleLabels.map(l => (
-              <span key={l} className="text-xs text-gray-500">{l}</span>
+            {styleZones.map((zone, i) => (
+              <span key={zone.label} className={`text-xs font-medium ${i === getActiveZone(styleValue) ? zone.color : 'text-gray-400'}`}>
+                {zone.label}
+              </span>
             ))}
           </div>
         </div>

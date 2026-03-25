@@ -1,8 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { Kite } from '@/lib/types';
 import { useCompare } from './CompareContext';
+
+function getStyleZone(spectrum: number): string {
+  if (spectrum <= 20) return 'Foil';
+  if (spectrum <= 40) return 'Surf';
+  if (spectrum <= 60) return 'Freestyle';
+  if (spectrum <= 80) return 'Freeride';
+  return 'Big Air';
+}
 
 function StarRating({ score }: { score: number }) {
   const full = Math.floor(score);
@@ -19,28 +28,31 @@ function StarRating({ score }: { score: number }) {
   );
 }
 
-function KitePlaceholder({ brand }: { brand: string }) {
-  const colors: Record<string, string> = {
-    Duotone: '#00A3E0',
-    Cabrinha: '#E31937',
-    Core: '#FF6B00',
-    North: '#1B1B1B',
-    Eleveight: '#6366F1',
-    'F-One': '#00B4D8',
-    Ozone: '#22C55E',
-    Slingshot: '#EAB308',
-    Naish: '#3B82F6',
-    Airush: '#EC4899',
-    Reedin: '#8B5CF6',
-    Flysurfer: '#14B8A6',
+function KiteImage({ slug, model, brand }: { slug: string; model: string; brand: string }) {
+  const [imgError, setImgError] = useState(false);
+  const brandColors: Record<string, string> = {
+    Duotone: '#00A3E0', Cabrinha: '#E31937', Core: '#FF6B00', North: '#1B1B1B',
+    Eleveight: '#6366F1', 'F-One': '#00B4D8', Ozone: '#22C55E', Slingshot: '#EAB308',
+    Naish: '#3B82F6', Airush: '#EC4899', Reedin: '#8B5CF6', Flysurfer: '#14B8A6', Harlem: '#F97316',
   };
-  const color = colors[brand] || '#6B7280';
+
+  if (imgError) {
+    const color = brandColors[brand] || '#6B7280';
+    return (
+      <div className="w-full h-48 rounded-t-xl flex items-center justify-center" style={{ backgroundColor: color + '15' }}>
+        <span className="text-sm font-medium" style={{ color }}>{brand} {model}</span>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full h-48 rounded-t-xl flex items-center justify-center" style={{ backgroundColor: color + '15' }}>
-      <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4C18 4 8 20 8 32c0 8 4 16 12 22l12-18 12 18c8-6 12-14 12-22C56 20 46 4 32 4z" fill={color} opacity="0.3" />
-        <path d="M32 8C20 8 12 22 12 32c0 6 3 13 10 18l10-15 10 15c7-5 10-12 10-18C52 22 44 8 32 8z" fill={color} opacity="0.6" />
-      </svg>
+    <div className="w-full h-48 rounded-t-xl overflow-hidden bg-gray-50">
+      <img
+        src={`/kites/${slug}.jpg`}
+        alt={`${brand} ${model}`}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        onError={() => setImgError(true)}
+      />
     </div>
   );
 }
@@ -55,8 +67,8 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
   const inCompare = isInCompare(kite.slug);
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-      <KitePlaceholder brand={kite.brand} />
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow group">
+      <KiteImage slug={kite.slug} model={kite.model} brand={kite.brand} />
       <div className="p-4 space-y-3">
         <div className="flex items-start justify-between">
           <div>
@@ -75,11 +87,19 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
         </div>
 
         <div className="flex flex-wrap gap-1">
-          {kite.style_tags.slice(0, 3).map(tag => (
-            <span key={tag} className="px-2 py-0.5 bg-ocean/5 text-ocean text-xs rounded-full">
+          {kite.teds_pick && <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs rounded-full font-medium">Ted&apos;s Pick</span>}
+          <span className="px-2 py-0.5 bg-ocean/5 text-ocean text-xs rounded-full">
+            {getStyleZone(kite.style_spectrum)}
+          </span>
+          {kite.style_tags.slice(0, 2).map(tag => (
+            <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">
               {tag}
             </span>
           ))}
+          {kite.aluula && <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">Aluula</span>}
+          {kite.brainchild && <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">Brainchild</span>}
+          {kite.snow_kite && <span className="px-2 py-0.5 bg-sky-100 text-sky-700 text-xs rounded-full font-medium">Great for Snow</span>}
+          {kite.discontinued && <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">Discontinued</span>}
         </div>
 
         <StarRating score={kite.reviews.aggregate_score} />

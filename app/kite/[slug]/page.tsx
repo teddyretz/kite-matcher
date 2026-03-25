@@ -52,21 +52,25 @@ export default function KiteProfilePage() {
       {/* Hero */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
         <div className="grid md:grid-cols-2 gap-0">
-          {/* Placeholder image */}
-          <div className="h-64 md:h-auto bg-gradient-to-br from-ocean/5 to-sand/10 flex items-center justify-center">
-            <svg width="120" height="120" viewBox="0 0 64 64" fill="none" className="opacity-30">
-              <path d="M32 4C18 4 8 20 8 32c0 8 4 16 12 22l12-18 12 18c8-6 12-14 12-22C56 20 46 4 32 4z" fill="#0B4F6C" />
-            </svg>
+          <div className="h-64 md:h-auto bg-gray-50 flex items-center justify-center overflow-hidden">
+            <img
+              src={`/kites/${kite.slug}.jpg`}
+              alt={`${kite.brand} ${kite.model}`}
+              className="w-full h-full object-cover"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
           </div>
           <div className="p-6 sm:p-8">
             <p className="text-sm text-gray-500 mb-1">{kite.brand} &middot; {kite.year}</p>
             <h1 className="text-3xl font-bold text-slate mb-3">{kite.model}</h1>
             <div className="flex flex-wrap gap-2 mb-4">
+              {kite.teds_pick && <span className="px-3 py-1 bg-amber-100 text-amber-700 text-sm rounded-full font-medium">Ted&apos;s Pick</span>}
               {kite.style_tags.map(tag => (
                 <span key={tag} className="px-3 py-1 bg-ocean/5 text-ocean text-sm rounded-full">{tag}</span>
               ))}
               {kite.aluula && <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">Aluula</span>}
               {kite.brainchild && <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">Brainchild</span>}
+              {kite.snow_kite && <span className="px-3 py-1 bg-sky-100 text-sky-700 text-sm rounded-full font-medium">Great for Snow</span>}
             </div>
             <p className="text-gray-600 mb-6">{kite.summary}</p>
             <p className="text-sm text-gray-500">
