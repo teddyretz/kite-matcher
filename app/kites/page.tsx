@@ -7,7 +7,7 @@ import { matchScore, getActiveKites } from '@/lib/matcher';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
-const allKites = getActiveKites(kiteData as Kite[]).sort((a, b) =>
+const allKites = getActiveKites(kiteData as unknown as Kite[]).sort((a, b) =>
   `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`)
 );
 

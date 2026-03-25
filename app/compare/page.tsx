@@ -7,7 +7,7 @@ import kiteData from '@/data/kites.json';
 import { Kite } from '@/lib/types';
 import SpectrumBar from '@/components/SpectrumBar';
 
-const allKites = kiteData as Kite[];
+const allKites = kiteData as unknown as Kite[];
 
 function CompareContent() {
   const searchParams = useSearchParams();

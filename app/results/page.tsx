@@ -8,7 +8,7 @@ import { matchScore, getActiveKites } from '@/lib/matcher';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
-const allKites = getActiveKites(kiteData as Kite[]);
+const allKites = getActiveKites(kiteData as unknown as Kite[]);
 
 function ResultsContent() {
   const searchParams = useSearchParams();

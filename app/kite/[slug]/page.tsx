@@ -10,7 +10,7 @@ import ReviewSources from '@/components/ReviewSources';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
 
-const allKites = kiteData as Kite[];
+const allKites = kiteData as unknown as Kite[];
 
 export default function KiteProfilePage() {
   const params = useParams();
