@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Kite } from '@/lib/types';
 import { useCompare } from './CompareContext';
 
@@ -46,11 +47,13 @@ function KiteImage({ slug, model, brand }: { slug: string; model: string; brand:
   }
 
   return (
-    <div className="w-full h-48 rounded-t-xl overflow-hidden bg-gray-50">
-      <img
+    <div className="relative w-full h-48 rounded-t-xl overflow-hidden bg-gray-50">
+      <Image
         src={`/kites/${slug}.jpg`}
         alt={`${brand} ${model}`}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-300"
         onError={() => setImgError(true)}
       />
     </div>
