@@ -2,11 +2,12 @@
 
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import kiteData from '@/data/kites.json';
 import { Kite } from '@/lib/types';
-import { getTopMatches, getActiveKites } from '@/lib/matcher';
+import { getTopMatches } from '@/lib/matcher';
 
-const kites = getActiveKites(kiteData as Kite[]);
+interface StyleMatcherProps {
+  kites: Kite[];
+}
 
 const styleZones = [
   { label: 'Foil', color: 'text-teal-600' },
@@ -38,7 +39,7 @@ function filterByConstruction(kiteList: Kite[], construction: Construction): Kit
   return kiteList.filter(k => !k.aluula && !k.brainchild);
 }
 
-export default function StyleMatcher() {
+export default function StyleMatcher({ kites }: StyleMatcherProps) {
   const [styleValue, setStyleValue] = useState(50);
   const [shapeValue, setShapeValue] = useState(50);
   const [construction, setConstruction] = useState<Construction>('all');
@@ -49,7 +50,7 @@ export default function StyleMatcher() {
     let list = filterByConstruction(kites, construction);
     if (budget < 5000) list = list.filter(k => k.price_new <= budget);
     return list;
-  }, [construction, budget]);
+  }, [kites, construction, budget]);
 
   const topMatches = useMemo(
     () => getTopMatches(filtered, styleValue, shapeValue, 3),

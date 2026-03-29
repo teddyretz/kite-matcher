@@ -2,18 +2,15 @@
 
 import Link from 'next/link';
 import { useCompare } from './CompareContext';
-import kiteData from '@/data/kites.json';
 import { Kite } from '@/lib/types';
 
-const kites = kiteData as Kite[];
-
 export default function CompareDrawer() {
-  const { compareKites, removeFromCompare, clearCompare } = useCompare();
+  const { compareKites, removeFromCompare, clearCompare, allKites } = useCompare();
 
   if (compareKites.length === 0) return null;
 
   const selected = compareKites
-    .map(slug => kites.find(k => k.slug === slug))
+    .map(slug => allKites.find(k => k.slug === slug))
     .filter(Boolean) as Kite[];
 
   return (

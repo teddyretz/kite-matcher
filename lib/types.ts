@@ -1,6 +1,6 @@
 export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
 export type BarType = 'high-y' | 'low-v' | 'both';
-export type TurningSpeed = 'slow' | 'medium' | 'fast' | 'very-fast';
+export type TurningSpeed = 'slow' | 'medium' | 'medium-fast' | 'fast' | 'very-fast';
 export type RelaunchDifficulty = 'easy' | 'medium' | 'hard';
 
 export interface ReviewSource {

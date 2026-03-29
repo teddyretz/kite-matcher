@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { Kite } from '@/lib/types';
 
 interface CompareContextType {
   compareKites: string[];
@@ -8,12 +9,26 @@ interface CompareContextType {
   removeFromCompare: (slug: string) => void;
   clearCompare: () => void;
   isInCompare: (slug: string) => boolean;
+  allKites: Kite[];
+  kitesLoading: boolean;
 }
 
 const CompareContext = createContext<CompareContextType | undefined>(undefined);
 
 export function CompareProvider({ children }: { children: ReactNode }) {
   const [compareKites, setCompareKites] = useState<string[]>([]);
+  const [allKites, setAllKites] = useState<Kite[]>([]);
+  const [kitesLoading, setKitesLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/kites')
+      .then(res => res.json())
+      .then((data: Kite[]) => {
+        setAllKites(data);
+        setKitesLoading(false);
+      })
+      .catch(() => setKitesLoading(false));
+  }, []);
 
   const addToCompare = (slug: string) => {
     setCompareKites(prev => {
@@ -31,7 +46,7 @@ export function CompareProvider({ children }: { children: ReactNode }) {
   const isInCompare = (slug: string) => compareKites.includes(slug);
 
   return (
-    <CompareContext.Provider value={{ compareKites, addToCompare, removeFromCompare, clearCompare, isInCompare }}>
+    <CompareContext.Provider value={{ compareKites, addToCompare, removeFromCompare, clearCompare, isInCompare, allKites, kitesLoading }}>
       {children}
     </CompareContext.Provider>
   );
