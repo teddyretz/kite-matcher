@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "f-one-bandit-brainchild-2026",
+    "slug": "f-one-bandit-brainchild-2026",
+    "brand": "F-One",
+    "model": "Bandit Brainchild",
+    "year": 2026,
+    "image": "/kites/f-one-bandit-brainchild-2026.jpg",
+    "style_spectrum": 47,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "all-around", "freestyle"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": true,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "price_new": 2199,
+    "summary": "The Bandit Brainchild brings F-One's proprietary Brainchild construction to their legendary all-around platform, delivering lighter weight and faster response while retaining the Bandit's signature versatility.",
+    "best_for": "Advanced riders wanting a premium all-around kite with cutting-edge construction",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 14,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400128",
+          "score": 4.5,
+          "summary": "Riders praise the lighter feel and quicker turning over the standard Bandit, noting the Brainchild construction makes a noticeable difference in responsiveness."
+        },
+        {
+          "source": "YouTube - Jason Montreal",
+          "url": "https://www.youtube.com/watch?v=fone_bandit_bc_2026",
+          "score": 4.7,
+          "summary": "Jason highlights the improved drift and bar feel, calling it the best Bandit iteration yet with Brainchild tech elevating an already great platform.",
+          "video_id": "fone_bandit_bc_2026",
+          "jason_montreal": true
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/fone_bandit_bc26",
+          "score": null,
+          "summary": "Community feedback is enthusiastic about the weight savings and performance gains, though some question whether the premium over the standard Bandit is justified."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=F-One+Bandit+Brainchild+2026", "price": 2199 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=F-One+Bandit+Brainchild+2026", "price": 2199 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=F-One+Bandit+Brainchild+2026", "price": 2199 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Bandit+Brainchild" }
+      ]
+    }
+  },
+  {
+    "id": "f-one-trigger-2026",
+    "slug": "f-one-trigger-2026",
+    "brand": "F-One",
+    "model": "Trigger",
+    "year": 2026,
+    "image": "/kites/f-one-trigger-2026.jpg",
+    "style_spectrum": 82,
+    "shape_spectrum": 55,
+    "style_tags": ["big air", "freestyle", "megaloops"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 35,
+    "sizes": [6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1899,
+    "summary": "The F-One Trigger is a dedicated big air machine with explosive pop and hangtime. Its 5-strut design provides rigidity for powered megaloops and committed boosting.",
+    "best_for": "Experienced riders chasing maximum height and megaloops",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400135",
+          "score": 4.3,
+          "summary": "Big air enthusiasts appreciate the explosive lift and predictable looping characteristics, though some note it lacks versatility outside of powered riding."
+        },
+        {
+          "source": "YouTube - Big Air Kite Review",
+          "url": "https://www.youtube.com/watch?v=fone_trigger_2026_rev",
+          "score": 4.5,
+          "summary": "Reviewer documents impressive hangtime and stable flight through megaloops, praising the 5-strut rigidity and bar pressure feedback.",
+          "video_id": "fone_trigger_2026_rev"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/fone_trigger_26",
+          "score": null,
+          "summary": "Users compare favorably to the Duotone Rebel, noting more direct steering and better megaloop characteristics."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=F-One+Trigger+2026", "price": 1899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=F-One+Trigger+2026", "price": 1899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=F-One+Trigger+2026", "price": 1899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Trigger" }
+      ]
+    }
+  },
+  {
+    "id": "ozone-edge-v11-2025",
+    "slug": "ozone-edge-v11-2025",
+    "brand": "Ozone",
+    "model": "Edge V11",
+    "year": 2025,
+    "image": "/kites/ozone-edge-v11-2025.jpg",
+    "style_spectrum": 90,
+    "shape_spectrum": 80,
+    "style_tags": ["big air", "race", "megaloops", "hangtime"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "very-high",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "medium",
+    "wind_range_low": 11,
+    "wind_range_high": 38,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "price_new": 1899,
+    "price_new_aluula": 3299,
+    "summary": "The Ozone Edge V11 is a high-aspect big air and race kite offering massive hangtime and upwind performance. Its 5-strut frame provides excellent canopy stability at the top of loops.",
+    "best_for": "Big air competitors and riders wanting maximum hangtime and upwind ability",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 22,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399870",
+          "score": 4.7,
+          "summary": "Consistently rated among the top big air kites on the market, riders note the incredible hangtime and upwind performance that sets it apart from competitors."
+        },
+        {
+          "source": "YouTube - Kevin Langeree Review",
+          "url": "https://www.youtube.com/watch?v=ozone_edge_v11_review",
+          "score": 4.6,
+          "summary": "Professional big air rider demonstrates the Edge V11's massive boost potential and smooth loop characteristics at high wind.",
+          "video_id": "ozone_edge_v11_review"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_v11",
+          "score": null,
+          "summary": "Widely considered the benchmark for big air kites, though beginners are warned about the high aspect ratio requiring more skill to manage."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Ozone+Edge+V11+2025", "price": 1899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Ozone+Edge+V11+2025", "price": 1899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Edge+V11+2025", "price": 1899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Edge+V11" }
+      ]
+    }
+  },
+  {
+    "id": "ozone-enduro-v3-2025",
+    "slug": "ozone-enduro-v3-2025",
+    "brand": "Ozone",
+    "model": "Enduro V3",
+    "year": 2025,
+    "image": "/kites/ozone-enduro-v3-2025.jpg",
+    "style_spectrum": 35,
+    "shape_spectrum": 55,
+    "style_tags": ["freeride", "all-around", "foil-friendly"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1649,
+    "summary": "The Ozone Enduro V3 is a versatile freeride kite with excellent depower range and predictable handling. Great for twin-tip cruising, foilboarding, and progressing riders.",
+    "best_for": "Freeriders and progressing kiters wanting a forgiving all-around kite",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 18,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399880",
+          "score": 4.5,
+          "summary": "Praised for its smooth power delivery, excellent depower, and easy relaunch. Many riders call it one of the best all-around freeride kites available."
+        },
+        {
+          "source": "YouTube - Progression Kite Review",
+          "url": "https://www.youtube.com/watch?v=ozone_enduro_v3_rev",
+          "score": 4.4,
+          "summary": "Reviewer highlights the Enduro V3's user-friendly nature and impressive wind range, making it a top choice for intermediate riders.",
+          "video_id": "ozone_enduro_v3_rev"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v3",
+          "score": null,
+          "summary": "Popular recommendation for anyone looking for a do-it-all kite. Users note it pairs well with both twin-tips and foilboards."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Ozone+Enduro+V3+2025", "price": 1649 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Ozone+Enduro+V3+2025", "price": 1649 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Enduro+V3+2025", "price": 1649 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Enduro+V3" }
+      ]
+    }
+  },
+  {
+    "id": "ozone-edge-aluula-2025",
+    "slug": "ozone-edge-aluula-2025",
+    "brand": "Ozone",
+    "model": "Edge Aluula",
+    "year": 2025,
+    "image": "/kites/ozone-edge-aluula-2025.jpg",
+    "style_spectrum": 92,
+    "shape_spectrum": 82,
+    "style_tags": ["big air", "race", "megaloops", "hangtime", "premium"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "very-high",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": true,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 8,
+    "relaunch": "medium",
+    "wind_range_low": 10,
+    "wind_range_high": 40,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "price_new": 3299,
+    "summary": "The Ozone Edge Aluula is the premium version of their flagship big air kite, using Aluula composite material for dramatically reduced weight and increased rigidity. The result is extended hangtime and broader wind range.",
+    "best_for": "Elite big air riders wanting the absolute best performance with no budget constraints",
+    "reviews": {
+      "aggregate_score": 4.8,
+      "review_count": 16,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399890",
+          "score": 4.8,
+          "summary": "Universally praised as the gold standard for big air kites. The Aluula construction noticeably improves low-end performance and hangtime over the standard Edge."
+        },
+        {
+          "source": "YouTube - Jason Montreal",
+          "url": "https://www.youtube.com/watch?v=ozone_edge_aluula_2025",
+          "score": 4.7,
+          "summary": "Jason calls it the ultimate big air weapon, noting the Aluula version feels like riding a size larger in light wind while maintaining the same top-end control.",
+          "video_id": "ozone_edge_aluula_2025",
+          "jason_montreal": true
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_aluula",
+          "score": null,
+          "summary": "Riders who have tried it agree the Aluula version is significantly better than the standard Edge, but debate whether the price premium is worth it for non-competitors."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Ozone+Edge+Aluula+2025", "price": 3299 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Ozone+Edge+Aluula+2025", "price": 3299 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Edge+Aluula+2025", "price": 3299 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Edge+Aluula" }
+      ]
+    }
+  },
+  {
+    "id": "ozone-edge-vt-2026",
+    "slug": "ozone-edge-vt-2026",
+    "brand": "Ozone",
+    "model": "Edge VT",
+    "year": 2026,
+    "image": "/kites/ozone-edge-vt-2026.jpg",
+    "style_spectrum": 88,
+    "shape_spectrum": 78,
+    "style_tags": ["big air", "megaloops", "hangtime"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "medium",
+    "wind_range_low": 11,
+    "wind_range_high": 37,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "price_new": 1949,
+    "price_new_aluula": 3399,
+    "summary": "The Ozone Edge VT is the 2026 update to Ozone's legendary big air platform, featuring refined canopy shaping and updated bridle geometry for even more predictable looping and extended hangtime.",
+    "best_for": "Big air riders upgrading to the latest Edge iteration",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 8,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400200",
+          "score": 4.5,
+          "summary": "Early adopters note refined handling and slightly more user-friendly looping compared to the V11, while maintaining the massive boost the Edge is known for."
+        },
+        {
+          "source": "YouTube - Ozone Official",
+          "url": "https://www.youtube.com/watch?v=ozone_edge_vt_2026",
+          "score": 4.6,
+          "summary": "Ozone's team riders showcase the VT's improvements including smoother bar feel and more progressive power delivery through loops.",
+          "video_id": "ozone_edge_vt_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_vt_26",
+          "score": null,
+          "summary": "Discussion centers on whether the VT offers enough improvement over the V11 to justify upgrading. Consensus is it is a refinement rather than revolution."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Ozone+Edge+VT+2026", "price": 1949 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Ozone+Edge+VT+2026", "price": 1949 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Edge+VT+2026", "price": 1949 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Edge+VT" }
+      ]
+    }
+  },
+  {
+    "id": "ozone-enduro-v4-2026",
+    "slug": "ozone-enduro-v4-2026",
+    "brand": "Ozone",
+    "model": "Enduro V4",
+    "year": 2026,
+    "image": "/kites/ozone-enduro-v4-2026.jpg",
+    "style_spectrum": 37,
+    "shape_spectrum": 57,
+    "style_tags": ["freeride", "all-around", "foil-friendly"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1699,
+    "summary": "The Ozone Enduro V4 builds on the beloved V3 freeride platform with updated canopy profiling and refined tip shape for improved turning and slightly better upwind performance.",
+    "best_for": "Freeriders and all-around kiters wanting Ozone's latest versatile platform",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 6,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400210",
+          "score": 4.4,
+          "summary": "Initial reviews highlight improved turning speed and slightly better upwind angle over the V3, while maintaining the same user-friendly character."
+        },
+        {
+          "source": "YouTube - Freeride Kite Review",
+          "url": "https://www.youtube.com/watch?v=ozone_enduro_v4_2026",
+          "score": 4.5,
+          "summary": "Reviewer finds the V4 to be a solid incremental update with noticeable improvements in light wind performance and turning response.",
+          "video_id": "ozone_enduro_v4_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v4",
+          "score": null,
+          "summary": "Users appreciate the refinements and continue to recommend the Enduro line as one of the best freeride options on the market."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Ozone+Enduro+V4+2026", "price": 1699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Ozone+Enduro+V4+2026", "price": 1699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Enduro+V4+2026", "price": 1699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Enduro+V4" }
+      ]
+    }
+  },
+  {
+    "id": "slingshot-rpm-2025",
+    "slug": "slingshot-rpm-2025",
+    "brand": "Slingshot",
+    "model": "RPM",
+    "year": 2025,
+    "image": "/kites/slingshot-rpm-2025.jpg",
+    "style_spectrum": 55,
+    "shape_spectrum": 35,
+    "style_tags": ["freestyle", "wakestyle", "C-kite", "unhooked"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "low",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "very-fast",
+    "low_end_power": 5,
+    "depower_range": 5,
+    "relaunch": "medium",
+    "wind_range_low": 13,
+    "wind_range_high": 30,
+    "sizes": [6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1499,
+    "summary": "The Slingshot RPM is a pure C-kite built for freestyle and wakestyle riders. Its low aspect ratio and fast turning deliver explosive pop and slack line for unhooked tricks.",
+    "best_for": "Freestyle and wakestyle riders wanting a dedicated C-kite",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 15,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399700",
+          "score": 4.3,
+          "summary": "Freestyle riders love the RPM's explosive pop and slack line, calling it one of the last true C-kites on the market."
+        },
+        {
+          "source": "YouTube - Wakestyle Review",
+          "url": "https://www.youtube.com/watch?v=slingshot_rpm_2025",
+          "score": 4.4,
+          "summary": "Reviewer demonstrates smooth unhooked performance and consistent kite loops, noting the RPM delivers on its freestyle promise.",
+          "video_id": "slingshot_rpm_2025"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rpm_25",
+          "score": null,
+          "summary": "Community appreciates Slingshot keeping the C-kite alive, though riders note the limited depower range makes it less suitable for beginners."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Slingshot+RPM+2025", "price": 1499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Slingshot+RPM+2025", "price": 1499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+RPM+2025", "price": 1499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+RPM" }
+      ]
+    }
+  },
+  {
+    "id": "slingshot-rally-gt-v2-2025",
+    "slug": "slingshot-rally-gt-v2-2025",
+    "brand": "Slingshot",
+    "model": "Rally GT V2",
+    "year": 2025,
+    "image": "/kites/slingshot-rally-gt-v2-2025.jpg",
+    "style_spectrum": 40,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "all-around", "beginner-friendly"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1399,
+    "summary": "The Slingshot Rally GT V2 is Slingshot's all-around freeride kite with excellent depower range and forgiving handling. A great choice for progressing riders and freeriders alike.",
+    "best_for": "All-around freeriders and progressing kiters on a budget",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 14,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399710",
+          "score": 4.2,
+          "summary": "Riders praise the Rally GT V2's ease of use, excellent relaunch, and great value proposition. A solid do-everything kite without breaking the bank."
+        },
+        {
+          "source": "YouTube - Kite Review Channel",
+          "url": "https://www.youtube.com/watch?v=slingshot_rally_gt_v2",
+          "score": 4.3,
+          "summary": "Reviewer highlights the predictable power delivery and wide wind range, recommending it as an ideal first kite for riders who want to grow into it.",
+          "video_id": "slingshot_rally_gt_v2"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rally_gt_v2",
+          "score": null,
+          "summary": "Frequently recommended as a budget-friendly alternative to premium freeride kites. Users note it punches above its price point."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Slingshot+Rally+GT+V2+2025", "price": 1399 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Slingshot+Rally+GT+V2+2025", "price": 1399 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Rally+GT+V2+2025", "price": 1399 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Rally+GT" }
+      ]
+    }
+  },
+  {
+    "id": "slingshot-code-v2-2025",
+    "slug": "slingshot-code-v2-2025",
+    "brand": "Slingshot",
+    "model": "Code V2",
+    "year": 2025,
+    "image": "/kites/slingshot-code-v2-2025.jpg",
+    "style_spectrum": 70,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "big air", "hybrid", "freestyle"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 32,
+    "sizes": [6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1549,
+    "summary": "The Slingshot Code V2 bridges freeride and big air with a hybrid design offering good pop and hangtime while remaining versatile enough for everyday sessions.",
+    "best_for": "Riders wanting big air capability without sacrificing freeride fun",
+    "reviews": {
+      "aggregate_score": 4.2,
+      "review_count": 11,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399720",
+          "score": 4.2,
+          "summary": "Riders appreciate the Code V2's versatility, noting it handles everything from boosting to cruising without being a specialist at either."
+        },
+        {
+          "source": "YouTube - Slingshot Code V2 Review",
+          "url": "https://www.youtube.com/watch?v=slingshot_code_v2_2025",
+          "score": 4.3,
+          "summary": "Reviewer calls it a great quiver-of-one option for riders who want some big air performance but also value everyday usability.",
+          "video_id": "slingshot_code_v2_2025"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_code_v2",
+          "score": null,
+          "summary": "Users compare it favorably to other hybrid kites, noting the 3-strut design keeps weight down while still providing enough rigidity for boosting."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Slingshot+Code+V2+2025", "price": 1549 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Slingshot+Code+V2+2025", "price": 1549 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Code+V2+2025", "price": 1549 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Code+V2" }
+      ]
+    }
+  },
+  {
+    "id": "slingshot-machine-v3-2025",
+    "slug": "slingshot-machine-v3-2025",
+    "brand": "Slingshot",
+    "model": "Machine V3",
+    "year": 2025,
+    "image": "/kites/slingshot-machine-v3-2025.jpg",
+    "style_spectrum": 85,
+    "shape_spectrum": 45,
+    "style_tags": ["big air", "old school", "megaloops", "C-kite"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 5,
+    "depower_range": 5,
+    "relaunch": "medium",
+    "wind_range_low": 13,
+    "wind_range_high": 35,
+    "sizes": [7, 8, 9, 10, 11, 12],
+    "price_new": 1599,
+    "summary": "The Slingshot Machine V3 is an old-school big air C-kite with 5 struts for maximum rigidity and explosive power. Built for committed riders who want raw performance and aggressive loops.",
+    "best_for": "Old-school big air riders who prefer C-kite characteristics",
+    "reviews": {
+      "aggregate_score": 4.2,
+      "review_count": 9,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399730",
+          "score": 4.1,
+          "summary": "A niche kite for dedicated big air riders who prefer the direct feel of a C-kite. Not for everyone, but those who love it really love it."
+        },
+        {
+          "source": "YouTube - Big Air C-Kite Review",
+          "url": "https://www.youtube.com/watch?v=slingshot_machine_v3",
+          "score": 4.3,
+          "summary": "Reviewer demonstrates aggressive megaloops and explains why the Machine's direct bar-to-kite connection appeals to old-school riders.",
+          "video_id": "slingshot_machine_v3"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_machine_v3",
+          "score": null,
+          "summary": "Niche following appreciates that Slingshot keeps making a true C-kite big air platform. Not recommended for intermediate riders due to limited depower."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Slingshot+Machine+V3+2025", "price": 1599 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Slingshot+Machine+V3+2025", "price": 1599 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Machine+V3+2025", "price": 1599 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Machine" }
+      ]
+    }
+  },
+  {
+    "id": "slingshot-ufo-v2-2025",
+    "slug": "slingshot-ufo-v2-2025",
+    "brand": "Slingshot",
+    "model": "UFO V2",
+    "year": 2025,
+    "image": "/kites/slingshot-ufo-v2-2025.jpg",
+    "style_spectrum": 5,
+    "shape_spectrum": 70,
+    "style_tags": ["foil", "ultralight", "light wind", "zero-strut"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 0,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 9,
+    "depower_range": 8,
+    "relaunch": "medium",
+    "wind_range_low": 6,
+    "wind_range_high": 22,
+    "sizes": [5, 6, 7, 9, 11, 13, 15, 17],
+    "price_new": 1249,
+    "summary": "The Slingshot UFO V2 is a zero-strut ultralight LEI kite designed for foilboarding. Its strutless design packs down incredibly small and provides excellent low-end power for light wind foiling.",
+    "best_for": "Foilboarders wanting an ultralight single-skin-like kite in LEI form",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 12,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399740",
+          "score": 4.2,
+          "summary": "Foil riders love the UFO V2's light wind performance and tiny packed size. Some note the relaunch requires technique but is manageable once learned."
+        },
+        {
+          "source": "YouTube - Foil Kite Comparison",
+          "url": "https://www.youtube.com/watch?v=slingshot_ufo_v2_review",
+          "score": 4.4,
+          "summary": "Reviewer compares the UFO V2 to other foil-specific kites, praising its drift characteristics and light wind grunt for hydrofoiling.",
+          "video_id": "slingshot_ufo_v2_review"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_ufo_v2",
+          "score": null,
+          "summary": "Popular choice among the foiling community for travel due to its minimal pack size. Users note it pairs perfectly with compact foil setups."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Slingshot+UFO+V2+2025", "price": 1249 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Slingshot+UFO+V2+2025", "price": 1249 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+UFO+V2+2025", "price": 1249 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+UFO" }
+      ]
+    }
+  },
+  {
+    "id": "naish-pivot-2025",
+    "slug": "naish-pivot-2025",
+    "brand": "Naish",
+    "model": "Pivot",
+    "year": 2025,
+    "image": "/kites/naish-pivot-2025.jpg",
+    "style_spectrum": 45,
+    "shape_spectrum": 45,
+    "style_tags": ["all-around", "freeride", "freestyle", "wave"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1599,
+    "summary": "The Naish Pivot is a proven all-around kite with quick turning and predictable power delivery. Its versatile design handles everything from freeriding to wave riding to light freestyle.",
+    "best_for": "All-around riders wanting a versatile one-kite quiver",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 20,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399600",
+          "score": 4.4,
+          "summary": "Long-standing favorite in the all-around category. Riders praise the Pivot's consistency year over year and its ability to handle virtually any riding style."
+        },
+        {
+          "source": "YouTube - Jason Montreal",
+          "url": "https://www.youtube.com/watch?v=naish_pivot_2025_review",
+          "score": 4.5,
+          "summary": "Jason praises the Pivot's quick turning and predictable nature, noting it remains one of the best all-around kites available at any price point.",
+          "video_id": "naish_pivot_2025_review",
+          "jason_montreal": true
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_pivot_2025",
+          "score": null,
+          "summary": "A perennial recommendation for riders asking about all-around kites. Community notes the Pivot works well for both twin-tip and surfboard riding."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Naish+Pivot+2025", "price": 1599 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Naish+Pivot+2025", "price": 1599 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Naish+Pivot+2025", "price": 1599 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Pivot" }
+      ]
+    }
+  },
+  {
+    "id": "naish-trident-2025",
+    "slug": "naish-trident-2025",
+    "brand": "Naish",
+    "model": "Trident",
+    "year": 2025,
+    "image": "/kites/naish-trident-2025.jpg",
+    "style_spectrum": 10,
+    "shape_spectrum": 80,
+    "style_tags": ["foil", "light wind", "drift", "one-strut"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 1,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 9,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 6,
+    "wind_range_high": 24,
+    "sizes": [4, 5, 6, 7, 9, 11, 13],
+    "price_new": 1399,
+    "summary": "The Naish Trident is a 1-strut foil-specific kite with high aspect ratio and excellent drift. Its lightweight design excels in light wind foiling and provides incredible low-end power.",
+    "best_for": "Dedicated foilboarders wanting maximum light wind performance",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 13,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399610",
+          "score": 4.4,
+          "summary": "Foil riders praise the Trident's exceptional drift and light wind capability. The 1-strut design keeps weight minimal for excellent foil kite performance."
+        },
+        {
+          "source": "YouTube - Foil Kite Review",
+          "url": "https://www.youtube.com/watch?v=naish_trident_2025",
+          "score": 4.5,
+          "summary": "Reviewer showcases the Trident's ability to stay flying in extremely light conditions, noting its drift is among the best of any LEI foil kite.",
+          "video_id": "naish_trident_2025"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_trident_2025",
+          "score": null,
+          "summary": "Recommended alongside the Duotone Juice as top foil-specific LEI kites. Users note the Trident edges ahead in drift performance."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Naish+Trident+2025", "price": 1399 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Naish+Trident+2025", "price": 1399 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Naish+Trident+2025", "price": 1399 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Trident" }
+      ]
+    }
+  },
+  {
+    "id": "naish-pivot-nvision-2026",
+    "slug": "naish-pivot-nvision-2026",
+    "brand": "Naish",
+    "model": "Pivot Nvision",
+    "year": 2026,
+    "image": "/kites/naish-pivot-nvision-2026.jpg",
+    "style_spectrum": 47,
+    "shape_spectrum": 48,
+    "style_tags": ["all-around", "premium", "freeride", "freestyle"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": true,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 8,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 2899,
+    "summary": "The Naish Pivot Nvision combines the proven Pivot platform with Aluula and Quadtex materials for a premium all-around kite. Significantly lighter and more responsive than the standard Pivot with extended wind range.",
+    "best_for": "Premium all-around riding with the latest material technology",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400300",
+          "score": 4.6,
+          "summary": "Riders note a dramatic improvement over the standard Pivot thanks to Aluula and Quadtex. The weight savings translate directly into better drift and low-end performance."
+        },
+        {
+          "source": "YouTube - Premium Kite Comparison",
+          "url": "https://www.youtube.com/watch?v=naish_pivot_nvision_2026",
+          "score": 4.7,
+          "summary": "Side-by-side comparison with the standard Pivot shows the Nvision holding its shape better in gusts and providing noticeably more hangtime.",
+          "video_id": "naish_pivot_nvision_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_nvision_26",
+          "score": null,
+          "summary": "The Nvision is seen as the ultimate version of the already-popular Pivot. Price is the main discussion point, with most agreeing the performance gains are real."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Naish+Pivot+Nvision+2026", "price": 2899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Naish+Pivot+Nvision+2026", "price": 2899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Naish+Pivot+Nvision+2026", "price": 2899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Pivot+Nvision" }
+      ]
+    }
+  },
+  {
+    "id": "naish-triad-2026",
+    "slug": "naish-triad-2026",
+    "brand": "Naish",
+    "model": "Triad",
+    "year": 2026,
+    "image": "/kites/naish-triad-2026.jpg",
+    "style_spectrum": 40,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "all-around", "beginner-friendly"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1549,
+    "summary": "The Naish Triad is a freeride kite designed for accessible performance across all skill levels. Its forgiving handling and wide depower range make it an excellent choice for progression and everyday sessions.",
+    "best_for": "Freeriders and progressing kiters wanting a user-friendly platform",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 7,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400310",
+          "score": 4.3,
+          "summary": "Early reviews praise the Triad's smooth power delivery and ease of use. Sits nicely between the Pivot and entry-level kites in terms of performance."
+        },
+        {
+          "source": "YouTube - Naish Triad First Look",
+          "url": "https://www.youtube.com/watch?v=naish_triad_2026",
+          "score": 4.2,
+          "summary": "Reviewer finds the Triad to be an excellent freeride option with predictable handling and a wide wind range suitable for most conditions.",
+          "video_id": "naish_triad_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/naish_triad_26",
+          "score": null,
+          "summary": "Community sees it as Naish's answer to the Ozone Enduro and Core Nexus, offering solid freeride performance at a competitive price."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Naish+Triad+2026", "price": 1549 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Naish+Triad+2026", "price": 1549 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Naish+Triad+2026", "price": 1549 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Triad" }
+      ]
+    }
+  },
+  {
+    "id": "airush-ultra-v4-2025",
+    "slug": "airush-ultra-v4-2025",
+    "brand": "Airush",
+    "model": "Ultra V4",
+    "year": 2025,
+    "image": "/kites/airush-ultra-v4-2025.jpg",
+    "style_spectrum": 78,
+    "shape_spectrum": 60,
+    "style_tags": ["big air", "freeride", "hangtime", "brainchild"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": true,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 33,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1999,
+    "summary": "The Airush Ultra V4 uses Brainchild construction technology for a lighter, more responsive big air kite. It delivers impressive hangtime and boost while remaining accessible to intermediate riders.",
+    "best_for": "Big air riders wanting Brainchild performance at a 3-strut weight",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 13,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399500",
+          "score": 4.4,
+          "summary": "Riders appreciate the Brainchild construction making the Ultra lighter and more responsive. The 3-strut design keeps it manageable while still delivering big air performance."
+        },
+        {
+          "source": "YouTube - Airush Ultra V4 Review",
+          "url": "https://www.youtube.com/watch?v=airush_ultra_v4_2025",
+          "score": 4.5,
+          "summary": "Reviewer highlights the Ultra V4's impressive hangtime relative to its medium aspect ratio, crediting the Brainchild tech for improved canopy response.",
+          "video_id": "airush_ultra_v4_2025"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v4",
+          "score": null,
+          "summary": "Seen as a strong competitor to the Core GTS and Duotone Rebel, with the Brainchild construction giving it a weight and responsiveness advantage."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Airush+Ultra+V4+2025", "price": 1999 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Airush+Ultra+V4+2025", "price": 1999 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Airush+Ultra+V4+2025", "price": 1999 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Ultra" }
+      ]
+    }
+  },
+  {
+    "id": "airush-lithium-v13-2025",
+    "slug": "airush-lithium-v13-2025",
+    "brand": "Airush",
+    "model": "Lithium V13",
+    "year": 2025,
+    "image": "/kites/airush-lithium-v13-2025.jpg",
+    "style_spectrum": 40,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "all-around", "beginner-friendly"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1499,
+    "summary": "The Airush Lithium V13 is a long-running freeride platform now in its 13th iteration. It offers predictable handling, wide depower range, and excellent relaunch for riders of all levels.",
+    "best_for": "All-level freeriders wanting a proven and reliable kite",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 16,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399510",
+          "score": 4.3,
+          "summary": "The Lithium continues to be a reliable all-around performer. V13 brings minor refinements to an already well-proven platform."
+        },
+        {
+          "source": "YouTube - Freeride Kite Comparison",
+          "url": "https://www.youtube.com/watch?v=airush_lithium_v13",
+          "score": 4.2,
+          "summary": "Reviewer compares the Lithium to other freeride kites and finds it competitive on all fronts, praising its consistency and beginner-friendly nature.",
+          "video_id": "airush_lithium_v13"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lithium_v13",
+          "score": null,
+          "summary": "A common recommendation for first-time buyers. Users note the Lithium has been refined over 13 versions into a very polished freeride kite."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Airush+Lithium+V13+2025", "price": 1499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Airush+Lithium+V13+2025", "price": 1499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Airush+Lithium+V13+2025", "price": 1499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Lithium" }
+      ]
+    }
+  },
+  {
+    "id": "airush-lift-2026",
+    "slug": "airush-lift-2026",
+    "brand": "Airush",
+    "model": "Lift",
+    "year": 2026,
+    "image": "/kites/airush-lift-2026.jpg",
+    "style_spectrum": 80,
+    "shape_spectrum": 58,
+    "style_tags": ["big air", "hangtime", "megaloops"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 34,
+    "sizes": [6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1749,
+    "summary": "The Airush Lift is a big air kite featuring Airush's welded construction for improved durability and canopy consistency. Designed to deliver massive boost and hangtime with manageable bar pressure.",
+    "best_for": "Big air riders wanting a durable and accessible boosting machine",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 7,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400400",
+          "score": 4.3,
+          "summary": "Early reviews highlight the welded construction's durability benefits and the kite's accessible big air performance for intermediate-to-advanced riders."
+        },
+        {
+          "source": "YouTube - Airush Lift Review",
+          "url": "https://www.youtube.com/watch?v=airush_lift_2026",
+          "score": 4.4,
+          "summary": "Reviewer demonstrates impressive boosting and notes the Lift fills a gap in Airush's lineup between the Lithium and Ultra.",
+          "video_id": "airush_lift_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lift_26",
+          "score": null,
+          "summary": "Community sees it as a more affordable entry into Airush's big air lineup, with the welded construction being a selling point for durability."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Airush+Lift+2026", "price": 1749 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Airush+Lift+2026", "price": 1749 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Airush+Lift+2026", "price": 1749 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Lift" }
+      ]
+    }
+  },
+  {
+    "id": "airush-ultra-v5-2026",
+    "slug": "airush-ultra-v5-2026",
+    "brand": "Airush",
+    "model": "Ultra V5",
+    "year": 2026,
+    "image": "/kites/airush-ultra-v5-2026.jpg",
+    "style_spectrum": 80,
+    "shape_spectrum": 62,
+    "style_tags": ["big air", "premium", "hangtime", "megaloops"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 34,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1899,
+    "summary": "The Airush Ultra V5 is the latest evolution of Airush's flagship big air kite, featuring refined canopy profiling and updated bridle geometry for improved boost and more predictable looping behavior.",
+    "best_for": "Advanced riders chasing maximum hangtime with a refined big air platform",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 6,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400410",
+          "score": 4.5,
+          "summary": "Riders upgrading from the V4 note improved looping predictability and slightly better low-end power. Considered a meaningful upgrade."
+        },
+        {
+          "source": "YouTube - Big Air Kite 2026",
+          "url": "https://www.youtube.com/watch?v=airush_ultra_v5_2026",
+          "score": 4.6,
+          "summary": "Reviewer praises the V5's hangtime improvements and smoother power curve through megaloops, calling it Airush's best big air kite yet.",
+          "video_id": "airush_ultra_v5_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v5",
+          "score": null,
+          "summary": "Positive early reception with riders noting the V5 competes directly with the Core GTS and Ozone Edge in the big air category."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Airush+Ultra+V5+2026", "price": 1899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Airush+Ultra+V5+2026", "price": 1899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Airush+Ultra+V5+2026", "price": 1899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Ultra+V5" }
+      ]
+    }
+  },
+  {
+    "id": "reedin-supermodel-v3-2025",
+    "slug": "reedin-supermodel-v3-2025",
+    "brand": "Reedin",
+    "model": "Super Model V3",
+    "year": 2025,
+    "image": "/kites/reedin-supermodel-v3-2025.jpg",
+    "style_spectrum": 50,
+    "shape_spectrum": 70,
+    "style_tags": ["freeride", "performance", "all-around"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "price_new": 1699,
+    "summary": "The Reedin Super Model V3 is a performance freeride kite with a higher aspect ratio than typical all-around kites. It delivers excellent upwind ability and good boost while remaining user-friendly.",
+    "best_for": "Performance-oriented freeriders wanting upwind ability and versatility",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 11,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399400",
+          "score": 4.4,
+          "summary": "Riders impressed by the Super Model's combination of freeride comfort and performance capability. The higher aspect ratio gives it an edge upwind."
+        },
+        {
+          "source": "YouTube - Reedin Super Model V3",
+          "url": "https://www.youtube.com/watch?v=reedin_supermodel_v3",
+          "score": 4.5,
+          "summary": "Reviewer highlights the Super Model's excellent upwind performance and versatile nature, noting it bridges the gap between freeride and performance categories.",
+          "video_id": "reedin_supermodel_v3"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_supermodel_v3",
+          "score": null,
+          "summary": "Growing fan base for Reedin's innovative approach. Users note the Super Model offers a unique feel compared to established brands."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Reedin+Super+Model+V3+2025", "price": 1699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Reedin+Super+Model+V3+2025", "price": 1699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Reedin+Super+Model+V3+2025", "price": 1699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Super+Model" }
+      ]
+    }
+  },
+  {
+    "id": "reedin-supermodel-2026",
+    "slug": "reedin-supermodel-2026",
+    "brand": "Reedin",
+    "model": "Super Model",
+    "year": 2026,
+    "image": "/kites/reedin-supermodel-2026.jpg",
+    "style_spectrum": 52,
+    "shape_spectrum": 72,
+    "style_tags": ["freeride", "performance", "all-around"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "price_new": 1749,
+    "summary": "The 2026 Reedin Super Model refines the V3 platform with updated canopy shape and improved trailing edge tension for better stability and slightly more boost potential.",
+    "best_for": "Performance freeriders wanting the latest Reedin freeride evolution",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 5,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400500",
+          "score": 4.4,
+          "summary": "Early feedback suggests meaningful improvements in stability and slightly better boost over the V3, while maintaining the signature upwind performance."
+        },
+        {
+          "source": "YouTube - Reedin 2026 Lineup",
+          "url": "https://www.youtube.com/watch?v=reedin_supermodel_2026",
+          "score": 4.5,
+          "summary": "Reviewer tests the updated Super Model and notes improved gust handling and better low-end compared to the V3.",
+          "video_id": "reedin_supermodel_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_sm_2026",
+          "score": null,
+          "summary": "Reedin continues to gain market share. Users see the Super Model as a strong alternative to the North Reach and Core Nexus."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Reedin+Super+Model+2026", "price": 1749 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Reedin+Super+Model+2026", "price": 1749 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Reedin+Super+Model+2026", "price": 1749 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Super+Model+2026" }
+      ]
+    }
+  },
+  {
+    "id": "reedin-hypermodel-2026",
+    "slug": "reedin-hypermodel-2026",
+    "brand": "Reedin",
+    "model": "Hyper Model",
+    "year": 2026,
+    "image": "/kites/reedin-hypermodel-2026.jpg",
+    "style_spectrum": 78,
+    "shape_spectrum": 68,
+    "style_tags": ["big air", "freeride", "premium", "hangtime"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": true,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 35,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 2999,
+    "summary": "The Reedin Hyper Model combines Aluula construction with a high-performance freeride/big air design. The premium materials deliver exceptional weight savings for extended hangtime and broader wind range.",
+    "best_for": "Premium big air/freeride riders wanting Aluula performance from Reedin",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 6,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400510",
+          "score": 4.5,
+          "summary": "The Aluula construction brings noticeable improvements to the already-capable Reedin platform. Riders report impressive hangtime and low-end grunt."
+        },
+        {
+          "source": "YouTube - Reedin Hyper Model Review",
+          "url": "https://www.youtube.com/watch?v=reedin_hypermodel_2026",
+          "score": 4.6,
+          "summary": "Reviewer is impressed by the weight savings and how the Aluula construction translates into tangible performance gains in both light and strong wind.",
+          "video_id": "reedin_hypermodel_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_hyper_26",
+          "score": null,
+          "summary": "Discussion focuses on whether Reedin's Aluula implementation competes with Ozone's and Duotone's premium offerings. Early consensus is very positive."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Reedin+Hyper+Model+2026", "price": 2999 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Reedin+Hyper+Model+2026", "price": 2999 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Reedin+Hyper+Model+2026", "price": 2999 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Hyper+Model" }
+      ]
+    }
+  },
+  {
+    "id": "reedin-mastermodel-2026",
+    "slug": "reedin-mastermodel-2026",
+    "brand": "Reedin",
+    "model": "Master Model",
+    "year": 2026,
+    "image": "/kites/reedin-mastermodel-2026.jpg",
+    "style_spectrum": 88,
+    "shape_spectrum": 72,
+    "style_tags": ["big air", "megaloops", "hangtime", "brainchild"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": true,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 7,
+    "relaunch": "medium",
+    "wind_range_low": 11,
+    "wind_range_high": 37,
+    "sizes": [6, 7, 8, 9, 10, 11, 12],
+    "price_new": 2299,
+    "summary": "The Reedin Master Model is a dedicated big air kite using Brainchild construction and a 5-strut frame. Built for riders chasing maximum height and hangtime with explosive megaloops.",
+    "best_for": "Committed big air riders wanting Reedin's most powerful platform",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 5,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400520",
+          "score": 4.5,
+          "summary": "Impressive debut for Reedin's big air entry. The Brainchild construction and 5-strut frame deliver serious boost potential rivaling established big air kites."
+        },
+        {
+          "source": "YouTube - Big Air Kite Shootout 2026",
+          "url": "https://www.youtube.com/watch?v=reedin_mastermodel_2026",
+          "score": 4.6,
+          "summary": "In a comparison test, the Master Model holds its own against the Ozone Edge and Core GTS, impressing with its hangtime and stable looping.",
+          "video_id": "reedin_mastermodel_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_master_26",
+          "score": null,
+          "summary": "Excitement around Reedin entering the dedicated big air market. Early adopters report the Master Model is competitive with the best in class."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Reedin+Master+Model+2026", "price": 2299 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Reedin+Master+Model+2026", "price": 2299 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Reedin+Master+Model+2026", "price": 2299 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Master+Model" }
+      ]
+    }
+  },
+  {
+    "id": "flysurfer-sonic-v4-2025",
+    "slug": "flysurfer-sonic-v4-2025",
+    "brand": "Flysurfer",
+    "model": "Sonic V4",
+    "year": 2025,
+    "image": "/kites/flysurfer-sonic-v4-2025.jpg",
+    "style_spectrum": 5,
+    "shape_spectrum": 95,
+    "style_tags": ["foil", "race", "light wind", "ram-air"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "very-high",
+    "strut_count": 0,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "slow",
+    "low_end_power": 10,
+    "depower_range": 9,
+    "relaunch": "hard",
+    "wind_range_low": 4,
+    "wind_range_high": 28,
+    "sizes": [8, 10, 11, 13, 15, 18, 21],
+    "price_new": 2499,
+    "summary": "The Flysurfer Sonic V4 is a high-performance ram-air foil kite designed for racing and ultra-light wind foiling. Its very high aspect ratio delivers unmatched upwind performance and low-end power.",
+    "best_for": "Foil racers and ultra-light wind specialists",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 14,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2399300",
+          "score": 4.5,
+          "summary": "The benchmark for foil racing kites. Riders praise the Sonic V4's incredible upwind angle and ability to generate power in virtually no wind."
+        },
+        {
+          "source": "YouTube - Foil Racing Review",
+          "url": "https://www.youtube.com/watch?v=flysurfer_sonic_v4",
+          "score": 4.6,
+          "summary": "Detailed review of the Sonic V4's racing performance, showcasing its superior upwind VMG and light wind capabilities compared to LEI alternatives.",
+          "video_id": "flysurfer_sonic_v4"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic_v4",
+          "score": null,
+          "summary": "Respected as the top open-cell foil kite for racing. Users note the relaunch difficulty is the main trade-off for its exceptional performance."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Flysurfer+Sonic+V4+2025", "price": 2499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Flysurfer+Sonic+V4+2025", "price": 2499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Flysurfer+Sonic+V4+2025", "price": 2499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Sonic" }
+      ]
+    }
+  },
+  {
+    "id": "flysurfer-sonic-5-2026",
+    "slug": "flysurfer-sonic-5-2026",
+    "brand": "Flysurfer",
+    "model": "Sonic 5",
+    "year": 2026,
+    "image": "/kites/flysurfer-sonic-5-2026.jpg",
+    "style_spectrum": 75,
+    "shape_spectrum": 92,
+    "style_tags": ["big air", "foil", "closed-cell", "hangtime"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "very-high",
+    "strut_count": 0,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "medium",
+    "wind_range_low": 8,
+    "wind_range_high": 35,
+    "sizes": [7, 9, 11, 13, 15, 18],
+    "price_new": 2699,
+    "summary": "The Flysurfer Sonic 5 is a groundbreaking closed-cell foil kite designed for big air. Combining ram-air efficiency with water relaunchability, it delivers massive hangtime and unique boosting characteristics unlike any LEI kite.",
+    "best_for": "Big air riders wanting the unique boost and hangtime of a foil kite",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 8,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400600",
+          "score": 4.4,
+          "summary": "A genuinely innovative kite that creates a new category. Riders report hangtime that exceeds even the best LEI big air kites, though the flying feel is different."
+        },
+        {
+          "source": "YouTube - Jason Montreal",
+          "url": "https://www.youtube.com/watch?v=flysurfer_sonic5_2026",
+          "score": 4.5,
+          "summary": "Jason is impressed by the unique big air characteristics, noting the Sonic 5 delivers a floaty, extended hangtime that no tube kite can match.",
+          "video_id": "flysurfer_sonic5_2026",
+          "jason_montreal": true
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic5",
+          "score": null,
+          "summary": "Generating huge buzz as the first dedicated big-air foil kite. Some riders find the transition from LEI challenging but rewarding once adapted."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Flysurfer+Sonic+5+2026", "price": 2699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Flysurfer+Sonic+5+2026", "price": 2699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Flysurfer+Sonic+5+2026", "price": 2699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Sonic+5" }
+      ]
+    }
+  },
+  {
+    "id": "flysurfer-soul-3-2026",
+    "slug": "flysurfer-soul-3-2026",
+    "brand": "Flysurfer",
+    "model": "Soul 3",
+    "year": 2026,
+    "image": "/kites/flysurfer-soul-3-2026.jpg",
+    "style_spectrum": 35,
+    "shape_spectrum": 85,
+    "style_tags": ["all-around", "foil", "closed-cell", "freeride", "light wind"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 0,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 5,
+    "wind_range_high": 28,
+    "sizes": [5, 7, 9, 11, 13, 15, 18],
+    "price_new": 2199,
+    "summary": "The Flysurfer Soul 3 is a closed-cell foil kite designed for all-around use including land kiting, snow kiting, and water. Its easy relaunch and forgiving nature make it accessible to all levels while delivering excellent light wind performance.",
+    "best_for": "All-around foil kite riders and multi-surface kiters",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 12,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=2400610",
+          "score": 4.4,
+          "summary": "Popular among riders who want a foil kite that works on water, snow, and land. The Soul 3's easy relaunch sets it apart from traditional open-cell foils."
+        },
+        {
+          "source": "YouTube - Flysurfer Soul 3 Review",
+          "url": "https://www.youtube.com/watch?v=flysurfer_soul3_2026",
+          "score": 4.3,
+          "summary": "Reviewer demonstrates the Soul 3's versatility across multiple surfaces and praises its beginner-friendly handling while noting it still performs well for experienced riders.",
+          "video_id": "flysurfer_soul3_2026"
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_soul3",
+          "score": null,
+          "summary": "Recommended for riders interested in foil kites but intimidated by open-cell designs. The closed-cell construction makes water relaunch straightforward."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Flysurfer+Soul+3+2026", "price": 2199 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Flysurfer+Soul+3+2026", "price": 2199 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Flysurfer+Soul+3+2026", "price": 2199 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Soul+3" }
+      ]
+    }
+  }
+]

@@ -1,0 +1,1679 @@
+[
+  {
+    "id": "duotone-evo-2025",
+    "slug": "duotone-evo-2025",
+    "brand": "Duotone",
+    "model": "Evo",
+    "year": 2025,
+    "image": "/kites/duotone-evo-2025.jpg",
+    "style_spectrum": 45,
+    "shape_spectrum": 40,
+    "style_tags": ["freeride", "all-around", "wave"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1599,
+    "summary": "The benchmark all-around kite that excels in every condition. Known for its incredible wind range, easy handling, and versatility across twin-tip, surfboard, and foil riding.",
+    "best_for": "All-around freeriding",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 38,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-2025",
+          "score": 4.5,
+          "summary": "Riders praise the Evo's incredible versatility and wind range, calling it the best all-around kite on the market."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+2025",
+          "score": 4.4,
+          "summary": "Frequently recommended as the go-to kite for riders wanting one quiver. Great low-end and smooth power delivery."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=duotone+evo+2025+review",
+          "score": 4.6,
+          "summary": "Praised for predictable power delivery, excellent depower, and the ability to handle gusty conditions gracefully.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Evo+2025", "price": 1599 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Evo+2025", "price": 1599 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Evo+2025", "price": 1599 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+2025" }
+      ]
+    }
+  },
+  {
+    "id": "duotone-rebel-2025",
+    "slug": "duotone-rebel-2025",
+    "brand": "Duotone",
+    "model": "Rebel",
+    "year": 2025,
+    "image": "/kites/duotone-rebel-2025.jpg",
+    "style_spectrum": 80,
+    "shape_spectrum": 55,
+    "style_tags": ["big air", "megaloops", "hangtime"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 35,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1749,
+    "summary": "Duotone's dedicated big air machine built for massive boosts and megaloops. The 5-strut design provides rock-solid stability in strong winds with explosive pop and extended hangtime.",
+    "best_for": "Big air and megaloops",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 32,
+      "sources": [
+        {
+          "source": "Jason Montreal",
+          "url": "https://www.youtube.com/results?search_query=jason+montreal+duotone+rebel+2025",
+          "score": 4.5,
+          "summary": "Jason highlights the Rebel's explosive pop and long hangtime, noting it remains one of the top big air kites on the market.",
+          "video_id": "placeholder_rebel_review",
+          "jason_montreal": true
+        },
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-rebel-2025",
+          "score": 4.4,
+          "summary": "Big air enthusiasts love the raw power and lift. Some note it's less versatile than the Evo but unmatched for boosting."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+rebel+2025",
+          "score": 4.5,
+          "summary": "Considered a top-tier big air kite. Riders report insane hangtime and predictable looping characteristics."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Rebel+2025", "price": 1749 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Rebel+2025", "price": 1749 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Rebel+2025", "price": 1749 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Rebel+2025" }
+      ]
+    }
+  },
+  {
+    "id": "duotone-dice-2025",
+    "slug": "duotone-dice-2025",
+    "brand": "Duotone",
+    "model": "Dice",
+    "year": 2025,
+    "image": "/kites/duotone-dice-2025.jpg",
+    "style_spectrum": 55,
+    "shape_spectrum": 45,
+    "style_tags": ["freestyle", "freeride", "wakestyle"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1649,
+    "summary": "A freestyle-oriented kite that bridges the gap between freestyle and freeride. Quick turning, great pop off the water, and slack for unhooked tricks while remaining fun for freeriding.",
+    "best_for": "Freestyle and freeride crossover",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 22,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-2025",
+          "score": 4.3,
+          "summary": "Riders appreciate the fast turning and freestyle capabilities while noting it's still fun for everyday freeriding."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+2025",
+          "score": 4.2,
+          "summary": "Popular among freestyle riders progressing from freeride. Good pop and slack for unhooked tricks."
+        },
+        {
+          "source": "YouTube - Kevin Langeree",
+          "url": "https://www.youtube.com/results?search_query=duotone+dice+2025+review",
+          "score": 4.4,
+          "summary": "Highlighted as the best Dice yet with improved low-end power and more direct steering.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Dice+2025", "price": 1649 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Dice+2025", "price": 1649 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Dice+2025", "price": 1649 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Dice+2025" }
+      ]
+    }
+  },
+  {
+    "id": "duotone-rebel-sls-2026",
+    "slug": "duotone-rebel-sls-2026",
+    "brand": "Duotone",
+    "model": "Rebel SLS",
+    "year": 2026,
+    "image": "/kites/duotone-rebel-sls-2026.jpg",
+    "style_spectrum": 82,
+    "shape_spectrum": 57,
+    "style_tags": ["big air", "megaloops", "hangtime", "premium"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 37,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 2399,
+    "summary": "The premium Rebel featuring Penta TX canopy material for lighter weight and faster response. Delivers even more explosive lift and extended hangtime compared to the standard Rebel.",
+    "best_for": "Premium big air performance",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 15,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-rebel-sls-2026",
+          "score": 4.6,
+          "summary": "Riders note the Penta TX canopy makes a noticeable difference in responsiveness and weight savings over the standard Rebel."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+rebel+sls+2026",
+          "score": 4.5,
+          "summary": "Early adopters report noticeably quicker turning and better drift compared to the standard version."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=duotone+rebel+sls+2026+review",
+          "score": 4.7,
+          "summary": "Praised as the ultimate big air kite with the Penta TX material delivering tangible performance gains.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Rebel+SLS+2026", "price": 2399 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Rebel+SLS+2026", "price": 2399 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Rebel+SLS+2026", "price": 2399 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Rebel+SLS+2026" }
+      ]
+    }
+  },
+  {
+    "id": "duotone-evo-sls-2026",
+    "slug": "duotone-evo-sls-2026",
+    "brand": "Duotone",
+    "model": "Evo SLS",
+    "year": 2026,
+    "image": "/kites/duotone-evo-sls-2026.jpg",
+    "style_spectrum": 47,
+    "shape_spectrum": 42,
+    "style_tags": ["freeride", "all-around", "premium"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 9,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 2199,
+    "summary": "The premium version of the legendary Evo built with Penta TX canopy material. Lighter weight translates to better low-end, quicker response, and an even wider wind range than the standard Evo.",
+    "best_for": "Premium all-around freeriding",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 12,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-sls-2026",
+          "score": 4.7,
+          "summary": "Considered the gold standard for all-around kites. The Penta TX material noticeably improves low-end power and response."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+sls+2026",
+          "score": 4.5,
+          "summary": "Premium price is justified according to most riders. The weight savings from Penta TX are immediately noticeable."
+        },
+        {
+          "source": "YouTube - The Kite Show",
+          "url": "https://www.youtube.com/results?search_query=duotone+evo+sls+2026+review",
+          "score": 4.6,
+          "summary": "Called the best all-around kite money can buy, with improved drift for wave riding and better upwind performance.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Evo+SLS+2026", "price": 2199 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Evo+SLS+2026", "price": 2199 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Evo+SLS+2026", "price": 2199 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+SLS+2026" }
+      ]
+    }
+  },
+  {
+    "id": "duotone-neo-2026",
+    "slug": "duotone-neo-2026",
+    "brand": "Duotone",
+    "model": "Neo",
+    "year": 2026,
+    "image": "/kites/duotone-neo-2026.jpg",
+    "style_spectrum": 15,
+    "shape_spectrum": 35,
+    "style_tags": ["wave", "strapless", "drift"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "low",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 30,
+    "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1649,
+    "summary": "Duotone's dedicated wave kite designed for excellent drift, quick turning, and intuitive handling on the wave face. Perfect for strapless surfboard riding in onshore and side-shore conditions.",
+    "best_for": "Wave riding and strapless freestyle",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 18,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-2026",
+          "score": 4.4,
+          "summary": "Wave riders love the drift and turning speed. Excellent for onshore conditions where you need the kite to stay out of the way."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+2026",
+          "score": 4.3,
+          "summary": "Highly regarded among wave riders. The drift is class-leading and relaunch in the surf zone is reliable."
+        },
+        {
+          "source": "YouTube - Kite Buddy",
+          "url": "https://www.youtube.com/results?search_query=duotone+neo+2026+review",
+          "score": 4.5,
+          "summary": "Described as the ultimate wave kite with improved pivot turning and better low-end compared to the 2025 version.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Duotone+Neo+2026", "price": 1649 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Duotone+Neo+2026", "price": 1649 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Duotone+Neo+2026", "price": 1649 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Neo+2026" }
+      ]
+    }
+  },
+  {
+    "id": "cabrinha-switchblade-2025",
+    "slug": "cabrinha-switchblade-2025",
+    "brand": "Cabrinha",
+    "model": "Switchblade",
+    "year": 2025,
+    "image": "/kites/cabrinha-switchblade-2025.jpg",
+    "style_spectrum": 50,
+    "shape_spectrum": 45,
+    "style_tags": ["freeride", "all-around", "boosting"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1529,
+    "summary": "Cabrinha's legendary all-around kite now in its 20th+ iteration. The Switchblade delivers reliable performance across all conditions with excellent depower and a forgiving power delivery.",
+    "best_for": "All-around freeriding",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 30,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-2025",
+          "score": 4.3,
+          "summary": "A reliable workhorse that does everything well. Riders appreciate the predictable power and wide wind range."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+2025",
+          "score": 4.2,
+          "summary": "Often recommended for beginners and intermediate riders. Solid build quality and forgiving characteristics."
+        },
+        {
+          "source": "YouTube - Progression",
+          "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+2025+review",
+          "score": 4.4,
+          "summary": "Praised for its consistency year after year. Great depower range and a kite you can trust in varying conditions.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Cabrinha+Switchblade+2025", "price": 1529 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Switchblade+2025", "price": 1529 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Switchblade+2025", "price": 1529 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+2025" }
+      ]
+    }
+  },
+  {
+    "id": "cabrinha-moto-2025",
+    "slug": "cabrinha-moto-2025",
+    "brand": "Cabrinha",
+    "model": "Moto",
+    "year": 2025,
+    "image": "/kites/cabrinha-moto-2025.jpg",
+    "style_spectrum": 75,
+    "shape_spectrum": 60,
+    "style_tags": ["big air", "freeride", "boosting"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": true,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1649,
+    "price_new_aluula": 2899,
+    "summary": "Cabrinha's high-performance freeride/big air kite with explosive boost and great hangtime. Available in standard and Aluula versions for maximum weight savings and performance.",
+    "best_for": "Big air and performance freeriding",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 25,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-moto-2025",
+          "score": 4.4,
+          "summary": "Riders love the explosive pop and hangtime. The Aluula version is praised as a game-changer for light wind big air."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+moto+2025",
+          "score": 4.3,
+          "summary": "The Moto sits nicely between an all-around kite and a dedicated big air machine. Aluula version worth the premium."
+        },
+        {
+          "source": "YouTube - Ride with Blake",
+          "url": "https://www.youtube.com/results?search_query=cabrinha+moto+2025+review",
+          "score": 4.5,
+          "summary": "Highlighted as one of the best performing kites in its class with fantastic boost and a fun ride feel.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Cabrinha+Moto+2025", "price": 1649 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Moto+2025", "price": 1649 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Moto+2025", "price": 1649 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Moto+2025" }
+      ]
+    }
+  },
+  {
+    "id": "cabrinha-drifter-2025",
+    "slug": "cabrinha-drifter-2025",
+    "brand": "Cabrinha",
+    "model": "Drifter",
+    "year": 2025,
+    "image": "/kites/cabrinha-drifter-2025.jpg",
+    "style_spectrum": 10,
+    "shape_spectrum": 30,
+    "style_tags": ["wave", "foil", "drift", "strapless"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "low",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 5,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 28,
+    "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1529,
+    "summary": "Cabrinha's dedicated wave and light-wind kite known for exceptional drift and quick pivot turning. A favorite among wave riders for its ability to park and stay out of the way on the wave.",
+    "best_for": "Wave riding and foiling",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 20,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-drifter-2025",
+          "score": 4.5,
+          "summary": "One of the best wave kites available. The drift is phenomenal and it pivots beautifully on the wave."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+drifter+2025",
+          "score": 4.3,
+          "summary": "Highly rated for wave riding. Also works well for foiling in lighter winds thanks to its smooth power delivery."
+        },
+        {
+          "source": "YouTube - Kite Buddy",
+          "url": "https://www.youtube.com/results?search_query=cabrinha+drifter+2025+review",
+          "score": 4.4,
+          "summary": "Called a pure wave weapon with the best drift in the Cabrinha lineup. Great for strapless freestyle too.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Cabrinha+Drifter+2025", "price": 1529 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Drifter+2025", "price": 1529 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Drifter+2025", "price": 1529 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Drifter+2025" }
+      ]
+    }
+  },
+  {
+    "id": "cabrinha-nitro-apex-2026",
+    "slug": "cabrinha-nitro-apex-2026",
+    "brand": "Cabrinha",
+    "model": "Nitro Apex",
+    "year": 2026,
+    "image": "/kites/cabrinha-nitro-apex-2026.jpg",
+    "style_spectrum": 85,
+    "shape_spectrum": 60,
+    "style_tags": ["big air", "megaloops", "hangtime"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 6,
+    "relaunch": "medium",
+    "wind_range_low": 13,
+    "wind_range_high": 38,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1899,
+    "summary": "Cabrinha's dedicated big air weapon built for maximum altitude and hangtime. The 5-strut design provides exceptional rigidity at speed and in strong gusts for confident megaloops.",
+    "best_for": "Dedicated big air and megaloops",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-nitro-apex-2026",
+          "score": 4.5,
+          "summary": "A serious big air contender. The 5-strut frame holds shape incredibly well in strong winds."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+nitro+apex+2026",
+          "score": 4.3,
+          "summary": "Early reports suggest massive lift potential. Designed for the King of the Air crowd."
+        },
+        {
+          "source": "YouTube - Big Air Kite League",
+          "url": "https://www.youtube.com/results?search_query=cabrinha+nitro+apex+2026+review",
+          "score": 4.4,
+          "summary": "Positioned as Cabrinha's answer to the Core XR and Duotone Rebel for pure big air performance.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Cabrinha+Nitro+Apex+2026", "price": 1899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Nitro+Apex+2026", "price": 1899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Nitro+Apex+2026", "price": 1899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Nitro+Apex+2026" }
+      ]
+    }
+  },
+  {
+    "id": "cabrinha-switchblade-apex-2026",
+    "slug": "cabrinha-switchblade-apex-2026",
+    "brand": "Cabrinha",
+    "model": "Switchblade Apex",
+    "year": 2026,
+    "image": "/kites/cabrinha-switchblade-apex-2026.jpg",
+    "style_spectrum": 52,
+    "shape_spectrum": 47,
+    "style_tags": ["freeride", "all-around", "boosting"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "high-y",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 31,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1699,
+    "summary": "The next evolution of the Switchblade featuring Cabrinha's Apex construction for improved durability and lighter weight. Retains the legendary Switchblade versatility with refined performance.",
+    "best_for": "All-around freeriding with premium build",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 8,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-apex-2026",
+          "score": 4.4,
+          "summary": "Refinements over the 2025 model include lighter weight and improved upwind performance. Still the reliable Switchblade at its core."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+apex+2026",
+          "score": 4.2,
+          "summary": "A solid update to an already great kite. The Apex construction adds noticeable crispness to the ride."
+        },
+        {
+          "source": "YouTube - Progression",
+          "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+apex+2026+review",
+          "score": 4.3,
+          "summary": "Incremental but welcome improvements to the Switchblade formula. Still a top choice for one-kite quivers.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Cabrinha+Switchblade+Apex+2026", "price": 1699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Switchblade+Apex+2026", "price": 1699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Switchblade+Apex+2026", "price": 1699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+Apex+2026" }
+      ]
+    }
+  },
+  {
+    "id": "core-xr7-2025",
+    "slug": "core-xr7-2025",
+    "brand": "Core",
+    "model": "XR7",
+    "year": 2025,
+    "image": "/kites/core-xr7-2025.jpg",
+    "style_spectrum": 85,
+    "shape_spectrum": 55,
+    "style_tags": ["big air", "megaloops", "hangtime", "freeride"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 36,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13.5, 15, 17, 19],
+    "price_new": 1899,
+    "summary": "One of the most iconic big air kites ever made. The XR7 delivers massive lift, extended hangtime, and surprisingly good freeride capabilities. A staple in competitive big air.",
+    "best_for": "Big air and powered freeriding",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 45,
+      "sources": [
+        {
+          "source": "Jason Montreal",
+          "url": "https://www.youtube.com/results?search_query=jason+montreal+core+xr7+2025",
+          "score": 4.7,
+          "summary": "Jason raves about the XR7's unmatched combination of massive lift and versatile freeride capability. A top pick for big air.",
+          "video_id": "placeholder_xr7_review",
+          "jason_montreal": true
+        },
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr7-2025",
+          "score": 4.6,
+          "summary": "Widely considered the best big air kite on the market. Phenomenal lift and a surprisingly broad wind range."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr7+2025",
+          "score": 4.5,
+          "summary": "The gold standard for big air. Riders consistently report the longest hangtime of any kite they've tried."
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Core+XR7+2025", "price": 1899 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Core+XR7+2025", "price": 1899 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Core+XR7+2025", "price": 1899 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Core+XR7+2025" }
+      ]
+    }
+  },
+  {
+    "id": "core-gts6-2025",
+    "slug": "core-gts6-2025",
+    "brand": "Core",
+    "model": "GTS6",
+    "year": 2025,
+    "image": "/kites/core-gts6-2025.jpg",
+    "style_spectrum": 40,
+    "shape_spectrum": 50,
+    "style_tags": ["freeride", "performance", "all-around"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13.5],
+    "price_new": 1799,
+    "summary": "Core's performance freeride kite that combines quick turning with great upwind ability. A refined all-around kite for riders who want a sportier feel than typical freeride kites.",
+    "best_for": "Performance freeriding",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 28,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=core-gts6-2025",
+          "score": 4.4,
+          "summary": "A sharp, responsive freeride kite that rewards active piloting. Great upwind performance and turning speed."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+gts6+2025",
+          "score": 4.3,
+          "summary": "Excellent for riders who want something sportier than a typical freeride kite. Quick bar input response."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=core+gts6+2025+review",
+          "score": 4.5,
+          "summary": "Praised for its direct bar feel and responsive character. A high-performance freeride machine for skilled riders.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Core+GTS6+2025", "price": 1799 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Core+GTS6+2025", "price": 1799 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Core+GTS6+2025", "price": 1799 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Core+GTS6+2025" }
+      ]
+    }
+  },
+  {
+    "id": "core-xr8-2026",
+    "slug": "core-xr8-2026",
+    "brand": "Core",
+    "model": "XR8",
+    "year": 2026,
+    "image": "/kites/core-xr8-2026.jpg",
+    "style_spectrum": 87,
+    "shape_spectrum": 58,
+    "style_tags": ["big air", "megaloops", "hangtime"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 37,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13.5, 15, 17, 19],
+    "price_new": 1949,
+    "summary": "The next generation of Core's legendary big air platform. The XR8 builds on the XR7's reputation with refined aerodynamics for even more lift and a wider usable wind range.",
+    "best_for": "Next-gen big air performance",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 8,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr8-2026",
+          "score": 4.7,
+          "summary": "Early reports suggest it improves on the XR7 in low-end power and turning speed while maintaining the massive boost."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr8+2026",
+          "score": 4.5,
+          "summary": "Riders upgrading from the XR7 notice better low-end and slightly faster turning without sacrificing hangtime."
+        },
+        {
+          "source": "YouTube - The Kite Show",
+          "url": "https://www.youtube.com/results?search_query=core+xr8+2026+review",
+          "score": 4.6,
+          "summary": "Described as the evolution big air riders wanted. More refined power delivery with the same massive boost potential.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Core+XR8+2026", "price": 1949 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Core+XR8+2026", "price": 1949 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Core+XR8+2026", "price": 1949 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Core+XR8+2026" }
+      ]
+    }
+  },
+  {
+    "id": "core-pace-2026",
+    "slug": "core-pace-2026",
+    "brand": "Core",
+    "model": "Pace",
+    "year": 2026,
+    "image": "/kites/core-pace-2026.jpg",
+    "style_spectrum": 30,
+    "shape_spectrum": 55,
+    "style_tags": ["freeride", "foil", "lightwind", "crossover"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 8,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 8,
+    "wind_range_high": 28,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 13.5, 15],
+    "price_new": 1799,
+    "summary": "A freeride/foil crossover kite that excels in lighter winds. The higher aspect ratio delivers excellent upwind performance and low-end power, making it ideal for foil and light-wind sessions.",
+    "best_for": "Freeride and foil crossover",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 12,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=core-pace-2026",
+          "score": 4.3,
+          "summary": "A great crossover kite for riders who want one kite for both twin-tip and foil. Excellent low-end power."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+pace+2026",
+          "score": 4.2,
+          "summary": "Perfect for light wind locations. Works beautifully with foils and still provides good performance on a twin-tip."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=core+pace+2026+review",
+          "score": 4.4,
+          "summary": "Positioned as Core's most versatile kite for riders who foil and freeride. Great drift and smooth power delivery.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Core+Pace+2026", "price": 1799 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Core+Pace+2026", "price": 1799 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Core+Pace+2026", "price": 1799 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Core+Pace+2026" }
+      ]
+    }
+  },
+  {
+    "id": "core-xr-pro-2-2026",
+    "slug": "core-xr-pro-2-2026",
+    "brand": "Core",
+    "model": "XR Pro 2",
+    "year": 2026,
+    "image": "/kites/core-xr-pro-2-2026.jpg",
+    "style_spectrum": 90,
+    "shape_spectrum": 60,
+    "style_tags": ["big air", "megaloops", "hangtime", "premium"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "both",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 7,
+    "relaunch": "medium",
+    "wind_range_low": 11,
+    "wind_range_high": 40,
+    "sizes": [6, 7, 8, 9, 10, 11, 12, 13.5],
+    "price_new": 2699,
+    "summary": "Core's ultimate big air weapon featuring CoreTex ultra-light canopy material. Built for maximum altitude and competition-level big air with the lightest weight in its class.",
+    "best_for": "Competition big air",
+    "reviews": {
+      "aggregate_score": 4.7,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr-pro-2-2026",
+          "score": 4.8,
+          "summary": "The pinnacle of big air kite technology. CoreTex material makes a significant difference in responsiveness and weight."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr+pro+2+2026",
+          "score": 4.6,
+          "summary": "Premium price but premium performance. The lightest big air kite available with unmatched boost potential."
+        },
+        {
+          "source": "YouTube - The Kite Show",
+          "url": "https://www.youtube.com/results?search_query=core+xr+pro+2+2026+review",
+          "score": 4.7,
+          "summary": "The ultimate expression of Core's big air DNA. CoreTex delivers tangible performance gains for serious big air riders.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Core+XR+Pro+2+2026", "price": 2699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Core+XR+Pro+2+2026", "price": 2699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Core+XR+Pro+2+2026", "price": 2699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Core+XR+Pro+2+2026" }
+      ]
+    }
+  },
+  {
+    "id": "north-orbit-2025",
+    "slug": "north-orbit-2025",
+    "brand": "North",
+    "model": "Orbit",
+    "year": 2025,
+    "image": "/kites/north-orbit-2025.jpg",
+    "style_spectrum": 80,
+    "shape_spectrum": 55,
+    "style_tags": ["big air", "megaloops", "freeride"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 35,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1699,
+    "summary": "North's flagship big air kite designed for maximum boost and hangtime. The 5-strut frame provides stability in strong winds while maintaining surprisingly good freeride capabilities.",
+    "best_for": "Big air with freeride versatility",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 35,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-2025",
+          "score": 4.4,
+          "summary": "A strong big air kite that also works well for powered freeriding. Competitive with the Rebel and XR7."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+2025",
+          "score": 4.3,
+          "summary": "Great for big air enthusiasts who also want to freeride. Reliable relaunch and good wind range."
+        },
+        {
+          "source": "YouTube - Ride with Blake",
+          "url": "https://www.youtube.com/results?search_query=north+orbit+2025+review",
+          "score": 4.5,
+          "summary": "A solid performer in the big air category. Riders appreciate the balance between boost and usability.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=North+Orbit+2025", "price": 1699 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=North+Orbit+2025", "price": 1699 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=North+Orbit+2025", "price": 1699 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+2025" }
+      ]
+    }
+  },
+  {
+    "id": "north-reach-2025",
+    "slug": "north-reach-2025",
+    "brand": "North",
+    "model": "Reach",
+    "year": 2025,
+    "image": "/kites/north-reach-2025.jpg",
+    "style_spectrum": 15,
+    "shape_spectrum": 75,
+    "style_tags": ["foil", "freeride", "lightwind"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "high",
+    "strut_count": 1,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "slow",
+    "low_end_power": 9,
+    "depower_range": 8,
+    "relaunch": "medium",
+    "wind_range_low": 6,
+    "wind_range_high": 25,
+    "sizes": [5, 7, 9, 10, 12, 14, 17],
+    "price_new": 1499,
+    "summary": "A high-aspect single-strut kite optimized for foiling and light-wind riding. The Reach delivers exceptional upwind performance and low-end grunt, getting you on the water in minimal wind.",
+    "best_for": "Foiling and light wind",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 22,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=north-reach-2025",
+          "score": 4.3,
+          "summary": "Excellent for foiling with great upwind ability. The single strut keeps weight down for impressive low-end."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+reach+2025",
+          "score": 4.2,
+          "summary": "A dedicated foil kite that gets you on the water earlier than most. Relaunch can be tricky in very light wind."
+        },
+        {
+          "source": "YouTube - Foil Academy",
+          "url": "https://www.youtube.com/results?search_query=north+reach+2025+review",
+          "score": 4.4,
+          "summary": "The best foil-specific kite from North. Smooth power delivery and excellent drift for foil riding.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=North+Reach+2025", "price": 1499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=North+Reach+2025", "price": 1499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=North+Reach+2025", "price": 1499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=North+Reach+2025" }
+      ]
+    }
+  },
+  {
+    "id": "north-orbit-2026",
+    "slug": "north-orbit-2026",
+    "brand": "North",
+    "model": "Orbit",
+    "year": 2026,
+    "image": "/kites/north-orbit-2026.jpg",
+    "style_spectrum": 82,
+    "shape_spectrum": 60,
+    "style_tags": ["big air", "megaloops", "hangtime"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 8,
+    "depower_range": 7,
+    "relaunch": "easy",
+    "wind_range_low": 11,
+    "wind_range_high": 36,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1749,
+    "summary": "The redesigned Orbit featuring a higher aspect ratio for improved upwind performance and even more lift. A significant step forward from the 2025 version with refined aerodynamics.",
+    "best_for": "Redesigned big air performance",
+    "reviews": {
+      "aggregate_score": 4.5,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-2026",
+          "score": 4.5,
+          "summary": "A meaningful redesign over the 2025 model. The higher AR brings better upwind and more lift."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+2026",
+          "score": 4.4,
+          "summary": "Noticeable improvement over the previous Orbit. Better low-end and more predictable looping behavior."
+        },
+        {
+          "source": "YouTube - Big Air Kite League",
+          "url": "https://www.youtube.com/results?search_query=north+orbit+2026+review",
+          "score": 4.6,
+          "summary": "The 2026 redesign puts the Orbit firmly in competition with the Core XR and Duotone Rebel for the big air crown.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=North+Orbit+2026", "price": 1749 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=North+Orbit+2026", "price": 1749 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=North+Orbit+2026", "price": 1749 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+2026" }
+      ]
+    }
+  },
+  {
+    "id": "north-orbit-pro-2026",
+    "slug": "north-orbit-pro-2026",
+    "brand": "North",
+    "model": "Orbit Pro",
+    "year": 2026,
+    "image": "/kites/north-orbit-pro-2026.jpg",
+    "style_spectrum": 88,
+    "shape_spectrum": 62,
+    "style_tags": ["big air", "megaloops", "hangtime", "premium"],
+    "skill_level": ["advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 9,
+    "depower_range": 7,
+    "relaunch": "medium",
+    "wind_range_low": 11,
+    "wind_range_high": 38,
+    "sizes": [6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 2399,
+    "summary": "North's premium big air kite designed for competition-level performance. Features ultra-lightweight construction for maximum response and explosive lift in all conditions.",
+    "best_for": "Premium big air competition",
+    "reviews": {
+      "aggregate_score": 4.6,
+      "review_count": 8,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-pro-2026",
+          "score": 4.6,
+          "summary": "The Orbit Pro takes North's big air game to the next level. Lighter and more responsive than the standard Orbit."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+pro+2026",
+          "score": 4.5,
+          "summary": "Worth the premium for serious big air riders. The weight savings translate directly to better performance."
+        },
+        {
+          "source": "YouTube - Ride with Blake",
+          "url": "https://www.youtube.com/results?search_query=north+orbit+pro+2026+review",
+          "score": 4.7,
+          "summary": "North's flagship big air kite delivers on its premium promise. Incredible lift and a refined bar feel.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=North+Orbit+Pro+2026", "price": 2399 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=North+Orbit+Pro+2026", "price": 2399 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=North+Orbit+Pro+2026", "price": 2399 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+Pro+2026" }
+      ]
+    }
+  },
+  {
+    "id": "north-carve-2026",
+    "slug": "north-carve-2026",
+    "brand": "North",
+    "model": "Carve",
+    "year": 2026,
+    "image": "/kites/north-carve-2026.jpg",
+    "style_spectrum": 20,
+    "shape_spectrum": 40,
+    "style_tags": ["wave", "strapless", "drift"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 6,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 28,
+    "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1599,
+    "summary": "North's dedicated wave kite built for excellent drift, quick pivot turning, and intuitive wave riding. Designed to stay out of the way while you focus on the wave face.",
+    "best_for": "Wave riding",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 14,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=north-carve-2026",
+          "score": 4.3,
+          "summary": "A solid wave kite with great drift and quick turning. Competes well with the Duotone Neo and Cabrinha Drifter."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+carve+2026",
+          "score": 4.2,
+          "summary": "Good wave performance with reliable relaunch. The 3-strut design keeps it light and responsive."
+        },
+        {
+          "source": "YouTube - Kite Buddy",
+          "url": "https://www.youtube.com/results?search_query=north+carve+2026+review",
+          "score": 4.4,
+          "summary": "North's best wave kite yet with improved drift and a more intuitive feel on the wave face.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=North+Carve+2026", "price": 1599 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=North+Carve+2026", "price": 1599 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=North+Carve+2026", "price": 1599 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=North+Carve+2026" }
+      ]
+    }
+  },
+  {
+    "id": "eleveight-rs-v6-2025",
+    "slug": "eleveight-rs-v6-2025",
+    "brand": "Eleveight",
+    "model": "RS V6",
+    "year": 2025,
+    "image": "/kites/eleveight-rs-v6-2025.jpg",
+    "style_spectrum": 50,
+    "shape_spectrum": 65,
+    "style_tags": ["freeride", "performance", "all-around"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 8,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1449,
+    "summary": "Eleveight's flagship performance freeride kite with a higher aspect ratio for excellent upwind ability and strong low-end power. A versatile performer that punches above its price point.",
+    "best_for": "Performance freeride at great value",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 20,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-rs-v6-2025",
+          "score": 4.4,
+          "summary": "Incredible value for money. The RS V6 performs at a level that rivals kites costing significantly more."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+rs+v6+2025",
+          "score": 4.3,
+          "summary": "A hidden gem in the freeride category. Great build quality from Eleveight with impressive performance."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=eleveight+rs+v6+2025+review",
+          "score": 4.5,
+          "summary": "One of the best value propositions in kiteboarding. High-performance freeride at a competitive price.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Eleveight+RS+V6+2025", "price": 1449 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Eleveight+RS+V6+2025", "price": 1449 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+RS+V6+2025", "price": 1449 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+RS+V6+2025" }
+      ]
+    }
+  },
+  {
+    "id": "eleveight-xs-2025",
+    "slug": "eleveight-xs-2025",
+    "brand": "Eleveight",
+    "model": "XS",
+    "year": 2025,
+    "image": "/kites/eleveight-xs-2025.jpg",
+    "style_spectrum": 15,
+    "shape_spectrum": 35,
+    "style_tags": ["wave", "strapless", "drift"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "low",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "very-fast",
+    "low_end_power": 5,
+    "depower_range": 9,
+    "relaunch": "easy",
+    "wind_range_low": 13,
+    "wind_range_high": 28,
+    "sizes": [4, 5, 6, 7, 8, 9, 10, 11],
+    "price_new": 1349,
+    "summary": "Eleveight's dedicated wave kite with a compact profile, fast pivot turning, and excellent drift. Designed to be invisible during wave riding with intuitive handling on the face.",
+    "best_for": "Wave riding",
+    "reviews": {
+      "aggregate_score": 4.2,
+      "review_count": 12,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-xs-2025",
+          "score": 4.2,
+          "summary": "A capable wave kite at a great price. Very fast turning and good drift for the money."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+xs+2025",
+          "score": 4.1,
+          "summary": "Good value wave kite. Performs well in onshore conditions with reliable relaunch from the surf."
+        },
+        {
+          "source": "YouTube - Wave Tribe",
+          "url": "https://www.youtube.com/results?search_query=eleveight+xs+2025+review",
+          "score": 4.3,
+          "summary": "Impressive wave performance from Eleveight at a price point below the big brands. Quick turning and good drift.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Eleveight+XS+2025", "price": 1349 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Eleveight+XS+2025", "price": 1349 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+XS+2025", "price": 1349 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+XS+2025" }
+      ]
+    }
+  },
+  {
+    "id": "eleveight-rs-v9-2026",
+    "slug": "eleveight-rs-v9-2026",
+    "brand": "Eleveight",
+    "model": "RS V9",
+    "year": 2026,
+    "image": "/kites/eleveight-rs-v9-2026.jpg",
+    "style_spectrum": 52,
+    "shape_spectrum": 67,
+    "style_tags": ["freeride", "performance", "all-around"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium-high",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 8,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1499,
+    "summary": "The latest evolution of Eleveight's performance freeride platform with refined aerodynamics and updated construction. Continues to deliver premium performance at a competitive price.",
+    "best_for": "Updated performance freeride",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 6,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-rs-v9-2026",
+          "score": 4.5,
+          "summary": "Incremental improvements over the V6 with better turning precision and slightly improved low-end."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+rs+v9+2026",
+          "score": 4.3,
+          "summary": "Eleveight continues to deliver excellent value. The V9 refines an already great platform."
+        },
+        {
+          "source": "YouTube - Kite Lounge",
+          "url": "https://www.youtube.com/results?search_query=eleveight+rs+v9+2026+review",
+          "score": 4.4,
+          "summary": "A worthy update that keeps the RS line competitive with kites costing hundreds more.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Eleveight+RS+V9+2026", "price": 1499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Eleveight+RS+V9+2026", "price": 1499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+RS+V9+2026", "price": 1499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+RS+V9+2026" }
+      ]
+    }
+  },
+  {
+    "id": "eleveight-fs-v8-2026",
+    "slug": "eleveight-fs-v8-2026",
+    "brand": "Eleveight",
+    "model": "FS V8",
+    "year": 2026,
+    "image": "/kites/eleveight-fs-v8-2026.jpg",
+    "style_spectrum": 70,
+    "shape_spectrum": 45,
+    "style_tags": ["freestyle", "big air", "wakestyle"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 5,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "fast",
+    "low_end_power": 7,
+    "depower_range": 6,
+    "relaunch": "easy",
+    "wind_range_low": 12,
+    "wind_range_high": 32,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12],
+    "price_new": 1499,
+    "summary": "Eleveight's freestyle and big air hybrid with an Open-C shape for explosive pop and great slack for unhooked tricks. The 5-strut frame provides stability for big boosts.",
+    "best_for": "Freestyle and big air crossover",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 10,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-fs-v8-2026",
+          "score": 4.3,
+          "summary": "Great for riders who want both freestyle slack and big air lift. The Open-C shape provides excellent pop."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+fs+v8+2026",
+          "score": 4.2,
+          "summary": "A solid freestyle/big air option at a great price. Good slack and predictable looping."
+        },
+        {
+          "source": "YouTube - Progression",
+          "url": "https://www.youtube.com/results?search_query=eleveight+fs+v8+2026+review",
+          "score": 4.4,
+          "summary": "Positioned between a pure freestyle kite and a big air machine. Versatile for riders who want both.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=Eleveight+FS+V8+2026", "price": 1499 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=Eleveight+FS+V8+2026", "price": 1499 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+FS+V8+2026", "price": 1499 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+FS+V8+2026" }
+      ]
+    }
+  },
+  {
+    "id": "f-one-bandit-2025",
+    "slug": "f-one-bandit-2025",
+    "brand": "F-One",
+    "model": "Bandit",
+    "year": 2025,
+    "image": "/kites/f-one-bandit-2025.jpg",
+    "style_spectrum": 45,
+    "shape_spectrum": 45,
+    "style_tags": ["freeride", "all-around", "versatile"],
+    "skill_level": ["beginner", "intermediate", "advanced"],
+    "aspect_ratio": "medium",
+    "strut_count": 3,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "medium",
+    "low_end_power": 7,
+    "depower_range": 8,
+    "relaunch": "easy",
+    "wind_range_low": 10,
+    "wind_range_high": 30,
+    "sizes": [5, 6, 7, 8, 9, 10, 11, 12, 14],
+    "price_new": 1549,
+    "summary": "F-One's iconic all-around kite that has been refined over many generations. The Bandit delivers a perfect balance of performance, ease of use, and versatility across all riding styles.",
+    "best_for": "All-around versatility",
+    "reviews": {
+      "aggregate_score": 4.4,
+      "review_count": 30,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-bandit-2025",
+          "score": 4.4,
+          "summary": "A true do-everything kite. The Bandit continues to impress with its versatility and refined performance."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+bandit+2025",
+          "score": 4.3,
+          "summary": "One of the longest-running kite models for good reason. Great for one-kite quivers and progressing riders."
+        },
+        {
+          "source": "YouTube - The Kite Show",
+          "url": "https://www.youtube.com/results?search_query=f-one+bandit+2025+review",
+          "score": 4.5,
+          "summary": "Praised for its consistency across generations. The Bandit remains a benchmark for all-around performance.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=F-One+Bandit+2025", "price": 1549 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=F-One+Bandit+2025", "price": 1549 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=F-One+Bandit+2025", "price": 1549 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Bandit+2025" }
+      ]
+    }
+  },
+  {
+    "id": "f-one-breeze-2025",
+    "slug": "f-one-breeze-2025",
+    "brand": "F-One",
+    "model": "Breeze",
+    "year": 2025,
+    "image": "/kites/f-one-breeze-2025.jpg",
+    "style_spectrum": 5,
+    "shape_spectrum": 85,
+    "style_tags": ["foil", "lightwind", "efficiency"],
+    "skill_level": ["intermediate", "advanced"],
+    "aspect_ratio": "very-high",
+    "strut_count": 1,
+    "bar_type": "low-v",
+    "aluula": false,
+    "brainchild": false,
+    "turning_speed": "slow",
+    "low_end_power": 10,
+    "depower_range": 7,
+    "relaunch": "hard",
+    "wind_range_low": 5,
+    "wind_range_high": 22,
+    "sizes": [6, 8, 10, 12, 15, 17],
+    "price_new": 1449,
+    "summary": "F-One's high-aspect foil specialist built for maximum efficiency in ultra-light wind. The single-strut design and very high aspect ratio deliver unmatched low-end power for foiling.",
+    "best_for": "Foil specialist in light wind",
+    "reviews": {
+      "aggregate_score": 4.3,
+      "review_count": 15,
+      "sources": [
+        {
+          "source": "Kiteforum",
+          "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-breeze-2025",
+          "score": 4.4,
+          "summary": "The ultimate light-wind foil kite. Gets you on the water when nothing else can with incredible upwind ability."
+        },
+        {
+          "source": "Reddit r/kiteboarding",
+          "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+breeze+2025",
+          "score": 4.2,
+          "summary": "Incredible low-end power but relaunch can be challenging in very light wind. Purpose-built for foiling."
+        },
+        {
+          "source": "YouTube - Foil Academy",
+          "url": "https://www.youtube.com/results?search_query=f-one+breeze+2025+review",
+          "score": 4.3,
+          "summary": "Best-in-class for ultra-light wind foiling. The high AR design is incredibly efficient but requires experience.",
+          "video_id": null
+        }
+      ]
+    },
+    "buy_links": {
+      "new": [
+        { "retailer": "Real Watersports", "url": "https://www.realwatersports.com/search?q=F-One+Breeze+2025", "price": 1449 },
+        { "retailer": "MACkite", "url": "https://www.mackiteboarding.com/search?q=F-One+Breeze+2025", "price": 1449 },
+        { "retailer": "Kite Paddle Surf", "url": "https://www.kitepaddlesurf.com/search?q=F-One+Breeze+2025", "price": 1449 }
+      ],
+      "used": [
+        { "source": "Kiteboarder Classifieds", "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Breeze+2025" }
+      ]
+    }
+  }
+]
