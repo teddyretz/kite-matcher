@@ -12,6 +12,7 @@ const dirname = path.dirname(filename)
 
 function getDatabaseUri(): string {
   if (process.env.DATABASE_URI?.length) return process.env.DATABASE_URI
+  if (process.env.DATABASE_URL?.length) return process.env.DATABASE_URL
   if (process.env.POSTGRES_URL?.length) return process.env.POSTGRES_URL
   // Construct from individual Supabase/Vercel Postgres env vars
   const { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_DATABASE } = process.env
