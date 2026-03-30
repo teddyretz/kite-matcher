@@ -1,6 +1,9 @@
 import StyleMatcher from '@/components/StyleMatcher';
+import { getActiveKites } from '@/lib/getKites';
 
-export default function Home() {
+export default async function Home() {
+  const kites = await getActiveKites();
+
   return (
     <div className="min-h-[calc(100vh-4rem)]">
       {/* Hero */}
@@ -19,7 +22,7 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-12">
             Match your riding style to the right kite — with real reviews, not sponsored content.
           </p>
-          <StyleMatcher />
+          <StyleMatcher kites={kites} />
         </div>
       </section>
 
