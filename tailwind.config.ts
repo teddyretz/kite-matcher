@@ -10,22 +10,38 @@ const config: Config = {
     extend: {
       colors: {
         ocean: {
-          DEFAULT: "#0B4F6C",
-          light: "#0E6B92",
-          dark: "#083D54",
+          DEFAULT: "#00E5FF",
+          light: "#33ECFF",
+          dark: "#00B8CC",
         },
         sand: {
-          DEFAULT: "#F4A261",
-          light: "#F7BE8E",
-          dark: "#E8893A",
+          DEFAULT: "#FF5A30",
+          light: "#FF7D5C",
+          dark: "#CC4020",
         },
         slate: {
-          DEFAULT: "#1A1A2E",
+          DEFAULT: "#E8EFFF",
         },
-        surface: "#F8F9FA",
+        surface: "#080D16",
+        card: "#0D1421",
+        // Inverted gray scale for dark-first design
+        // Low numbers = dark backgrounds/borders, High numbers = light text
+        gray: {
+          50:  "#0D1421",
+          100: "#1A2535",
+          200: "#253848",
+          300: "#3D5870",
+          400: "#5C7A94",
+          500: "#7A9BB5",
+          600: "#9DB5CC",
+          700: "#C0D0E0",
+          800: "#D8E5F0",
+          900: "#E8EFFF",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        display: ["var(--font-barlow)", "sans-serif"],
       },
     },
   },

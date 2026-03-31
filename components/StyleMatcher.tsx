@@ -10,11 +10,11 @@ interface StyleMatcherProps {
 }
 
 const styleZones = [
-  { label: 'Foil', color: 'text-teal-600' },
-  { label: 'Surf', color: 'text-emerald-600' },
-  { label: 'Freestyle', color: 'text-violet-600' },
-  { label: 'Freeride', color: 'text-blue-600' },
-  { label: 'Big Air', color: 'text-orange-600' },
+  { label: 'Foil',      color: 'text-teal-400'    },
+  { label: 'Surf',      color: 'text-emerald-400'  },
+  { label: 'Freestyle', color: 'text-violet-400'   },
+  { label: 'Freeride',  color: 'text-blue-400'     },
+  { label: 'Big Air',   color: 'text-orange-400'   },
 ];
 
 function getActiveZone(value: number): number {
@@ -25,11 +25,6 @@ function getActiveZone(value: number): number {
   return 4;
 }
 
-const shapeLabels = [
-  { label: 'Low Aspect (C/Delta)', position: 0 },
-  { label: 'High Aspect (Bow/LEI)', position: 100 },
-];
-
 type Construction = 'all' | 'dacron' | 'aluula' | 'brainchild';
 
 function filterByConstruction(kiteList: Kite[], construction: Construction): Kite[] {
@@ -37,6 +32,10 @@ function filterByConstruction(kiteList: Kite[], construction: Construction): Kit
   if (construction === 'aluula') return kiteList.filter(k => k.aluula);
   if (construction === 'brainchild') return kiteList.filter(k => k.brainchild);
   return kiteList.filter(k => !k.aluula && !k.brainchild);
+}
+
+function rangePct(value: number, min: number, max: number): string {
+  return `${((value - min) / (max - min)) * 100}%`;
 }
 
 export default function StyleMatcher({ kites }: StyleMatcherProps) {
@@ -57,17 +56,22 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
     [filtered, styleValue, shapeValue]
   );
 
+  const activeZone = styleZones[getActiveZone(styleValue)];
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-8">
+    <div className="w-full">
+      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 sm:p-7 space-y-6">
+
         {/* Style Slider */}
         <div>
-          <label className="block text-sm font-semibold text-ocean mb-1">
-            Your Riding Style
-          </label>
-          <p className={`text-lg font-bold mb-3 ${styleZones[getActiveZone(styleValue)].color}`}>
-            {styleZones[getActiveZone(styleValue)].label}
-          </p>
+          <div className="flex items-baseline justify-between mb-3">
+            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
+              Riding Style
+            </label>
+            <span className={`font-display font-bold italic text-2xl uppercase leading-none ${activeZone.color}`}>
+              {activeZone.label}
+            </span>
+          </div>
           <input
             type="range"
             min={0}
@@ -75,10 +79,16 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
             value={styleValue}
             onChange={e => setStyleValue(Number(e.target.value))}
             className="w-full"
+            style={{ '--range-pct': rangePct(styleValue, 0, 100) } as React.CSSProperties}
           />
           <div className="flex justify-between mt-2">
             {styleZones.map((zone, i) => (
-              <span key={zone.label} className={`text-xs font-medium ${i === getActiveZone(styleValue) ? zone.color : 'text-gray-400'}`}>
+              <span
+                key={zone.label}
+                className={`text-[10px] font-medium transition-colors ${
+                  i === getActiveZone(styleValue) ? zone.color : 'text-gray-400'
+                }`}
+              >
                 {zone.label}
               </span>
             ))}
@@ -87,9 +97,11 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
 
         {/* Shape Slider */}
         <div>
-          <label className="block text-sm font-semibold text-ocean mb-4">
-            Kite Character
-          </label>
+          <div className="flex items-baseline justify-between mb-3">
+            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
+              Kite Character
+            </label>
+          </div>
           <input
             type="range"
             min={0}
@@ -97,46 +109,46 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
             value={shapeValue}
             onChange={e => setShapeValue(Number(e.target.value))}
             className="w-full"
+            style={{ '--range-pct': rangePct(shapeValue, 0, 100) } as React.CSSProperties}
           />
           <div className="flex justify-between mt-2">
-            {shapeLabels.map(l => (
-              <span key={l.label} className="text-xs text-gray-500">{l.label}</span>
-            ))}
+            <span className="text-[10px] text-gray-400">C / Delta</span>
+            <span className="text-[10px] text-gray-400">Bow / LEI</span>
           </div>
         </div>
 
-        {/* Construction Filter */}
+        {/* Construction */}
         <div>
-          <label className="block text-sm font-semibold text-ocean mb-3">
+          <label className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3 block">
             Construction
           </label>
           <div className="flex flex-wrap gap-2">
-            {([
-              { value: 'all', label: 'All' },
-              { value: 'dacron', label: 'Dacron' },
-              { value: 'aluula', label: 'Aluula' },
-              { value: 'brainchild', label: 'Brainchild' },
-            ] as const).map(opt => (
+            {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(opt => (
               <button
-                key={opt.value}
-                onClick={() => setConstruction(opt.value)}
-                className={`px-4 py-1.5 text-sm rounded-full border transition-colors ${
-                  construction === opt.value
-                    ? 'bg-ocean text-white border-ocean'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-ocean hover:text-ocean'
+                key={opt}
+                onClick={() => setConstruction(opt)}
+                className={`px-3 py-1 text-xs font-semibold rounded-full border capitalize transition-all duration-200 ${
+                  construction === opt
+                    ? 'bg-ocean border-ocean text-[#080D16] shadow-[0_0_12px_rgba(0,229,255,0.3)]'
+                    : 'border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-600'
                 }`}
               >
-                {opt.label}
+                {opt}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Budget Slider */}
+        {/* Budget */}
         <div>
-          <label className="block text-sm font-semibold text-ocean mb-4">
-            Budget: {budget >= 5000 ? 'No limit' : `Up to $${budget.toLocaleString()}`}
-          </label>
+          <div className="flex items-baseline justify-between mb-3">
+            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
+              Budget
+            </label>
+            <span className="text-sm font-bold text-slate">
+              {budget >= 5000 ? 'No limit' : `$${budget.toLocaleString()}`}
+            </span>
+          </div>
           <input
             type="range"
             min={500}
@@ -145,46 +157,51 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
             value={budget}
             onChange={e => setBudget(Number(e.target.value))}
             className="w-full"
+            style={{ '--range-pct': rangePct(budget, 500, 5000) } as React.CSSProperties}
           />
           <div className="flex justify-between mt-2">
-            <span className="text-xs text-gray-500">$500</span>
-            <span className="text-xs text-gray-500">$5,000+</span>
+            <span className="text-[10px] text-gray-400">$500</span>
+            <span className="text-[10px] text-gray-400">$5,000+</span>
           </div>
         </div>
 
         {/* Top Matches Preview */}
         {topMatches.length > 0 && (
           <div>
-            <p className="text-sm font-medium text-gray-500 mb-3">Top Matches</p>
-            <div className="grid grid-cols-3 gap-3">
+            <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">
+              Top Matches
+            </p>
+            <div className="grid grid-cols-3 gap-2">
               {topMatches.map((kite) => (
                 <div
                   key={kite.id}
-                  className="text-center p-3 bg-surface rounded-lg border border-gray-100"
+                  className="p-3 bg-surface rounded-xl border border-gray-100 text-center"
                 >
-                  <div className={`inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-1 ${
-                    kite.score >= 80 ? 'bg-green-100 text-green-700' :
-                    kite.score >= 60 ? 'bg-yellow-100 text-yellow-700' :
-                    'bg-gray-100 text-gray-600'
+                  <div className={`font-display font-black italic text-xl leading-none mb-1 ${
+                    kite.score >= 80 ? 'text-ocean' :
+                    kite.score >= 60 ? 'text-sand' :
+                    'text-gray-500'
                   }`}>
                     {kite.score}%
                   </div>
-                  <p className="text-xs font-semibold text-slate truncate">
-                    {kite.brand} {kite.model}
-                  </p>
-                  <p className="text-xs text-gray-400">{kite.year}</p>
+                  <p className="text-[11px] font-semibold text-slate truncate leading-snug">{kite.brand}</p>
+                  <p className="text-[10px] text-gray-400 truncate">{kite.model}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* Find Kites Button */}
+        {/* CTA */}
         <button
-          onClick={() => router.push(`/results?style=${styleValue}&shape=${shapeValue}&construction=${construction}&budget=${budget}`)}
-          className="w-full py-3 px-6 bg-ocean text-white font-semibold rounded-xl hover:bg-ocean-light transition-colors shadow-sm"
+          onClick={() =>
+            router.push(
+              `/results?style=${styleValue}&shape=${shapeValue}&construction=${construction}&budget=${budget}`
+            )
+          }
+          className="w-full py-3.5 px-6 bg-ocean text-[#080D16] font-display font-black italic text-2xl uppercase tracking-wide rounded-xl hover:bg-ocean-light transition-all duration-200 shadow-[0_0_24px_rgba(0,229,255,0.35)] hover:shadow-[0_0_32px_rgba(0,229,255,0.5)]"
         >
-          Find Kites
+          Find Kites →
         </button>
       </div>
     </div>
