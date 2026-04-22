@@ -1,15 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { Kite, ReviewSource } from "@/lib/types";
+import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import SpectrumBar from '@/components/SpectrumBar';
-import ReviewSources from '@/components/ReviewSources';
+import StructuredReview from '@/components/StructuredReview';
+import YouTubeReviews from '@/components/YouTubeReviews';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
 
 export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
   const related = getRelatedKites(kite, allKites, 3);
+  const youtubeReviews = (kite.reviews ?? []).filter(
+    (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
+  );
 
   const specs = [
     ['Aspect Ratio', kite.aspect_ratio.replace('-', ' ')],
@@ -93,15 +97,28 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         </div>
       </div>
 
-      {/* Reviews */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-        <h2 className="text-lg font-bold text-slate mb-4">Reviews</h2>
-        <ReviewSources
-          sources={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.sources) ?? []}
-          aggregateScore={kite.structured_review?.rating ?? ((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.aggregate_score) ?? 0}
-          reviewCount={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.review_count) ?? 0}
-        />
-      </div>
+      {/* Expert Review */}
+      {kite.structured_review ? (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <h2 className="text-lg font-bold text-slate mb-4">Expert Review</h2>
+          <StructuredReview review={kite.structured_review} />
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <h2 className="text-lg font-bold text-slate mb-2">Expert Review</h2>
+          <p className="text-sm text-gray-500">
+            We haven&apos;t published a detailed review for this kite yet. Check back soon.
+          </p>
+        </div>
+      )}
+
+      {/* Video Reviews */}
+      {youtubeReviews.length > 0 && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <h2 className="text-lg font-bold text-slate mb-4">Video Reviews</h2>
+          <YouTubeReviews reviews={youtubeReviews} />
+        </div>
+      )}
 
       {/* User Reviews */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
