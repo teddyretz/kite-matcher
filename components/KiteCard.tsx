@@ -195,9 +195,11 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
             onClick={() =>
               inCompare ? removeFromCompare(kite.slug) : addToCompare(kite.slug)
             }
-            className={`py-2 px-4 text-sm font-semibold rounded-lg border transition-all ${
+            aria-label={inCompare ? `Remove ${kite.model} from compare` : `Add ${kite.model} to compare`}
+            aria-pressed={inCompare}
+            className={`py-2 px-4 text-sm font-semibold rounded-lg border transition-all duration-150 active:scale-90 ${
               inCompare
-                ? 'bg-ocean/10 border-ocean/40 text-ocean'
+                ? 'bg-ocean/15 border-ocean text-ocean ring-2 ring-ocean/30'
                 : 'border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-600'
             }`}
           >
