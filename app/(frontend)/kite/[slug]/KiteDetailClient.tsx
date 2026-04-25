@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import SpectrumBar from '@/components/SpectrumBar';
@@ -14,6 +16,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
   const youtubeReviews = (kite.reviews ?? []).filter(
     (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
   );
+  const [imgError, setImgError] = useState(false);
 
   const specs = [
     ['Aspect Ratio', kite.aspect_ratio.replace('-', ' ')],
@@ -39,13 +42,22 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       {/* Hero */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="h-64 md:h-auto bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img
-              src={`/kites/${kite.slug}.jpg`}
-              alt={`${kite.brand} ${kite.model}`}
-              className="w-full h-full object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-            />
+          <div className="relative h-64 md:h-auto md:min-h-[320px] bg-gray-50 overflow-hidden">
+            {imgError ? (
+              <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
+                {kite.brand} {kite.model}
+              </div>
+            ) : (
+              <Image
+                src={`/kites/${kite.slug}.jpg`}
+                alt={`${kite.brand} ${kite.model} ${kite.year} kite`}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                onError={() => setImgError(true)}
+              />
+            )}
           </div>
           <div className="p-6 sm:p-8">
             <p className="text-sm text-gray-500 mb-1">{kite.brand} &middot; {kite.year}</p>

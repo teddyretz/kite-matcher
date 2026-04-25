@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -15,10 +17,20 @@ const barlowCondensed = Barlow_Condensed({
   display: "swap",
 });
 
-export const metadata = {
-  title: "FindMyKite — Find Your Next Kite",
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "FindMyKite — Find Your Next Kite",
+    template: "%s | FindMyKite",
+  },
   description:
     "Match your riding style to the right kite — with real reviews, not sponsored content.",
+  openGraph: {
+    type: "website",
+    siteName: "FindMyKite",
+    url: SITE_URL,
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
