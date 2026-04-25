@@ -6,6 +6,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { Kites } from './collections/Kites'
+import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +25,7 @@ function getDatabaseUri(): string {
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Kites],
+  collections: [Users, Kites],
   secret: process.env.PAYLOAD_SECRET || 'CHANGE-ME-SET-PAYLOAD_SECRET-ENV',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -33,6 +34,8 @@ export default buildConfig({
     pool: {
       connectionString: getDatabaseUri(),
     },
+    // Keep schema in sync in prod too — idempotent on unchanged schemas.
+    push: true,
   }),
   sharp,
   admin: {

@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "dotenv -e .env.local -- npx tsx scripts/seed-kites.ts",
+    "process-reviews": "dotenv -e .env.local -- npx tsx scripts/process-reviews.ts",
     "generate:types": "payload generate:types",
     "postinstall": "node scripts/patch-payload-loadenv.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "@payloadcms/db-postgres": "^3.80.0",
     "@payloadcms/next": "^3.80.0",
     "@payloadcms/richtext-lexical": "^3.80.0",

@@ -1,22 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Kite } from '@/lib/types';
+
+export interface KiteFiltersInitial {
+  aluula?: boolean;
+  brainchild?: boolean;
+  priceMax?: number;
+}
 
 interface KiteFiltersProps {
   kites: Kite[];
   onFilter: (filtered: Kite[]) => void;
+  initial?: KiteFiltersInitial;
 }
 
-export default function KiteFilters({ kites, onFilter }: KiteFiltersProps) {
+export default function KiteFilters({ kites, onFilter, initial }: KiteFiltersProps) {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedSkill, setSelectedSkill] = useState<string[]>([]);
   const [selectedBarType, setSelectedBarType] = useState<string>('');
-  const [onlyAluula, setOnlyAluula] = useState(false);
-  const [onlyBrainchild, setOnlyBrainchild] = useState(false);
-  const [priceMax, setPriceMax] = useState(5000);
+  const [onlyAluula, setOnlyAluula] = useState(initial?.aluula ?? false);
+  const [onlyBrainchild, setOnlyBrainchild] = useState(initial?.brainchild ?? false);
+  const [priceMax, setPriceMax] = useState(initial?.priceMax ?? 5000);
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Notify parent of the initial filter pass so quiz-derived
+  // construction/budget filters apply on first render, not just after a click.
+  useEffect(() => {
+    applyFilters();
+    // intentionally run once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const brands = [...new Set(kites.map(k => k.brand))].sort();
   const years = [...new Set(kites.map(k => k.year))].sort((a, b) => b - a);
