@@ -1,0 +1,100 @@
+{
+  "id": "slingshot-rpm-2025",
+  "slug": "slingshot-rpm-2025",
+  "brand": "Slingshot",
+  "model": "RPM",
+  "year": 2025,
+  "image": "/kites/slingshot-rpm-2025.jpg",
+  "style_spectrum": 42,
+  "shape_spectrum": 35,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "freestyle",
+    "wakestyle",
+    "C-kite",
+    "unhooked"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "low",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 5,
+  "relaunch": "medium",
+  "wind_range_low": 13,
+  "wind_range_high": 30,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1499,
+  "summary": "The Slingshot RPM is a pure C-kite built for freestyle and wakestyle riders. Its low aspect ratio and fast turning deliver explosive pop and slack line for unhooked tricks.",
+  "best_for": "Freestyle and wakestyle riders wanting a dedicated C-kite",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 15,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399700",
+            "score": 4.3,
+            "summary": "Freestyle riders love the RPM's explosive pop and slack line, calling it one of the last true C-kites on the market."
+          },
+          {
+            "source": "YouTube - Wakestyle Review",
+            "url": "https://www.youtube.com/watch?v=slingshot_rpm_2025",
+            "score": 4.4,
+            "summary": "Reviewer demonstrates smooth unhooked performance and consistent kite loops, noting the RPM delivers on its freestyle promise.",
+            "video_id": "slingshot_rpm_2025"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rpm_25",
+            "score": null,
+            "summary": "Community appreciates Slingshot keeping the C-kite alive, though riders note the limited depower range makes it less suitable for beginners."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+RPM+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+RPM+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+RPM+2025",
+        "price": 1499
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+RPM"
+      }
+    ]
+  }
+}

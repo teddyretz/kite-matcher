@@ -1,35 +1,17 @@
-import { config as dotenv } from 'dotenv'
-import { resolve } from 'path'
-dotenv({ path: resolve(process.cwd(), '.env.local') })
+import fs from 'fs'
+import path from 'path'
+import 'dotenv/config'
 
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import Anthropic from '@anthropic-ai/sdk'
+import { KiteSchema, type ValidatedKite } from '../lib/schema'
 
-type YouTubeReview = {
-  source: 'youtube'
-  reviewer: string
-  channel: string
-  video_title?: string
-  video_url?: string
-  excerpt?: string
-  verdict?: string
-  full_transcript?: string
-}
-
-type StructuredReview = {
-  rating: number
-  summary: string
-  pros: string[]
-  cons: string[]
-  best_for: string
-  not_for: string
-  rec_blurb: string
-  sources: string[]
-}
+type YouTubeReview = Extract<ValidatedKite['reviews'][number], { source: 'youtube' }>
+type StructuredReview = NonNullable<ValidatedKite['structured_review']>
 
 const MODEL = 'claude-sonnet-4-6'
 const MAX_TOKENS = 2048
+const ROOT = path.resolve(__dirname, '..')
+const DATA_DIR = path.join(ROOT, 'data', 'kites')
 
 const SYSTEM_PROMPT = `You are a kitesurfing expert writing structured reviews for findmykite.com. Given one or more YouTube review transcripts for a single kite, you synthesize them into a consolidated JSON review.
 
@@ -65,23 +47,40 @@ const SCHEMA = {
   },
 }
 
-function buildUserPrompt(kite: Record<string, unknown>, transcripts: YouTubeReview[]): string {
+function loadAllKites(): ValidatedKite[] {
+  const files = fs.readdirSync(DATA_DIR).filter((f) => f.endsWith('.json')).sort()
+  return files.map((f) => {
+    const raw = fs.readFileSync(path.join(DATA_DIR, f), 'utf-8')
+    const parsed = KiteSchema.parse(JSON.parse(raw))
+    return parsed
+  })
+}
+
+function writeKite(kite: ValidatedKite) {
+  const file = path.join(DATA_DIR, `${kite.slug}.json`)
+  fs.writeFileSync(file, JSON.stringify(kite, null, 2) + '\n')
+}
+
+function buildUserPrompt(kite: ValidatedKite, transcripts: YouTubeReview[]): string {
   const header = `Kite: ${kite.brand} ${kite.model} ${kite.year}
 Category: ${kite.summary}
 Style placement: style_spectrum=${kite.style_spectrum} (Foil 0-20, Surf 21-40, Freestyle 41-60, Freeride 61-80, Big Air 81-100), wave_spectrum=${kite.wave_spectrum}
-Tags: ${Array.isArray(kite.style_tags) ? (kite.style_tags as string[]).join(', ') : ''}
+Tags: ${kite.style_tags.join(', ')}
 
 Review transcripts follow. Synthesize a single structured review.
 `
   const bodies = transcripts
-    .map((r, i) => `\n=== Source ${i + 1}: ${r.reviewer} (${r.channel})${r.video_title ? ` — "${r.video_title}"` : ''} ===\n${r.full_transcript ?? ''}`)
+    .map(
+      (r, i) =>
+        `\n=== Source ${i + 1}: ${r.reviewer} (${r.channel})${r.video_title ? ` — "${r.video_title}"` : ''} ===\n${r.full_transcript ?? ''}`,
+    )
     .join('\n')
   return header + bodies
 }
 
 async function generateStructuredReview(
   client: Anthropic,
-  kite: Record<string, unknown>,
+  kite: ValidatedKite,
   transcripts: YouTubeReview[],
 ): Promise<StructuredReview> {
   const response = await client.messages.create({
@@ -99,14 +98,17 @@ async function generateStructuredReview(
   return JSON.parse(textBlock.text) as StructuredReview
 }
 
-function parseArgs(argv: string[]): { slug?: string; overwrite: boolean; dryRun: boolean; limit?: number } {
-  const args = { overwrite: false, dryRun: false } as { slug?: string; overwrite: boolean; dryRun: boolean; limit?: number }
+function parseArgs(argv: string[]) {
+  const args: { slug?: string; overwrite: boolean; dryRun: boolean; limit?: number } = {
+    overwrite: false,
+    dryRun: false,
+  }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
-    if (a === '--slug' && argv[i + 1]) { args.slug = argv[++i] }
-    else if (a === '--overwrite') { args.overwrite = true }
-    else if (a === '--dry-run') { args.dryRun = true }
-    else if (a === '--limit' && argv[i + 1]) { args.limit = parseInt(argv[++i], 10) }
+    if (a === '--slug' && argv[i + 1]) args.slug = argv[++i]
+    else if (a === '--overwrite') args.overwrite = true
+    else if (a === '--dry-run') args.dryRun = true
+    else if (a === '--limit' && argv[i + 1]) args.limit = parseInt(argv[++i], 10)
   }
   return args
 }
@@ -119,45 +121,38 @@ async function main() {
   }
 
   const client = new Anthropic()
-  const payload = await getPayload({ config })
+  const allKites = loadAllKites()
+  const filtered = args.slug ? allKites.filter((k) => k.slug === args.slug) : allKites
 
-  const findParams: Parameters<typeof payload.find>[0] = {
-    collection: 'kites',
-    limit: 0,
-    pagination: false,
-  }
-  if (args.slug) findParams.where = { slug: { equals: args.slug } }
-  const { docs } = await payload.find(findParams)
-
-  const targets = docs.filter((doc) => {
-    const reviews = (doc.reviews as YouTubeReview[] | undefined) ?? []
-    const hasTranscript = reviews.some((r) => r.source === 'youtube' && r.full_transcript && r.full_transcript.length > 200)
-    const hasStructured = doc.structured_review && typeof (doc.structured_review as { rating?: number }).rating === 'number'
+  const targets = filtered.filter((k) => {
+    const hasTranscript = k.reviews.some(
+      (r) => r.source === 'youtube' && r.full_transcript && r.full_transcript.length > 200,
+    )
+    const hasStructured = !!k.structured_review && typeof k.structured_review.rating === 'number'
     return hasTranscript && (args.overwrite || !hasStructured)
   })
 
   const batch = args.limit ? targets.slice(0, args.limit) : targets
-  console.log(`Found ${targets.length} kite(s) to process${args.limit ? ` (processing ${batch.length})` : ''}${args.dryRun ? ' — DRY RUN' : ''}`)
+  console.log(
+    `Found ${targets.length} kite(s) to process${args.limit ? ` (processing ${batch.length})` : ''}${args.dryRun ? ' — DRY RUN' : ''}`,
+  )
 
   let ok = 0
   let failed = 0
-  for (const doc of batch) {
-    const slug = doc.slug as string
-    const transcripts = ((doc.reviews as YouTubeReview[]) ?? []).filter(
-      (r) => r.source === 'youtube' && !!r.full_transcript,
+  for (const kite of batch) {
+    const transcripts = kite.reviews.filter(
+      (r): r is YouTubeReview => r.source === 'youtube' && !!r.full_transcript,
     )
-    console.log(`\n[${ok + failed + 1}/${batch.length}] ${slug} — ${transcripts.length} transcript(s)`)
+    console.log(`\n[${ok + failed + 1}/${batch.length}] ${kite.slug} — ${transcripts.length} transcript(s)`)
     try {
-      const review = await generateStructuredReview(client, doc as Record<string, unknown>, transcripts)
-      console.log(`  rating: ${review.rating} | pros: ${review.pros.length} | cons: ${review.cons.length} | sources: ${review.sources.join(', ')}`)
+      const review = await generateStructuredReview(client, kite, transcripts)
+      console.log(
+        `  rating: ${review.rating} | pros: ${review.pros.length} | cons: ${review.cons.length} | sources: ${review.sources.join(', ')}`,
+      )
       console.log(`  blurb: ${review.rec_blurb}`)
       if (!args.dryRun) {
-        await payload.update({
-          collection: 'kites',
-          id: doc.id,
-          data: { structured_review: review } as Record<string, unknown>,
-        })
-        console.log(`  ✓ written to Payload`)
+        writeKite({ ...kite, structured_review: review })
+        console.log(`  ✓ written to data/kites/${kite.slug}.json`)
       }
       ok++
     } catch (err) {

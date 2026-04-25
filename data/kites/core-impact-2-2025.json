@@ -1,0 +1,83 @@
+{
+  "id": "core-impact-2-2025",
+  "slug": "core-impact-2-2025",
+  "brand": "Core",
+  "model": "Impact 2",
+  "year": 2025,
+  "image": "/kites/core-impact-2-2025.jpg",
+  "style_spectrum": 48,
+  "shape_spectrum": 28,
+  "wave_spectrum": 8,
+  "style_tags": [
+    "freestyle",
+    "wakestyle",
+    "C-kite",
+    "unhooked"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 4,
+  "depower_range": 5,
+  "relaunch": "medium",
+  "wind_range_low": 13,
+  "wind_range_high": 38,
+  "sizes": [
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "price_new": 1449,
+  "summary": "Core's deep-C 5-line pure wakestyle machine. Square wingtips for direct line connection, consistent uniform pull for extreme pop, predictable slack for rotations and handle passes. Slightly higher AR than Impact 1 for improved speed and wind range. ExoTex Dacron for rigidity.",
+  "best_for": "Wakestyle, unhooked freestyle, and C-kite purists",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 11,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=core-impact-2-2025",
+            "score": 4.4,
+            "summary": "The most authentic C-kite feel in Core's lineup. The square tips and deep-C canopy deliver exactly the pop and slack you expect. No frills, pure freestyle performance."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+impact+2+2025",
+            "score": 4.3,
+            "summary": "Dedicated C-kite riders will love it. Not for everyone but absolutely nails the brief for serious freestylers."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Core+Impact+2+2025",
+        "price": 1449
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Core+Impact+2"
+      }
+    ]
+  }
+}

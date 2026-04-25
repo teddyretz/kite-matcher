@@ -1,68 +1,70 @@
 # FindMyKite — Claude Code Handoff
 
 ## What This Is
-A kite buying advisor at **findmykite.com**. Helps kitesurfers find the right kite through a style quiz, filtered browsing, and AI-powered review data. Built with Next.js 15 (App Router), Tailwind CSS v3, TypeScript, Payload CMS 3.x, Neon Postgres.
+A kite buying advisor at **findmykite.com**. Helps kitesurfers find the right kite through a style quiz, filtered browsing, and AI-generated reviews. Built with Next.js 15 (App Router), Tailwind CSS v3, TypeScript. Data is stored as per-kite JSON files in the repo (no DB, no CMS).
 
 **Repo:** `teddyretz/kite-matcher`
 **Deploy:** `vercel --prod --yes` from repo root (auto-aliases to findmykite.com)
 
 ---
 
-## Stack (as of 2026-03-29)
+## Stack
 
 | Layer | Tech |
 |---|---|
-| Framework | Next.js 15.4.11 |
+| Framework | Next.js 15.4.11 (App Router) |
 | React | 19 |
 | Styling | Tailwind CSS 3.4.x |
-| CMS | Payload CMS 3.x (`/admin`) |
-| Database | Neon serverless Postgres |
-| User reviews | Supabase (separate, existing `reviews` table) |
+| Data | Per-kite JSON files in `data/kites/` (Zod-validated) |
+| LLM | `@anthropic-ai/sdk` — `claude-sonnet-4-6` for review synthesis |
+| User reviews | Supabase (separate `reviews` table) |
 | Deploy | Vercel |
 
 ---
 
 ## Architecture
 
-### Route Groups
-The app is split into two Next.js route groups so Payload admin can have its own server layout:
+### Routes
 
 ```
 app/
-  layout.tsx              ← minimal server root (html/body/font only)
-  (frontend)/             ← all public pages + 'use client' nav layout
-    layout.tsx            ← nav, CompareProvider, CompareDrawer
+  layout.tsx              ← server root (html/body/font, metadataBase, default OG)
+  robots.ts               ← /robots.txt
+  sitemap.ts              ← /sitemap.xml (static routes + every kite slug)
+  (frontend)/             ← all public pages
+    layout.tsx            ← 'use client' nav layout, CompareProvider, CompareDrawer
     page.tsx              ← homepage
     kites/page.tsx        ← browse catalog (server wrapper → BrowseContent client)
-    kite/[slug]/page.tsx  ← detail (server wrapper → KiteDetailClient)
+    kite/[slug]/page.tsx  ← detail (SSG via generateStaticParams + per-kite metadata + JSON-LD Product)
     results/page.tsx      ← quiz results (server wrapper → ResultsContent client)
     compare/page.tsx      ← comparison (server wrapper → CompareContent client)
     about/page.tsx
-    api/kites/route.ts    ← REST endpoint (used by CompareDrawer via fetch)
-  (payload)/
-    admin/[[...segments]] ← Payload CMS admin panel
-    layout.tsx            ← Payload server layout
+    api/kites/route.ts    ← REST endpoint (used by CompareContext via fetch)
 ```
 
 ### Data Flow
-- **Server pages** fetch from Payload Local API (`lib/getKites.ts`) and pass kites as props to client children
-- **Client components** (CompareDrawer, CompareContext) fetch from `/api/kites` via `useEffect`
-- `lib/matcher.ts` — pure functions on `Kite[]`, unchanged, no Payload dependency
+- **Source of truth:** `data/kites/<slug>.json` — one file per kite, 79 total.
+- **Validation:** `lib/schema.ts` — Zod `KiteSchema`. `npm run validate-kites` (also runs as `prebuild`) blocks the build on any malformed file.
+- **Server reads:** `lib/getKites.ts` reads + caches in module scope. SSG bakes the data into static HTML at build.
+- **Runtime reads:** `app/api/kites/route.ts` (used by `CompareContext`) reads from disk on demand. Files are bundled into the serverless function via `outputFileTracingIncludes` in `next.config.mjs`.
+- **Matching:** `lib/matcher.ts` — pure functions on `Kite[]`.
 
 ### Key Files
-- `payload.config.ts` — Payload config, uses `DATABASE_URI` env var (falls back to `POSTGRES_URL` then individual `POSTGRES_*` vars)
-- `collections/Kites.ts` — full Kites collection matching `lib/types.ts` Kite interface
-- `lib/getKites.ts` — `getAllKites()`, `getKiteBySlug()`, `getActiveKites()`
-- `lib/types.ts` — canonical `Kite` interface — keep in sync with Kites collection
-- `scripts/seed-kites.ts` — seeds all 79 kites from `data/kites.json` into Neon
-- `scripts/patch-payload-loadenv.js` — postinstall patch for Payload/Next.js 15 `@next/env` ESM interop issue (auto-runs on `npm install`)
+- `lib/schema.ts` — Zod `KiteSchema`, single source of truth for the kite shape.
+- `lib/types.ts` — TypeScript `Kite` interface (kept in sync with the schema).
+- `lib/getKites.ts` — `getAllKites()`, `getKiteBySlug()`, `getActiveKites()`.
+- `lib/seo.ts` — `SITE_URL` + `kiteJsonLd()` for the Schema.org Product blob.
+- `scripts/process-reviews.ts` — synthesizes `structured_review` from YouTube transcripts via `claude-sonnet-4-6`; writes back to per-kite JSON.
+- `scripts/validate-kites.ts` — validates every kite file; exits non-zero on failure.
+- `data/kites.json` — legacy single-array file kept as a backup. Safe to delete once you're confident in the per-kite files.
 
 ---
 
-## Data (`data/kites.json`)
+## Data
+
 - **79 kites** across 13 brands: Duotone (13), Core (12), Slingshot (8), North (7), Ozone (6), Flysurfer (6), Cabrinha (5), Reedin (5), F-One (4), Eleveight (4), Airush (4), Harlem (3), Naish (2)
-- All 79 are seeded into Neon — **Payload is the source of truth going forward**
-- `data/kites.json` is kept as a backup/seed source only
+- **Each kite is one file** at `data/kites/<slug>.json`. Editing or adding a kite = editing or creating one file. Validation enforces shape; `npm run validate-kites` runs in `prebuild` so a malformed file fails the deploy.
+- **Adding a kite:** copy any existing file as a template, change `slug` and the rest, drop an image at `public/kites/<slug>.jpg`, commit. The new kite is picked up automatically (no index file).
 
 ### Key Data Rules (do not break these)
 - `style_spectrum`: Foil(0–20), Surf(21–40), Freestyle(41–60), Freeride(61–80), Big Air(81–100)
@@ -70,7 +72,7 @@ app/
 - `reviews`: always an array. Two entry types:
   - `{ source: "youtube", reviewer, channel, video_id, excerpt, verdict, full_transcript }`
   - `{ source: "aggregate_placeholder", data: { aggregate_score, review_count, sources[] } }`
-- `structured_review`: optional — `{ rating, summary, pros[], cons[], best_for, not_for, rec_blurb, sources[] }`
+- `structured_review`: optional — `{ rating, summary, pros[], cons[], best_for, not_for, rec_blurb, sources[] }`. Generated by `process-reviews.ts`.
 - All Duotone kites: `bar_type: "high-y"`
 - Aluula kites: `aluula: true` (Duotone D/LAB, Core Pace Pro/Air Pro, Eleveight XS Pro, Slingshot Code NXT)
 - Brainchild kites: Harlem (all 3), Reedin HyperModel 2025+2026, F-One Bandit Brainchild 2026
@@ -81,73 +83,42 @@ app/
 
 ## Environment Variables
 
-### Required
-| Var | Where | Purpose |
+| Var | Required for | Purpose |
 |---|---|---|
-| `DATABASE_URI` | Vercel + `.env.local` | Neon Postgres connection string |
-| `PAYLOAD_SECRET` | Vercel + `.env.local` | Payload auth secret (32+ chars) |
+| `ANTHROPIC_API_KEY` | `npm run process-reviews` | `sk-ant-...` for `claude-sonnet-4-6` |
+| `NEXT_PUBLIC_SITE_URL` | optional | Canonical URL base. Defaults to `https://kitematch.com`. Override per environment for staging. |
+| `NEXT_PUBLIC_SUPABASE_URL` | optional | Enables user review submission |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | optional | Enables user review submission |
 
-### Optional
-| Var | Purpose |
-|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | Enables user review submission |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Enables user review submission |
-
-**Note:** Vercel has `POSTGRES_URL` and individual `POSTGRES_*` vars from a Supabase integration, but those were empty/unusable. `DATABASE_URI` pointing to Neon is the working DB connection.
+The frontend has no required env vars — it builds and runs from the JSON files alone.
 
 ---
 
 ## Local Dev
 
 ```bash
-npm install          # also runs postinstall patch for Payload/Next.js interop
-npm run dev          # starts on port 3000 (or 3001 per .claude/launch.json)
-npm run seed         # reseed all 79 kites from kites.json into Neon
+npm install
+npm run dev               # http://localhost:3000
+npm run validate-kites    # checks every kite file against KiteSchema
+npm run process-reviews   # synthesize structured_review for kites with YouTube transcripts
+npm run build             # full prod build (runs validate-kites first)
 ```
-
-Admin panel: `http://localhost:3000/admin`
-
----
-
-## Known Issues / Quirks
-
-- **`@next/env` ESM interop** — Payload's `loadEnv.js` crashes when run outside Next.js (e.g. seed script) due to ESM default vs named export mismatch with Next.js 15's `@next/env`. Fixed via `scripts/patch-payload-loadenv.js` which runs as `postinstall`. If you see `TypeError: Cannot destructure property 'loadEnvConfig'`, run `node scripts/patch-payload-loadenv.js`.
-- **Seed script env loading** — uses `dotenv-cli` to pre-inject `.env.local` before Payload initializes: `dotenv -e .env.local -- npx tsx scripts/seed-kites.ts`
-- **`kiteData as unknown as Kite[]`** — intentional cast pattern used in 4 places, do not revert
-- **`reviews` is `ReviewEntry[]`** — check `r.source === 'youtube'` before accessing YouTube-specific fields
 
 ---
 
 ## What Needs Building (Priority Order)
 
-### Priority 1 — Expand structured_review to all 30 kites with transcripts
-Only a handful have it. Generate for remaining kites using the `full_transcript` in each kite's youtube review entry. Use Claude API (claude-sonnet-4-6).
+### Priority 1 — URL-state for filters (deferred from previous PRs)
+`KiteFilters` keeps state in `useState`, so refresh wipes selections and URLs aren't shareable. Refactor to read/write filter state via `useSearchParams` + `router.replace`. Affects `KiteFilters.tsx` and `ResultsContent.tsx`. Adds shareable filtered URLs and removes the brittle "initial values from quiz" workaround.
 
-Schema:
-```json
-{
-  "rating": 4.2,
-  "summary": "2-3 sentences about the kite's character",
-  "pros": ["specific strength"],
-  "cons": ["honest weakness — do not sanitize"],
-  "best_for": "one sentence — who should buy this",
-  "not_for": "one sentence — who should skip this",
-  "rec_blurb": "one punchy sentence for card display",
-  "sources": ["Jason Montreal", "Kitemana"]
-}
-```
+### Priority 2 — Run process-reviews against the rest of the catalog
+24 kites have YouTube transcripts. `npm run process-reviews` writes `structured_review` for each. ~$0.55 on Sonnet 4.6. Use `--slug <slug>` to run on a single kite, `--dry-run` to preview, `--overwrite` to regenerate.
 
-### Priority 2 — Display structured_review on detail page (`/kite/[slug]`)
-Show prominently: star rating, summary, pros/cons columns, best_for/not_for, sources.
-`rec_blurb` should appear on KiteCard below the kite name.
-
-### Priority 3 — Review pipeline scripts (`scripts/`)
-- `ingest-review.ts` — ingest raw content (YouTube VTT via yt-dlp, articles)
-- `process-reviews.ts` — call Claude API (claude-sonnet-4-6) to generate structured reviews
-- `sync-reviews.ts` — merge structured reviews back into Payload via Local API
+### Priority 3 — Ingest more transcripts
+~55 kites have no source material at all. Add `scripts/ingest-review.ts` that takes a YouTube URL, pulls VTT via `yt-dlp`, and appends a `youtube` entry to the kite's JSON. Then `process-reviews.ts` can pick it up.
 
 ### Priority 4 — Mobile polish
-Still check: quiz flow at 375px, KiteCard layout, compare drawer.
+Quiz flow at 375px, KiteCard layout, compare drawer.
 
 ### Priority 5 — `/ask` RAG endpoint (future)
 Vector store of transcripts + text query UI.
@@ -165,8 +136,7 @@ Vector store of transcripts + text query UI.
 
 ## Do Not
 - Render `full_transcript` in UI
-- Revert `as unknown as Kite[]` casts
 - Change `reviews` from array to object
 - Remove `aluula`, `brainchild`, `teds_pick` fields
-- Deploy without `npm run build` passing first
-- Edit kite data in `data/kites.json` — Payload/Neon is now source of truth
+- Edit `data/kites.json` — it's a legacy backup. Edit `data/kites/<slug>.json` instead.
+- Deploy without `npm run build` passing first (the prebuild hook will catch malformed kite files)

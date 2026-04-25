@@ -1,0 +1,102 @@
+{
+  "id": "airush-lithium-v13-2025",
+  "slug": "airush-lithium-v13-2025",
+  "brand": "Airush",
+  "model": "Lithium V13",
+  "year": 2025,
+  "image": "/kites/airush-lithium-v13-2025.jpg",
+  "style_spectrum": 63,
+  "shape_spectrum": 50,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "beginner-friendly"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "both",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 899,
+  "summary": "The Airush Lithium V13 is a long-running freeride platform now in its 13th iteration. It offers predictable handling, wide depower range, and excellent relaunch for riders of all levels.",
+  "best_for": "All-level freeriders wanting a proven and reliable kite",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 16,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399510",
+            "score": 4.3,
+            "summary": "The Lithium continues to be a reliable all-around performer. V13 brings minor refinements to an already well-proven platform."
+          },
+          {
+            "source": "YouTube - Freeride Kite Comparison",
+            "url": "https://www.youtube.com/watch?v=airush_lithium_v13",
+            "score": 4.2,
+            "summary": "Reviewer compares the Lithium to other freeride kites and finds it competitive on all fronts, praising its consistency and beginner-friendly nature.",
+            "video_id": "airush_lithium_v13"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lithium_v13",
+            "score": null,
+            "summary": "A common recommendation for first-time buyers. Users note the Lithium has been refined over 13 versions into a very polished freeride kite."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Airush+Lithium+V13+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Airush+Lithium+V13+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Airush+Lithium+V13+2025",
+        "price": 1499
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Lithium"
+      }
+    ]
+  }
+}

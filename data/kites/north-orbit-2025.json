@@ -1,0 +1,126 @@
+{
+  "id": "north-orbit-2025",
+  "slug": "north-orbit-2025",
+  "brand": "North",
+  "model": "Orbit",
+  "year": 2025,
+  "image": "/kites/north-orbit-2025.jpg",
+  "style_spectrum": 84,
+  "shape_spectrum": 55,
+  "wave_spectrum": 12,
+  "style_tags": [
+    "big air",
+    "megaloops",
+    "freeride"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": true,
+  "aspect_ratio": "medium-high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 35,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1699,
+  "summary": "North's flagship big air kite designed for maximum boost and hangtime. The 5-strut frame provides stability in strong winds while maintaining surprisingly good freeride capabilities.",
+  "best_for": "Big air with freeride versatility",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 35,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-2025",
+            "score": 4.4,
+            "summary": "A strong big air kite that also works well for powered freeriding. Competitive with the Rebel and XR7."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+2025",
+            "score": 4.3,
+            "summary": "Great for big air enthusiasts who also want to freeride. Reliable relaunch and good wind range."
+          },
+          {
+            "source": "YouTube - Ride with Blake",
+            "url": "https://www.youtube.com/results?search_query=north+orbit+2025+review",
+            "score": 4.5,
+            "summary": "A solid performer in the big air category. Riders appreciate the balance between boost and usability.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "structured_review": {
+    "rating": 4.2,
+    "summary": "The GOAT that changed big air forever. Five years of iteration have made the Orbit incredibly refined - light bar pressure, fast turning, and that legendary catch. But it lacks the lift and second lift of newer Aluula kites, and the sweetspot moves when overpowered. Still the best value proposition in big air.",
+    "pros": [
+      "Legendary fast catch - will never drop you on 8m and smaller",
+      "Lightest bar pressure with precise handling via fixed bridle",
+      "Five struts give excellent canopy rigidity and 8 angles of attack",
+      "Remarkable build quality and durability at competitive price",
+      "Changed the sport - made big air accessible to weekend warriors",
+      "Best value big air kite, especially used"
+    ],
+    "cons": [
+      "Lacks lift compared to Aluula generation kites",
+      "Poor second lift - does not fly behind you easily",
+      "Sweetspot moves out of comfortable range when overpowered",
+      "Fixed bridle limits maximum height potential vs pulley kites",
+      "Has plateaued - no significant innovation since 2021"
+    ],
+    "best_for": "Anyone getting into big air who wants proven reliability, easy looping, and great value",
+    "not_for": "Riders chasing WOO records or maximum second lift for new school tricks",
+    "rec_blurb": "The GOAT of big air. Nothing loops easier or catches faster, and nothing comes close on value.",
+    "sources": [
+      "Portrait Kite"
+    ]
+  },
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=North+Orbit+2025",
+        "price": 1699
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Orbit+2025",
+        "price": 1699
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=North+Orbit+2025",
+        "price": 1699
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+2025"
+      }
+    ]
+  }
+}

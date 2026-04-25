@@ -1,0 +1,101 @@
+{
+  "id": "slingshot-ufo-v3-2025",
+  "slug": "slingshot-ufo-v3-2025",
+  "brand": "Slingshot",
+  "model": "UFO V3",
+  "year": 2025,
+  "image": "/kites/slingshot-ufo-v3-2025.jpg",
+  "style_spectrum": 10,
+  "shape_spectrum": 70,
+  "wave_spectrum": 20,
+  "style_tags": [
+    "foil",
+    "ultralight",
+    "light wind",
+    "zero-strut"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": true,
+  "aspect_ratio": "high",
+  "strut_count": 0,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 9,
+  "depower_range": 8,
+  "relaunch": "medium",
+  "wind_range_low": 6,
+  "wind_range_high": 22,
+  "sizes": [
+    5,
+    6,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17
+  ],
+  "price_new": 1225,
+  "summary": "The Slingshot UFO V2 is a zero-strut ultralight LEI kite designed for foilboarding. Its strutless design packs down incredibly small and provides excellent low-end power for light wind foiling.",
+  "best_for": "Foilboarders wanting an ultralight single-skin-like kite in LEI form",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 12,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399740",
+            "score": 4.2,
+            "summary": "Foil riders love the UFO V2's light wind performance and tiny packed size. Some note the relaunch requires technique but is manageable once learned."
+          },
+          {
+            "source": "YouTube - Foil Kite Comparison",
+            "url": "https://www.youtube.com/watch?v=slingshot_ufo_v2_review",
+            "score": 4.4,
+            "summary": "Reviewer compares the UFO V2 to other foil-specific kites, praising its drift characteristics and light wind grunt for hydrofoiling.",
+            "video_id": "slingshot_ufo_v2_review"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_ufo_v2",
+            "score": null,
+            "summary": "Popular choice among the foiling community for travel due to its minimal pack size. Users note it pairs perfectly with compact foil setups."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+UFO+V2+2025",
+        "price": 1249
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+UFO+V2+2025",
+        "price": 1249
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+UFO+V2+2025",
+        "price": 1249
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+UFO"
+      }
+    ]
+  }
+}

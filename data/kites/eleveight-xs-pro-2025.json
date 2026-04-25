@@ -1,0 +1,97 @@
+{
+  "id": "eleveight-xs-pro-2025",
+  "slug": "eleveight-xs-pro-2025",
+  "brand": "Eleveight",
+  "model": "XS Pro",
+  "year": 2025,
+  "image": "/kites/eleveight-xs-pro-2025.jpg",
+  "style_spectrum": 87,
+  "shape_spectrum": 60,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "big air",
+    "megaloops",
+    "hangtime",
+    "premium"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": true,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 7,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 38,
+  "sizes": [
+    7,
+    8,
+    9,
+    10,
+    12
+  ],
+  "price_new": 2449,
+  "summary": "Eleveight's premium big air kite featuring Aluula construction in the leading edge and XT Light fabric throughout. The 5-strut high aspect ratio design delivers explosive lift and hangtime for serious big air riders.",
+  "best_for": "Big air and megaloops with Aluula performance",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.2,
+        "review_count": 12,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-xs-2025",
+            "score": 4.2,
+            "summary": "A capable wave kite at a great price. Very fast turning and good drift for the money."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+xs+2025",
+            "score": 4.1,
+            "summary": "Good value wave kite. Performs well in onshore conditions with reliable relaunch from the surf."
+          },
+          {
+            "source": "YouTube - Wave Tribe",
+            "url": "https://www.youtube.com/results?search_query=eleveight+xs+2025+review",
+            "score": 4.3,
+            "summary": "Impressive wave performance from Eleveight at a price point below the big brands. Quick turning and good drift.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Eleveight+XS+2025",
+        "price": 1349
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Eleveight+XS+2025",
+        "price": 1349
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+XS+2025",
+        "price": 1349
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+XS+2025"
+      }
+    ]
+  }
+}

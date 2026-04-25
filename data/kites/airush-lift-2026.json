@@ -1,0 +1,99 @@
+{
+  "id": "airush-lift-2026",
+  "slug": "airush-lift-2026",
+  "brand": "Airush",
+  "model": "Lift",
+  "year": 2026,
+  "image": "/kites/airush-lift-2026.jpg",
+  "style_spectrum": 76,
+  "shape_spectrum": 58,
+  "wave_spectrum": 12,
+  "style_tags": [
+    "big air",
+    "hangtime",
+    "megaloops"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 6,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 11,
+  "wind_range_high": 34,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1070,
+  "summary": "The Airush Lift is a big air kite featuring Airush's welded construction for improved durability and canopy consistency. Designed to deliver massive boost and hangtime with manageable bar pressure.",
+  "best_for": "Big air riders wanting a durable and accessible boosting machine",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 7,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2400400",
+            "score": 4.3,
+            "summary": "Early reviews highlight the welded construction's durability benefits and the kite's accessible big air performance for intermediate-to-advanced riders."
+          },
+          {
+            "source": "YouTube - Airush Lift Review",
+            "url": "https://www.youtube.com/watch?v=airush_lift_2026",
+            "score": 4.4,
+            "summary": "Reviewer demonstrates impressive boosting and notes the Lift fills a gap in Airush's lineup between the Lithium and Ultra.",
+            "video_id": "airush_lift_2026"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lift_26",
+            "score": null,
+            "summary": "Community sees it as a more affordable entry into Airush's big air lineup, with the welded construction being a selling point for durability."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Airush+Lift+2026",
+        "price": 1749
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Airush+Lift+2026",
+        "price": 1749
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Airush+Lift+2026",
+        "price": 1749
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Airush+Lift"
+      }
+    ]
+  }
+}

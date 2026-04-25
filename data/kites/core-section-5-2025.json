@@ -1,0 +1,84 @@
+{
+  "id": "core-section-5-2025",
+  "slug": "core-section-5-2025",
+  "brand": "Core",
+  "model": "Section 5",
+  "year": 2025,
+  "image": "/kites/core-section-5-2025.jpg",
+  "style_spectrum": 27,
+  "shape_spectrum": 32,
+  "wave_spectrum": 90,
+  "style_tags": [
+    "wave",
+    "strapless",
+    "foil",
+    "drift"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 10,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 32,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1449,
+  "summary": "Core's world-class wave kite tested by GKA World Champion Gabriel Benetton in Indonesian reef breaks. Future-C shape with intelligent volume distribution for wingtip stability and ultra-direct steering. Perfectly matched to Core surfboards for all surf disciplines and foiling.",
+  "best_for": "World-class wave riding and strapless freestyle",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.6,
+        "review_count": 14,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=core-section-5-2025",
+            "score": 4.6,
+            "summary": "Gabriel Benetton won the GKA on this kite. The steering feedback is extraordinary — you feel every gust through the bar. Best wave kite Core has ever built."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+section+5+2025",
+            "score": 4.5,
+            "summary": "The Section 5 is legit. Ultra-direct, great drift, and it handles overhead surf better than anything else in Core's lineup."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Core+Section+5+2025",
+        "price": 1449
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Core+Section+5"
+      }
+    ]
+  }
+}

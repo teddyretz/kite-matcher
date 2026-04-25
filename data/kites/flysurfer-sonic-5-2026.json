@@ -1,0 +1,99 @@
+{
+  "id": "flysurfer-sonic-5-2026",
+  "slug": "flysurfer-sonic-5-2026",
+  "brand": "Flysurfer",
+  "model": "Sonic 5",
+  "year": 2026,
+  "image": "/kites/flysurfer-sonic-5-2026.jpg",
+  "style_spectrum": 8,
+  "shape_spectrum": 92,
+  "wave_spectrum": 15,
+  "style_tags": [
+    "big air",
+    "foil",
+    "closed-cell",
+    "hangtime"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": true,
+  "aspect_ratio": "very-high",
+  "strut_count": 0,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 7,
+  "relaunch": "medium",
+  "wind_range_low": 8,
+  "wind_range_high": 35,
+  "sizes": [
+    7,
+    9,
+    11,
+    13,
+    15,
+    18
+  ],
+  "price_new": 2699,
+  "summary": "The Flysurfer Sonic 5 is a groundbreaking closed-cell foil kite designed for big air. Combining ram-air efficiency with water relaunchability, it delivers massive hangtime and unique boosting characteristics unlike any LEI kite.",
+  "best_for": "Big air riders wanting the unique boost and hangtime of a foil kite",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2400600",
+            "score": 4.4,
+            "summary": "A genuinely innovative kite that creates a new category. Riders report hangtime that exceeds even the best LEI big air kites, though the flying feel is different."
+          },
+          {
+            "source": "YouTube - Jason Montreal",
+            "url": "https://www.youtube.com/watch?v=flysurfer_sonic5_2026",
+            "score": 4.5,
+            "summary": "Jason is impressed by the unique big air characteristics, noting the Sonic 5 delivers a floaty, extended hangtime that no tube kite can match.",
+            "video_id": "flysurfer_sonic5_2026",
+            "jason_montreal": true
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic5",
+            "score": null,
+            "summary": "Generating huge buzz as the first dedicated big-air foil kite. Some riders find the transition from LEI challenging but rewarding once adapted."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Flysurfer+Sonic+5+2026",
+        "price": 2699
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Flysurfer+Sonic+5+2026",
+        "price": 2699
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Flysurfer+Sonic+5+2026",
+        "price": 2699
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Sonic+5"
+      }
+    ]
+  }
+}

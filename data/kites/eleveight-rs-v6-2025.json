@@ -1,0 +1,101 @@
+{
+  "id": "eleveight-rs-v6-2025",
+  "slug": "eleveight-rs-v6-2025",
+  "brand": "Eleveight",
+  "model": "RS V6",
+  "year": 2025,
+  "image": "/kites/eleveight-rs-v6-2025.jpg",
+  "style_spectrum": 65,
+  "shape_spectrum": 65,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "freeride",
+    "performance",
+    "all-around"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 8,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 10,
+  "wind_range_high": 32,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1449,
+  "summary": "Eleveight's flagship performance freeride kite with a higher aspect ratio for excellent upwind ability and strong low-end power. A versatile performer that punches above its price point.",
+  "best_for": "Performance freeride at great value",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 20,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-rs-v6-2025",
+            "score": 4.4,
+            "summary": "Incredible value for money. The RS V6 performs at a level that rivals kites costing significantly more."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+rs+v6+2025",
+            "score": 4.3,
+            "summary": "A hidden gem in the freeride category. Great build quality from Eleveight with impressive performance."
+          },
+          {
+            "source": "YouTube - Kite Lounge",
+            "url": "https://www.youtube.com/results?search_query=eleveight+rs+v6+2025+review",
+            "score": 4.5,
+            "summary": "One of the best value propositions in kiteboarding. High-performance freeride at a competitive price.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Eleveight+RS+V6+2025",
+        "price": 1449
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Eleveight+RS+V6+2025",
+        "price": 1449
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Eleveight+RS+V6+2025",
+        "price": 1449
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+RS+V6+2025"
+      }
+    ]
+  }
+}

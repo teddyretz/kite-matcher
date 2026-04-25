@@ -1,0 +1,101 @@
+{
+  "id": "flysurfer-stoke-3-2025",
+  "slug": "flysurfer-stoke-3-2025",
+  "brand": "Flysurfer",
+  "model": "Stoke 3",
+  "year": 2025,
+  "image": "/kites/flysurfer-stoke-3-2025.jpg",
+  "style_spectrum": 48,
+  "shape_spectrum": 40,
+  "wave_spectrum": 55,
+  "style_tags": [
+    "freestyle",
+    "wave",
+    "freeride",
+    "open-C",
+    "unhooked"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 8,
+  "relaunch": "medium",
+  "wind_range_low": 12,
+  "wind_range_high": 38,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    14
+  ],
+  "price_new": 1049,
+  "summary": "Flysurfer's 3-strut open-C LEI kite with a 3-stage adjustable bridle: set it to Wave mode for more depower and bar force, Freeride mode for kiteloops and stability, or Freestyle mode for explosive pop and slack. Explosive, responsive, and deeply versatile.",
+  "best_for": "Riders who want one kite that does freestyle, waves, and freeride",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 12,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=flysurfer-stoke-3-2025",
+            "score": 4.3,
+            "summary": "The 3-stage bridle system is genuinely useful. Switching between wave and freestyle mode makes a real difference. Great open-C feel at a Flysurfer price point."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=flysurfer+stoke+3",
+            "score": 4.2,
+            "summary": "Underrated kite. The open-C pop is real and it waves better than you'd expect. Good option for riders who switch between sessions."
+          }
+        ]
+      }
+    },
+    {
+      "source": "youtube",
+      "reviewer": "Our Kite Life",
+      "channel": "Our Kite Life",
+      "channel_url": "https://youtube.com/@OurKiteLife",
+      "video_id": "TSMMdDk9q2Y",
+      "video_title": "Our Friends Review the Flysurfer Stoke v2",
+      "video_url": "https://youtube.com/watch?v=TSMMdDk9q2Y",
+      "excerpt": "[Music] today we are sharing the Stoke with our friends who are going to be reviewing this brand-new 12 meter kite the fly surfer Stoke v2 is a three struct kite marketed towards wave riding and freestyle kite boarding features taejun techno force d2 fabric high load force frame which improves airflow and flight stability and non snagged pads which",
+      "verdict": "at's brand-new Civic with a with a nice turbo like a postive turbo there is a lot of ideas put into the design of it inflating valve it has a su p valve built in and the adapter for it actually is installed in the front strut and within the special pocket overall is pretty lively I really enjoyed the kite how did you like I loved it got great upwind I find myself way more upwind and I wanted to do great loved it very very precise movements and I'll do it again if anybody would lend me their kite",
+      "full_transcript": "[Music] today we are sharing the Stoke with our friends who are going to be reviewing this brand-new 12 meter kite the fly surfer Stoke v2 is a three struct kite marketed towards wave riding and freestyle kite boarding features taejun techno force d2 fabric high load force frame which improves airflow and flight stability and non snagged pads which prevents the lines from snagging at the tip of the kite all right why do you think it's like I don't know this is a fly surfer yep it has that initial fool wasteful job and the looping speed it says Brigitte faster giving that health extension it's got a nice bar pressure not too light not like a soul but also not too heavy like other see kites it's really playful fast turns pretty quick oops not too hard doesn't pull you down window gives you a good yank but overall great Molokai food great nice and loose nice and light feel good power on the jumps good enough there like that boy ok that's for sure it's not bad it would be good to have in the way so you can actually see the drift ability of it but when I went downwind you had no problem following me down thank you better than this thing I'm gladly I came back from this is completely different fly circle I would say it's not the fly surfer it's a mattress mattress on four lines the bar the bar is good I like that it's oops plastic so it feels like it's gonna last a long time it's really comfy in the hand probably can't be out there for a few hours the bar is very comfortable yeah it's sleek about ten of them yeah there are sometimes it swapped around a little bit but that's just I think because of a light feel in there steering lines Bridal system is a clever idea the way how bullies are they use a propriety fully setup where the scent doesn't have any anywhere to go compared to the old style for the force bar features adjustable width option built-in floaters single line front line safety an industry proven jam cleat front line adjuster the bar also comes equipped with a push away ironheart chicken the foil is like driving a civics but the soup is like you have a civic where that's brand-new Civic with a with a nice turbo like a postive turbo there is a lot of ideas put into the design of it inflating valve it has a su p valve built in and the adapter for it actually is installed in the front strut and within the special pocket overall is pretty lively I really enjoyed the kite how did you like I loved it got great upwind I find myself way more upwind and I wanted to do great loved it very very precise movements and I'll do it again if anybody would lend me their kite"
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Flysurfer+Stoke+3",
+        "price": 1049
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Flysurfer+Stoke",
+        "price": 1049
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Stoke"
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "id": "north-orbit-pro-2026",
+  "slug": "north-orbit-pro-2026",
+  "brand": "North",
+  "model": "Orbit Pro",
+  "year": 2026,
+  "image": "/kites/north-orbit-pro-2026.jpg",
+  "style_spectrum": 90,
+  "shape_spectrum": 62,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "big air",
+    "megaloops",
+    "hangtime",
+    "premium"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 9,
+  "depower_range": 7,
+  "relaunch": "medium",
+  "wind_range_low": 11,
+  "wind_range_high": 38,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 2399,
+  "summary": "North's premium big air kite designed for competition-level performance. Features ultra-lightweight construction for maximum response and explosive lift in all conditions.",
+  "best_for": "Premium big air competition",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.6,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=north-orbit-pro-2026",
+            "score": 4.6,
+            "summary": "The Orbit Pro takes North's big air game to the next level. Lighter and more responsive than the standard Orbit."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+orbit+pro+2026",
+            "score": 4.5,
+            "summary": "Worth the premium for serious big air riders. The weight savings translate directly to better performance."
+          },
+          {
+            "source": "YouTube - Ride with Blake",
+            "url": "https://www.youtube.com/results?search_query=north+orbit+pro+2026+review",
+            "score": 4.7,
+            "summary": "North's flagship big air kite delivers on its premium promise. Incredible lift and a refined bar feel.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=North+Orbit+Pro+2026",
+        "price": 2399
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Orbit+Pro+2026",
+        "price": 2399
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=North+Orbit+Pro+2026",
+        "price": 2399
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+Pro+2026"
+      }
+    ]
+  }
+}

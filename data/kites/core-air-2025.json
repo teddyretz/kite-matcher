@@ -1,0 +1,86 @@
+{
+  "id": "core-air-2025",
+  "slug": "core-air-2025",
+  "brand": "Core",
+  "model": "Air",
+  "year": 2025,
+  "image": "/kites/core-air-2025.jpg",
+  "style_spectrum": 18,
+  "shape_spectrum": 60,
+  "wave_spectrum": 20,
+  "style_tags": [
+    "lightwind",
+    "freeride",
+    "foil",
+    "freestyle"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 9,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 7,
+  "wind_range_high": 25,
+  "sizes": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    17,
+    19
+  ],
+  "price_new": 1349,
+  "summary": "Core's new state-of-the-art lightwind 3-strut all-rounder with fixed bridle. High aspect ratio, ExoTex 2 LE, positioned between XR LW and Nexus LW. Guaranteed progression from beginner to air styler. Requires Sensor 4 or Sensor 4 Pro bar only.",
+  "best_for": "Lightwind freeride, foiling, and progression",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=core-air-2025",
+            "score": 4.3,
+            "summary": "Core nailed the accessible lightwind brief. Impressive power for the wind range and the fixed bridle gives it a direct feel. Remember: Sensor 4 bar only."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+air+2025",
+            "score": 4.2,
+            "summary": "Great option if you're already in the Core ecosystem. The bar compatibility restriction is real — don't mix it with older bars."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Core+Air+2025",
+        "price": 1349
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Core+Air"
+      }
+    ]
+  }
+}

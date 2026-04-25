@@ -1,0 +1,124 @@
+{
+  "id": "slingshot-code-v2-2025",
+  "slug": "slingshot-code-v2-2025",
+  "brand": "Slingshot",
+  "model": "Code V2",
+  "year": 2025,
+  "image": "/kites/slingshot-code-v2-2025.jpg",
+  "style_spectrum": 58,
+  "shape_spectrum": 50,
+  "wave_spectrum": 18,
+  "style_tags": [
+    "freeride",
+    "big air",
+    "hybrid",
+    "freestyle"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "both",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 6,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 11,
+  "wind_range_high": 32,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1739,
+  "summary": "The Slingshot Code V2 bridges freeride and big air with a hybrid design offering good pop and hangtime while remaining versatile enough for everyday sessions.",
+  "best_for": "Riders wanting big air capability without sacrificing freeride fun",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.2,
+        "review_count": 11,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399720",
+            "score": 4.2,
+            "summary": "Riders appreciate the Code V2's versatility, noting it handles everything from boosting to cruising without being a specialist at either."
+          },
+          {
+            "source": "YouTube - Slingshot Code V2 Review",
+            "url": "https://www.youtube.com/watch?v=slingshot_code_v2_2025",
+            "score": 4.3,
+            "summary": "Reviewer calls it a great quiver-of-one option for riders who want some big air performance but also value everyday usability.",
+            "video_id": "slingshot_code_v2_2025"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_code_v2",
+            "score": null,
+            "summary": "Users compare it favorably to other hybrid kites, noting the 3-strut design keeps weight down while still providing enough rigidity for boosting."
+          }
+        ]
+      }
+    }
+  ],
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "Best-in-class second lift and speed braking make the Code NXT the current king of new school big air. Smooth, linear power delivery and incredibly forgiving landings, but it yanks hard on loops and the larger sizes are slow to turn.",
+    "pros": [
+      "Best second lift and speed braking of any kite",
+      "Smooth, linear power delivery - no spikes",
+      "Extremely forgiving on takeoff and landing",
+      "Consistent, predictable loop every time",
+      "Always provides lift regardless of position in window",
+      "Aluula construction with 3 struts"
+    ],
+    "cons": [
+      "Yanks hard on kiteloops - intimidating at first",
+      "Cannot fully dump power like Evo D/Lab or Harlem Thrive",
+      "Larger sizes (10m+) are slow to deliver turning input",
+      "Requires learning 3D wind window thinking to access full potential"
+    ],
+    "best_for": "Intermediate to advanced riders progressing in big air and megaloops who want forgiving landings",
+    "not_for": "Pure boosters wanting maximum height without looping, or riders who need instant power dump",
+    "rec_blurb": "The current best-in-class for second lift and soft landings in big air. Smooth, forgiving, and confidence-inspiring.",
+    "sources": [
+      "Portrait Kite"
+    ]
+  },
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+Code+V2+2025",
+        "price": 1549
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+Code+V2+2025",
+        "price": 1549
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Code+V2+2025",
+        "price": 1549
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Code+V2"
+      }
+    ]
+  }
+}
