@@ -7,10 +7,33 @@ import { matchScore } from '@/lib/matcher';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
+const VALID_CONSTRUCTION = ['all', 'dacron', 'aluula', 'brainchild'] as const;
+type Construction = typeof VALID_CONSTRUCTION[number];
+
 export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const searchParams = useSearchParams();
   const styleValue = Number(searchParams.get('style') ?? 50);
   const shapeValue = Number(searchParams.get('shape') ?? 50);
+
+  const constructionParam = searchParams.get('construction') ?? 'all';
+  const construction: Construction = (VALID_CONSTRUCTION as readonly string[]).includes(
+    constructionParam,
+  )
+    ? (constructionParam as Construction)
+    : 'all';
+
+  const budgetParam = Number(searchParams.get('budget') ?? 5000);
+  const budget = Number.isFinite(budgetParam) ? Math.max(500, Math.min(5000, budgetParam)) : 5000;
+
+  const initial = useMemo(
+    () => ({
+      aluula: construction === 'aluula',
+      brainchild: construction === 'brainchild',
+      priceMax: budget,
+    }),
+    [construction, budget],
+  );
+
   const scoredKites = useMemo(
     () => kites
       .map(k => ({ ...k, score: matchScore(k, styleValue, shapeValue) }))
@@ -41,7 +64,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
         </p>
       </div>
       <div className="flex gap-8">
-        <KiteFilters kites={kites} onFilter={handleFilter} />
+        <KiteFilters kites={kites} onFilter={handleFilter} initial={initial} />
         <div className="flex-1">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {displayKites.map(kite => (
