@@ -8,13 +8,29 @@ import SpectrumBar from '@/components/SpectrumBar';
 export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   const searchParams = useSearchParams();
   const slugs = (searchParams.get('kites') ?? '').split(',').filter(Boolean);
-  const kites = slugs.map(s => allKites.find(k => k.slug === s)).filter(Boolean) as Kite[];
+  const bySlug = new Map(allKites.map((k) => [k.slug, k]));
+  const kites = slugs.map((s) => bySlug.get(s)).filter((k): k is Kite => Boolean(k));
+  const missing = slugs.filter((s) => !bySlug.has(s));
+
+  if (slugs.length === 0) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <h1 className="text-2xl font-bold text-slate mb-4">Compare Kites</h1>
+        <p className="text-gray-500 mb-6">Add kites to compare by clicking the &ldquo;+&rdquo; button on any kite card.</p>
+        <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+      </div>
+    );
+  }
 
   if (kites.length === 0) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
         <h1 className="text-2xl font-bold text-slate mb-4">Compare Kites</h1>
-        <p className="text-gray-500 mb-6">Add kites to compare by clicking the &ldquo;Compare&rdquo; button on any kite card.</p>
+        <p className="text-gray-500 mb-2">
+          We couldn&apos;t find {missing.length === 1 ? 'this kite' : 'these kites'}:
+        </p>
+        <p className="text-sm text-gray-400 mb-6 font-mono">{missing.join(', ')}</p>
+        <p className="text-gray-500 mb-6">The link may be out of date.</p>
         <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
       </div>
     );
@@ -66,6 +82,14 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+
+      {missing.length > 0 && (
+        <div className="mb-4 px-4 py-3 bg-amber-50 border border-amber-200 text-amber-900 text-sm rounded-lg">
+          {missing.length === 1
+            ? <>Skipped <span className="font-mono">{missing[0]}</span> — kite not found.</>
+            : <>Skipped {missing.length} kites that couldn&apos;t be found: <span className="font-mono">{missing.join(', ')}</span></>}
+        </div>
+      )}
 
       {/* Kite headers */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
