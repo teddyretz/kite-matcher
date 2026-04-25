@@ -1,0 +1,85 @@
+{
+  "id": "duotone-mono-2026",
+  "slug": "duotone-mono-2026",
+  "brand": "Duotone",
+  "model": "Mono",
+  "year": 2026,
+  "image": "/kites/duotone-mono-2026.jpg",
+  "style_spectrum": 15,
+  "shape_spectrum": 68,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "foil",
+    "freeride",
+    "lightwind",
+    "wave",
+    "travel"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 1,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 8,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 7,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    7,
+    9,
+    10,
+    12,
+    14,
+    17
+  ],
+  "price_new": 1249,
+  "summary": "Duotone's single-strut lightweight freeride and foil kite. Extraordinary travel convenience, easy relaunch, forgiving for beginners yet quick-turning enough for experienced foilers. Progressive power development with multiple tip tuning options.",
+  "best_for": "Foiling, travel, and light wind versatility",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 11,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-mono-2026",
+            "score": 4.3,
+            "summary": "Great travel kite. The single-strut design makes packing effortless and relaunch is confidence-inspiring even in light wind."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+mono+2026",
+            "score": 4.2,
+            "summary": "Ideal for foilers and travelers. Not for high-wind shredding but brilliant in its lane."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Duotone+Mono+2026",
+        "price": 1249
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Mono"
+      }
+    ]
+  }
+}

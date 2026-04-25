@@ -1,0 +1,101 @@
+{
+  "id": "north-carve-2026",
+  "slug": "north-carve-2026",
+  "brand": "North",
+  "model": "Carve",
+  "year": 2026,
+  "image": "/kites/north-carve-2026.jpg",
+  "style_spectrum": 27,
+  "shape_spectrum": 40,
+  "wave_spectrum": 88,
+  "style_tags": [
+    "wave",
+    "strapless",
+    "drift"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 6,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 28,
+  "sizes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1719,
+  "summary": "North's dedicated wave kite built for excellent drift, quick pivot turning, and intuitive wave riding. Designed to stay out of the way while you focus on the wave face.",
+  "best_for": "Wave riding",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 14,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=north-carve-2026",
+            "score": 4.3,
+            "summary": "A solid wave kite with great drift and quick turning. Competes well with the Duotone Neo and Cabrinha Drifter."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+carve+2026",
+            "score": 4.2,
+            "summary": "Good wave performance with reliable relaunch. The 3-strut design keeps it light and responsive."
+          },
+          {
+            "source": "YouTube - Kite Buddy",
+            "url": "https://www.youtube.com/results?search_query=north+carve+2026+review",
+            "score": 4.4,
+            "summary": "North's best wave kite yet with improved drift and a more intuitive feel on the wave face.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=North+Carve+2026",
+        "price": 1599
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Carve+2026",
+        "price": 1599
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=North+Carve+2026",
+        "price": 1599
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Carve+2026"
+      }
+    ]
+  }
+}

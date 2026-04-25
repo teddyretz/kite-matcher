@@ -1,0 +1,76 @@
+{
+  "id": "duotone-juice-dlab-2026",
+  "slug": "duotone-juice-dlab-2026",
+  "brand": "Duotone",
+  "model": "Juice D/LAB",
+  "year": 2026,
+  "image": "/kites/duotone-juice-dlab-2026.jpg",
+  "style_spectrum": 62,
+  "shape_spectrum": 55,
+  "wave_spectrum": 22,
+  "style_tags": [
+    "freeride",
+    "lightwind",
+    "foil",
+    "premium"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": true,
+  "brainchild": false,
+  "turning_speed": "medium-fast",
+  "low_end_power": 10,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 7,
+  "wind_range_high": 28,
+  "sizes": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    17
+  ],
+  "price_new": 2199,
+  "summary": "The Juice D/LAB takes Duotone's lightwind freeride machine to the next level with Aluula construction for maximum weight savings and stiffness. Even earlier planing, more responsive steering, and lighter feel than the standard Juice.",
+  "best_for": "Premium lightwind freeride with Aluula performance",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.5,
+        "review_count": 5,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-dlab-2026",
+            "score": 4.5,
+            "summary": "The Aluula upgrade makes a tangible difference in light wind. Noticeably more responsive and earlier planing than the standard Juice."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Duotone+Juice+DLAB+2026",
+        "price": 2199
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Juice+DLAB"
+      }
+    ]
+  }
+}

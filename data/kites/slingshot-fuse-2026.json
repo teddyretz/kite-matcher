@@ -1,0 +1,88 @@
+{
+  "id": "slingshot-fuse-2026",
+  "slug": "slingshot-fuse-2026",
+  "brand": "Slingshot",
+  "model": "Fuse",
+  "year": 2026,
+  "image": "/kites/slingshot-fuse-2026.jpg",
+  "style_spectrum": 22,
+  "shape_spectrum": 30,
+  "wave_spectrum": 92,
+  "style_tags": [
+    "wave",
+    "strapless",
+    "drift",
+    "foil"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "low",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 10,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12
+  ],
+  "price_new": 1709,
+  "summary": "Developed with big wave rider Ben Wilson, the Fuse is Slingshot's dedicated wave weapon. Deep drift bridle keeps it in the pocket down the line, clean depower for slack on the face, and instant redirect for fast turns and downloops. Purpose-built for strapless surfing.",
+  "best_for": "Wave riding and strapless surfing",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 7,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-fuse-2026",
+            "score": 4.4,
+            "summary": "Dedicated wave riders are impressed by the deep drift and clean depower. Ben Wilson's input shows."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+fuse+2026",
+            "score": 4.3,
+            "summary": "Strong early reviews from wave riders. The drift is class-leading and the redirect is lightning fast."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+Fuse+2026",
+        "price": 1499
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+Fuse+2026",
+        "price": 1499
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Fuse"
+      }
+    ]
+  }
+}

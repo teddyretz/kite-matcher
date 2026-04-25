@@ -1,0 +1,86 @@
+{
+  "id": "ozone-hyperlink-v3-2025",
+  "slug": "ozone-hyperlink-v3-2025",
+  "brand": "Ozone",
+  "model": "Hyperlink V3",
+  "year": 2025,
+  "image": "/kites/ozone-hyperlink-v3-2025.jpg",
+  "style_spectrum": 18,
+  "shape_spectrum": 70,
+  "wave_spectrum": 78,
+  "style_tags": [
+    "foil",
+    "wave",
+    "lightwind",
+    "drift"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "snow_kite": true,
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 1,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 8,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 7,
+  "wind_range_high": 30,
+  "sizes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1349,
+  "summary": "Ozone's single-strut wave and foil crossover. Exceptional drift down the line, agile turning for surf, and light wind efficiency for foiling. The Hyperlink V3 keeps power delivery clean and consistent from wave riding to full foil sessions.",
+  "best_for": "Wave riding and foiling in the same session",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 11,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=ozone-hyperlink-v3-2025",
+            "score": 4.4,
+            "summary": "The drift is genuinely excellent. Ozone dialed in the Hyperlink for riders who split time between surf and foil — it handles both without compromise."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=ozone+hyperlink+v3+2025",
+            "score": 4.3,
+            "summary": "Best Ozone option for wave and foil crossover. The single-strut keeps it light and the drift is class-competitive with anything in this category."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Ozone+Hyperlink+V3+2025",
+        "price": 1349
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Hyperlink+V3"
+      }
+    ]
+  }
+}

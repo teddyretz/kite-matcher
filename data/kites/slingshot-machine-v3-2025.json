@@ -1,0 +1,98 @@
+{
+  "id": "slingshot-machine-v3-2025",
+  "slug": "slingshot-machine-v3-2025",
+  "brand": "Slingshot",
+  "model": "Machine V3",
+  "year": 2025,
+  "image": "/kites/slingshot-machine-v3-2025.jpg",
+  "style_spectrum": 44,
+  "shape_spectrum": 45,
+  "wave_spectrum": 5,
+  "style_tags": [
+    "big air",
+    "old school",
+    "megaloops",
+    "C-kite"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "slow",
+  "low_end_power": 5,
+  "depower_range": 5,
+  "relaunch": "medium",
+  "wind_range_low": 13,
+  "wind_range_high": 35,
+  "sizes": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1949,
+  "summary": "The Slingshot Machine V3 is an old-school big air C-kite with 5 struts for maximum rigidity and explosive power. Built for committed riders who want raw performance and aggressive loops.",
+  "best_for": "Old-school big air riders who prefer C-kite characteristics",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.2,
+        "review_count": 9,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399730",
+            "score": 4.1,
+            "summary": "A niche kite for dedicated big air riders who prefer the direct feel of a C-kite. Not for everyone, but those who love it really love it."
+          },
+          {
+            "source": "YouTube - Big Air C-Kite Review",
+            "url": "https://www.youtube.com/watch?v=slingshot_machine_v3",
+            "score": 4.3,
+            "summary": "Reviewer demonstrates aggressive megaloops and explains why the Machine's direct bar-to-kite connection appeals to old-school riders.",
+            "video_id": "slingshot_machine_v3"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_machine_v3",
+            "score": null,
+            "summary": "Niche following appreciates that Slingshot keeps making a true C-kite big air platform. Not recommended for intermediate riders due to limited depower."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+Machine+V3+2025",
+        "price": 1599
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+Machine+V3+2025",
+        "price": 1599
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Machine+V3+2025",
+        "price": 1599
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Machine"
+      }
+    ]
+  }
+}

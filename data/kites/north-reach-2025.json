@@ -1,0 +1,101 @@
+{
+  "id": "north-reach-2025",
+  "slug": "north-reach-2025",
+  "brand": "North",
+  "model": "Reach",
+  "year": 2025,
+  "image": "/kites/north-reach-2025.jpg",
+  "style_spectrum": 35,
+  "shape_spectrum": 45,
+  "wave_spectrum": 45,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "wave"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 9,
+  "depower_range": 8,
+  "relaunch": "medium",
+  "wind_range_low": 8,
+  "wind_range_high": 32,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1320,
+  "summary": "North's 3-strut all-around freeride kite with unparalleled versatility and wind range. Lively and playful with easy jumps, upwind performance, and effortless relaunch. A true one-kite quiver solution.",
+  "best_for": "All-around freeride and versatility",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 22,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=north-reach-2025",
+            "score": 4.3,
+            "summary": "Excellent for foiling with great upwind ability. The single strut keeps weight down for impressive low-end."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+reach+2025",
+            "score": 4.2,
+            "summary": "A dedicated foil kite that gets you on the water earlier than most. Relaunch can be tricky in very light wind."
+          },
+          {
+            "source": "YouTube - Foil Academy",
+            "url": "https://www.youtube.com/results?search_query=north+reach+2025+review",
+            "score": 4.4,
+            "summary": "The best foil-specific kite from North. Smooth power delivery and excellent drift for foil riding.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=North+Reach+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Reach+2025",
+        "price": 1499
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=North+Reach+2025",
+        "price": 1499
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Reach+2025"
+      }
+    ]
+  }
+}

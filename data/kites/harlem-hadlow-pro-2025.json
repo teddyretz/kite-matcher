@@ -1,0 +1,78 @@
+{
+  "id": "harlem-hadlow-pro-2025",
+  "slug": "harlem-hadlow-pro-2025",
+  "brand": "Harlem",
+  "model": "Hadlow Pro",
+  "year": 2025,
+  "image": "/kites/harlem-hadlow-pro-2025.jpg",
+  "style_spectrum": 47,
+  "shape_spectrum": 32,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "freestyle",
+    "wakestyle",
+    "unhooked"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": true,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 6,
+  "relaunch": "medium",
+  "wind_range_low": 11,
+  "wind_range_high": 34,
+  "sizes": [
+    9,
+    11,
+    13
+  ],
+  "price_new": 2194,
+  "summary": "Aaron Hadlow's freestyle legacy reborn. PRoWELD LE, Flight_X canopy for a softer controlled feel, Mylar struts. Only 3 sizes (9, 11, 13m). Designed as a complete system with the dedicated Hadlow Pro bar and Descent board. Built to revive and push freestyle performance forward.",
+  "best_for": "Dedicated freestyle and unhooked trick riders",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=harlem-hadlow-pro-2025",
+            "score": 4.4,
+            "summary": "Aaron Hadlow's passion project and it's the real deal. The Flight_X canopy gives a distinctly different feel to the Thrive — more precise slack and pop for unhooked moves. Very niche but excellent."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=harlem+hadlow+pro+2025",
+            "score": 4.3,
+            "summary": "If you care about freestyle, this is the most interesting new C-style kite in years. Aaron Hadlow built what he wanted and riders who've tried it are impressed."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Harlem Kitesurfing",
+        "url": "https://harlemkitesurfing.com/products/hadlow-pro",
+        "price": 1599
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Hadlow+Pro"
+      }
+    ]
+  }
+}

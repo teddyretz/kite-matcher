@@ -1,0 +1,102 @@
+{
+  "id": "cabrinha-switchblade-2025",
+  "slug": "cabrinha-switchblade-2025",
+  "brand": "Cabrinha",
+  "model": "Switchblade",
+  "year": 2025,
+  "image": "/kites/cabrinha-switchblade-2025.jpg",
+  "style_spectrum": 65,
+  "shape_spectrum": 45,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "boosting"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 10,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1043,
+  "summary": "Cabrinha's legendary all-around kite now in its 20th+ iteration. The Switchblade delivers reliable performance across all conditions with excellent depower and a forgiving power delivery.",
+  "best_for": "All-around freeriding",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 30,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-2025",
+            "score": 4.3,
+            "summary": "A reliable workhorse that does everything well. Riders appreciate the predictable power and wide wind range."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+2025",
+            "score": 4.2,
+            "summary": "Often recommended for beginners and intermediate riders. Solid build quality and forgiving characteristics."
+          },
+          {
+            "source": "YouTube - Progression",
+            "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+2025+review",
+            "score": 4.4,
+            "summary": "Praised for its consistency year after year. Great depower range and a kite you can trust in varying conditions.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Cabrinha+Switchblade+2025",
+        "price": 1529
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Switchblade+2025",
+        "price": 1529
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Switchblade+2025",
+        "price": 1529
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+2025"
+      }
+    ]
+  }
+}

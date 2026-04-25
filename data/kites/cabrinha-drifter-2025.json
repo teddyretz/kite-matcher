@@ -1,0 +1,102 @@
+{
+  "id": "cabrinha-drifter-2025",
+  "slug": "cabrinha-drifter-2025",
+  "brand": "Cabrinha",
+  "model": "Drifter",
+  "year": 2025,
+  "image": "/kites/cabrinha-drifter-2025.jpg",
+  "style_spectrum": 25,
+  "shape_spectrum": 30,
+  "wave_spectrum": 90,
+  "style_tags": [
+    "wave",
+    "foil",
+    "drift",
+    "strapless"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "low",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 5,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 12,
+  "wind_range_high": 28,
+  "sizes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 989,
+  "summary": "Cabrinha's dedicated wave and light-wind kite known for exceptional drift and quick pivot turning. A favorite among wave riders for its ability to park and stay out of the way on the wave.",
+  "best_for": "Wave riding and foiling",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 20,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-drifter-2025",
+            "score": 4.5,
+            "summary": "One of the best wave kites available. The drift is phenomenal and it pivots beautifully on the wave."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+drifter+2025",
+            "score": 4.3,
+            "summary": "Highly rated for wave riding. Also works well for foiling in lighter winds thanks to its smooth power delivery."
+          },
+          {
+            "source": "YouTube - Kite Buddy",
+            "url": "https://www.youtube.com/results?search_query=cabrinha+drifter+2025+review",
+            "score": 4.4,
+            "summary": "Called a pure wave weapon with the best drift in the Cabrinha lineup. Great for strapless freestyle too.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Cabrinha+Drifter+2025",
+        "price": 1529
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Drifter+2025",
+        "price": 1529
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Drifter+2025",
+        "price": 1529
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Drifter+2025"
+      }
+    ]
+  }
+}

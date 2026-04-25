@@ -1,0 +1,85 @@
+{
+  "id": "north-pulse-2025",
+  "slug": "north-pulse-2025",
+  "brand": "North",
+  "model": "Pulse",
+  "year": 2025,
+  "image": "/kites/north-pulse-2025.jpg",
+  "style_spectrum": 46,
+  "shape_spectrum": 35,
+  "wave_spectrum": 12,
+  "style_tags": [
+    "freestyle",
+    "wakestyle",
+    "C-kite",
+    "unhooked"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 5,
+  "relaunch": "medium",
+  "wind_range_low": 11,
+  "wind_range_high": 35,
+  "sizes": [
+    7,
+    9,
+    11,
+    13
+  ],
+  "price_new": 1799,
+  "summary": "North's Modern-C freestyle kite delivering explosive pop and powerful fast turns for technical unhooked riding. Requires a 5-line control bar. Engineered for handle passes, board-offs, and progressive freestyle manoeuvres.",
+  "best_for": "Freestyle, unhooked tricks, and wakestyle",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 10,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=north-pulse-2025",
+            "score": 4.3,
+            "summary": "Freestyle riders appreciate the Modern-C geometry and direct feel. The 5-line system locks in the shape perfectly."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+pulse+2025",
+            "score": 4.2,
+            "summary": "Niche but well-loved by dedicated freestyle riders. The C-kite feel is authentic and the pop is explosive."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=North+Pulse+2025",
+        "price": 1649
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Pulse+2025",
+        "price": 1649
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Pulse"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "duotone-neo-sls-2026",
+  "slug": "duotone-neo-sls-2026",
+  "brand": "Duotone",
+  "model": "Neo SLS",
+  "year": 2026,
+  "image": "/kites/duotone-neo-sls-2026.jpg",
+  "style_spectrum": 25,
+  "shape_spectrum": 30,
+  "wave_spectrum": 93,
+  "style_tags": [
+    "wave",
+    "strapless",
+    "drift",
+    "freestyle"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "very-fast",
+  "low_end_power": 5,
+  "depower_range": 10,
+  "relaunch": "easy",
+  "wind_range_low": 10,
+  "wind_range_high": 34,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 1999,
+  "summary": "The precision wave kite. Penta TX and Trinity TX materials for exceptional shape retention in powered turns. Hybrid Flex Strut for explosive turning, lightweight trailing edge battens for canopy stability, massive drift for aggressive down-the-line surfing.",
+  "best_for": "Precision wave riding and strapless freestyle",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.6,
+        "review_count": 13,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-neo-sls-2026",
+            "score": 4.6,
+            "summary": "The SLS materials take the Neo to another level. Shape retention in powered turns is exceptional and the drift is world-class. The Hybrid Flex Strut delivers explosive redirects."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+neo+sls+2026",
+            "score": 4.5,
+            "summary": "If you're a serious wave rider and budget isn't the top concern, the Neo SLS over the standard Neo is worth every penny."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Duotone+Neo+SLS+2026",
+        "price": 1999
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Neo+SLS"
+      }
+    ]
+  }
+}

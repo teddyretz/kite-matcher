@@ -1,0 +1,89 @@
+{
+  "id": "reedin-hypermodel-2025",
+  "slug": "reedin-hypermodel-2025",
+  "brand": "Reedin",
+  "model": "Hyper Model",
+  "year": 2025,
+  "image": "/kites/reedin-hypermodel-2025.jpg",
+  "style_spectrum": 76,
+  "shape_spectrum": 66,
+  "wave_spectrum": 18,
+  "style_tags": [
+    "big air",
+    "freeride",
+    "premium",
+    "hangtime",
+    "brainchild"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": true,
+  "turning_speed": "fast",
+  "low_end_power": 7,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 11,
+  "wind_range_high": 34,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 2199,
+  "summary": "The original Reedin Hyper Model using Brainchild construction for a lighter, more responsive big air and freeride platform. Delivers impressive hangtime and boost with the weight savings of Brainchild's advanced materials.",
+  "best_for": "Big air/freeride riders wanting Brainchild performance from Reedin",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.4,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=reedin-hypermodel-2025",
+            "score": 4.4,
+            "summary": "The Brainchild construction brings real performance gains. Riders praise the lighter feel and responsive character."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/search/?q=reedin+hypermodel+2025",
+            "score": 4.3,
+            "summary": "Solid big air performance with Brainchild's weight savings. A strong entry from Reedin into the premium category."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Reedin+Hyper+Model+2025",
+        "price": 2199
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Reedin+Hyper+Model+2025",
+        "price": 2199
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Hyper+Model+2025"
+      }
+    ]
+  }
+}
