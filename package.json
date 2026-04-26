@@ -9,8 +9,8 @@
     "lint": "next lint",
     "validate-kites": "tsx scripts/validate-kites.ts",
     "prebuild": "tsx scripts/validate-kites.ts",
-    "process-reviews": "tsx scripts/process-reviews.ts",
-    "ingest-review": "tsx scripts/ingest-review.ts"
+    "process-reviews": "tsx --env-file-if-exists=.env.local scripts/process-reviews.ts",
+    "ingest-review": "tsx --env-file-if-exists=.env.local scripts/ingest-review.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
