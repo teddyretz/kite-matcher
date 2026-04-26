@@ -166,10 +166,26 @@ function extractVerdict(transcript: string, maxLen = 320): string {
   return tail.slice(-maxLen).trim()
 }
 
+// Known kite-review channels. Keys are stored lower-cased; lookup is
+// case-insensitive (yt-dlp returns the @handle with whatever capitalization
+// the channel set, which can vary between videos).
+//
+// To add a reviewer: drop their @handle (lower-cased) into this map. If a
+// channel has multiple hosts (e.g. MACkite has Tucker, Joey, Lucas), set
+// `reviewer` to the channel name and pass `--reviewer "Host Name"` per
+// ingest call when you want the host credited specifically.
 const REVIEWER_BY_UPLOADER_ID: Record<string, { reviewer: string; channel: string }> = {
-  '@jasonofmontreal': { reviewer: 'Jason Montreal', channel: 'Jason Montreal' },
-  '@Kitemana':        { reviewer: 'Kitemana',       channel: 'Kitemana' },
-  '@OurKiteLife':     { reviewer: 'Our Kite Life',  channel: 'Our Kite Life' },
+  '@jasonofmontreal':       { reviewer: 'Jason Montreal', channel: 'Jason Montreal' },
+  '@kitemana':              { reviewer: 'Kitemana',       channel: 'Kitemana' },
+  '@ourkitelife':           { reviewer: 'Our Kite Life',  channel: 'Our Kite Life' },
+  '@mackiteboarding':       { reviewer: 'MACkite',        channel: 'MACkite' },
+  '@mackiteboardingofficial': { reviewer: 'MACkite',      channel: 'MACkite' },
+  '@mackite':               { reviewer: 'MACkite',        channel: 'MACkite' },
+}
+
+function lookupReviewer(uploaderId: string | undefined) {
+  if (!uploaderId) return undefined
+  return REVIEWER_BY_UPLOADER_ID[uploaderId.toLowerCase()]
 }
 
 function loadKite(slug: string): { kite: ValidatedKite; file: string } {
@@ -209,7 +225,7 @@ function main() {
   const transcript = fetchTranscript(args.url)
   console.log(`  ${transcript.length} chars (~${Math.round(transcript.length / 4)} tokens)`)
 
-  const known = REVIEWER_BY_UPLOADER_ID[meta.uploader_id]
+  const known = lookupReviewer(meta.uploader_id)
   const reviewer = args.reviewer ?? known?.reviewer ?? meta.uploader
   const channel = args.channel ?? known?.channel ?? meta.uploader
 
