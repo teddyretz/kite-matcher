@@ -1,13 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Kite } from '@/lib/types';
 import { matchScore } from '@/lib/matcher';
+import { applyFilters, useFilters, type Construction, type SortOption } from '@/lib/useFilters';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
-
-type Construction = 'all' | 'dacron' | 'aluula' | 'brainchild';
-type SortOption = 'alpha' | 'match' | 'price-low' | 'price-high' | 'rating';
 
 const styleZones = [
   { label: 'Foil', color: 'text-teal-600' },
@@ -16,6 +14,7 @@ const styleZones = [
   { label: 'Freeride', color: 'text-blue-600' },
   { label: 'Big Air', color: 'text-orange-600' },
 ];
+
 function getActiveZone(value: number): number {
   if (value <= 20) return 0;
   if (value <= 40) return 1;
@@ -24,55 +23,41 @@ function getActiveZone(value: number): number {
   return 4;
 }
 
+function sortKites<K extends Kite & { score?: number }>(
+  list: K[],
+  sort: SortOption,
+  style: number,
+  shape: number,
+): K[] {
+  switch (sort) {
+    case 'match':
+      return [...list].sort(
+        (a, b) => matchScore(b, style, shape) - matchScore(a, style, shape),
+      );
+    case 'price-low':
+      return [...list].sort((a, b) => a.price_new - b.price_new);
+    case 'price-high':
+      return [...list].sort((a, b) => b.price_new - a.price_new);
+    case 'rating':
+      return [...list].sort(
+        (a, b) => (b.structured_review?.rating ?? 0) - (a.structured_review?.rating ?? 0),
+      );
+    case 'alpha':
+    default:
+      return [...list].sort((a, b) =>
+        `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`),
+      );
+  }
+}
+
 export default function BrowseContent({ kites }: { kites: Kite[] }) {
-  const allKites = useMemo(
-    () => [...kites].sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`)),
-    [kites]
-  );
-
+  const { filters, setFilters } = useFilters();
   const [filtersOpen, setFiltersOpen] = useState(true);
-  const [styleValue, setStyleValue] = useState(50);
-  const [shapeValue, setShapeValue] = useState(50);
-  const [construction, setConstruction] = useState<Construction>('all');
-  const [budget, setBudget] = useState(5000);
-  const [sortBy, setSortBy] = useState<SortOption>('alpha');
-  const [sidebarFiltered, setSidebarFiltered] = useState<Set<string> | null>(null);
-
-  const preFiltered = useMemo(() => {
-    let list = [...allKites];
-    if (construction === 'aluula') list = list.filter(k => k.aluula);
-    else if (construction === 'brainchild') list = list.filter(k => k.brainchild);
-    else if (construction === 'dacron') list = list.filter(k => !k.aluula && !k.brainchild);
-    if (budget < 5000) list = list.filter(k => k.price_new <= budget);
-    return list;
-  }, [allKites, construction, budget]);
 
   const displayKites = useMemo(() => {
-    const list = sidebarFiltered
-      ? preFiltered.filter(k => sidebarFiltered.has(k.slug))
-      : preFiltered;
-
-    switch (sortBy) {
-      case 'match':
-        return [...list].sort((a, b) => matchScore(b, styleValue, shapeValue) - matchScore(a, styleValue, shapeValue));
-      case 'price-low':
-        return [...list].sort((a, b) => a.price_new - b.price_new);
-      case 'price-high':
-        return [...list].sort((a, b) => b.price_new - a.price_new);
-      case 'rating':
-        return [...list].sort((a, b) => (b.structured_review?.rating ?? 0) - (a.structured_review?.rating ?? 0));
-      default:
-        return list;
-    }
-  }, [preFiltered, sidebarFiltered, sortBy, styleValue, shapeValue]);
-
-  const handleSidebarFilter = (filtered: Kite[]) => {
-    if (filtered.length === allKites.length) {
-      setSidebarFiltered(null);
-    } else {
-      setSidebarFiltered(new Set(filtered.map(k => k.slug)));
-    }
-  };
+    const filtered = applyFilters(kites, filters);
+    return sortKites(filtered, filters.sort, filters.style, filters.shape);
+  }, [kites, filters]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -81,16 +66,19 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         <p className="text-sm text-gray-500">{displayKites.length} kites</p>
       </div>
 
-      {/* Collapsible Quick Filters */}
+      {/* Quick Filters */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
         <button
           onClick={() => setFiltersOpen(!filtersOpen)}
           className="w-full flex items-center justify-between p-4 text-left"
+          aria-expanded={filtersOpen}
         >
           <span className="font-semibold text-slate text-sm">Quick Filters</span>
           <svg
             className={`w-5 h-5 text-gray-400 transition-transform ${filtersOpen ? 'rotate-180' : ''}`}
-            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
@@ -98,25 +86,43 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         {filtersOpen && (
           <div className="px-4 pb-5 space-y-5 border-t border-gray-100 pt-4">
             <div className="grid sm:grid-cols-2 gap-6">
-              {/* Style Slider */}
+              {/* Style */}
               <div>
-                <label className="block text-xs font-semibold text-ocean mb-1">Riding Style: <span className={`${styleZones[getActiveZone(styleValue)].color}`}>{styleZones[getActiveZone(styleValue)].label}</span></label>
+                <label className="block text-xs font-semibold text-ocean mb-1">
+                  Riding Style:{' '}
+                  <span className={styleZones[getActiveZone(filters.style)].color}>
+                    {styleZones[getActiveZone(filters.style)].label}
+                  </span>
+                </label>
                 <input
-                  type="range" min={0} max={100} value={styleValue}
-                  onChange={e => { setStyleValue(Number(e.target.value)); setSortBy('match'); }}
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={filters.style}
+                  onChange={(e) => setFilters({ style: Number(e.target.value), sort: 'match' })}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
-                  {styleZones.map((zone, i) => <span key={zone.label} className={`text-[10px] font-medium ${i === getActiveZone(styleValue) ? zone.color : 'text-gray-400'}`}>{zone.label}</span>)}
+                  {styleZones.map((zone, i) => (
+                    <span
+                      key={zone.label}
+                      className={`text-[10px] font-medium ${i === getActiveZone(filters.style) ? zone.color : 'text-gray-400'}`}
+                    >
+                      {zone.label}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Shape Slider */}
+              {/* Shape */}
               <div>
                 <label className="block text-xs font-semibold text-ocean mb-2">Kite Character</label>
                 <input
-                  type="range" min={0} max={100} value={shapeValue}
-                  onChange={e => { setShapeValue(Number(e.target.value)); setSortBy('match'); }}
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={filters.shape}
+                  onChange={(e) => setFilters({ shape: Number(e.target.value), sort: 'match' })}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
@@ -131,17 +137,19 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               <div>
                 <label className="block text-xs font-semibold text-ocean mb-2">Construction</label>
                 <div className="flex flex-wrap gap-1.5">
-                  {([
-                    { value: 'all', label: 'All' },
-                    { value: 'dacron', label: 'Dacron' },
-                    { value: 'aluula', label: 'Aluula' },
-                    { value: 'brainchild', label: 'Brainchild' },
-                  ] as const).map(opt => (
+                  {(
+                    [
+                      { value: 'all', label: 'All' },
+                      { value: 'dacron', label: 'Dacron' },
+                      { value: 'aluula', label: 'Aluula' },
+                      { value: 'brainchild', label: 'Brainchild' },
+                    ] as const
+                  ).map((opt) => (
                     <button
                       key={opt.value}
-                      onClick={() => setConstruction(opt.value)}
+                      onClick={() => setFilters({ construction: opt.value as Construction })}
                       className={`px-3 py-1 text-xs rounded-full border transition-colors ${
-                        construction === opt.value
+                        filters.construction === opt.value
                           ? 'bg-ocean text-white border-ocean'
                           : 'bg-white text-gray-600 border-gray-200 hover:border-ocean hover:text-ocean'
                       }`}
@@ -155,11 +163,15 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               {/* Budget */}
               <div>
                 <label className="block text-xs font-semibold text-ocean mb-2">
-                  Budget: {budget >= 5000 ? 'No limit' : `Up to $${budget.toLocaleString()}`}
+                  Budget: {filters.budget >= 5000 ? 'No limit' : `Up to $${filters.budget.toLocaleString()}`}
                 </label>
                 <input
-                  type="range" min={500} max={5000} step={100} value={budget}
-                  onChange={e => setBudget(Number(e.target.value))}
+                  type="range"
+                  min={500}
+                  max={5000}
+                  step={100}
+                  value={filters.budget}
+                  onChange={(e) => setFilters({ budget: Number(e.target.value) })}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
@@ -172,12 +184,12 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         )}
       </div>
 
-      {/* Sort */}
       <div className="flex justify-end mb-4">
         <select
-          value={sortBy}
-          onChange={e => setSortBy(e.target.value as SortOption)}
+          value={filters.sort}
+          onChange={(e) => setFilters({ sort: e.target.value as SortOption })}
           className="text-sm border border-gray-200 rounded-lg px-3 py-1.5"
+          aria-label="Sort kites"
         >
           <option value="alpha">A–Z</option>
           <option value="match">Best Match</option>
@@ -188,21 +200,21 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
       </div>
 
       <div className="flex gap-8">
-        <KiteFilters kites={allKites} onFilter={handleSidebarFilter} />
+        <KiteFilters kites={kites} />
         <div className="flex-1">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayKites.map(kite => (
+            {displayKites.map((kite) => (
               <KiteCard
                 key={kite.id}
                 kite={kite}
-                matchScore={sortBy === 'match' ? matchScore(kite, styleValue, shapeValue) : undefined}
+                matchScore={
+                  filters.sort === 'match' ? matchScore(kite, filters.style, filters.shape) : undefined
+                }
               />
             ))}
           </div>
           {displayKites.length === 0 && (
-            <div className="text-center py-20 text-gray-400">
-              No kites match your filters.
-            </div>
+            <div className="text-center py-20 text-gray-400">No kites match your filters.</div>
           )}
         </div>
       </div>
