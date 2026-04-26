@@ -10,7 +10,8 @@
     "validate-kites": "tsx scripts/validate-kites.ts",
     "prebuild": "tsx scripts/validate-kites.ts",
     "process-reviews": "tsx --env-file-if-exists=.env.local scripts/process-reviews.ts",
-    "ingest-review": "tsx --env-file-if-exists=.env.local scripts/ingest-review.ts"
+    "ingest-review": "tsx --env-file-if-exists=.env.local scripts/ingest-review.ts",
+    "find-candidates": "tsx scripts/find-candidates.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
