@@ -107,5 +107,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Master+Model"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The Reedin Master Model 2026 is a Brainchild-built five-strut big air kite engineered to send riders skyward with minimal technical input. Its standout trait is exceptional ease of use for a dedicated big air kite — consistent hangtime and forgiving loops even from imperfect takeoffs. The main caveat is that it sits below the Hypermodel in raw performance precision, and its easy nature means seasoned big air specialists may want more technical edge.",
+    "pros": [
+      "Extremely light thanks to Brainchild welded-panel construction",
+      "Easy to jump high even from imperfect takeoffs",
+      "Light bar pressure with strong feedback throughout the bar throw",
+      "Stays far on the edge of the window, excellent high-end hold-down",
+      "Fast turning speed enables soft, controlled kiteloop landings",
+      "Accessible entry point for first kiteloops without sacrificing hang time"
+    ],
+    "cons": [
+      "Less precise and technically demanding than the Hypermodel — not for elite competitors",
+      "Slightly slower steering than the Hypermodel",
+      "Better sized down than up — oversizing risks overpowered situations",
+      "Line tension can drop dangerously if a loop is pulled too early in a gust"
+    ],
+    "best_for": "Riders from intermediate big air enthusiasts to experienced jumpers who want effortless height, long hangtime, and approachable kiteloops without wrestling a technical kite.",
+    "not_for": "High-level competitors or riders coming from technical race/big air kites who need maximum precision and raw performance over ease.",
+    "rec_blurb": "Brainchild-light, send-it easy — the Master Model makes 30-metre jumps dangerously accessible.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

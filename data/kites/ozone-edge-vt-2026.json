@@ -110,5 +110,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Edge+VT"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 3.8,
+    "summary": "The 2026 Ozone Edge VT is a powerful, stable big air kite with strong low-end grunt and predictable sheet-and-go boosting, but it comes at a cost: notably heavy bar pressure and sluggish response in the air that demands real physical effort, especially in stronger winds. Looping is smooth once you commit, but the kite's slow, deliberate character makes aerial maneuvering and tricks like board-offs genuinely difficult. It's a specialist tool for committed big-air riders, not a do-it-all performer.",
+    "pros": [
+      "Strong low-end power; rideable in lighter winds than comparable kites",
+      "Sheet-and-go boosting is easy and consistent to access",
+      "Very stable in the sky; hard to accidentally get into trouble",
+      "Loops cleanly and predictably when line tension is maintained",
+      "Well-built, robust Ozone construction suggests multi-season durability",
+      "Good for multiple rotations where kite stability above head is valued"
+    ],
+    "cons": [
+      "Heaviest bar pressure of any recent kite reviewed — causes arm and elbow fatigue",
+      "Sluggish response when sheeting out or repositioning kite mid-air",
+      "Board-offs and one-handed aerial tricks extremely difficult due to slow sky movement",
+      "First-loop progression on 9m+ sizes is challenging; reviewer recommends smaller sizes only",
+      "Five-strut Dacron construction means less wind-range benefit versus lighter Alula version"
+    ],
+    "best_for": "Experienced big-air and megaloop riders who prefer a stable, powerful kite and can tolerate heavy bar pressure, especially in 7–8m sizes for strong-wind sessions.",
+    "not_for": "Progression riders attempting their first loops, anyone sensitive to arm fatigue, or riders wanting a light, twitchy kite for technical aerial freestyle.",
+    "rec_blurb": "Raw boosting power with a heavy handshake — built for committed big-air specialists only.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

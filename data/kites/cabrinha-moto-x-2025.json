@@ -110,5 +110,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Moto+2025"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The Cabrinha Moto X Design Works is a high-performance Aluula big air kite with serious lift potential, excellent hang time, and outstanding kite loop capability. It rewards precise bar technique and timed sends, but can be unforgiving when over-sheeted or sent out of the window — particularly in the smaller sizes. Riders who dial in the timing will find a genuinely exciting kite; those still developing technique may find it frustrating.",
+    "pros": [
+      "Excellent hang time, especially after kite loops",
+      "Strong lift potential when timing is dialed",
+      "Fast, responsive steering with precise bar feedback",
+      "Outstanding kite loop feel — tight or sweeping",
+      "Good low-end for an Aluula 9m",
+      "Lightweight Aluula construction delivers noticeable performance gains"
+    ],
+    "cons": [
+      "Prone to back-stalling if over-sheeted or bar pulled too hard",
+      "Kite loops can pivot too tightly, causing a dangerous pause and line slack",
+      "Tricky to time sends consistently, especially in gusty or over-30-knot winds",
+      "More technically demanding than the Nitro — not ideal for progressing riders in smaller sizes",
+      "Sweet spot is narrower than more forgiving big air kites like the Rebel"
+    ],
+    "best_for": "Advanced to expert riders who are already progressing through powered kite loops and want maximum Aluula performance in their big air quiver.",
+    "not_for": "Progressing riders still learning to loop or riders who prefer a forgiving, sheet-and-go big air experience — stick with the Nitro instead.",
+    "rec_blurb": "Explosive Aluula big air with serious hang time — but it demands precise technique to unlock.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

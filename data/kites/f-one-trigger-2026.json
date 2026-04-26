@@ -106,5 +106,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Trigger"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "The F-One Trigger is a fast, responsive big air kite that excels at kite loops, offering a rare combination of speed and forgiveness that makes it one of the best progression tools on the market. Its Brainchild construction keeps it impressively light, and its predictable loop shape inspires confidence from early sessions. The main caveat is that it sits just behind the top ulakite boosters for raw hangtime and can exhibit visible canopy flutter in heavy gusts.",
+    "pros": [
+      "Exceptionally fast, predictable loop with a forgiving catch",
+      "Light construction makes it easy to fly relative to its performance",
+      "Good low-end power for a 5-strut kite, solid wind range",
+      "Confidence-inspiring for loop progression without being erratic",
+      "Bar pressure medium-light, doesn't load up heavily at top end",
+      "Sweet spot for lift more accessible than similarly fast kites"
+    ],
+    "cons": [
+      "Hangtime and raw boosting power slightly behind top ulakite rivals like Rebel or NXT",
+      "Canopy flutter and visual instability in heavy gusts can unsettle riders",
+      "Getting the kite low for fully powered megaloops is challenging for less experienced riders",
+      "F-One bar Y-splitter requires an Allen key to adjust — not hand-adjustable"
+    ],
+    "best_for": "Loop-hungry riders from early kite-loop progression through advanced boosting who want speed and forgiveness in one package.",
+    "not_for": "Pro-level big air competitors chasing maximum single-loop hangtime or judges rewarding fully powered low sweeping megaloops.",
+    "rec_blurb": "The most forgiving fast kite on the market — loops catch you almost everywhere you send it.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

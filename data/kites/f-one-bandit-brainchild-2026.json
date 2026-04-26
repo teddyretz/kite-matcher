@@ -110,5 +110,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=F-One+Bandit+Brainchild"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The 2026 F-One Bandit Brainchild is a versatile all-around kite that impresses with its light bar pressure, stability in gusty conditions, and confidence-inspiring loop behavior. Its Brainchild construction makes it fast and forgiving, but riders chasing big air will need to refine technique as the lower-aspect design sits deeper in the window and doesn't gift height as easily as dedicated big air kites. It shines as a multi-discipline weapon — especially for foiling, waves, and kite loop progression.",
+    "pros": [
+      "Exceptional stability in gusty, challenging conditions",
+      "Very light bar pressure; easy one-handed piloting",
+      "Lightning-fast, high-and-tight kite loops with minimal pull",
+      "Forgiving of technique errors, builds rider confidence quickly",
+      "Repairable at any local kite shop like a standard Dacron kite",
+      "Excellent multi-discipline versatility across foil, waves, and twin-tip"
+    ],
+    "cons": [
+      "Boosting height is a tier below dedicated big air kites",
+      "Requires refined technique and timing to unlock full sending potential",
+      "Smaller sweet spot on the send compared to high-aspect boosters",
+      "Less gifted hang time than purpose-built big air models like the Trigger",
+      "Fast speed can give less-experienced riders false confidence before helies are dialed"
+    ],
+    "best_for": "Progressing to advanced all-around riders who want one kite for foiling, wave riding, and kite loop development without sacrificing freeride fun.",
+    "not_for": "Riders whose primary goal is maximum boosting height and consistent hang time — a dedicated big air kite will outperform it there.",
+    "rec_blurb": "The do-it-all Bandit that loops high and tight and handles gusts like they're nothing.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

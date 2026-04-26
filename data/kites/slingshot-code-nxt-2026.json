@@ -95,5 +95,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Code+NXT"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "The Slingshot Code NXT is a lightweight, Aluula-framed big air kite that delivers deceptively powerful lift, exceptional hang time, and confident looping in a surprisingly versatile package. Its Aluula construction puts it in the same boosting tier as elite kites like the Evo DLab, with a pleasantly light bar feel that makes big jumps accessible faster than expected. The main caveat is a tendency to creep forward overhead in gusty conditions and a wider, less snappy loop arc compared to dedicated loop-first kites like the Orbit.",
+    "pros": [
+      "Aluula frame delivers top-tier boosting and hangtime",
+      "Deceptively powerful lift despite light bar pressure",
+      "Very respectable low-end for an Aluula big air kite",
+      "Loops fast and forgiving — lifts you back up on the catch",
+      "Quick confidence-building; big tricks accessible early on new kite",
+      "Versatile enough to crossover into freeride disciplines"
+    ],
+    "cons": [
+      "Tends to push forward overhead and lose bar feel in gusty holes",
+      "Loop arc is wider and less precise than dedicated loopers like Orbit or Nitro",
+      "Requires active kite management on ascent — bad technique costs more than on other kites",
+      "Double-loop performance may be limited by its design characteristics"
+    ],
+    "best_for": "Progressive big air riders who want elite boosting height and hang time in an accessible, versatile package.",
+    "not_for": "Riders primarily focused on tight, snappy kite loops or those wedded to the classic Orbit/Nitro loop feel.",
+    "rec_blurb": "Elite hangtime and Aluula snap — the Code NXT punches near the very top of big air.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

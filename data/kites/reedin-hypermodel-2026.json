@@ -108,5 +108,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Hyper+Model"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 3.8,
+    "summary": "The Reedin Hyper Model (Brainchild Edition) is a wildly fast, lightweight Aluula kite that excels at confident, multi-discipline riding but trades raw boosting power for speed and manageability. Its low-aggression character makes it approachable and loop-friendly, yet it consistently underdelivers on hangtime and lift compared to dedicated big air kites. Best thought of as a premium all-rounder with a wave/foil lean rather than a pure big air weapon.",
+    "pros": [
+      "Extremely lightweight Aluula construction for a crisp, lively feel",
+      "Lightning-fast looping — tight and high even at smaller sizes",
+      "Very predictable and confidence-inspiring, especially under 30 knots",
+      "Versatile across disciplines: freeride, wave, foil, and light big air",
+      "Light bar pressure and responsive steering aid loop progression"
+    ],
+    "cons": [
+      "Noticeably less lift and hangtime than dedicated big air kites",
+      "Narrow sweet spot makes consistent big boosts harder to nail",
+      "Speed can cause timing issues — easy to over-descend or tea-bag landings",
+      "Three-strut frame loses shape in gusty or high-wind conditions",
+      "Low-V bar setup feels slightly less direct than high-V alternatives"
+    ],
+    "best_for": "Multi-discipline freeriders who want one kite for waves, foil, casual big air, and loop progression in the 15–30 knot range.",
+    "not_for": "Dedicated big air riders focused purely on maximum height and hangtime — this kite won't match the lift of top boosters like the NXT or Rebel.",
+    "rec_blurb": "Blazing fast and loop-hungry, but don't expect it to gift you altitude.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

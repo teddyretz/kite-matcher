@@ -108,5 +108,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Sonic"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The Flysurfer Sonic V4 is a high-performance ram-air foil kite that meaningfully closes the gap between the demanding Sonic 3 and the user-friendly Soul, delivering race-level performance in a far more forgiving package. Its biggest upgrade is wingtip stability — collapses that plagued the Sonic 3 are essentially gone unless you deliberately oversteer. The main caveat is that it retains some of the Sonic's edginess at the margins of the wind window, and wingtip inflation on launch can be slower than the Soul.",
+    "pros": [
+      "Far more stable wingtips than Sonic 3 — collapses essentially eliminated",
+      "Much more forgiving on mistakes; kite won't fall out of the sky",
+      "Strong power spike on loops, closer to Soul behavior than Sonic 3",
+      "Noticeably improved relaunch; less prone to bow-tying",
+      "Adjustable bar pressure via Z-main bridle setting",
+      "Suitable for a wider range of riders than previous Sonics"
+    ],
+    "cons": [
+      "Wingtips can still flutter or taco at the edge of the wind window",
+      "Wingtip inflation on launch slower than the Soul — may need a back-stall to open",
+      "Slightly reduced aspect ratio means marginally less pure race performance than Sonic 3",
+      "Riders accustomed to the Soul may find the feel nearly indistinguishable in easy conditions, making the upgrade case harder to justify"
+    ],
+    "best_for": "Experienced foil kite riders stepping up from the Flysurfer Soul, or Sonic 3 owners who want serious performance without the unforgiving behavior of the older model.",
+    "not_for": "Beginners to foil kiting or riders who want a relaxed, stable all-rounder — this is still a performance-oriented kite requiring solid flying skills.",
+    "rec_blurb": "A supercharged Soul: Sonic 3 performance with the forgiveness you actually wanted.",
+    "sources": [
+      "Our Kite Life"
+    ]
   }
 }

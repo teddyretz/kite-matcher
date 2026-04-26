@@ -91,5 +91,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Core+Pace+Pro"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 3.5,
+    "summary": "The Core Pace Pro is a high-aspect Aluula big air machine built for technical loop specialists, delivering exceptional loop speed and serious power in the right hands. However, it demands significant time to dial in — the heavier bar pressure, narrow wind range, and unforgiving flight characteristics frustrated even experienced riders across multiple sessions. Once mastered (particularly in the 10–12m sizes), it rewards skilled riders with explosive loops and real height gains.",
+    "pros": [
+      "Fastest looping speed among top-tier big air kites tested",
+      "Serious power delivery when properly powered in strong wind",
+      "Real height gains reported after dialing in (2–3m improvement noted)",
+      "Designed for technically proficient riders who want XR-level performance in a looping kite",
+      "Exceptional loop speed even through the slower wingtip sections"
+    ],
+    "cons": [
+      "Very heavy bar pressure for an Aluula kite — heaviest ultra-light tested",
+      "Narrow low-end wind range; needs a size up compared to rival kites",
+      "Unforgiving heli loops with tricky timing and poor catch margin",
+      "Little gifted hangtime; board-off tricks require rushing the landing",
+      "Requires many sessions to feel comfortable — not beginner-friendly for big air progression",
+      "Sensor 4 Pro bar upgrade required, adding cost and setup complexity"
+    ],
+    "best_for": "Experienced big air and kiteloop riders who are already proficient with technical kites and want a dedicated, fast-looping Aluula machine — especially those coming from older Core XR models.",
+    "not_for": "Riders progressing into big air or kiteloops, those who prioritize hangtime and airstyle, or anyone who wants immediate confidence on a new kite without weeks of adjustment.",
+    "rec_blurb": "The Pace Pro rewards patience — but it will humble you first.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

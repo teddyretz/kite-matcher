@@ -111,5 +111,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Core+Pace+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The Core Pace 2026 is a drone-frame (no Alula) freeride/foil crossover built for riders who want the performance DNA of the Pace Pro in a more forgiving package. Its higher aspect ratio delivers excellent hang time, stable power, and lofty down loops, while lighter bar pressure and a wider sweet spot make it genuinely confidence-building. It doesn't match the Pace Pro's explosive pop or raw performance ceiling, so dedicated big-air riders should look elsewhere.",
+    "pros": [
+      "Higher aspect ratio gives excellent hang time and lofty down loops",
+      "Very forgiving with a wide sweet spot — still goes high even on imperfect takeoffs",
+      "Light, smooth bar feel inspires confidence for learning loops and rotations",
+      "Stable and steady in the window; handles gusts without surging",
+      "Narrower tips improve relaunch and sheet-and-go ease",
+      "Accessible step up from standard freeride kites toward foil performance"
+    ],
+    "cons": [
+      "Less explosive pop than the Pace Pro — lower performance ceiling for advanced riders",
+      "No Alula airframe means marginally less feedback and 'alive' feel on the bar",
+      "Slightly thicker leading edge compared to Pace Pro is a necessary compromise",
+      "Not the right tool if you're already past the learning-loops stage and chasing max height"
+    ],
+    "best_for": "Intermediate to advancing freeriders and foilers who want to learn kite loops, boost confidently, and enjoy light-wind sessions without the razor-sharp demands of a full performance kite.",
+    "not_for": "Experienced big-air riders who have their timing dialed and want the most explosive pop and maximum jump height available.",
+    "rec_blurb": "The forgiving Pace Pro sibling that makes your first kite loops feel inevitable.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

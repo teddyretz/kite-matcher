@@ -108,5 +108,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Core+XR+Pro+2+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The Core XR Pro 2 is a five-strut big air machine built for maximum boost and hangtime with minimal effort, upgraded with a refined leading edge diameter and Kevlar patches for improved agility and loop catch. Its standout trait is forgiving, effortless altitude — even on imperfect takeoffs — making it accessible for riders stepping up from casual jumping to serious big air. The main caveat is that it demands real wind to shine, and its five-strut design makes wave riding and kite positioning more cumbersome than dedicated crossover kites.",
+    "pros": [
+      "Exceptional hangtime — kite acts like a parachute on descent",
+      "High altitude achieved even with poor takeoff timing",
+      "Refined leading edge diameter noticeably improves kite loop catch",
+      "Forgiving in gusty, unsteady conditions",
+      "Compatible with all previous Core Sensor bars via pulley bridle",
+      "Kevlar patches add agility over the original XR Pro"
+    ],
+    "cons": [
+      "Needs strong wind to reach its potential — mediocre in light conditions",
+      "Five-strut design limits kite positioning in waves",
+      "Less suited to kite loop progression with rotations than dedicated freestyle kites like the Pace",
+      "Smaller sizes (8–9m) show its best performance; larger sizes less recommended for learning loops"
+    ],
+    "best_for": "Riders obsessed with maximum boost and hangtime who want big air performance above all else, especially in stronger wind conditions.",
+    "not_for": "Wave riders or progression-focused kite loopers wanting a more dynamic, maneuverable kite for rotations and board-off tricks.",
+    "rec_blurb": "Go higher than everyone at your spot — even on a sloppy takeoff.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

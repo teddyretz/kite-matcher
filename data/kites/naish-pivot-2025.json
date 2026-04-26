@@ -112,5 +112,28 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Pivot"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The 2025 Naish Pivot is the brand's proven all-around three-strut workhorse, designed to handle freeriding, wave riding, foiling, and light freestyle without compromise. Its new profile lock seam improves long-term canopy shape retention, and low bar pressure makes one-handed maneuvers and rotations more accessible. The main caveat is that it won't outperform dedicated specialist kites in any single discipline.",
+    "pros": [
+      "Genuine do-it-all capability: freeride, waves, foiling, freestyle",
+      "New profile lock seam prevents canopy bagging out over time",
+      "Low bar pressure aids one-hand steering and rotation tricks",
+      "Uses Quadex Canopy material for durability and longevity across the lineup",
+      "Available in Q Series (Dacron) and Envision (Aluula) builds to suit budgets"
+    ],
+    "cons": [
+      "Jack-of-all-trades means no best-in-class performance in any discipline",
+      "Envision (Aluula) version has noticeably higher bar pressure than standard pivot",
+      "Limited session time shown in review; conditions were gusty and inconsistent",
+      "No standout technical innovation distinguishing it from previous Pivot generations"
+    ],
+    "best_for": "Riders who want one kite for everything — freeride, wave sessions, foil days, and learning freestyle tricks — without switching quivers.",
+    "not_for": "Dedicated wave riders or serious big-air athletes who need a specialist kite optimized for their discipline.",
+    "rec_blurb": "One kite for every condition — the Pivot's versatility is its superpower.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

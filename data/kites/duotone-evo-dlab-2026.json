@@ -103,5 +103,31 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+DLAB"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "The 2026 Duotone Evo D/LAB refines an already legendary kite with a flatter arc, redesigned 6-point bridle, and new closing seam that deliver noticeably better hang time, loft, and forgiveness over its predecessor. It remains one of the most powerful, wind-range-dominating Aluula kites on the market, capable of massive boosts and floaty kite loops at a level very few kites match. The main caveat is that looping demands more technical precision than many modern big-air kites, and the added bar pressure versus the 2024 model means it is not the easiest kite to progress loop tricks on.",
+    "pros": [
+      "Exceptional low-end for its size; rideable in winds too light for comparable kites",
+      "Explosive vertical boost, on par with the Duotone Rebel D/LAB",
+      "Outstanding hang time, improved over the previous Evo D/LAB",
+      "Flatter arc and new closing seam deliver more stability and forgiveness in gusts",
+      "More forgiving on depower than the 2024 model; kinder to intermediate riders",
+      "Still carries the iconic Evo 'sheet and go' power and direct bar feel"
+    ],
+    "cons": [
+      "Loops require more technical precision than top progression-friendly kite loopers",
+      "Slightly heavier, slower bar feel than the outgoing 2024 model — less agile for advanced kite-loop tricks",
+      "Kite can stall or pause mid-loop if technique is off, especially when back-line tension is too high",
+      "Not as beginner-loop-friendly as competitors like the Brainchild or dedicated loop kites",
+      "Aluula material shows peeling and splitting with heavy long-term use (observed on earlier generation)"
+    ],
+    "best_for": "Intermediate to advanced big-air riders who want maximum boost, elite hang time, and broad wind range in a single Aluula kite.",
+    "not_for": "Riders whose primary focus is progressing kite loops, or complete beginners who need a forgiving first Aluula kite.",
+    "rec_blurb": "King-of-the-Air DNA in a more forgiving package — still the benchmark big-air all-rounder.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)",
+      "Kitemana"
+    ]
   }
 }

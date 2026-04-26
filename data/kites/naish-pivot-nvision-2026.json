@@ -110,5 +110,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Naish+Pivot+Nvision"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.4,
+    "summary": "The 2026 Naish Pivot Nvision brings a 10% weight reduction over its predecessor thanks to Aluula and Quadtex construction, delivering faster kite loops, improved drift in waves, and better gust handling compared to the standard Q-Series Pivot. The lighter leading edge shifts the center of weight rearward when unloaded, creating a rare combination of forward drive under load and genuine drift for wave riding. It rewards riders who push hard, but demands more precision than the more forgiving Q-Series.",
+    "pros": [
+      "10% lighter than 2025 Nvision — noticeable performance gain",
+      "Superior gust absorption and quicker recovery versus standard Dacron version",
+      "Unique drift-when-unloaded behaviour rare in high-performance kites",
+      "Faster kite loops with quicker forward drive when loaded",
+      "SK99 bridle lines reduce drag and improve directness",
+      "New closing seam improves canopy twist for lighter bar feel and smoother turns"
+    ],
+    "cons": [
+      "Significantly more expensive than the Q-Series equivalent",
+      "Less forgiving than the Q-Series — demands precise, hard riding",
+      "Bar throw on tested setup was too long for some riders (stopper ball fix needed)",
+      "Smaller sizes dominate the sweet spot; larger sizes (12m+) may suit the Psycho better"
+    ],
+    "best_for": "Intermediate-to-advanced freeriders and wave riders who want a premium all-around kite with genuine drift, quick loops, and extended wind range in a lightweight package.",
+    "not_for": "Budget-conscious riders or those who prefer a more forgiving, beginner-friendly kite that doesn't punish sloppy technique.",
+    "rec_blurb": "Lighter, faster, and surprisingly drifty — the Nvision is the Pivot for riders who want it all.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

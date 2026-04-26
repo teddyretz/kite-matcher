@@ -110,5 +110,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Soul+3"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The Flysurfer Soul 3 is a refined closed-cell foil kite that delivers exceptional hang time, outstanding upwind performance, and easy relaunch — a massive step up from the Soul 2. Its lowered aspect ratio and updated wing tips make it noticeably more agile and reactive than its predecessor while remaining approachable for riders coming from inflatable kites. The main caveat is the inherently slower, anticipation-based turning that takes adjustment time for inflatable kite riders.",
+    "pros": [
+      "Exceptional hang time and floaty lift compared to inflatables",
+      "Outstanding upwind performance — easily climbs above the pack",
+      "Easy self-relaunch after crashes, even from the water",
+      "More agile and reactive than Soul 2 thanks to redesigned outline",
+      "Stable in the sky with minimal drift or twitching",
+      "Performance tuner (Z Main Line) allows camber and bar pressure adjustment"
+    ],
+    "cons": [
+      "Slower, anticipation-based turning is a real adjustment from inflatable kites",
+      "Lighter bar pressure than inflatables makes kite position harder to feel initially",
+      "21 M size discontinued from the lineup",
+      "Down-loop timing and pop technique must be relearned versus LEI habits"
+    ],
+    "best_for": "All-level riders who want a versatile foil kite excelling in light wind, big hang time jumps, and clean upwind performance across land, snow, or water.",
+    "not_for": "Riders who want snappy, direct LEI-style turning response and heavy bar pressure feedback without a learning curve.",
+    "rec_blurb": "Massive hang time and effortless upwind — the most accessible Flysurfer foil kite yet.",
+    "sources": [
+      "Our Kite Life"
+    ]
   }
 }

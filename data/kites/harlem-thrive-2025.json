@@ -95,5 +95,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Thrive"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.2,
+    "summary": "The Harlem Thrive is a featherlight, blindingly fast all-rounder that truly shines in kite loops — arguably the fastest-looping bow-shaped kite on the market. Its ease of use and forgiving loop character make it an outstanding progression kite, especially in sizes 10m and up. The main caveat is canopy stability: in 30+ knots the kite loses shape and shakes, which can undermine confidence in nuclear conditions.",
+    "pros": [
+      "Exceptionally lightweight — rivals top aluLA kites out of the bag",
+      "Fastest or near-fastest looping bow kite on the market",
+      "Loops are high, tight, and low-pull — ideal for progression",
+      "Easy, effortless feel suits intermediate and up riders quickly",
+      "Packs down more easily than stiff aluLA competitors",
+      "Lead bar has solid auto-unwind, ergonomic grip, and heavy-duty SK99+ lines"
+    ],
+    "cons": [
+      "Canopy loses shape and shakes noticeably above 30–35 knots",
+      "Three-strut design sacrifices rigidity vs. five-strut competitors in extreme wind",
+      "Boosting and hang time sit a tier below top dedicated big-air kites (EVO, NXT)",
+      "Kite speed can cause involuntary fast loops — steeper learning curve on smaller sizes",
+      "Bar grip is firmer than some competitors, uncomfortable in cold conditions"
+    ],
+    "best_for": "Intermediate to advanced freeriders and aspiring kite-loopers who want a fast, light, forgiving kite to progress from single loops into doubles and variations.",
+    "not_for": "Riders who regularly kite in 35+ knot nuking conditions and need rock-solid canopy stability, or those chasing maximum boost and hang time above all else.",
+    "rec_blurb": "The friendliest fast-looping bow kite alive — doubles progression starts here.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

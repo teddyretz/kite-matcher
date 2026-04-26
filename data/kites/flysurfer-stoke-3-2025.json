@@ -97,5 +97,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Flysurfer+Stoke"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 3.5,
+    "summary": "The Flysurfer Stoke (reviewed as v2, now in 2025 third iteration) is a lively, fast-turning 3-strut open-C kite with a clever adjustable bridle system targeting wave and freestyle riders. Bar pressure sits in a comfortable middle ground — not too light, not too heavy — and upwind performance drew genuine praise. The main caveat from reviewers is that it feels noticeably different from traditional Flysurfer foil DNA, and the light steering feel can cause the bar to swap around unexpectedly in lighter winds.",
+    "pros": [
+      "Fast, playful turns with responsive steering",
+      "Bar pressure well-balanced — not too light, not too heavy",
+      "Strong upwind performance noted by multiple riders",
+      "Comfortable, durable-feeling bar with adjustable width",
+      "SUP valve built-in with adapter stored in front strut",
+      "Non-snag tip pads and adjustable bridle system are clever details"
+    ],
+    "cons": [
+      "Light steering feel can cause bar to swap unexpectedly",
+      "Feels very different from traditional Flysurfer foil character — may disappoint loyal Flysurfer fans",
+      "Drift ability in waves not fully tested in this review",
+      "Limited transcript depth on 3-stage bridle performance differences"
+    ],
+    "best_for": "Intermediate to advanced riders who want one kite covering waves, freestyle, and freeride with an adjustable feel.",
+    "not_for": "Flysurfer foil loyalists expecting familiar handling, or beginners who need predictable, forgiving bar response.",
+    "rec_blurb": "A chameleon open-C that dials in wave, freeride, or freestyle mode via one bridle adjustment.",
+    "sources": [
+      "Our Kite Life"
+    ]
   }
 }

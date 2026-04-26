@@ -109,5 +109,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Reedin+Super+Model+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.2,
+    "summary": "The 2026 Reedin Super Model (marketed as 2025) is a thoroughly refined do-it-all freeride kite, built around a redesigned arc, pulley-less bridle, extra HF canopy panels, and battened trailing edge for a noticeably smoother, more direct feel. It is positioned as the kite for 95% of riders who want one quiver kite across disciplines. The main caveat is that the lineup now stops at 12m, with light-wind riders pushed to the separate Whisper Model.",
+    "pros": [
+      "Pulley-less bridle delivers more direct, responsive bar feel",
+      "Extra HF panel on leading edge improves canopy twist and turning speed",
+      "Battened trailing edge produces exceptionally smooth, butter-like turns",
+      "Updated arc and repositioned bridles maintain full depower despite no pulley",
+      "Weight reduced across the kite without changing materials",
+      "Genuinely versatile — twin tip, foil, surf, and jumping all covered"
+    ],
+    "cons": [
+      "Lineup capped at 12m; light-wind riders must buy the separate Whisper Model",
+      "Pulley-less bridle is new and unproven long-term in the field",
+      "Performance riders wanting max speed and new-school response should look at the Hypermodel instead",
+      "Review is brand-hosted with Kevin Langeree — independent critical testing absent"
+    ],
+    "best_for": "All-around freeriders who want one kite that handles twin tip, foil, casual jumping, and cruising across a wide wind range.",
+    "not_for": "Dedicated light-wind riders or aggressive new-school riders chasing maximum bar speed and performance headroom.",
+    "rec_blurb": "The smoothest all-rounder Reedin has built — one kite to rule almost every session.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

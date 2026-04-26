@@ -120,5 +120,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The 2026 North Orbit is a meaningful redesign rather than an incremental update, featuring a higher aspect ratio, thinner leading edge, swept-back wingtips, new NRS3 canopy, and the MX2 airframe previously reserved for the Orbit Pro — all at the standard Orbit price. It sits further forward in the window and handles overpowered conditions better than its predecessor. The core Orbit DNA remains: accessible, user-friendly big air with balanced bar pressure, though it still trails the top dedicated big-air kites in raw lift and hangtime.",
+    "pros": [
+      "MX2 airframe (previously Pro-only) at standard Orbit price",
+      "Higher aspect ratio improves upwind efficiency and reduces drag",
+      "Kite sits further forward in window, aiding jump initiation",
+      "New NRS3 triple ripstop canopy replaces D2 material",
+      "More relaxed, controlled feel in overpowered conditions",
+      "Five-point bridle maintains shape on slimmer leading edge"
+    ],
+    "cons": [
+      "Still a tier below top big-air kites in raw lift and hangtime",
+      "Increased steering effort before kite accelerates (vs 2025)",
+      "Not versatile — weak low end, poor fit for waves or foiling",
+      "Real-world performance data limited; beach test only so far for 2026"
+    ],
+    "best_for": "Intermediate to advanced riders focused on big air and kite loops who want a user-friendly, durable kite with genuine performance upgrades at a competitive price.",
+    "not_for": "Riders who need a versatile all-rounder for foiling, waves, or light-wind sessions, or those chasing maximum raw lift above all else.",
+    "rec_blurb": "Orbit Pro DNA at Orbit Classic prices — the biggest redesign in the model's history.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)",
+      "Kitemana"
+    ]
   }
 }

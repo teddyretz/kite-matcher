@@ -110,5 +110,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Rebel+SLS+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.1,
+    "summary": "The Rebel D/Lab (SLS with Aluula frame) is a genuine step up from the standard Rebel SLS — more direct, more rigid, and rewards average riders with bigger, more consistent boosts and impressive hangtime. It's not a kite-loop machine, and the Aluula durability question mark plus elbow-punishing pull on longer sessions are real concerns. Against the Evo D/Lab it's a lateral move rather than a clear upgrade, with a larger sweet spot but less loop-friendliness.",
+    "pros": [
+      "Larger sweet spot makes consistent big boosts more achievable for average riders",
+      "Improved rigidity from Aluula frame adds direct, connected feel through the bar",
+      "More hangtime rewards than standard SLS, especially in gusty conditions",
+      "Well-balanced bar pressure-to-power ratio gives better kite awareness in loops",
+      "More stable in strong winds than typical 3-strut kites",
+      "Noticeably more enjoyable overall experience than standard Rebel SLS"
+    ],
+    "cons": [
+      "Slower looping speed and more yank than top loop-focused kites; not loop-progression friendly",
+      "Extended sessions and heavy looping cause noticeable elbow joint strain",
+      "Aluula longevity remains unproven; resale value on second-hand market is poor",
+      "Does not clearly outperform Evo D/Lab in raw lift, hangtime, or low-end",
+      "Premium D/Lab price hard to justify over Rebel SLS given similar performance ceiling"
+    ],
+    "best_for": "Intermediate-to-advanced freeride big-air riders who want consistent height and hangtime over technical kite-loop progression.",
+    "not_for": "Riders focused on kite-loop progression, double loops, or anyone with existing elbow/joint issues who sessions for 2+ hours.",
+    "rec_blurb": "Bigger sweet spot, real hangtime — but leave the double loops to the Evo.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }

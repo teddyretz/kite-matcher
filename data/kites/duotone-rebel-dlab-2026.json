@@ -103,5 +103,31 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Rebel+DLAB"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "The 2026 Rebel D/LAB is the most refined and accessible Rebel ever made, delivering elite-level boosting and hangtime in a package that's now genuinely easier to loop. The switch to Duotone's DTX Aluula material, pulley-free bridle, and shorter chord produces noticeably lighter bar pressure, faster loop recovery, and crisper steering feedback compared to the 2025 model. The main caveat: in very strong winds the pulley-free bridle offers less relief from gusts, and the kite still demands real experience before its power rewards you.",
+    "pros": [
+      "Lighter, more direct bar feel vs. 2025 — pulley-free bridle pays off",
+      "Faster loop recovery allows control over loop size and style",
+      "Strong second lift extends hangtime and enables tricks post-loop",
+      "More confidence-inspiring for kite loops than any previous Rebel",
+      "DTX Aluula adds flex that smooths out the looping arc",
+      "Improved low-end performance over the 2025 model"
+    ],
+    "cons": [
+      "Pulley-free bridle gives less gust relief at top end compared to 2025",
+      "Boosting sweet spot marginally harder to find than on the proven 2025",
+      "Still high bar pressure by market standards — not beginner-friendly",
+      "Premium D/LAB price tag limits accessibility",
+      "Not ideal in very large sizes where lighter freeride kites hold the edge"
+    ],
+    "best_for": "Experienced big-air and kite-loop riders who want maximum hangtime and boosting power with improved loop precision and feedback.",
+    "not_for": "Beginners or progressing loopers who need a forgiving, low-pressure kite — the Rebel's power demands will overwhelm rather than build confidence.",
+    "rec_blurb": "The Rebel finally loops as good as it boosts — a big-air weapon with a conscience.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)",
+      "Kitemana"
+    ]
   }
 }

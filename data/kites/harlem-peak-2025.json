@@ -103,5 +103,31 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Peak"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The Harlem Peak is a premium 5-strut big air machine with Brainchild construction that delivers explosive vertical lift and surprisingly accessible performance across skill levels. Its combination of low bar pressure, rapid response, and a uniquely forgiving takeoff trajectory make it one of the most fun big air kites on the market. The main caveats are modest low-end performance, no back-line adjustment, and occasional tracking instability in gusty conditions.",
+    "pros": [
+      "Explosive, near-vertical takeoffs even with imperfect timing",
+      "Low bar pressure with genuinely fast kite speed — rare combination",
+      "Consistent, predictable loops across sizes with quick recovery",
+      "Upwind drive is strong and constant, a Brainchild hallmark",
+      "Lighter than most 5-strut kites, yet more stable than 3-strut Brainchild models",
+      "Builds jumper confidence in strong and gusty conditions"
+    ],
+    "cons": [
+      "Low-end performance noticeably behind top 3-strut and Alula kites",
+      "No back-line adjustment on kite or bar limits tuning options",
+      "Occasional wobble and tracking loss in gusty wind, especially when looping",
+      "Pulley-induced response delay takes adjustment time, especially on larger sizes",
+      "Hang time strong but falls slightly short of top Alula kites like Evo DAB or Rebel DAB"
+    ],
+    "best_for": "Intermediate to advanced big air riders who want accessible explosive pop, forgiving loops, and strong gusty-condition performance without the intimidation of a pure race kite.",
+    "not_for": "Riders prioritising maximum raw hang time or low-end range, or those who demand a tunable bar setup — top Alula kites like the Evo DAB or Rebel DAB still edge it out for pure lift ceiling.",
+    "rec_blurb": "Launches you vertically even on bad takeoffs — big air confidence in a surprisingly friendly package.",
+    "sources": [
+      "Jason Montreal",
+      "Kitemana"
+    ]
   }
 }

@@ -109,5 +109,29 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+RS+V9+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.2,
+    "summary": "The Eleveight RS Pro is a high-quality performance freeride kite that impressed with its build quality, depower range, and upwind ability across a wide wind range. Its three-position bridle tuning gives real versatility from forgiving kiteloops to more aggressive riding. The boost is solid but not class-leading — this is an all-rounder, not a dedicated big-air machine.",
+    "pros": [
+      "Exceptional depower range — easy to hold in 35-knot gusts",
+      "Three-position bridle tuning adapts feel from forgiving to aggressive",
+      "Premium 4x4 and 6x6 ripstop construction for long-term durability",
+      "Strong upwind performance even in light wind on a 9m",
+      "Stable and solid in gusty, shifting conditions",
+      "CS Auto bar is a well-matched, high-quality pairing"
+    ],
+    "cons": [
+      "Initial loop acceleration feels slow — kite builds power after quarter-loop",
+      "Boost is good but not class-leading among five-strut boosting kites",
+      "Heavier construction than lightest three-strut alula competitors",
+      "Bar pressure during kite loops is firmer than some riders expect"
+    ],
+    "best_for": "Freeride and progression riders who want a durable, versatile kite that handles kiteloops, upwind performance, and gusty conditions with confidence.",
+    "not_for": "Riders chasing maximum hangtime and pure big-air boost who need a dedicated five-strut boosting kite.",
+    "rec_blurb": "A bomber all-rounder with serious depower and real bridle tuning — built to last.",
+    "sources": [
+      "Kitemana"
+    ]
   }
 }

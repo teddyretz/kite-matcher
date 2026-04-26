@@ -110,5 +110,30 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+SLS+2026"
       }
     ]
+  },
+  "structured_review": {
+    "rating": 4.5,
+    "summary": "The Evo D/Lab (and by extension the SLS platform) represents Jason Montreal's personal benchmark for all-around performance after 1.5+ years and 130+ hours on his own kites. Its Aluula construction delivers an exceptional wind range, outstanding low-end power, and big-air potential that consistently outperforms heavier dakron rivals. The main caveats are real durability concerns with early bladders and canopy wear, plus the premium price demanding serious commitment.",
+    "pros": [
+      "Massive wind range — effectively covers two kite sizes",
+      "Industry-leading low-end power for its size",
+      "Light bar pressure with highly responsive, direct feel",
+      "Exceptional boosting potential and hang time",
+      "Versatile across disciplines — from freeride to big air",
+      "Durable overall once bladder issues are resolved"
+    ],
+    "cons": [
+      "Early bladders developed micro-holes requiring replacement within first year",
+      "Aluula canopy fabric showing material splitting after heavy use",
+      "Deflate valve design can snag bridle during self-launch",
+      "High price demands long ownership to justify cost per session",
+      "Duotone direct customer support reportedly slow and inconsistent for remote buyers"
+    ],
+    "best_for": "Experienced freeriders and big-air riders who want maximum wind range, light bar feel, and top-tier boosting performance in a single premium quiver.",
+    "not_for": "Beginners or budget-conscious riders unwilling to manage premium material care requirements and potential early maintenance issues.",
+    "rec_blurb": "Jason's personal benchmark after 130+ hours — the kite nothing else has quite beaten.",
+    "sources": [
+      "Jason Montreal (Plus-Sized Kite Reviews)"
+    ]
   }
 }
