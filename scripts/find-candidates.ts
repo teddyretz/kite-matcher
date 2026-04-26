@@ -45,7 +45,7 @@ const DEFAULT_CHANNELS: ReviewChannel[] = [
   { name: 'Jason Montreal', url: 'https://www.youtube.com/@jasonofmontreal/videos' },
   { name: 'Kitemana',       url: 'https://www.youtube.com/@Kitemana/videos' },
   { name: 'Our Kite Life',  url: 'https://www.youtube.com/@OurKiteLife/videos' },
-  { name: 'MACkite',        url: 'https://www.youtube.com/@MACkiteboardingofficial/videos' },
+  { name: 'MACkite',        url: 'https://www.youtube.com/@MACkiteboarding/videos' },
 ]
 
 interface Video {
