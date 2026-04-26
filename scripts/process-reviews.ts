@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import 'dotenv/config'
 
 import Anthropic from '@anthropic-ai/sdk'
 import { KiteSchema, type ValidatedKite } from '../lib/schema'
