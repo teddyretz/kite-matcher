@@ -171,7 +171,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
             <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">
               Top Matches
             </p>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {topMatches.map((kite) => (
                 <div
                   key={kite.id}

@@ -42,7 +42,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       {/* Hero */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="relative h-64 md:h-auto md:min-h-[320px] bg-gray-50 overflow-hidden">
+          <div className="relative h-48 sm:h-64 md:h-auto md:min-h-[320px] bg-gray-50 overflow-hidden">
             {imgError ? (
               <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
                 {kite.brand} {kite.model}

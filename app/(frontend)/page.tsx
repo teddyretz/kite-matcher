@@ -9,7 +9,7 @@ export default async function Home() {
     <div className="min-h-[calc(100vh-3.5rem)]">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden min-h-[88vh] flex items-center">
+      <section className="relative overflow-hidden min-h-[80vh] sm:min-h-[88vh] flex items-center">
 
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#040810] via-surface to-[#061018]" />
@@ -45,7 +45,7 @@ export default async function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
 
           {/* Left: Headline */}
           <div>
@@ -84,7 +84,7 @@ export default async function Home() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="max-w-5xl mx-auto px-4 py-24">
+      <section className="max-w-5xl mx-auto px-4 py-16 sm:py-24">
         <div className="flex items-center gap-5 mb-16">
           <div className="h-px flex-1 bg-gray-100" />
           <h2 className="font-display font-bold italic text-xl uppercase tracking-widest text-gray-400">

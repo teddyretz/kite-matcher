@@ -36,7 +36,7 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
 
       <p className="text-gray-700 leading-relaxed">{review.summary}</p>
 
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <h3 className="text-sm font-bold tracking-wide uppercase text-emerald-700 mb-3">Pros</h3>
           <ul className="space-y-2">

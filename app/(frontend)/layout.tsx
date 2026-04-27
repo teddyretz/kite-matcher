@@ -82,7 +82,7 @@ export default function FrontendLayout({
         </div>
       </nav>
 
-      <main>{children}</main>
+      <main className="pb-24 lg:pb-0">{children}</main>
       <CompareDrawer />
     </CompareProvider>
   );
