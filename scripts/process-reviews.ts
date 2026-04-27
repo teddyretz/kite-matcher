@@ -8,19 +8,23 @@ type YouTubeReview = Extract<ValidatedKite['reviews'][number], { source: 'youtub
 type StructuredReview = NonNullable<ValidatedKite['structured_review']>
 
 const MODEL = 'claude-sonnet-4-6'
-const MAX_TOKENS = 2048
+const MAX_TOKENS = 3072
 const ROOT = path.resolve(__dirname, '..')
 const DATA_DIR = path.join(ROOT, 'data', 'kites')
 
-const SYSTEM_PROMPT = `You are a kitesurfing expert writing structured reviews for findmykite.com. Given one or more YouTube review transcripts for a single kite, you synthesize them into a consolidated JSON review.
+const SYSTEM_PROMPT = `You are a kitesurfing expert writing structured reviews for findmykite.com. Given one or more YouTube review transcripts for a single kite, you produce TWO outputs in one JSON response:
+
+1. \`review\` — the consolidated expert take across all transcripts.
+2. \`videos\` — a per-source written summary of what each individual reviewer said.
 
 Principles:
-- Be HONEST. Surface real weaknesses. Do not sanitize. Reviewers often hedge; you should not. If a kite has durability issues, says so plainly.
+- Be HONEST. Surface real weaknesses. Do not sanitize. Reviewers often hedge; you should not.
 - Ground every claim in the transcripts. Do not invent specs or fabricate pros/cons.
-- Consolidate across transcripts when there are multiple. If reviewers disagree, prefer the more specific observation.
-- Keep items concise. Pros/cons are short phrases (5-15 words), not paragraphs.
+- Consolidate across transcripts for \`review\`. If reviewers disagree, prefer the more specific observation.
+- Each \`videos\` entry summarizes that ONE reviewer's view. Different reviewers may emphasize different things — that's fine, write what THEY said.
+- Output written summaries, not transcribed speech. No "hello and welcome to..." style intros. No filler like "they said that".
 
-Field guide:
+Field guide for \`review\`:
 - rating: number 0-5, one decimal. 5 = iconic/best-in-class. 4.5 = excellent. 4 = very good. 3.5 = solid. 3 = mixed. Below 3 only if reviewers were notably critical.
 - summary: 2-3 sentences capturing the kite's character, main strength, and main caveat.
 - pros: 3-6 concrete strengths, drawn from the transcripts.
@@ -28,22 +32,50 @@ Field guide:
 - best_for: one sentence describing the rider this kite suits.
 - not_for: one sentence describing who should skip this kite.
 - rec_blurb: one punchy sentence (max ~18 words) for card display. Memorable, specific, not generic.
-- sources: list of reviewer channel names that contributed (e.g. "Jason Montreal", "Kitemana", "Our Kite Life").`
+- sources: list of reviewer NAMES that contributed (e.g. "Jason Montreal", "Kitemana"). Just the name, not "(channel name)".
+
+Field guide for each \`videos\` entry:
+- video_id: the EXACT video_id string from the source header (look for "[video_id: ...]"). Critical — this lets us match the summary back to the right video.
+- summary: 2-3 sentences (max ~60 words) on what THIS reviewer specifically said about the kite. Their main take, what they liked, what they criticized. Written prose, not a transcript snippet.`
 
 const SCHEMA = {
   type: 'object' as const,
   additionalProperties: false,
-  required: ['rating', 'summary', 'pros', 'cons', 'best_for', 'not_for', 'rec_blurb', 'sources'],
+  required: ['review', 'videos'],
   properties: {
-    rating: { type: 'number' as const },
-    summary: { type: 'string' as const },
-    pros: { type: 'array' as const, items: { type: 'string' as const } },
-    cons: { type: 'array' as const, items: { type: 'string' as const } },
-    best_for: { type: 'string' as const },
-    not_for: { type: 'string' as const },
-    rec_blurb: { type: 'string' as const },
-    sources: { type: 'array' as const, items: { type: 'string' as const } },
+    review: {
+      type: 'object' as const,
+      additionalProperties: false,
+      required: ['rating', 'summary', 'pros', 'cons', 'best_for', 'not_for', 'rec_blurb', 'sources'],
+      properties: {
+        rating: { type: 'number' as const },
+        summary: { type: 'string' as const },
+        pros: { type: 'array' as const, items: { type: 'string' as const } },
+        cons: { type: 'array' as const, items: { type: 'string' as const } },
+        best_for: { type: 'string' as const },
+        not_for: { type: 'string' as const },
+        rec_blurb: { type: 'string' as const },
+        sources: { type: 'array' as const, items: { type: 'string' as const } },
+      },
+    },
+    videos: {
+      type: 'array' as const,
+      items: {
+        type: 'object' as const,
+        additionalProperties: false,
+        required: ['video_id', 'summary'],
+        properties: {
+          video_id: { type: 'string' as const },
+          summary: { type: 'string' as const },
+        },
+      },
+    },
   },
+}
+
+interface LlmOutput {
+  review: StructuredReview
+  videos: Array<{ video_id: string; summary: string }>
 }
 
 function loadAllKites(): ValidatedKite[] {
@@ -66,12 +98,12 @@ Category: ${kite.summary}
 Style placement: style_spectrum=${kite.style_spectrum} (Foil 0-20, Surf 21-40, Freestyle 41-60, Freeride 61-80, Big Air 81-100), wave_spectrum=${kite.wave_spectrum}
 Tags: ${kite.style_tags.join(', ')}
 
-Review transcripts follow. Synthesize a single structured review.
+Review transcripts follow. Produce both a consolidated \`review\` and a per-source \`videos\` summary array (one entry per source, keyed by video_id).
 `
   const bodies = transcripts
     .map(
       (r, i) =>
-        `\n=== Source ${i + 1}: ${r.reviewer} (${r.channel})${r.video_title ? ` — "${r.video_title}"` : ''} ===\n${r.full_transcript ?? ''}`,
+        `\n=== Source ${i + 1}: ${r.reviewer}${r.video_title ? ` — "${r.video_title}"` : ''} [video_id: ${r.video_id}] ===\n${r.full_transcript ?? ''}`,
     )
     .join('\n')
   return header + bodies
@@ -81,7 +113,7 @@ async function generateStructuredReview(
   client: Anthropic,
   kite: ValidatedKite,
   transcripts: YouTubeReview[],
-): Promise<StructuredReview> {
+): Promise<LlmOutput> {
   const response = await client.messages.create({
     model: MODEL,
     max_tokens: MAX_TOKENS,
@@ -94,7 +126,7 @@ async function generateStructuredReview(
 
   const textBlock = response.content.find((b): b is Anthropic.TextBlock => b.type === 'text')
   if (!textBlock) throw new Error('No text block in response')
-  return JSON.parse(textBlock.text) as StructuredReview
+  return JSON.parse(textBlock.text) as LlmOutput
 }
 
 function parseArgs(argv: string[]) {
@@ -144,13 +176,21 @@ async function main() {
     )
     console.log(`\n[${ok + failed + 1}/${batch.length}] ${kite.slug} — ${transcripts.length} transcript(s)`)
     try {
-      const review = await generateStructuredReview(client, kite, transcripts)
+      const { review, videos } = await generateStructuredReview(client, kite, transcripts)
       console.log(
         `  rating: ${review.rating} | pros: ${review.pros.length} | cons: ${review.cons.length} | sources: ${review.sources.join(', ')}`,
       )
       console.log(`  blurb: ${review.rec_blurb}`)
+      const summaryById = new Map(videos.map((v) => [v.video_id, v.summary]))
+      const matched = transcripts.filter((t) => summaryById.has(t.video_id)).length
+      console.log(`  per-video summaries: ${matched}/${transcripts.length} matched by video_id`)
       if (!args.dryRun) {
-        writeKite({ ...kite, structured_review: review })
+        const updatedReviews = kite.reviews.map((r) => {
+          if (r.source !== 'youtube') return r
+          const s = summaryById.get(r.video_id)
+          return s ? { ...r, summary: s } : r
+        })
+        writeKite({ ...kite, structured_review: review, reviews: updatedReviews })
         console.log(`  ✓ written to data/kites/${kite.slug}.json`)
       }
       ok++

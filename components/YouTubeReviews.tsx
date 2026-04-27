@@ -41,7 +41,12 @@ export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }
             />
           </div>
 
-          {(r.excerpt || r.verdict) && (
+          {r.summary ? (
+            <div className="p-4">
+              <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">What they said</p>
+              <p className="text-sm text-gray-700 leading-relaxed">{r.summary}</p>
+            </div>
+          ) : (r.excerpt || r.verdict) ? (
             <div className="p-4 space-y-3">
               {r.excerpt && (
                 <div>
@@ -56,7 +61,7 @@ export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }
                 </div>
               )}
             </div>
-          )}
+          ) : null}
         </div>
       ))}
     </div>
