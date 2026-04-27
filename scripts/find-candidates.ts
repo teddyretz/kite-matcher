@@ -155,6 +155,18 @@ function normalizeAlnum(s: string): string {
 
 const YEARS_TO_DISCRIMINATE = [2023, 2024, 2025, 2026, 2027]
 
+// Common model qualifier tokens that appear in many kite *and non-kite* product
+// names. They count for bonus score when they hit, but cannot carry a match on
+// their own — there must also be a non-noise model token in the title.
+//
+// Without this guard, "Core Pace Pro" matches any title saying "Pro"
+// (including board reviews like "North Atmos Pro / Crazyfly Elite / Core Fusion").
+const NOISE_MODEL_TOKENS = new Set([
+  'pro', 'sls', 'dlab', 'nxt', 'mk2', 'mk3',
+  'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8', 'v9',
+  'v10', 'v11', 'v12', 'v13', 'v14', 'v15',
+])
+
 function matchScore(kite: ValidatedKite, video: Video): number {
   const titleNorm = ' ' + normalize(video.title) + ' '
   const titleAlnum = normalizeAlnum(video.title)
@@ -164,12 +176,16 @@ function matchScore(kite: ValidatedKite, video: Video): number {
   const brandAlnum = normalizeAlnum(kite.brand)
   if (!titleAlnum.includes(brandAlnum)) return 0
 
-  // Model match: at least one model token of length >= 2 must appear as a whole word.
+  // Tokenize the model and split into "strong" (distinctive) vs "noise"
+  // (qualifiers like Pro / SLS / V8). Require at least one strong hit so a
+  // title with only a noise token can't match.
   const modelTokens = normalize(kite.model).split(' ').filter((t) => t.length >= 2)
-  const modelHits = modelTokens.filter((t) => titleNorm.includes(' ' + t + ' ')).length
-  if (modelHits === 0) return 0
+  const isHit = (t: string) => titleNorm.includes(' ' + t + ' ')
+  const strongHits = modelTokens.filter((t) => !NOISE_MODEL_TOKENS.has(t) && isHit(t)).length
+  if (strongHits === 0) return 0
 
-  let score = 40 + modelHits * 20
+  const totalHits = modelTokens.filter(isHit).length
+  let score = 40 + totalHits * 20
 
   // Year bonus / mismatch penalty.
   const yearStr = String(kite.year)
@@ -182,6 +198,11 @@ function matchScore(kite: ValidatedKite, video: Video): number {
       break
     }
   }
+
+  // Board content de-rank — catches reviewer videos about twin-tips that
+  // happen to contain a kite-brand name. Whole-word " board " only, so we
+  // don't flag "kiteboarding" or "kiteboard" (the sport name).
+  if (titleNorm.includes(' board ')) score -= 40
 
   return Math.max(0, Math.min(100, score))
 }
