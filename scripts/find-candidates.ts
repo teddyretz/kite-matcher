@@ -167,6 +167,22 @@ const NOISE_MODEL_TOKENS = new Set([
   'v10', 'v11', 'v12', 'v13', 'v14', 'v15',
 ])
 
+// Variant qualifiers that distinguish high-end versions of the same model
+// (e.g. Rebel base vs Rebel SLS vs Rebel D/Lab). Detected in both kite
+// model and video title; mismatches incur a penalty so a "Rebel D/Lab"
+// review doesn't match a "Rebel SLS" kite just because both share "Rebel".
+//
+// Returns the canonical variant key, or null if no variant qualifier is
+// present (= base model).
+function detectVariant(text: string): string | null {
+  const norm = ' ' + normalize(text) + ' '
+  if (norm.includes(' sls ')) return 'sls'
+  if (norm.includes(' dlab ') || norm.includes(' d lab ')) return 'dlab'
+  if (norm.includes(' nxt ')) return 'nxt'
+  if (norm.includes(' pro ')) return 'pro'
+  return null
+}
+
 function matchScore(kite: ValidatedKite, video: Video): number {
   const titleNorm = ' ' + normalize(video.title) + ' '
   const titleAlnum = normalizeAlnum(video.title)
@@ -203,6 +219,14 @@ function matchScore(kite: ValidatedKite, video: Video): number {
   // happen to contain a kite-brand name. Whole-word " board " only, so we
   // don't flag "kiteboarding" or "kiteboard" (the sport name).
   if (titleNorm.includes(' board ')) score -= 40
+
+  // Variant discriminator. If the title explicitly mentions a different
+  // variant than the kite (e.g. kite is "Rebel SLS", title says "Rebel D/Lab"),
+  // strongly penalize. Only penalize when the title states a variant —
+  // a generic "Rebel 2026" title shouldn't be punished for matching the SLS.
+  const kiteVariant = detectVariant(kite.model)
+  const titleVariant = detectVariant(video.title)
+  if (titleVariant !== null && titleVariant !== kiteVariant) score -= 40
 
   return Math.max(0, Math.min(100, score))
 }
