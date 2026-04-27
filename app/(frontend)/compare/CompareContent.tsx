@@ -94,15 +94,15 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       {/* Kite headers */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[480px]">
             <thead>
               <tr className="border-b border-gray-100">
-                <th className="text-left p-4 w-40 text-sm font-medium text-gray-500">Spec</th>
+                <th className="text-left p-3 sm:p-4 w-28 sm:w-40 text-xs sm:text-sm font-medium text-gray-500">Spec</th>
                 {kites.map(k => (
-                  <th key={k.id} className="p-4 text-center">
+                  <th key={k.id} className="p-3 sm:p-4 text-center">
                     <Link href={`/kite/${k.slug}`} className="hover:text-ocean">
-                      <p className="font-bold text-slate">{k.model}</p>
-                      <p className="text-xs text-gray-500">{k.brand} {k.year}</p>
+                      <p className="font-bold text-slate text-sm sm:text-base">{k.model}</p>
+                      <p className="text-[11px] sm:text-xs text-gray-500">{k.brand} {k.year}</p>
                     </Link>
                   </th>
                 ))}
@@ -111,9 +111,9 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className={`border-b border-gray-50 ${row.highlight ? 'bg-sand/5' : ''}`}>
-                  <td className="p-4 text-sm text-gray-500 font-medium">{row.label}</td>
+                  <td className="p-3 sm:p-4 text-xs sm:text-sm text-gray-500 font-medium">{row.label}</td>
                   {row.values.map((val, i) => (
-                    <td key={i} className={`p-4 text-center text-sm capitalize ${row.highlight ? 'font-semibold text-slate' : 'text-gray-700'}`}>
+                    <td key={i} className={`p-3 sm:p-4 text-center text-xs sm:text-sm capitalize ${row.highlight ? 'font-semibold text-slate' : 'text-gray-700'}`}>
                       {val}
                     </td>
                   ))}
