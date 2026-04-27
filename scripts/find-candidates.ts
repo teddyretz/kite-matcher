@@ -30,30 +30,24 @@ import fs from 'fs'
 import path from 'path'
 import { execFileSync } from 'child_process'
 import { KiteSchema, type ValidatedKite } from '../lib/schema'
+import { matchScore, type Video, type ReviewChannel } from '../lib/candidate-scoring'
 
 const ROOT = path.resolve(__dirname, '..')
 const DATA_DIR = path.join(ROOT, 'data', 'kites')
 const CACHE_DIR = path.join(ROOT, 'data', '_channel-cache')
 const CACHE_TTL_HOURS = 24
 
-interface ReviewChannel {
-  name: string
-  url: string
-}
-
 const DEFAULT_CHANNELS: ReviewChannel[] = [
-  { name: 'Jason Montreal', url: 'https://www.youtube.com/@jasonofmontreal/videos' },
-  { name: 'Kitemana',       url: 'https://www.youtube.com/@Kitemana/videos' },
-  { name: 'Our Kite Life',  url: 'https://www.youtube.com/@OurKiteLife/videos' },
-  { name: 'MACkite',        url: 'https://www.youtube.com/@MACkiteboarding/videos' },
+  { name: 'Jason Montreal',     url: 'https://www.youtube.com/@jasonofmontreal/videos' },
+  { name: 'Kitemana',           url: 'https://www.youtube.com/@Kitemana/videos' },
+  { name: 'Our Kite Life',      url: 'https://www.youtube.com/@OurKiteLife/videos' },
+  { name: 'MACkite',            url: 'https://www.youtube.com/@MACkiteboarding/videos' },
+  // Additional channels — may 404 on yt-dlp if the handle is wrong; the script
+  // logs and continues. Override or extend with --channel <url>.
+  { name: 'Progression Sports', url: 'https://www.youtube.com/@ProgressionSports/videos' },
+  { name: 'Kiteworld Magazine', url: 'https://www.youtube.com/@KiteworldMag/videos' },
+  { name: 'Tom Court',          url: 'https://www.youtube.com/@TomCourt/videos' },
 ]
-
-interface Video {
-  id: string
-  title: string
-  url: string
-  channel: string
-}
 
 interface Args {
   limit: number
@@ -143,92 +137,6 @@ function fetchChannelVideos(channel: ReviewChannel, limit: number, useCache: boo
 function loadKites(): ValidatedKite[] {
   const files = fs.readdirSync(DATA_DIR).filter((f) => f.endsWith('.json')).sort()
   return files.map((f) => KiteSchema.parse(JSON.parse(fs.readFileSync(path.join(DATA_DIR, f), 'utf-8'))))
-}
-
-function normalize(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim()
-}
-
-function normalizeAlnum(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, '')
-}
-
-const YEARS_TO_DISCRIMINATE = [2023, 2024, 2025, 2026, 2027]
-
-// Common model qualifier tokens that appear in many kite *and non-kite* product
-// names. They count for bonus score when they hit, but cannot carry a match on
-// their own — there must also be a non-noise model token in the title.
-//
-// Without this guard, "Core Pace Pro" matches any title saying "Pro"
-// (including board reviews like "North Atmos Pro / Crazyfly Elite / Core Fusion").
-const NOISE_MODEL_TOKENS = new Set([
-  'pro', 'sls', 'dlab', 'nxt', 'mk2', 'mk3',
-  'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8', 'v9',
-  'v10', 'v11', 'v12', 'v13', 'v14', 'v15',
-])
-
-// Variant qualifiers that distinguish high-end versions of the same model
-// (e.g. Rebel base vs Rebel SLS vs Rebel D/Lab). Detected in both kite
-// model and video title; mismatches incur a penalty so a "Rebel D/Lab"
-// review doesn't match a "Rebel SLS" kite just because both share "Rebel".
-//
-// Returns the canonical variant key, or null if no variant qualifier is
-// present (= base model).
-function detectVariant(text: string): string | null {
-  const norm = ' ' + normalize(text) + ' '
-  if (norm.includes(' sls ')) return 'sls'
-  if (norm.includes(' dlab ') || norm.includes(' d lab ')) return 'dlab'
-  if (norm.includes(' nxt ')) return 'nxt'
-  if (norm.includes(' pro ')) return 'pro'
-  return null
-}
-
-function matchScore(kite: ValidatedKite, video: Video): number {
-  const titleNorm = ' ' + normalize(video.title) + ' '
-  const titleAlnum = normalizeAlnum(video.title)
-
-  // Brand match: alnum-collapsed brand must appear as substring in alnum-collapsed title.
-  // Handles "F-One" → "fone" matching "F-One Bandit Review" → "fonebanditbrainchildreview".
-  const brandAlnum = normalizeAlnum(kite.brand)
-  if (!titleAlnum.includes(brandAlnum)) return 0
-
-  // Tokenize the model and split into "strong" (distinctive) vs "noise"
-  // (qualifiers like Pro / SLS / V8). Require at least one strong hit so a
-  // title with only a noise token can't match.
-  const modelTokens = normalize(kite.model).split(' ').filter((t) => t.length >= 2)
-  const isHit = (t: string) => titleNorm.includes(' ' + t + ' ')
-  const strongHits = modelTokens.filter((t) => !NOISE_MODEL_TOKENS.has(t) && isHit(t)).length
-  if (strongHits === 0) return 0
-
-  const totalHits = modelTokens.filter(isHit).length
-  let score = 40 + totalHits * 20
-
-  // Year bonus / mismatch penalty.
-  const yearStr = String(kite.year)
-  if (titleNorm.includes(' ' + yearStr + ' ') || titleAlnum.includes(yearStr)) {
-    score += 25
-  }
-  for (const y of YEARS_TO_DISCRIMINATE) {
-    if (y !== kite.year && (titleNorm.includes(' ' + y + ' ') || titleAlnum.includes(String(y)))) {
-      score -= 35
-      break
-    }
-  }
-
-  // Board content de-rank — catches reviewer videos about twin-tips that
-  // happen to contain a kite-brand name. Whole-word " board " only, so we
-  // don't flag "kiteboarding" or "kiteboard" (the sport name).
-  if (titleNorm.includes(' board ')) score -= 40
-
-  // Variant discriminator. If the title explicitly mentions a different
-  // variant than the kite (e.g. kite is "Rebel SLS", title says "Rebel D/Lab"),
-  // strongly penalize. Only penalize when the title states a variant —
-  // a generic "Rebel 2026" title shouldn't be punished for matching the SLS.
-  const kiteVariant = detectVariant(kite.model)
-  const titleVariant = detectVariant(video.title)
-  if (titleVariant !== null && titleVariant !== kiteVariant) score -= 40
-
-  return Math.max(0, Math.min(100, score))
 }
 
 interface CandidateMatch {
