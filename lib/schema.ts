@@ -25,6 +25,7 @@ const YouTubeReview = z.object({
   video_url: z.string(),
   excerpt: z.string(),
   verdict: z.string(),
+  summary: z.string().optional(),
   full_transcript: z.string().optional(),
 });
 

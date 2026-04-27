@@ -34,6 +34,7 @@ export type ReviewEntry =
       video_url: string;
       excerpt: string;
       verdict: string;
+      summary?: string;
       full_transcript?: string;
     }
   | {
