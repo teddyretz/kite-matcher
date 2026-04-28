@@ -40,4 +40,6 @@ public/kites/backup/
 
 # scratch/output artifacts from review-discovery scripts
 data/_channel-cache/
+data/_search-cache/
 candidates.md
+search.md
