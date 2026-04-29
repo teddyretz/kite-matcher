@@ -42,10 +42,15 @@ interface Args {
   top: number
   refresh: boolean
   out: string
+  autoIngest: boolean
+  autoThreshold: number
 }
 
 function parseArgs(argv: string[]): Args {
-  const args: Args = { all: false, results: 5, threshold: 60, top: 3, refresh: false, out: '' }
+  const args: Args = {
+    all: false, results: 5, threshold: 60, top: 3, refresh: false, out: '',
+    autoIngest: false, autoThreshold: 85,
+  }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--slug' && argv[i + 1]) args.slug = argv[++i]
@@ -55,6 +60,8 @@ function parseArgs(argv: string[]): Args {
     else if (a === '--top' && argv[i + 1]) args.top = parseInt(argv[++i], 10)
     else if (a === '--refresh') args.refresh = true
     else if (a === '--out' && argv[i + 1]) args.out = argv[++i]
+    else if (a === '--auto-ingest') args.autoIngest = true
+    else if (a === '--auto-threshold' && argv[i + 1]) args.autoThreshold = parseInt(argv[++i], 10)
   }
   return args
 }
@@ -238,8 +245,43 @@ async function main() {
   if (args.out) {
     fs.writeFileSync(args.out, out)
     console.error(`\nWrote report to ${args.out}`)
-  } else {
+  } else if (!args.autoIngest) {
     process.stdout.write(out)
+  }
+
+  // --auto-ingest: for each kite where the top match is above auto-threshold,
+  // shell out to ingest-review.ts. Strong threshold (default 85) is a guard
+  // against bad matches being committed automatically; lower it deliberately
+  // (--auto-threshold 70) only when you know what you're doing.
+  if (args.autoIngest) {
+    const eligible: Array<{ slug: string; match: CandidateMatch }> = []
+    for (const k of targets) {
+      const matches = candidatesByKite.get(k.slug) ?? []
+      if (matches.length === 0) continue
+      if (matches[0].score < args.autoThreshold) continue
+      eligible.push({ slug: k.slug, match: matches[0] })
+    }
+    console.error(`\nAuto-ingesting ${eligible.length} kite(s) (top match ≥ ${args.autoThreshold})…\n`)
+    let ok = 0
+    let failed = 0
+    for (const { slug, match } of eligible) {
+      console.error(`  ${slug}: ${match.video.title} (${match.score})`)
+      try {
+        execFileSync(
+          'npx',
+          ['tsx', 'scripts/ingest-review.ts', '--slug', slug, '--url', match.video.url],
+          { stdio: 'inherit' },
+        )
+        ok++
+      } catch {
+        failed++
+        console.error(`  ✗ ingest failed for ${slug}`)
+      }
+    }
+    console.error(`\nAuto-ingest done. Succeeded: ${ok}, Failed: ${failed}`)
+    if (ok > 0) {
+      console.error(`Next: npm run process-reviews   (will generate structured_review for newly-ingested kites)`)
+    }
   }
 }
 
