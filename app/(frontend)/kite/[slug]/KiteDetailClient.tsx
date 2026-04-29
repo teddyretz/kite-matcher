@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
+import { retailerSearchUrls } from '@/lib/retailers';
 import SpectrumBar from '@/components/SpectrumBar';
 import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
@@ -176,6 +177,31 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Search retailers — guaranteed-working fallback links */}
+          <div className="pt-6 border-t border-gray-100">
+            <h3 className="text-sm font-semibold text-gray-500 mb-3">
+              Or search popular retailers
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {retailerSearchUrls(kite).map((r) => (
+                <a
+                  key={r.name}
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 border border-gray-200 rounded-full text-gray-600 hover:border-ocean hover:text-ocean transition-colors"
+                >
+                  <span className="font-medium">{r.name}</span>
+                  {r.region && <span className="text-gray-400">· {r.region}</span>}
+                  <span aria-hidden>→</span>
+                </a>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] text-gray-400">
+              Direct retailer pricing changes often. The links above run a search at each shop for {kite.brand} {kite.model} {kite.year}.
+            </p>
           </div>
         </div>
       </div>
