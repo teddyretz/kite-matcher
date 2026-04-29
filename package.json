@@ -12,7 +12,9 @@
     "process-reviews": "tsx --env-file-if-exists=.env.local scripts/process-reviews.ts",
     "ingest-review": "tsx --env-file-if-exists=.env.local scripts/ingest-review.ts",
     "find-candidates": "tsx scripts/find-candidates.ts",
-    "search-candidates": "tsx scripts/search-candidates.ts"
+    "search-candidates": "tsx --env-file-if-exists=.env.local scripts/search-candidates.ts",
+    "bulk-ingest": "tsx scripts/bulk-ingest.ts",
+    "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
