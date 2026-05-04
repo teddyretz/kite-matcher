@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo, useCallback, ReactNode } from 'react';
 import { Kite } from '@/lib/types';
 
 interface CompareContextType {
@@ -61,26 +61,38 @@ export function CompareProvider({ children }: { children: ReactNode }) {
       .catch(() => setKitesLoading(false));
   }, []);
 
-  const addToCompare = (slug: string) => {
-    setCompareKites(prev => {
+  // Stable callbacks (functional setState; no closure deps) so the context
+  // value's reference identity only changes when state actually changes.
+  // Without this, every parent render produces a new value object which
+  // re-renders all useCompare() consumers (79 KiteCards on the browse page
+  // — the cause of the slider sluggishness reported on /results).
+  const addToCompare = useCallback((slug: string) => {
+    setCompareKites((prev) => {
       if (prev.length >= MAX_COMPARE || prev.includes(slug)) return prev;
       return [...prev, slug];
     });
-  };
+  }, []);
 
-  const removeFromCompare = (slug: string) => {
-    setCompareKites(prev => prev.filter(s => s !== slug));
-  };
+  const removeFromCompare = useCallback((slug: string) => {
+    setCompareKites((prev) => prev.filter((s) => s !== slug));
+  }, []);
 
-  const clearCompare = () => setCompareKites([]);
+  const clearCompare = useCallback(() => setCompareKites([]), []);
 
-  const isInCompare = (slug: string) => compareKites.includes(slug);
-
-  return (
-    <CompareContext.Provider value={{ compareKites, addToCompare, removeFromCompare, clearCompare, isInCompare, allKites, kitesLoading }}>
-      {children}
-    </CompareContext.Provider>
+  const value = useMemo<CompareContextType>(
+    () => ({
+      compareKites,
+      addToCompare,
+      removeFromCompare,
+      clearCompare,
+      isInCompare: (slug: string) => compareKites.includes(slug),
+      allKites,
+      kitesLoading,
+    }),
+    [compareKites, allKites, kitesLoading, addToCompare, removeFromCompare, clearCompare],
   );
+
+  return <CompareContext.Provider value={value}>{children}</CompareContext.Provider>;
 }
 
 export function useCompare() {
