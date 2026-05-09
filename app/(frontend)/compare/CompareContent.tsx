@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Kite } from '@/lib/types';
 import { matchScore } from '@/lib/matcher';
 import { useFilters, DEFAULT_FILTERS } from '@/lib/useFilters';
+import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import SpectrumBar from '@/components/SpectrumBar';
 
 const MAX_COMPARE = 3;
@@ -39,16 +40,23 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   );
   const missing = slugs.filter((s) => !bySlug.has(s));
 
+  // Local-state-with-debounced-commit: sliders stay snappy while the
+  // (relatively expensive) URL update fires 250ms after the last change.
+  const commitStyle = useCallback((v: number) => setFilters({ style: v }), [setFilters]);
+  const commitShape = useCallback((v: number) => setFilters({ shape: v }), [setFilters]);
+  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
+  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+
   const slidersAdjusted =
-    filters.style !== DEFAULT_FILTERS.style || filters.shape !== DEFAULT_FILTERS.shape;
+    styleVal !== DEFAULT_FILTERS.style || shapeVal !== DEFAULT_FILTERS.shape;
 
   // Score + sort. Always score; only show the score badge when sliders are
   // off the default so we don't visually emphasize a meaningless 50/50 result.
   const scoredKites = useMemo(() => {
     return kitesInCompare
-      .map((k) => ({ kite: k, score: matchScore(k, filters.style, filters.shape) }))
+      .map((k) => ({ kite: k, score: matchScore(k, styleVal, shapeVal) }))
       .sort((a, b) => b.score - a.score);
-  }, [kitesInCompare, filters.style, filters.shape]);
+  }, [kitesInCompare, styleVal, shapeVal]);
 
   const updateKites = useCallback(
     (newSlugs: string[]) => {
@@ -92,26 +100,26 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
               Riding Style
             </label>
             <span
-              className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(filters.style)].color}`}
+              className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}
             >
-              {styleZones[getActiveZone(filters.style)].label}
+              {styleZones[getActiveZone(styleVal)].label}
             </span>
           </div>
           <input
             type="range"
             min={0}
             max={100}
-            value={filters.style}
-            onChange={(e) => setFilters({ style: Number(e.target.value) })}
+            value={styleVal}
+            onChange={(e) => setStyleVal(Number(e.target.value))}
             className="w-full"
-            style={{ '--range-pct': `${filters.style}%` } as React.CSSProperties}
+            style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
             aria-label="Riding style preference"
           />
           <div className="flex justify-between mt-1.5">
             {styleZones.map((zone, i) => (
               <span
                 key={zone.label}
-                className={`text-[10px] font-medium ${i === getActiveZone(filters.style) ? zone.color : 'text-gray-400'}`}
+                className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
               >
                 {zone.label}
               </span>
@@ -130,10 +138,10 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
             type="range"
             min={0}
             max={100}
-            value={filters.shape}
-            onChange={(e) => setFilters({ shape: Number(e.target.value) })}
+            value={shapeVal}
+            onChange={(e) => setShapeVal(Number(e.target.value))}
             className="w-full"
-            style={{ '--range-pct': `${filters.shape}%` } as React.CSSProperties}
+            style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
             aria-label="Kite character preference"
           />
           <div className="flex justify-between mt-1.5">

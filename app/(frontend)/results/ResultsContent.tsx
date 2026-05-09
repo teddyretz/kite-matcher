@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Kite } from '@/lib/types';
 import { matchScore } from '@/lib/matcher';
 import { applyFilters, useFilters } from '@/lib/useFilters';
+import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
@@ -26,12 +27,20 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const { filters, setFilters } = useFilters();
   const [slidersOpen, setSlidersOpen] = useState(true);
 
+  // Slider state is local for instant feedback; debounced commit pushes
+  // to URL state 250ms after the user stops dragging. Keeps the route
+  // tree from re-rendering 79 KiteCards on every input event.
+  const commitStyle = useCallback((v: number) => setFilters({ style: v }), [setFilters]);
+  const commitShape = useCallback((v: number) => setFilters({ shape: v }), [setFilters]);
+  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
+  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+
   const displayKites = useMemo(() => {
     const filtered = applyFilters(kites, filters);
     return filtered
-      .map((k) => ({ ...k, score: matchScore(k, filters.style, filters.shape) }))
+      .map((k) => ({ ...k, score: matchScore(k, styleVal, shapeVal) }))
       .sort((a, b) => b.score - a.score);
-  }, [kites, filters]);
+  }, [kites, filters, styleVal, shapeVal]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -67,26 +76,26 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
                     Riding Style
                   </label>
                   <span
-                    className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(filters.style)].color}`}
+                    className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}
                   >
-                    {styleZones[getActiveZone(filters.style)].label}
+                    {styleZones[getActiveZone(styleVal)].label}
                   </span>
                 </div>
                 <input
                   type="range"
                   min={0}
                   max={100}
-                  value={filters.style}
-                  onChange={(e) => setFilters({ style: Number(e.target.value) })}
+                  value={styleVal}
+                  onChange={(e) => setStyleVal(Number(e.target.value))}
                   className="w-full"
-                  style={{ '--range-pct': `${filters.style}%` } as React.CSSProperties}
+                  style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
                   aria-label="Riding style preference"
                 />
                 <div className="flex justify-between mt-1.5">
                   {styleZones.map((zone, i) => (
                     <span
                       key={zone.label}
-                      className={`text-[10px] font-medium ${i === getActiveZone(filters.style) ? zone.color : 'text-gray-400'}`}
+                      className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
                     >
                       {zone.label}
                     </span>
@@ -105,10 +114,10 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
                   type="range"
                   min={0}
                   max={100}
-                  value={filters.shape}
-                  onChange={(e) => setFilters({ shape: Number(e.target.value) })}
+                  value={shapeVal}
+                  onChange={(e) => setShapeVal(Number(e.target.value))}
                   className="w-full"
-                  style={{ '--range-pct': `${filters.shape}%` } as React.CSSProperties}
+                  style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
                   aria-label="Kite character preference"
                 />
                 <div className="flex justify-between mt-1.5">

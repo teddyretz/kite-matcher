@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Kite } from '@/lib/types';
 import { matchScore } from '@/lib/matcher';
 import { applyFilters, useFilters, type Construction, type SortOption } from '@/lib/useFilters';
+import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
@@ -54,10 +55,17 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
   const { filters, setFilters } = useFilters();
   const [filtersOpen, setFiltersOpen] = useState(true);
 
+  // Debounced slider state — see lib/useDebouncedNumber. Adjusting style or
+  // shape also flips sort to 'match'; we batch that into the commit.
+  const commitStyle = useCallback((v: number) => setFilters({ style: v, sort: 'match' }), [setFilters]);
+  const commitShape = useCallback((v: number) => setFilters({ shape: v, sort: 'match' }), [setFilters]);
+  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
+  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+
   const displayKites = useMemo(() => {
     const filtered = applyFilters(kites, filters);
-    return sortKites(filtered, filters.sort, filters.style, filters.shape);
-  }, [kites, filters]);
+    return sortKites(filtered, filters.sort, styleVal, shapeVal);
+  }, [kites, filters, styleVal, shapeVal]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -90,23 +98,23 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               <div>
                 <label className="block text-xs font-semibold text-ocean mb-1">
                   Riding Style:{' '}
-                  <span className={styleZones[getActiveZone(filters.style)].color}>
-                    {styleZones[getActiveZone(filters.style)].label}
+                  <span className={styleZones[getActiveZone(styleVal)].color}>
+                    {styleZones[getActiveZone(styleVal)].label}
                   </span>
                 </label>
                 <input
                   type="range"
                   min={0}
                   max={100}
-                  value={filters.style}
-                  onChange={(e) => setFilters({ style: Number(e.target.value), sort: 'match' })}
+                  value={styleVal}
+                  onChange={(e) => setStyleVal(Number(e.target.value))}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
                   {styleZones.map((zone, i) => (
                     <span
                       key={zone.label}
-                      className={`text-[10px] font-medium ${i === getActiveZone(filters.style) ? zone.color : 'text-gray-400'}`}
+                      className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
                     >
                       {zone.label}
                     </span>
@@ -121,8 +129,8 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                   type="range"
                   min={0}
                   max={100}
-                  value={filters.shape}
-                  onChange={(e) => setFilters({ shape: Number(e.target.value), sort: 'match' })}
+                  value={shapeVal}
+                  onChange={(e) => setShapeVal(Number(e.target.value))}
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
@@ -208,7 +216,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                 key={kite.id}
                 kite={kite}
                 matchScore={
-                  filters.sort === 'match' ? matchScore(kite, filters.style, filters.shape) : undefined
+                  filters.sort === 'match' ? matchScore(kite, styleVal, shapeVal) : undefined
                 }
               />
             ))}
