@@ -7,6 +7,7 @@ export type Construction = 'all' | 'dacron' | 'aluula' | 'brainchild';
 export type BarType = '' | 'high-y' | 'low-v' | 'both';
 export type SortOption = 'alpha' | 'match' | 'price-low' | 'price-high' | 'rating';
 export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
+export type AspectRatio = '' | 'low' | 'medium' | 'medium-high' | 'high' | 'very-high';
 
 export interface FilterValues {
   style: number;
@@ -16,6 +17,8 @@ export interface FilterValues {
   brands: string[];
   skill: SkillLevel[];
   barType: BarType;
+  aspect: AspectRatio;
+  foilOnly: boolean;
   year: string;
   sort: SortOption;
 }
@@ -28,12 +31,15 @@ export const DEFAULT_FILTERS: FilterValues = {
   brands: [],
   skill: [],
   barType: '',
+  aspect: '',
+  foilOnly: false,
   year: '',
   sort: 'alpha',
 };
 
 const VALID_CONSTRUCTION = new Set<Construction>(['all', 'dacron', 'aluula', 'brainchild']);
 const VALID_BAR_TYPE = new Set<BarType>(['', 'high-y', 'low-v', 'both']);
+const VALID_ASPECT = new Set<AspectRatio>(['', 'low', 'medium', 'medium-high', 'high', 'very-high']);
 const VALID_SORT = new Set<SortOption>(['alpha', 'match', 'price-low', 'price-high', 'rating']);
 const VALID_SKILL = new Set<SkillLevel>(['beginner', 'intermediate', 'advanced']);
 
@@ -70,6 +76,7 @@ function parseFilters(params: URLSearchParams | ReadonlyURLSearchParamsLike): Fi
 
   const construction = get('construction');
   const barType = get('barType');
+  const aspect = get('aspect');
   const sort = get('sort');
 
   return {
@@ -86,6 +93,11 @@ function parseFilters(params: URLSearchParams | ReadonlyURLSearchParamsLike): Fi
       barType && VALID_BAR_TYPE.has(barType as BarType)
         ? (barType as BarType)
         : DEFAULT_FILTERS.barType,
+    aspect:
+      aspect && VALID_ASPECT.has(aspect as AspectRatio)
+        ? (aspect as AspectRatio)
+        : DEFAULT_FILTERS.aspect,
+    foilOnly: get('foilOnly') === '1',
     year: get('year') ?? '',
     sort:
       sort && VALID_SORT.has(sort as SortOption) ? (sort as SortOption) : DEFAULT_FILTERS.sort,
@@ -105,6 +117,7 @@ function isDefault<K extends keyof FilterValues>(key: K, value: FilterValues[K])
 
 function serialize<K extends keyof FilterValues>(_key: K, value: FilterValues[K]): string {
   if (Array.isArray(value)) return value.join(',');
+  if (typeof value === 'boolean') return value ? '1' : '0';
   return String(value);
 }
 
@@ -126,6 +139,8 @@ export function applyFilters<K extends import('./types').Kite>(
   if (filters.skill.length > 0)
     list = list.filter((k) => k.skill_level.some((s) => filters.skill.includes(s as SkillLevel)));
   if (filters.barType) list = list.filter((k) => k.bar_type === filters.barType);
+  if (filters.aspect) list = list.filter((k) => k.aspect_ratio === filters.aspect);
+  if (filters.foilOnly) list = list.filter((k) => k.style_tags.includes('foil'));
   if (filters.year) list = list.filter((k) => String(k.year) === filters.year);
   return list;
 }

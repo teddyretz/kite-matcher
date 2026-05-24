@@ -90,10 +90,10 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           rightLabel="Big Air"
         />
         <SpectrumBar
-          label="Kite Shape"
+          label="Kite Shape & Aspect"
           value={kite.shape_spectrum}
-          leftLabel="Low Aspect (C/Delta)"
-          rightLabel="High Aspect (Bow/LEI)"
+          leftLabel="Low Aspect · C-Kite"
+          rightLabel="High Aspect · Bow"
         />
       </div>
 

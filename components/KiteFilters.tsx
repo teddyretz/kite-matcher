@@ -101,6 +101,23 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
         </select>
       </div>
 
+      {/* Aspect Ratio */}
+      <div>
+        <h4 className="text-sm font-semibold text-slate mb-2">Aspect Ratio</h4>
+        <select
+          value={filters.aspect}
+          onChange={(e) => setFilters({ aspect: e.target.value as typeof filters.aspect })}
+          className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
+        >
+          <option value="">All</option>
+          <option value="low">Low (C-kite)</option>
+          <option value="medium">Medium</option>
+          <option value="medium-high">Medium-High</option>
+          <option value="high">High (Bow)</option>
+          <option value="very-high">Very High</option>
+        </select>
+      </div>
+
       {/* Construction */}
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">Construction</h4>
@@ -114,6 +131,20 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
           <option value="aluula">Aluula only</option>
           <option value="brainchild">Brainchild only</option>
         </select>
+      </div>
+
+      {/* Kite Type */}
+      <div>
+        <h4 className="text-sm font-semibold text-slate mb-2">Kite Type</h4>
+        <label className="flex items-center gap-2 text-sm cursor-pointer hover:text-ocean">
+          <input
+            type="checkbox"
+            checked={filters.foilOnly}
+            onChange={(e) => setFilters({ foilOnly: e.target.checked })}
+            className="rounded border-gray-300 text-ocean focus:ring-ocean"
+          />
+          Foil kites only
+        </label>
       </div>
 
       {/* Price */}
