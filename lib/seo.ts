@@ -22,7 +22,10 @@ export function kiteJsonLd(kite: Kite): Record<string, unknown> {
     },
   };
 
-  if (kite.structured_review && kite.structured_review.sources.length > 0) {
+  // Only emit AggregateRating when it reflects 2+ independent source
+  // reviewers. Single-source ratings are AI-distilled from one video and
+  // shouldn't be surfaced as star snippets in search.
+  if (kite.structured_review && kite.structured_review.sources.length >= 2) {
     ld.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: kite.structured_review.rating,
