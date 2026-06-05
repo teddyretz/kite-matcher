@@ -80,8 +80,9 @@
     "new": [
       {
         "retailer": "Real Watersports",
-        "url": "https://www.realwatersports.com/search?q=Core+XR8+2026",
-        "price": 1949
+        "url": "https://www.realwatersports.com/products/core-xr8-xr8-lw-kite",
+        "price": 1949,
+        "type": "direct_product"
       },
       {
         "retailer": "MACkite",

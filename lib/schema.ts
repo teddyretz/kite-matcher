@@ -55,6 +55,7 @@ const BuyLink = z.object({
   retailer: z.string(),
   url: z.string(),
   price: z.number(),
+  type: z.enum(['direct_product', 'search_fallback']).optional(),
 });
 
 const UsedLink = z.object({

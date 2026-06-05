@@ -72,8 +72,9 @@
     "new": [
       {
         "retailer": "Real Watersports",
-        "url": "https://www.realwatersports.com/search?q=North+Code+Zero+Pro+2025",
-        "price": 1549
+        "url": "https://www.realwatersports.com/products/2025-north-code-zero-pro-kite",
+        "price": 1549,
+        "type": "direct_product"
       },
       {
         "retailer": "MACkite",

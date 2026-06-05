@@ -8,6 +8,7 @@ type BuyLinkRecord = {
   kind: 'new' | 'used';
   retailer: string;
   url: string;
+  type?: 'direct_product' | 'search_fallback';
 };
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'kites');
@@ -72,8 +73,8 @@ async function main() {
     const raw = fs.readFileSync(path.join(DATA_DIR, file), 'utf-8');
     const kite = JSON.parse(raw);
 
-    for (const link of kite.buy_links.new as Array<{ retailer: string; url: string }>) {
-      links.push({ slug: kite.slug, kind: 'new', retailer: link.retailer, url: link.url });
+    for (const link of kite.buy_links.new as Array<{ retailer: string; url: string; type?: 'direct_product' | 'search_fallback' }>) {
+      links.push({ slug: kite.slug, kind: 'new', retailer: link.retailer, url: link.url, type: link.type });
     }
 
     for (const link of kite.buy_links.used as Array<{ source: string; url: string }>) {
