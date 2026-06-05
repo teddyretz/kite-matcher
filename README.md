@@ -1,94 +1,93 @@
 # FindMyKite
 
-A kite buying advisor at **[findmykite.com](https://findmykite.com)**. Helps kitesurfers find the right kite through a style-matching quiz, filtered browsing, and AI-powered review data — with no sponsored content or affiliate links.
+FindMyKite is a kite buying advisor at **[findmykite.com](https://findmykite.com)**. It helps kitesurfers find the right kite through a style-matching quiz, filtered browsing, side-by-side comparison, and structured review data — without sponsored rankings or affiliate-first recommendations.
 
 ---
 
-## What It Does
+## What it does
 
-Kitesurfers tell FindMyKite how they ride and what they want in a kite, and the app scores every kite in the catalog against those preferences. The result is a ranked, filterable list of kites that actually match your style — not just whatever a brand is paying to promote.
+Kitesurfers tell FindMyKite how they ride and what they want in a kite. The app scores every kite in the catalog against those preferences and returns a ranked, filterable set of matches.
 
-**Core features:**
-- **Style quiz** — set your riding style (Foiling → Big Air) and kite character (Low Aspect → High Aspect) with sliders; see top matches update in real time
-- **Kite catalog** — browse all 79 kites with filters for brand, skill level, construction (Dacron / Aluula / Brainchild), and budget
-- **Side-by-side comparison** — compare up to 3 kites across 17 spec fields
-- **Detail pages** — full specs, style placement bars, structured reviews from YouTube transcripts, and buy links (new and used)
-- **User reviews** — crowd-sourced ratings and reviews via Supabase
-
----
-
-## The Matching Algorithm
-
-Each kite has two spectrum scores (0–100):
-
-| Spectrum | Range | What it means |
-|---|---|---|
-| `style_spectrum` | Foil (0–20) → Surf (21–40) → Freestyle (41–60) → Freeride (61–80) → Big Air (81–100) | Primary riding style |
-| `shape_spectrum` | Low Aspect / C-kite (0) → High Aspect / Bow (100) | Kite design character |
-
-Match score = `100 - (0.6 × style_diff + 0.4 × shape_diff)`. If a wave score is included, it weights 40/30/30.
+Core features:
+- **Style quiz** — set riding style and kite character with sliders; top matches update in real time
+- **Kite catalog** — browse all active kites with filters for brand, skill level, bar type, construction, year, and budget
+- **Comparison flow** — compare up to 3 kites side by side across specs and review summaries
+- **Kite detail pages** — full specs, style placement, structured reviews from YouTube transcripts, and buy links
+- **User reviews** — optional crowd-sourced reviews via Supabase
 
 ---
 
-## The Data
+## Matching model
 
-**79 kites** across 13 brands: Duotone, Core, Slingshot, North, Ozone, Flysurfer, Cabrinha, Reedin, F-One, Eleveight, Airush, Harlem, Naish.
+Each kite has spectrum scores from 0–100:
+- `style_spectrum`: Foil → Surf → Freestyle → Freeride → Big Air
+- `shape_spectrum`: Low aspect / C-kite → High aspect / Bow kite
+- `wave_spectrum`: secondary wave-oriented score
 
-Every kite has specs, style placement, buy links, and a hand-written summary. 30 kites also have structured reviews derived from real YouTube transcripts (Jason Montreal, Kitemana, Our Kite Life).
+Default match score:
 
-Kite data is managed through the Payload CMS admin panel at `/admin` and stored in Neon Postgres.
+`100 - (0.6 × style_diff + 0.4 × shape_diff)`
 
----
-
-## Tech Stack
-
-| Layer | Tech |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS |
-| CMS | Payload CMS 3.x |
-| Database | Neon (serverless Postgres) |
-| User reviews | Supabase |
-| Deploy | Vercel |
+When wave is included, weighting becomes 40/30/30 across style, shape, and wave.
 
 ---
 
-## Project Structure
+## Data model
 
-```
+- **Source of truth:** one JSON file per kite in `data/kites/`
+- **Validation:** `lib/schema.ts` uses Zod; `npm run validate-kites` runs before build
+- **Catalog size:** 79 kites across 13 brands
+- **Review enrichment:** selected kites include structured reviews synthesized from YouTube transcripts
+
+This project no longer uses Payload CMS or Neon as the primary catalog store. The app builds directly from the repo’s per-kite JSON files.
+
+---
+
+## Tech stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Data:** local per-kite JSON files
+- **Review synthesis:** Anthropic SDK
+- **User reviews:** Supabase
+- **Deploy:** Vercel
+
+---
+
+## Project structure
+
+```text
 app/
-  (frontend)/       # All public-facing pages
-    page.tsx        # Homepage + style quiz
-    kites/          # Browse catalog
-    kite/[slug]/    # Kite detail
-    results/        # Quiz results
-    compare/        # Side-by-side comparison
+  (frontend)/
+    page.tsx          # homepage + hero matcher
+    kites/            # catalog browse flow
+    kite/[slug]/      # kite detail pages
+    results/          # quiz results
+    compare/          # side-by-side comparison
     about/
-    api/kites/      # REST endpoint for client components
-  (payload)/
-    admin/          # Payload CMS admin panel (/admin)
-collections/
-  Kites.ts          # Payload collection definition
-components/         # Shared React components
+    api/kites/        # lightweight JSON endpoint for client components
+components/           # shared UI
 lib/
-  types.ts          # TypeScript interfaces
-  matcher.ts        # Scoring algorithm
-  getKites.ts       # Server-side Payload data fetching
+  schema.ts          # Zod schema for kite files
+  types.ts           # TS types
+  matcher.ts         # scoring logic
+  getKites.ts        # disk-backed catalog loading
+  useFilters.ts      # URL-driven filter state
 data/
-  kites.json        # Source of truth (seeded into Payload)
+  kites/             # one JSON file per kite
 scripts/
-  seed-kites.ts     # Migrate kites.json → Neon DB
-public/kites/       # Kite images (79 JPGs)
+  validate-kites.ts  # schema validation
+  process-reviews.ts # transcript → structured review synthesis
+public/kites/        # kite images
 ```
 
 ---
 
-## Local Development
+## Local development
 
 ### Prerequisites
 - Node.js 18+
-- A [Neon](https://neon.tech) Postgres database
 
 ### Setup
 
@@ -98,36 +97,27 @@ cd kite-matcher
 npm install
 ```
 
-Create `.env.local`:
+Optional `.env.local`:
 
 ```env
-DATABASE_URI=postgresql://...your-neon-connection-string...
-PAYLOAD_SECRET=your-random-secret-string
+# Optional canonical URL override (production default is https://findmykite.com)
+NEXT_PUBLIC_SITE_URL=
 
-# Optional — enables crowd-sourced user reviews
+# Optional — enables user review submission
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+# Required only for review-synthesis scripts
+ANTHROPIC_API_KEY=
 ```
 
-Start the dev server:
+Run locally:
 
 ```bash
 npm run dev
+npm run validate-kites
+npm run build
 ```
-
-On first run, Payload will create its tables in the database automatically.
-
-### Seed the database
-
-```bash
-npm run seed
-```
-
-This reads `data/kites.json` and loads all 79 kites into Payload/Neon. Safe to re-run — it clears and re-seeds.
-
-### Admin panel
-
-Visit `http://localhost:3000/admin` to create your admin account and manage kites.
 
 ---
 
@@ -137,12 +127,16 @@ Visit `http://localhost:3000/admin` to create your admin account and manage kite
 vercel --prod --yes
 ```
 
-Required Vercel environment variables:
-- `DATABASE_URI` — Neon connection string
-- `PAYLOAD_SECRET` — random 32+ character string
+Optional env vars in Vercel:
+- `NEXT_PUBLIC_SITE_URL` — override canonical base URL for staging environments
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+If you run review-processing scripts in deployment or CI, also set:
+- `ANTHROPIC_API_KEY`
 
 ---
 
 ## Philosophy
 
-FindMyKite exists because kite buying advice is broken. Most review sites are sponsored, and "best kite" lists tell you nothing about whether a kite is right for *your* riding style. This app is built by a kitesurfer, not a brand, and tries to give honest, spec-backed recommendations.
+FindMyKite exists because kite buying advice is usually biased, generic, or brand-driven. The goal is to give riders honest, style-aware recommendations grounded in specs and real review material.

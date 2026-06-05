@@ -87,7 +87,7 @@ app/
 | Var | Required for | Purpose |
 |---|---|---|
 | `ANTHROPIC_API_KEY` | `npm run process-reviews` | `sk-ant-...` for `claude-sonnet-4-6` |
-| `NEXT_PUBLIC_SITE_URL` | optional | Canonical URL base. Defaults to `https://kitematch.com`. Override per environment for staging. |
+| `NEXT_PUBLIC_SITE_URL` | optional | Canonical URL base. Defaults to `https://findmykite.com`. Override per environment for staging. |
 | `NEXT_PUBLIC_SUPABASE_URL` | optional | Enables user review submission |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | optional | Enables user review submission |
 

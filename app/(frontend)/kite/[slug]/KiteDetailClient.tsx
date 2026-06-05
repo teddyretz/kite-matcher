@@ -11,6 +11,7 @@ import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
+import { normalizeBuyLink } from '@/lib/buyLinks';
 
 export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
   const related = getRelatedKites(kite, allKites, 3);
@@ -145,7 +146,9 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div>
             <h3 className="text-sm font-semibold text-gray-500 mb-3">New</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {kite.buy_links.new.map((link, i) => (
+              {kite.buy_links.new.map((rawLink, i) => {
+                const link = normalizeBuyLink(rawLink);
+                return (
                 <a
                   key={i}
                   href={link.url}
@@ -156,7 +159,8 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   <span className="font-medium text-sm">{link.retailer}</span>
                   <span className="text-ocean font-bold">${link.price.toLocaleString()}</span>
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
           {kite.price_new_aluula && (
