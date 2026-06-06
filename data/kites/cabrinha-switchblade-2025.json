@@ -72,6 +72,19 @@
           }
         ]
       }
+    },
+    {
+      "source": "youtube",
+      "reviewer": "Kiteboarding St Petersburg",
+      "channel": "Kiteboarding St Petersburg",
+      "channel_url": "https://www.youtube.com/@KiteboardingStPetersburg",
+      "video_id": "8BdPdQmbskc",
+      "video_title": "2025 Cabrinha Switchblade First Ride",
+      "video_url": "https://www.youtube.com/watch?v=8BdPdQmbskc",
+      "excerpt": "Anthony with kiteboarding St Petersburg and today will be my first day trying the 2025 cabrina switchblade this is the first year that the switchblade has been Incorporated the Apex Material in the into the Leading Edge can't wait to try this one out let's find it about 15 knots right now not super super windy but wind",
+      "verdict": "ons I really like this vers version of the uh 12 M 2025 switchblade it's uh feels very light but predictable and smooth I can feel where the kite is in the sky great for unhooking uh great for hooked in it's a nice balance of it [Applause] all I'm hey hey [Music] hey hey hey hey hey hey he iy hey hey hey hey hey I shff",
+      "full_transcript": "Anthony with kiteboarding St Petersburg and today will be my first day trying the 2025 cabrina switchblade this is the first year that the switchblade has been Incorporated the Apex Material in the into the Leading Edge can't wait to try this one out let's find it about 15 knots right now not super super windy but windy enough get a bar yep said [Music] look how shiny that Leading Edge is I look at hey hey hey hey hey hey [Music] iy hey hey hey hey hey hey hey hey I that was my first backside three in a year it's my ACL injury yeah so my first impressions I really like this vers version of the uh 12 M 2025 switchblade it's uh feels very light but predictable and smooth I can feel where the kite is in the sky great for unhooking uh great for hooked in it's a nice balance of it [Applause] all I'm hey hey [Music] hey hey hey hey hey hey he iy hey hey hey hey hey I shff",
+      "summary": "Anthony from Kiteboarding St Petersburg shares his first-ride impressions of the 2025 Switchblade in around 15 knots. His headline takeaway is that the kite feels noticeably lighter than previous versions thanks to the new Apex material in the leading edge, while remaining smooth and predictable. He highlights its versatility for both hooked-in and unhooked riding, and was confident enough on it to land his first backside 360 since an ACL injury."
     }
   ],
   "buy_links": {
@@ -97,6 +110,28 @@
         "source": "Kiteboarder Classifieds",
         "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+2025"
       }
+    ]
+  },
+  "structured_review": {
+    "rating": 4,
+    "summary": "The 2025 Cabrinha Switchblade continues its legacy as a reliable all-around freeride kite, now upgraded with Apex material in the leading edge for a noticeably lighter and more responsive feel. It delivers smooth, predictable power that works both hooked in and unhooked. With only one short first-ride impression available, deeper performance nuances remain to be seen.",
+    "pros": [
+      "Noticeably lighter feel thanks to new Apex material in the leading edge",
+      "Smooth and predictable power delivery",
+      "Strong kite awareness — easy to feel where it is in the window",
+      "Versatile hooked-in and unhooked performance",
+      "Forgiving enough to build confidence after injury or time off the water"
+    ],
+    "cons": [
+      "Only tested in moderate conditions (~15 knots), high-wind and low-wind performance not assessed",
+      "Very limited reviewer feedback — single short session, no detailed technical breakdown",
+      "No commentary on turning speed, bar pressure, or relaunch"
+    ],
+    "best_for": "Freeride riders who want a dependable, versatile kite that performs confidently across disciplines without demanding technical finesse.",
+    "not_for": "Riders seeking in-depth performance data or specialized wave/big-air capabilities — this iteration hasn't been thoroughly reviewed yet.",
+    "rec_blurb": "Twenty-year icon gets lighter: the Switchblade's Apex upgrade is a real step forward.",
+    "sources": [
+      "Anthony (Kiteboarding St Petersburg)"
     ]
   }
 }

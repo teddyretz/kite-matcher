@@ -69,11 +69,57 @@ interface YtMetadata {
   webpage_url: string
 }
 
+const TRANSIENT_YTDLP_PATTERNS = [
+  'http error 429',
+  'too many requests',
+  'timed out',
+  'connection reset',
+  'temporarily unavailable',
+]
+
+function sleepMs(ms: number): void {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
+}
+
+function isTransientYtDlpError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false
+  const detail = [error.message, (error as { stdout?: Buffer }).stdout?.toString('utf-8') ?? '', (error as { stderr?: Buffer }).stderr?.toString('utf-8') ?? '']
+    .join('\n')
+    .toLowerCase()
+  return TRANSIENT_YTDLP_PATTERNS.some((pattern) => detail.includes(pattern))
+}
+
+function runYtDlp(args: string[], label: string): string {
+  const maxAttempts = 3
+  let lastError: unknown
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return execFileSync('yt-dlp', args, {
+        encoding: 'utf-8',
+        stdio: 'pipe',
+        maxBuffer: 32 * 1024 * 1024,
+      })
+    } catch (error) {
+      lastError = error
+      if (!isTransientYtDlpError(error) || attempt === maxAttempts) {
+        throw error
+      }
+      const waitMs = attempt * 5000
+      console.warn(
+        `yt-dlp ${label} hit a transient error (attempt ${attempt}/${maxAttempts}); retrying in ${Math.round(waitMs / 1000)}s…`,
+      )
+      sleepMs(waitMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error(`yt-dlp ${label} failed`)
+}
+
 function fetchMetadata(url: string): YtMetadata {
-  const raw = execFileSync(
-    'yt-dlp',
+  const raw = runYtDlp(
     ['--no-warnings', '--skip-download', '--dump-single-json', url],
-    { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
+    'metadata fetch',
   )
   const j = JSON.parse(raw) as Partial<YtMetadata>
   if (!j.id || !j.title || !j.webpage_url) {
@@ -93,8 +139,7 @@ function fetchTranscript(url: string): string {
   // Use a temp dir to keep output isolated.
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ingest-'))
   try {
-    execFileSync(
-      'yt-dlp',
+    runYtDlp(
       [
         '--no-warnings',
         '--skip-download',
@@ -109,7 +154,7 @@ function fetchTranscript(url: string): string {
         path.join(tmp, '%(id)s.%(ext)s'),
         url,
       ],
-      { stdio: 'pipe' },
+      'transcript fetch',
     )
     const files = fs.readdirSync(tmp).filter((f) => f.endsWith('.vtt'))
     if (files.length === 0) {
@@ -175,17 +220,40 @@ function extractVerdict(transcript: string, maxLen = 320): string {
 // `reviewer` to the channel name and pass `--reviewer "Host Name"` per
 // ingest call when you want the host credited specifically.
 const REVIEWER_BY_UPLOADER_ID: Record<string, { reviewer: string; channel: string }> = {
-  '@jasonofmontreal':       { reviewer: 'Jason Montreal', channel: 'Jason Montreal' },
-  '@kitemana':              { reviewer: 'Kitemana',       channel: 'Kitemana' },
-  '@ourkitelife':           { reviewer: 'Our Kite Life',  channel: 'Our Kite Life' },
-  '@mackiteboarding':       { reviewer: 'MACkite',        channel: 'MACkite' },
-  '@mackiteboardingofficial': { reviewer: 'MACkite',      channel: 'MACkite' },
-  '@mackite':               { reviewer: 'MACkite',        channel: 'MACkite' },
+  '@jasonofmontreal': { reviewer: 'Jason Montreal', channel: 'Jason Montreal' },
+  '@kitemana': { reviewer: 'Kitemana', channel: 'Kitemana' },
+  '@ourkitelife': { reviewer: 'Our Kite Life', channel: 'Our Kite Life' },
+  '@mackiteboarding': { reviewer: 'MACkite', channel: 'MACkite' },
+  '@mackiteboardingofficial': { reviewer: 'MACkite', channel: 'MACkite' },
+  '@mackite': { reviewer: 'MACkite', channel: 'MACkite' },
+  '@realwatersports': { reviewer: 'REAL Watersports', channel: 'REAL Watersports' },
+  '@north_kiteboarding': { reviewer: 'North Kiteboarding', channel: 'North Kiteboarding' },
+  '@kiteboardingstpetersburg': { reviewer: 'Kiteboarding St Petersburg', channel: 'Kiteboarding St Petersburg' },
+  '@gtv2011': { reviewer: 'Gleiten tv', channel: 'Gleiten tv' },
+  '@bradstrahm7278': { reviewer: 'Brad Strahm', channel: 'Brad Strahm' },
+  '@duotonekiteboarding': { reviewer: 'Duotone Kiteboarding', channel: 'Duotone Kiteboarding' },
+  '@cabrinha': { reviewer: 'Cabrinha', channel: 'Cabrinha' },
 }
 
-function lookupReviewer(uploaderId: string | undefined) {
-  if (!uploaderId) return undefined
-  return REVIEWER_BY_UPLOADER_ID[uploaderId.toLowerCase()]
+const REVIEWER_BY_UPLOADER_NAME: Record<string, { reviewer: string; channel: string }> = {
+  'real watersports': { reviewer: 'REAL Watersports', channel: 'REAL Watersports' },
+  'north kiteboarding': { reviewer: 'North Kiteboarding', channel: 'North Kiteboarding' },
+  'kiteboarding st petersburg': { reviewer: 'Kiteboarding St Petersburg', channel: 'Kiteboarding St Petersburg' },
+  'gleiten tv': { reviewer: 'Gleiten tv', channel: 'Gleiten tv' },
+  'brad strahm': { reviewer: 'Brad Strahm', channel: 'Brad Strahm' },
+  'duotone kiteboarding': { reviewer: 'Duotone Kiteboarding', channel: 'Duotone Kiteboarding' },
+  'cabrinha': { reviewer: 'Cabrinha', channel: 'Cabrinha' },
+}
+
+function lookupReviewer(uploaderId: string | undefined, uploaderName: string | undefined) {
+  if (uploaderId) {
+    const byId = REVIEWER_BY_UPLOADER_ID[uploaderId.toLowerCase()]
+    if (byId) return byId
+  }
+  if (uploaderName) {
+    return REVIEWER_BY_UPLOADER_NAME[uploaderName.trim().toLowerCase()]
+  }
+  return undefined
 }
 
 function loadKite(slug: string): { kite: ValidatedKite; file: string } {
@@ -225,7 +293,7 @@ function main() {
   const transcript = fetchTranscript(args.url)
   console.log(`  ${transcript.length} chars (~${Math.round(transcript.length / 4)} tokens)`)
 
-  const known = lookupReviewer(meta.uploader_id)
+  const known = lookupReviewer(meta.uploader_id, meta.uploader)
   const reviewer = args.reviewer ?? known?.reviewer ?? meta.uploader
   const channel = args.channel ?? known?.channel ?? meta.uploader
 

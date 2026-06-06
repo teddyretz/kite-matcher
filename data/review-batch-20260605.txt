@@ -1,0 +1,9 @@
+# First curated batch of high-confidence YouTube review ingests
+core-air-2025 https://www.youtube.com/watch?v=E_c_X63cghM
+core-air-pro-2025 https://www.youtube.com/watch?v=j1wxCcHv9jE
+cabrinha-switchblade-2025 https://www.youtube.com/watch?v=8BdPdQmbskc
+north-code-zero-pro-2025 https://www.youtube.com/watch?v=Mv4IdWBLk2A
+north-reach-2025 https://www.youtube.com/watch?v=fw74gJC3Tgg
+north-pulse-2025 https://www.youtube.com/watch?v=80lKDlzEej8
+slingshot-machine-v3-2025 https://www.youtube.com/watch?v=wdeiZ7Lq4iM
+slingshot-ufo-v3-2025 https://www.youtube.com/watch?v=AMhcNYzQePo

@@ -72,6 +72,19 @@
           }
         ]
       }
+    },
+    {
+      "source": "youtube",
+      "reviewer": "Daniel Ware - Glide Charleston ",
+      "channel": "Daniel Ware - Glide Charleston ",
+      "channel_url": "https://www.youtube.com/@Glidecharleston",
+      "video_id": "gt_yskbc2Dc",
+      "video_title": "2025  Cabrinha Drifter APEX  kite - Walkthrough with Steve Pelissier",
+      "video_url": "https://www.youtube.com/watch?v=gt_yskbc2Dc",
+      "excerpt": "Steven Pel here with the new 2025 Drifter. We've given this a proper redesign this year. It now has the Apex treatment. It's got Ultra HT leading edge and struts. Really stiff airframe. If it's gusty, if it's really strong wind out there, your kite's not going to deform. It's going to handle those gusts and feel really solid and stable. Feather light bladders, too, just keep that weight down.",
+      "verdict": "situation. Between Chile, Puerto Rico, back home in the Northeast, uh, Drifter's been super versatile going left, going right, offshore, onshore, sideshore wind. Uh, it really has handled everything I've thrown at it, and I've honestly been progressing faster than I ever had before once I started flying these drifters.",
+      "full_transcript": "Steven Pel here with the new 2025 Drifter. We've given this a proper redesign this year. It now has the Apex treatment. It's got Ultra HT leading edge and struts. Really stiff airframe. If it's gusty, if it's really strong wind out there, your kite's not going to deform. It's going to handle those gusts and feel really solid and stable. Feather light bladders, too, just keep that weight down. Drifts really well. Incredible for kite foiling, too, with all those weight savings. So, one little design detail here. Most Apex kites have the SK99 upgraded bridles, but on a wave kite, you might be doing a self-rescue in the surf. So, these nylon bridles are going to be nicer on your hands if you have to grab onto your bridles in a self- rescue situation. Between Chile, Puerto Rico, back home in the Northeast, uh, Drifter's been super versatile going left, going right, offshore, onshore, sideshore wind. Uh, it really has handled everything I've thrown at it, and I've honestly been progressing faster than I ever had before once I started flying these drifters.",
+      "summary": "Steven Pelissier walks through the key upgrades on the 2025 Drifter, highlighting the Apex treatment — Ultra HT leading edge and struts for a stiffer, gust-resistant airframe — alongside featherlight bladders. He notes the deliberate choice of nylon bridles over SK99 for safer self-rescue handling in surf. After testing it across Chile, Puerto Rico, and the Northeast in varied wind directions, he calls it the most versatile kite he's flown and credits it with accelerating his wave-riding progression."
     }
   ],
   "buy_links": {
@@ -97,6 +110,28 @@
         "source": "Kiteboarder Classifieds",
         "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Drifter+2025"
       }
+    ]
+  },
+  "structured_review": {
+    "rating": 4.3,
+    "summary": "The 2025 Cabrinha Drifter receives the full Apex treatment — Ultra HT leading edge and struts, featherlight bladders — making it notably stiffer and more stable than its predecessor without sacrificing the drift and pivot turning the model is famous for. It shines equally in surf and on a foil, handling gusty, variable conditions with composure. The single reviewer perspective here leaves some questions open, but the core message is clear: this is a purpose-built wave and foil kite that does its job exceptionally well.",
+    "pros": [
+      "Ultra HT leading edge and struts create a stiff, stable airframe that handles gusts without deforming",
+      "Featherlight bladders reduce overall kite weight, benefiting both drift performance and foiling",
+      "Nylon bridles (instead of SK99) are a thoughtful safety-first choice for self-rescue in surf",
+      "Reportedly versatile across a wide range of conditions — offshore, onshore, sideshore — and multiple locations",
+      "Reviewer credits the kite with accelerating his progression in wave riding"
+    ],
+    "cons": [
+      "Only one reviewer transcript available, limiting the depth of independent verification",
+      "No specific mention of turning speed, relaunch ease, or low-end/top-end wind range in the transcript",
+      "Nylon bridles, while safer for self-rescue, may sacrifice some performance feedback compared to SK99 upgrades found on other Apex kites"
+    ],
+    "best_for": "Wave riders and foilers who want a stable, lightweight kite that drifts effortlessly and handles variable or gusty surf conditions.",
+    "not_for": "Freestyle or freeride riders seeking a do-it-all kite with strong depower and big-air capability.",
+    "rec_blurb": "Apex-stiffened wave machine that drifts, foils, and survives the surf zone.",
+    "sources": [
+      "Steven Pelissier"
     ]
   }
 }

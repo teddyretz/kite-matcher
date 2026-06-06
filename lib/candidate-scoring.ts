@@ -32,6 +32,13 @@ const NOISE_MODEL_TOKENS = new Set([
   'v10', 'v11', 'v12', 'v13', 'v14', 'v15',
 ])
 
+// Common marketing / construction words that show up across many unrelated
+// titles. They can support a match, but should not be enough on their own to
+// identify a specific model.
+const WEAK_MODEL_TOKENS = new Set([
+  'air', 'apex', 'ultra', 'team', 'lightwind', 'design', 'designer',
+])
+
 const YEARS_TO_DISCRIMINATE = [2023, 2024, 2025, 2026, 2027]
 
 export function normalize(s: string): string {
@@ -77,11 +84,25 @@ export function matchScore(kite: KiteInput, video: Video): number {
   if (!titleAlnum.includes(brandAlnum)) return 0
 
   const modelTokens = normalize(kite.model).split(' ').filter((t) => t.length >= 2)
+  const fullModelAlnum = normalizeAlnum(kite.model)
   const isHit = (t: string) => titleNorm.includes(' ' + t + ' ')
-  const strongHits = modelTokens.filter((t) => !NOISE_MODEL_TOKENS.has(t) && isHit(t)).length
-  if (strongHits === 0) return 0
+  const nonNoiseTokens = modelTokens.filter((t) => !NOISE_MODEL_TOKENS.has(t))
+  const distinctiveTokens = nonNoiseTokens.filter((t) => !WEAK_MODEL_TOKENS.has(t))
+  const nonNoiseHits = nonNoiseTokens.filter(isHit).length
+  const distinctiveHits = distinctiveTokens.filter(isHit).length
+  const hasFullModelPhrase = fullModelAlnum.length > 0 && titleAlnum.includes(fullModelAlnum)
+
+  // Root cause for many false positives: generic suffixes like "Apex" or
+  // "Ultra" were enough on their own to match unrelated kite titles.
+  if (distinctiveTokens.length > 0) {
+    if (distinctiveHits === 0 && !hasFullModelPhrase) return 0
+  } else if (nonNoiseHits === 0) {
+    return 0
+  }
 
   const totalHits = modelTokens.filter(isHit).length
+  if (!hasFullModelPhrase && modelTokens.length >= 2 && totalHits < 2) return 0
+
   let score = 40 + totalHits * 20
 
   const yearStr = String(kite.year)
