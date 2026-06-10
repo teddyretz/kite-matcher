@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
         className={`${jakartaSans.variable} ${barlowCondensed.variable} font-sans antialiased bg-surface text-slate`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
