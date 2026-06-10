@@ -38,22 +38,22 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
 
       <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
-          <h3 className="text-sm font-bold tracking-wide uppercase text-emerald-700 mb-3">Pros</h3>
+          <h3 className="text-sm font-bold tracking-wide uppercase text-emerald-400 mb-3">Pros</h3>
           <ul className="space-y-2">
             {review.pros.map((p, i) => (
               <li key={i} className="flex gap-2 text-sm text-gray-700">
-                <span className="text-emerald-600 font-bold mt-0.5">+</span>
+                <span className="text-emerald-400 font-bold mt-0.5">+</span>
                 <span>{p}</span>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-bold tracking-wide uppercase text-amber-700 mb-3">Cons</h3>
+          <h3 className="text-sm font-bold tracking-wide uppercase text-amber-400 mb-3">Cons</h3>
           <ul className="space-y-2">
             {review.cons.map((c, i) => (
               <li key={i} className="flex gap-2 text-sm text-gray-700">
-                <span className="text-amber-600 font-bold mt-0.5">−</span>
+                <span className="text-amber-400 font-bold mt-0.5">−</span>
                 <span>{c}</span>
               </li>
             ))}
@@ -62,12 +62,12 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4 pt-2">
-        <div className="bg-emerald-50/60 border border-emerald-100 rounded-lg p-4">
-          <p className="text-xs font-bold tracking-wide uppercase text-emerald-700 mb-1">Best for</p>
+        <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-4">
+          <p className="text-xs font-bold tracking-wide uppercase text-emerald-400 mb-1">Best for</p>
           <p className="text-sm text-gray-700">{review.best_for}</p>
         </div>
-        <div className="bg-amber-50/60 border border-amber-100 rounded-lg p-4">
-          <p className="text-xs font-bold tracking-wide uppercase text-amber-700 mb-1">Not for</p>
+        <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4">
+          <p className="text-xs font-bold tracking-wide uppercase text-amber-400 mb-1">Not for</p>
           <p className="text-sm text-gray-700">{review.not_for}</p>
         </div>
       </div>

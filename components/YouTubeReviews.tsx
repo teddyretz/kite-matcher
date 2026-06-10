@@ -1,6 +1,34 @@
+'use client';
+
+import { useState } from 'react';
 import { ReviewEntry } from '@/lib/types';
 
 type YouTubeReview = Extract<ReviewEntry, { source: 'youtube' }>;
+
+// Excerpts fall back to raw transcript snippets that can run very long;
+// clamp them and let the reader expand rather than letting one entry
+// dominate the page.
+function ExpandableText({ text, clampClass }: { text: string; clampClass: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = text.length > 280;
+
+  return (
+    <div>
+      <p className={`text-sm text-gray-700 leading-relaxed ${expanded || !isLong ? '' : clampClass}`}>
+        {text}
+      </p>
+      {isLong && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="mt-1.5 text-xs font-semibold text-ocean hover:underline"
+          aria-expanded={expanded}
+        >
+          {expanded ? 'Show less' : 'Show more'}
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }) {
   if (reviews.length === 0) return null;
@@ -51,7 +79,7 @@ export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }
               {r.excerpt && (
                 <div>
                   <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">What they said</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">{r.excerpt}</p>
+                  <ExpandableText text={r.excerpt} clampClass="line-clamp-4" />
                 </div>
               )}
               {r.verdict && (

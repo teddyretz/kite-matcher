@@ -1,9 +1,17 @@
 import StyleMatcher from '@/components/StyleMatcher';
+import KiteCard from '@/components/KiteCard';
 import { getActiveKites } from '@/lib/getKites';
+import { STYLE_ZONES, sortForListing, styleZoneForKite } from '@/lib/seo';
 import Link from 'next/link';
 
 export default async function Home() {
   const kites = await getActiveKites();
+
+  const topRated = sortForListing(kites.filter((k) => k.structured_review)).slice(0, 4);
+  const zoneCounts = STYLE_ZONES.map((zone) => ({
+    ...zone,
+    count: kites.filter((k) => styleZoneForKite(k).slug === zone.slug).length,
+  }));
 
   return (
     <div className="min-h-[calc(100vh-3.5rem)]">
@@ -118,6 +126,62 @@ export default async function Home() {
               <h3 className="font-semibold text-slate mb-2 text-base">{item.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Top rated ── */}
+      {topRated.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="font-display font-black italic text-3xl sm:text-4xl uppercase tracking-tight text-white">
+                Top <span className="text-ocean">Rated</span>
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Highest-scoring kites from our independent review summaries.
+              </p>
+            </div>
+            <Link
+              href="/kites"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-ocean transition-colors shrink-0"
+            >
+              View all
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {topRated.map((kite) => (
+              <KiteCard key={kite.id} kite={kite} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Shop by style ── */}
+      <section className="max-w-7xl mx-auto px-4 pb-16 sm:pb-24">
+        <h2 className="font-display font-black italic text-3xl sm:text-4xl uppercase tracking-tight text-white mb-8">
+          Shop by <span className="text-ocean">Style</span>
+        </h2>
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+          {zoneCounts.map((zone) => (
+            <Link
+              key={zone.slug}
+              href={`/kites/${zone.slug}`}
+              className="group flex flex-col justify-between min-h-[140px] p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:border-ocean/40 hover:shadow-[0_0_30px_rgba(0,229,255,0.06)] transition-all duration-300"
+            >
+              <span className="font-display font-bold italic text-xl uppercase tracking-wide text-slate group-hover:text-ocean transition-colors leading-tight">
+                {zone.label}
+              </span>
+              <span className="text-xs text-gray-400 mt-2">
+                {zone.count} {zone.count === 1 ? 'kite' : 'kites'}
+                <span className="block text-ocean/0 group-hover:text-ocean transition-colors mt-1">
+                  Browse →
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
       </section>
