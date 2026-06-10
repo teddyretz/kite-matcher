@@ -131,7 +131,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
         <div>
           <div className="flex items-baseline justify-between mb-2">
             <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-              Kite Character
+              Kite Shape & Aspect
             </label>
           </div>
           <input
@@ -145,8 +145,8 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
             aria-label="Kite character preference"
           />
           <div className="flex justify-between mt-1.5">
-            <span className="text-[10px] text-gray-400">C / Delta</span>
-            <span className="text-[10px] text-gray-400">Bow / LEI</span>
+            <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
+            <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
           </div>
         </div>
       </div>

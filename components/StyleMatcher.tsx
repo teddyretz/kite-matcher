@@ -99,7 +99,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
         <div>
           <div className="flex items-baseline justify-between mb-3">
             <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-              Kite Character
+              Kite Shape & Aspect
             </label>
           </div>
           <input
@@ -112,8 +112,8 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
             style={{ '--range-pct': rangePct(shapeValue, 0, 100) } as React.CSSProperties}
           />
           <div className="flex justify-between mt-2">
-            <span className="text-[10px] text-gray-400">C / Delta</span>
-            <span className="text-[10px] text-gray-400">Bow / LEI</span>
+            <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
+            <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
           </div>
         </div>
 

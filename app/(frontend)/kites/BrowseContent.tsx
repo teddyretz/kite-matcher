@@ -124,7 +124,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
 
               {/* Shape */}
               <div>
-                <label className="block text-xs font-semibold text-ocean mb-2">Kite Character</label>
+                <label className="block text-xs font-semibold text-ocean mb-2">Kite Shape & Aspect</label>
                 <input
                   type="range"
                   min={0}
@@ -134,8 +134,8 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                   className="w-full"
                 />
                 <div className="flex justify-between mt-1">
-                  <span className="text-[10px] text-gray-400">Low Aspect (C/Delta)</span>
-                  <span className="text-[10px] text-gray-400">High Aspect (Bow/LEI)</span>
+                  <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
+                  <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
                 </div>
               </div>
             </div>
