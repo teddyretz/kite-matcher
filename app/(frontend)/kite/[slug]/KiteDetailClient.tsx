@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import { retailerSearchUrls } from '@/lib/retailers';
+import { brandSlug } from '@/lib/seo';
 import SpectrumBar from '@/components/SpectrumBar';
 import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
@@ -52,7 +53,9 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       <nav className="text-sm text-gray-500 mb-6">
         <Link href="/kites" className="hover:text-ocean">Browse</Link>
         <span className="mx-2">/</span>
-        <span className="text-slate">{kite.brand} {kite.model} {kite.year}</span>
+        <Link href={`/brand/${brandSlug(kite.brand)}`} className="hover:text-ocean">{kite.brand}</Link>
+        <span className="mx-2">/</span>
+        <span className="text-slate">{kite.model} {kite.year}</span>
       </nav>
 
       {/* Hero */}

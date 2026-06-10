@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { STYLE_ZONES } from '@/lib/seo';
 
 const footerLinks = [
   { href: '/', label: 'Matcher' },
@@ -24,17 +25,30 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-x-8 gap-y-2">
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-gray-500 hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex flex-col gap-4">
+            <nav className="flex flex-wrap gap-x-8 gap-y-2">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-gray-500 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <nav className="flex flex-wrap gap-x-4 gap-y-2">
+              {STYLE_ZONES.map((zone) => (
+                <Link
+                  key={zone.slug}
+                  href={`/kites/${zone.slug}`}
+                  className="text-xs text-gray-400 hover:text-ocean transition-colors"
+                >
+                  {zone.label} Kites
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">

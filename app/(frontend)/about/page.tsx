@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'About — Why FindMyKite Exists',
+  description:
+    'FindMyKite is an independent kite buying advisor: no sponsors, no paid placements, review summaries distilled from independent video reviewers.',
+  alternates: { canonical: `${SITE_URL}/about` },
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
