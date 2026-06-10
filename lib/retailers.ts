@@ -4,7 +4,12 @@
  * `buy_links` in each kite JSON (which can rot to 404 over time): even when
  * a curated direct-product link breaks, the search URL still lands the user
  * on a relevant results page.
+ *
+ * Keep this list conservative. If a retailer's generic search endpoint starts
+ * 404ing or challenging heavily, it's better to hide it than ship a bad link
+ * on every kite detail page.
  */
+import { normalizeBuyLinkUrl } from './buyLinks';
 
 interface RetailerTemplate {
   name: string;
@@ -15,11 +20,10 @@ interface RetailerTemplate {
 }
 
 const RETAILERS: RetailerTemplate[] = [
-  { name: 'MACkite',          search: 'https://mackite.com/search?q=',                region: 'US' },
-  { name: 'Real Watersports', search: 'https://www.realwatersports.com/search?q=',    region: 'US' },
-  { name: 'Lakawa',           search: 'https://lakawa.com/?s=',                       region: 'France' },
-  { name: 'Kitemana',         search: 'https://www.kitemana.com/en/search?q=',        region: 'EU' },
-  { name: 'eBay (used)',      search: 'https://www.ebay.com/sch/i.html?_nkw=',        region: 'global' },
+  { name: 'MACkite',          search: 'https://www.mackiteboarding.com/search.php?search_query=', region: 'US' },
+  { name: 'Real Watersports', search: 'https://www.realwatersports.com/search?q=',                 region: 'US' },
+  { name: 'Kite Paddle Surf', search: 'https://www.kitepaddlesurf.com/search?q=',                  region: 'US' },
+  { name: 'eBay (used)',      search: 'https://www.ebay.com/sch/i.html?_nkw=',                     region: 'global' },
 ];
 
 export interface RetailerSearch {
@@ -33,6 +37,6 @@ export function retailerSearchUrls(kite: { brand: string; model: string; year: n
   return RETAILERS.map((r) => ({
     name: r.name,
     region: r.region,
-    url: r.search + query,
+    url: normalizeBuyLinkUrl(r.search + query),
   }));
 }

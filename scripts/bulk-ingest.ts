@@ -53,6 +53,10 @@ interface Entry {
   line: number
 }
 
+interface FailedEntry extends Entry {
+  reason: string
+}
+
 function parseFile(filePath: string): Entry[] {
   const raw = fs.readFileSync(filePath, 'utf-8')
   const entries: Entry[] = []
@@ -114,6 +118,7 @@ function main() {
   let ok = 0
   let skipped = 0
   let failed = 0
+  const failures: FailedEntry[] = []
 
   const ingestedIds = args.skipExisting ? loadKiteVideoIds() : null
 
@@ -136,8 +141,10 @@ function main() {
         { stdio: 'inherit' },
       )
       ok++
-    } catch {
+    } catch (error) {
       failed++
+      const reason = error instanceof Error ? error.message.split('\n').slice(-1)[0] || error.message : 'unknown error'
+      failures.push({ ...entry, reason })
       console.error(`${prefix}: ✗ failed`)
     }
   }
@@ -145,6 +152,12 @@ function main() {
   console.log(`\nDone. Succeeded: ${ok}, Skipped: ${skipped}, Failed: ${failed}`)
   if (ok > 0) {
     console.log(`Next: npm run process-reviews   (will generate summaries for newly-ingested kites)`)
+  }
+  if (failures.length > 0) {
+    console.log('\nRetry commands for failed entries:')
+    for (const failure of failures) {
+      console.log(`- line ${failure.line}: npm run ingest-review -- --slug ${failure.slug} --url ${failure.url}`)
+    }
   }
   process.exit(failed > 0 ? 1 : 0)
 }

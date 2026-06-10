@@ -50,6 +50,7 @@ export interface BuyLink {
   retailer: string;
   url: string;
   price: number;
+  type?: 'direct_product' | 'search_fallback';
 }
 
 export interface Kite {

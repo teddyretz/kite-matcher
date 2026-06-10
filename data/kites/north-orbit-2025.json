@@ -102,8 +102,9 @@
     "new": [
       {
         "retailer": "Real Watersports",
-        "url": "https://www.realwatersports.com/search?q=North+Orbit+2025",
-        "price": 1699
+        "url": "https://www.realwatersports.com/products/2025-north-orbit-kite",
+        "price": 1699,
+        "type": "direct_product"
       },
       {
         "retailer": "MACkite",

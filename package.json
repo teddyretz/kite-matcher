@@ -1,5 +1,6 @@
 {
-  "name": "tmp-app",
+  "name": "findmykite",
+  "description": "A kite buying advisor that matches riders to the right kite using quiz preferences, catalog filters, and structured review data.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check-buy-links": "tsx scripts/check-buy-links.ts",
     "validate-kites": "tsx scripts/validate-kites.ts",
     "prebuild": "tsx scripts/validate-kites.ts",
     "process-reviews": "tsx --env-file-if-exists=.env.local scripts/process-reviews.ts",

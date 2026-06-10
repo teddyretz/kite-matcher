@@ -11,6 +11,21 @@ import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
+import { normalizeBuyLink } from '@/lib/buyLinks';
+
+function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
+  if (type === 'direct_product') {
+    return {
+      badge: 'Direct',
+      detail: 'Product page',
+    };
+  }
+
+  return {
+    badge: 'Search',
+    detail: 'Retailer search',
+  };
+}
 
 export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
   const related = getRelatedKites(kite, allKites, 3);
@@ -153,18 +168,30 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div>
             <h3 className="text-sm font-semibold text-gray-500 mb-3">New</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {kite.buy_links.new.map((link, i) => (
+              {kite.buy_links.new.map((rawLink, i) => {
+                const link = normalizeBuyLink(rawLink);
+                const meta = buyLinkTypeMeta(link.type);
+                return (
                 <a
                   key={i}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
+                  className="flex items-center justify-between gap-3 p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
                 >
-                  <span className="font-medium text-sm">{link.retailer}</span>
-                  <span className="text-ocean font-bold">${link.price.toLocaleString()}</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium text-sm">{link.retailer}</span>
+                      <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate">
+                        {meta.badge}
+                      </span>
+                    </div>
+                    <div className="mt-1 text-xs text-gray-500">{meta.detail}</div>
+                  </div>
+                  <span className="text-ocean font-bold whitespace-nowrap">${link.price.toLocaleString()}</span>
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
           {kite.price_new_aluula && (

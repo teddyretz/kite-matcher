@@ -38,12 +38,14 @@ const VALID_SORT = new Set<SortOption>(['alpha', 'match', 'price-low', 'price-hi
 const VALID_SKILL = new Set<SkillLevel>(['beginner', 'intermediate', 'advanced']);
 
 function parseInt0to100(s: string | null, fallback: number): number {
+  if (s == null || s.trim() === '') return fallback;
   const n = Number(s);
   if (!Number.isFinite(n)) return fallback;
   return Math.max(0, Math.min(100, n));
 }
 
 function parseBudget(s: string | null): number {
+  if (s == null || s.trim() === '') return DEFAULT_FILTERS.budget;
   const n = Number(s);
   if (!Number.isFinite(n)) return DEFAULT_FILTERS.budget;
   return Math.max(500, Math.min(5000, n));

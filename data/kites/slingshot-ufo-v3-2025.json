@@ -77,8 +77,9 @@
     "new": [
       {
         "retailer": "Real Watersports",
-        "url": "https://www.realwatersports.com/search?q=Slingshot+UFO+V2+2025",
-        "price": 1249
+        "url": "https://www.realwatersports.com/products/slingshot-ufo-v3-kite",
+        "price": 1249,
+        "type": "direct_product"
       },
       {
         "retailer": "MACkite",

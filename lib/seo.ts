@@ -1,6 +1,6 @@
 import type { Kite } from './types';
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://kitematch.com';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://findmykite.com';
 
 export function kiteJsonLd(kite: Kite): Record<string, unknown> {
   const ld: Record<string, unknown> = {
