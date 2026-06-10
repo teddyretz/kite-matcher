@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllKites, getKiteBySlug } from '@/lib/getKites';
-import { SITE_URL, kiteJsonLd } from '@/lib/seo';
+import { SITE_URL, kiteJsonLd, breadcrumbJsonLd, brandSlug } from '@/lib/seo';
 import KiteDetailClient from './KiteDetailClient';
 
 export async function generateStaticParams() {
@@ -74,7 +74,16 @@ export default async function KiteProfilePage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(kiteJsonLd(kite)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            kiteJsonLd(kite),
+            breadcrumbJsonLd([
+              { name: 'Browse', url: `${SITE_URL}/kites` },
+              { name: kite.brand, url: `${SITE_URL}/brand/${brandSlug(kite.brand)}` },
+              { name: `${kite.model} ${kite.year}`, url: `${SITE_URL}/kite/${kite.slug}` },
+            ]),
+          ]),
+        }}
       />
       <KiteDetailClient kite={kite} allKites={allKites} />
     </>

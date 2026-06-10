@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import { retailerSearchUrls } from '@/lib/retailers';
+import { brandSlug } from '@/lib/seo';
 import SpectrumBar from '@/components/SpectrumBar';
 import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
@@ -52,7 +53,9 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       <nav className="text-sm text-gray-500 mb-6">
         <Link href="/kites" className="hover:text-ocean">Browse</Link>
         <span className="mx-2">/</span>
-        <span className="text-slate">{kite.brand} {kite.model} {kite.year}</span>
+        <Link href={`/brand/${brandSlug(kite.brand)}`} className="hover:text-ocean">{kite.brand}</Link>
+        <span className="mx-2">/</span>
+        <span className="text-slate">{kite.model} {kite.year}</span>
       </nav>
 
       {/* Hero */}
@@ -125,17 +128,25 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         </div>
       </div>
 
-      {/* Expert Review */}
+      {/* Review Summary */}
       {kite.structured_review ? (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-          <h2 className="text-lg font-bold text-slate mb-4">Expert Review</h2>
+          <div className="flex items-center gap-3 mb-1">
+            <h2 className="text-lg font-bold text-slate">Review Summary</h2>
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-ocean/10 text-ocean text-[11px] font-semibold uppercase tracking-wide">
+              AI-distilled
+            </span>
+          </div>
+          <p className="text-xs text-gray-500 mb-5">
+            Distilled by AI from independent video reviews — no brand or sponsor input. Sources listed below.
+          </p>
           <StructuredReview review={kite.structured_review} />
         </div>
       ) : (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-          <h2 className="text-lg font-bold text-slate mb-2">Expert Review</h2>
+          <h2 className="text-lg font-bold text-slate mb-2">Review Summary</h2>
           <p className="text-sm text-gray-500">
-            We haven&apos;t published a detailed review for this kite yet. Check back soon.
+            We haven&apos;t gathered enough independent reviews to summarize this kite yet. Check back soon.
           </p>
         </div>
       )}

@@ -75,7 +75,7 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
       {review.sources.length > 0 && (
         <div className="pt-2 border-t border-gray-100">
           <p className="text-xs text-gray-500">
-            <span className="font-semibold">Synthesized from:</span>{' '}
+            <span className="font-semibold">AI summary of independent reviews by:</span>{' '}
             {review.sources.join(', ')}
           </p>
         </div>

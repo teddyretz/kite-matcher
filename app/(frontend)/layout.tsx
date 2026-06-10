@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CompareProvider } from "@/components/CompareContext";
 import CompareDrawer from "@/components/CompareDrawer";
 import CompareNavLink from "@/components/CompareNavLink";
+import SiteFooter from "@/components/SiteFooter";
 
 const navLinks = [
   { href: "/", label: "Matcher" },
@@ -83,6 +84,7 @@ export default function FrontendLayout({
       </nav>
 
       <main className="pb-24 lg:pb-0">{children}</main>
+      <SiteFooter />
       <CompareDrawer />
     </CompareProvider>
   );

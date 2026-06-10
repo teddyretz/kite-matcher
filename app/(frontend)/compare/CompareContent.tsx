@@ -240,7 +240,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       case 'price': return `$${k.price_new.toLocaleString()}`;
       case 'aluula': return k.aluula ? 'Yes' : 'No';
       case 'brainchild': return k.brainchild ? 'Yes' : 'No';
-      case 'review_score': return (k.structured_review?.rating ?? 0).toFixed(1);
+      case 'review_score': return k.structured_review ? k.structured_review.rating.toFixed(1) : '—';
       default: return '';
     }
   };
