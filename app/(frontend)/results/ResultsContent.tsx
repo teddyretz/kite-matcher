@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useState, useMemo } from 'react';
 import { Kite } from '@/lib/types';
-import { matchScore } from '@/lib/matcher';
+import { getRankedMatchesV2, KiteConstruction } from '@/lib/matcher';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
@@ -11,11 +11,21 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const searchParams = useSearchParams();
   const styleValue = Number(searchParams.get('style') ?? 50);
   const shapeValue = Number(searchParams.get('shape') ?? 50);
+  const requestedConstruction = searchParams.get('construction');
+  const construction: KiteConstruction = ['dacron', 'aluula', 'brainchild'].includes(requestedConstruction ?? '')
+    ? requestedConstruction as KiteConstruction
+    : 'all';
+  const requestedBudget = Number(searchParams.get('budget') ?? 5000);
+  const budget = Number.isFinite(requestedBudget) ? Math.max(500, Math.min(5000, requestedBudget)) : 5000;
   const scoredKites = useMemo(
-    () => kites
-      .map(k => ({ ...k, score: matchScore(k, styleValue, shapeValue) }))
-      .sort((a, b) => b.score - a.score),
-    [kites, styleValue, shapeValue]
+    () => getRankedMatchesV2(kites, {
+      version: 2,
+      style: styleValue,
+      shape: shapeValue,
+      construction,
+      budget: budget < 5000 ? budget : undefined,
+    }),
+    [kites, styleValue, shapeValue, construction, budget]
   );
 
   const [filteredSlugs, setFilteredSlugs] = useState<Set<string> | null>(null);
@@ -39,6 +49,20 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
         <p className="text-sm text-gray-500">
           {displayKites.length} kites found
         </p>
+        {(construction !== 'all' || budget < 5000) && (
+          <div className="flex flex-wrap gap-2 mt-3" aria-label="Applied match constraints">
+            {construction !== 'all' && (
+              <span className="px-2.5 py-1 rounded-full bg-ocean/10 text-ocean text-xs font-semibold capitalize">
+                {construction} construction
+              </span>
+            )}
+            {budget < 5000 && (
+              <span className="px-2.5 py-1 rounded-full bg-ocean/10 text-ocean text-xs font-semibold">
+                Up to ${budget.toLocaleString()}
+              </span>
+            )}
+          </div>
+        )}
       </div>
       <div className="flex gap-8">
         <KiteFilters kites={kites} onFilter={handleFilter} />

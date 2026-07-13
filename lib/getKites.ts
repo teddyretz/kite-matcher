@@ -1,5 +1,6 @@
 import { getPayloadClient } from './payload'
 import type { Kite } from './types'
+import { stripPrivateReviewContent } from './publicKites'
 
 function mapPayloadDocToKite(doc: Record<string, unknown>): Kite {
   return {
@@ -33,7 +34,7 @@ function mapPayloadDocToKite(doc: Record<string, unknown>): Kite {
     price_new_aluula: doc.price_new_aluula as number | undefined,
     summary: doc.summary as string,
     best_for: doc.best_for as string,
-    reviews: (doc.reviews as Kite['reviews']) || [],
+    reviews: stripPrivateReviewContent(doc.reviews as Kite['reviews'] | undefined),
     structured_review: doc.structured_review as Kite['structured_review'] | undefined,
     buy_links: (doc.buy_links as Kite['buy_links']) || { new: [], used: [] },
   }

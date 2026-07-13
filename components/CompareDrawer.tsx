@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useCompare } from './CompareContext';
-import { Kite } from '@/lib/types';
+import { KiteSummary } from '@/lib/types';
 
 export default function CompareDrawer() {
   const { compareKites, removeFromCompare, clearCompare, allKites } = useCompare();
@@ -11,7 +11,7 @@ export default function CompareDrawer() {
 
   const selected = compareKites
     .map(slug => allKites.find(k => k.slug === slug))
-    .filter(Boolean) as Kite[];
+    .filter(Boolean) as KiteSummary[];
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg">

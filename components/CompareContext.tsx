@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Kite } from '@/lib/types';
+import { KiteSummary } from '@/lib/types';
 
 interface CompareContextType {
   compareKites: string[];
@@ -9,7 +9,7 @@ interface CompareContextType {
   removeFromCompare: (slug: string) => void;
   clearCompare: () => void;
   isInCompare: (slug: string) => boolean;
-  allKites: Kite[];
+  allKites: KiteSummary[];
   kitesLoading: boolean;
 }
 
@@ -17,13 +17,16 @@ const CompareContext = createContext<CompareContextType | undefined>(undefined);
 
 export function CompareProvider({ children }: { children: ReactNode }) {
   const [compareKites, setCompareKites] = useState<string[]>([]);
-  const [allKites, setAllKites] = useState<Kite[]>([]);
+  const [allKites, setAllKites] = useState<KiteSummary[]>([]);
   const [kitesLoading, setKitesLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/kites')
-      .then(res => res.json())
-      .then((data: Kite[]) => {
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load kite summaries');
+        return res.json() as Promise<KiteSummary[]>;
+      })
+      .then((data) => {
         setAllKites(data);
         setKitesLoading(false);
       })

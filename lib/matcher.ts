@@ -1,5 +1,34 @@
 import { Kite } from './types';
 
+export type KiteConstruction = 'all' | 'dacron' | 'aluula' | 'brainchild';
+
+export interface MatchConstraints {
+  construction?: KiteConstruction;
+  budget?: number;
+}
+
+export interface MatchPreferencesV2 extends MatchConstraints {
+  version: 2;
+  style: number;
+  shape: number;
+  wave?: number;
+}
+
+export function kiteMatchesConstraints(kite: Kite, constraints: MatchConstraints): boolean {
+  const { construction = 'all', budget } = constraints;
+
+  if (typeof budget === 'number' && kite.price_new > budget) return false;
+  if (construction === 'aluula' && !kite.aluula) return false;
+  if (construction === 'brainchild' && !kite.brainchild) return false;
+  if (construction === 'dacron' && (kite.aluula || kite.brainchild)) return false;
+
+  return true;
+}
+
+export function filterByMatchConstraints(kites: Kite[], constraints: MatchConstraints): Kite[] {
+  return kites.filter(kite => kiteMatchesConstraints(kite, constraints));
+}
+
 export function matchScore(kite: Kite, styleValue: number, shapeValue: number, waveValue?: number): number {
   const styleDiff = Math.abs(kite.style_spectrum - styleValue);
   const shapeDiff = Math.abs(kite.shape_spectrum - shapeValue);
@@ -21,6 +50,17 @@ export function getTopMatches(kites: Kite[], styleValue: number, shapeValue: num
     .map(kite => ({ ...kite, score: matchScore(kite, styleValue, shapeValue, waveValue) }))
     .sort((a, b) => b.score - a.score)
     .slice(0, count);
+}
+
+export function getRankedMatchesV2(kites: Kite[], preferences: MatchPreferencesV2): (Kite & { score: number })[] {
+  const eligibleKites = filterByMatchConstraints(kites, preferences);
+
+  return eligibleKites
+    .map(kite => ({
+      ...kite,
+      score: matchScore(kite, preferences.style, preferences.shape, preferences.wave),
+    }))
+    .sort((a, b) => b.score - a.score);
 }
 
 export function getRelatedKites(kite: Kite, allKites: Kite[], count: number = 3): Kite[] {
