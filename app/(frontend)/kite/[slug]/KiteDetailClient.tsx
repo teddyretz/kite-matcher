@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Kite, ReviewSource } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import SpectrumBar from '@/components/SpectrumBar';
 import ReviewSources from '@/components/ReviewSources';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
+import StructuredReviewPanel from '@/components/StructuredReviewPanel';
 
 export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
   const related = getRelatedKites(kite, allKites, 3);
@@ -35,12 +37,14 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       {/* Hero */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="h-64 md:h-auto bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img
-              src={`/kites/${kite.slug}.jpg`}
+          <div className="relative h-64 md:h-auto min-h-[20rem] bg-gray-50 flex items-center justify-center overflow-hidden">
+            <Image
+              src={kite.image || `/kites/${kite.slug}.jpg`}
               alt={`${kite.brand} ${kite.model}`}
-              className="w-full h-full object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
           <div className="p-6 sm:p-8">
@@ -62,6 +66,8 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           </div>
         </div>
       </div>
+
+      {kite.structured_review && <StructuredReviewPanel review={kite.structured_review} />}
 
       {/* Spectrum Bars */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8 space-y-6">
