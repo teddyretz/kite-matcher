@@ -7,6 +7,7 @@ import {
   type AdvisorMatch,
   type FlightFeel,
   getAdvisorMatches,
+  getSliderAdvisorMatches,
   matchScore,
   type RidingGoal,
   type WindProfile,
@@ -36,9 +37,16 @@ function parseAdvisorValue<T extends string>(value: string | null, allowed: read
   return value && allowed.includes(value as T) ? value as T : fallback;
 }
 
+function parseSliderValue(value: string | null, fallback: number): number {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : fallback;
+}
+
 export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const searchParams = useSearchParams();
-  const advisorMode = searchParams.get('advisor') === '1';
+  const advisorParam = searchParams.get('advisor');
+  const sliderMode = advisorParam === 'sliders';
+  const advisorMode = sliderMode || advisorParam === '1';
   const { filters, setFilters } = useFilters();
   const [slidersOpen, setSlidersOpen] = useState(!advisorMode);
   const [showAll, setShowAll] = useState(false);
@@ -63,6 +71,9 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
     ['light', 'mixed', 'strong'],
     'mixed',
   );
+  const wavePriority = parseSliderValue(searchParams.get('wave'), 20);
+  const handling = parseSliderValue(searchParams.get('handling'), 50);
+  const windValue = parseSliderValue(searchParams.get('wind'), 50);
 
   const commitStyle = useCallback((value: number) => setFilters({ style: value }), [setFilters]);
   const commitShape = useCallback((value: number) => setFilters({ shape: value }), [setFilters]);
@@ -71,6 +82,19 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
 
   const eligibleKites = useMemo(() => {
     const filtered = applyFilters(kites, filters);
+    if (sliderMode) {
+      return getSliderAdvisorMatches(filtered, {
+        version: 2,
+        style: filters.style,
+        shape: filters.shape,
+        wavePriority,
+        handling,
+        wind: windValue,
+        level,
+        construction: filters.construction,
+        budget: filters.budget < 5000 ? filters.budget : undefined,
+      });
+    }
     if (advisorMode) {
       return getAdvisorMatches(filtered, {
         version: 2,
@@ -85,7 +109,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
     return filtered
       .map(kite => ({ ...kite, score: matchScore(kite, styleVal, shapeVal) }))
       .sort((a, b) => b.score - a.score);
-  }, [advisorMode, feel, filters, goal, kites, level, shapeVal, styleVal, wind]);
+  }, [advisorMode, feel, filters, goal, handling, kites, level, shapeVal, sliderMode, styleVal, wavePriority, wind, windValue]);
 
   const displayKites = advisorMode && !showAll ? eligibleKites.slice(0, 12) : eligibleKites;
 
@@ -105,7 +129,10 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
         </p>
         {advisorMode && (
           <div className="mt-3 flex flex-wrap gap-2">
-            {[goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`].map(item => (
+            {(sliderMode
+              ? [styleZones[getActiveZone(filters.style)].label, level, handling < 35 ? 'forgiving handling' : handling > 65 ? 'performance handling' : 'balanced handling', windValue < 35 ? 'light wind' : windValue > 65 ? 'strong wind' : 'mixed wind']
+              : [goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`]
+            ).map(item => (
               <span key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs capitalize text-gray-600">
                 {item}
               </span>

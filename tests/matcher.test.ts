@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { filterByMatchConstraints, getAdvisorMatches, getRankedMatchesV2, matchScore } from '../lib/matcher';
+import { filterByMatchConstraints, getAdvisorMatches, getRankedMatchesV2, getSliderAdvisorMatches, matchScore } from '../lib/matcher';
 import type { Kite } from '../lib/types';
 
 function kite(overrides: Partial<Kite> = {}): Kite {
@@ -104,4 +104,27 @@ test('advisor does not describe a weak style fit as strong alignment', () => {
   );
 
   assert.equal(match.reasons[0], 'Closest available wave fit');
+});
+
+test('slider advisor updates ranking continuously as riding style changes', () => {
+  const kites = [
+    kite({ slug: 'surf', style_spectrum: 30, wave_spectrum: 80 }),
+    kite({ slug: 'big-air', style_spectrum: 90, wave_spectrum: 20 }),
+  ];
+  const base = { version: 2 as const, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'intermediate' as const };
+
+  assert.equal(getSliderAdvisorMatches(kites, { ...base, style: 30 })[0].slug, 'surf');
+  assert.equal(getSliderAdvisorMatches(kites, { ...base, style: 90 })[0].slug, 'big-air');
+});
+
+test('wave-priority slider can lift a wave-oriented kite in the ranking', () => {
+  const kites = [
+    kite({ slug: 'wave', style_spectrum: 45, wave_spectrum: 95 }),
+    kite({ slug: 'neutral', style_spectrum: 50, wave_spectrum: 20 }),
+  ];
+  const matches = getSliderAdvisorMatches(kites, {
+    version: 2, style: 50, shape: 50, wavePriority: 100, handling: 50, wind: 50, level: 'intermediate',
+  });
+
+  assert.equal(matches[0].slug, 'wave');
 });

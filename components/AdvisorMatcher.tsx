@@ -1,236 +1,162 @@
 'use client';
 
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Kite, SkillLevel } from '@/lib/types';
-import {
-  FlightFeel,
-  getAdvisorMatches,
-  KiteConstruction,
-  RidingGoal,
-  WindProfile,
-} from '@/lib/matcher';
+import { getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
 
-type Answers = {
-  goal: RidingGoal;
-  level: SkillLevel;
-  feel: FlightFeel;
-  wind: WindProfile;
-  budget: number;
-  construction: KiteConstruction;
+const styleZones = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
+
+function styleLabel(value: number): string {
+  return styleZones[Math.min(4, Math.floor(value / 20))];
+}
+
+function rangePct(value: number, min = 0, max = 100): string {
+  return `${((value - min) / (max - min)) * 100}%`;
+}
+
+type SliderRowProps = {
+  label: string;
+  valueLabel: string;
+  value: number;
+  onChange: (value: number) => void;
+  left: string;
+  right: string;
 };
 
-const defaults: Answers = {
-  goal: 'freeride',
-  level: 'intermediate',
-  feel: 'balanced',
-  wind: 'mixed',
-  budget: 5000,
-  construction: 'all',
-};
-
-const questions = [
-  {
-    eyebrow: 'Your session',
-    title: 'What do you want to do most?',
-    hint: 'Choose the thing you want this kite to make better.',
-    field: 'goal' as const,
-    options: [
-      ['freeride', 'Freeride', 'Comfort, range, and easy progression'],
-      ['big-air', 'Big air', 'Boosting, hangtime, and confident loops'],
-      ['wave', 'Waves', 'Drift, control, and quick response'],
-      ['freestyle', 'Freestyle', 'Pop, slack, and direct handling'],
-      ['foil', 'Foiling', 'Light feel and efficient flying'],
-    ],
-  },
-  {
-    eyebrow: 'Your experience',
-    title: 'Where are you in your riding?',
-    hint: 'This is about what feels comfortable now, not where you want to be next year.',
-    field: 'level' as const,
-    options: [
-      ['beginner', 'Beginner', 'Building confidence and staying upwind'],
-      ['intermediate', 'Intermediate', 'Independent and expanding your riding'],
-      ['advanced', 'Advanced', 'Comfortable with demanding equipment'],
-    ],
-  },
-  {
-    eyebrow: 'Flight character',
-    title: 'How should the kite feel?',
-    hint: 'There is no universally best answer. Pick the character you enjoy.',
-    field: 'feel' as const,
-    options: [
-      ['forgiving', 'Calm & forgiving', 'Easy relaunch, control, fewer surprises'],
-      ['balanced', 'Balanced', 'A useful mix of comfort and response'],
-      ['performance', 'Fast & performance', 'Quick steering and a more demanding feel'],
-    ],
-  },
-  {
-    eyebrow: 'Home conditions',
-    title: 'What wind do you ride most?',
-    hint: 'We will favor low-end power, usable range, or top-end control.',
-    field: 'wind' as const,
-    options: [
-      ['light', 'Mostly light', 'You are often trying to make marginal wind work'],
-      ['mixed', 'A bit of everything', 'Your spot changes and range matters most'],
-      ['strong', 'Mostly strong', 'Control and a dependable top end matter'],
-    ],
-  },
-];
-
-const budgetOptions = [1500, 2000, 2500, 5000];
+function SliderRow({ label, valueLabel, value, onChange, left, right }: SliderRowProps) {
+  return (
+    <div>
+      <div className="mb-2 flex items-baseline justify-between gap-3">
+        <label className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">{label}</label>
+        <span className="text-xs font-bold text-ocean">{valueLabel}</span>
+      </div>
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={value}
+        onChange={event => onChange(Number(event.target.value))}
+        className="w-full"
+        style={{ '--range-pct': rangePct(value) } as React.CSSProperties}
+        aria-label={label}
+        aria-valuetext={valueLabel}
+      />
+      <div className="mt-1.5 flex justify-between text-[9px] text-gray-400">
+        <span>{left}</span>
+        <span>{right}</span>
+      </div>
+    </div>
+  );
+}
 
 export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>(defaults);
+  const [style, setStyle] = useState(70);
+  const [shape, setShape] = useState(55);
+  const [wavePriority, setWavePriority] = useState(20);
+  const [handling, setHandling] = useState(50);
+  const [wind, setWind] = useState(50);
+  const [level, setLevel] = useState<SkillLevel>('intermediate');
+  const [construction, setConstruction] = useState<KiteConstruction>('all');
+  const [budget, setBudget] = useState(5000);
   const router = useRouter();
 
-  const preview = useMemo(() => getAdvisorMatches(kites, {
+  const matches = useMemo(() => getSliderAdvisorMatches(kites, {
     version: 2,
-    ...answers,
-    budget: answers.budget < 5000 ? answers.budget : undefined,
-  }).slice(0, 3), [answers, kites]);
+    style,
+    shape,
+    wavePriority,
+    handling,
+    wind,
+    level,
+    construction,
+    budget: budget < 5000 ? budget : undefined,
+  }), [budget, construction, handling, kites, level, shape, style, wavePriority, wind]);
 
-  const submit = () => {
+  const openResults = () => {
     const params = new URLSearchParams({
-      advisor: '1',
-      goal: answers.goal,
-      level: answers.level,
-      feel: answers.feel,
-      wind: answers.wind,
-      budget: String(answers.budget),
-      construction: answers.construction,
+      advisor: 'sliders',
+      style: String(style),
+      shape: String(shape),
+      wave: String(wavePriority),
+      handling: String(handling),
+      wind: String(wind),
+      level,
+      construction,
+      budget: String(budget),
     });
     router.push(`/results?${params.toString()}`);
   };
 
-  const currentQuestion = questions[step];
-  const isFinalStep = step === questions.length;
-
   return (
     <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0B1420]/95 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
-      <div className="h-1 bg-white/5">
-        <div
-          className="h-full bg-ocean transition-all duration-500"
-          style={{ width: `${((step + 1) / (questions.length + 1)) * 100}%` }}
-        />
-      </div>
-
-      <div className="p-6 sm:p-7">
-        <div className="mb-6 flex items-center justify-between">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400">
-            Kite fitting · {step + 1}/{questions.length + 1}
-          </span>
-          <Link href="/?legacy=1" className="text-[11px] text-gray-400 hover:text-ocean transition-colors">
-            Use classic sliders
-          </Link>
-        </div>
-
-        {!isFinalStep && currentQuestion ? (
-          <div key={currentQuestion.field} className="animate-[fadeIn_.25s_ease-out]">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-ocean">{currentQuestion.eyebrow}</p>
-            <h2 className="mt-2 font-display text-3xl font-black italic uppercase leading-none text-white sm:text-4xl">
-              {currentQuestion.title}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-gray-500">{currentQuestion.hint}</p>
-
-            <div className="mt-6 grid gap-2">
-              {currentQuestion.options.map(([value, label, description]) => {
-                const selected = answers[currentQuestion.field] === value;
-                return (
-                  <button
-                    key={value}
-                    type="button"
-                    aria-pressed={selected}
-                    onClick={() => setAnswers(previous => ({ ...previous, [currentQuestion.field]: value }))}
-                    className={`group flex items-center justify-between rounded-xl border px-4 py-3 text-left transition-all ${
-                      selected
-                        ? 'border-ocean/60 bg-ocean/10 shadow-[inset_3px_0_0_#00E5FF]'
-                        : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
-                    }`}
-                  >
-                    <span>
-                      <span className={`block text-sm font-bold ${selected ? 'text-white' : 'text-gray-700'}`}>{label}</span>
-                      <span className="mt-0.5 block text-xs text-gray-400">{description}</span>
-                    </span>
-                    <span className={`h-2.5 w-2.5 rounded-full border ${selected ? 'border-ocean bg-ocean shadow-[0_0_10px_#00E5FF]' : 'border-gray-300'}`} />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
+      <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-ocean/10 blur-3xl pointer-events-none" />
+      <div className="relative p-5 sm:p-6">
+        <div className="mb-5 flex items-start justify-between gap-4 border-b border-white/10 pb-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-ocean">The practical stuff</p>
-            <h2 className="mt-2 font-display text-3xl font-black italic uppercase leading-none text-white sm:text-4xl">
-              Set your guardrails.
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-gray-500">These are hard limits. A kite outside them will not appear in your results.</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-ocean">Live kite tuner</p>
+            <h2 className="mt-1 font-display text-2xl font-black italic uppercase text-white">Dial in your ride.</h2>
+          </div>
+          <div className="text-right">
+            <p className="font-display text-3xl font-black italic leading-none text-ocean">{matches.length}</p>
+            <p className="text-[9px] uppercase tracking-wider text-gray-400">eligible</p>
+          </div>
+        </div>
 
-            <div className="mt-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">Maximum new price</p>
-              <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                {budgetOptions.map(value => (
-                  <button
-                    key={value}
-                    type="button"
-                    aria-pressed={answers.budget === value}
-                    onClick={() => setAnswers(previous => ({ ...previous, budget: value }))}
-                    className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors ${answers.budget === value ? 'border-ocean bg-ocean text-[#08101A]' : 'border-white/10 text-gray-500 hover:border-white/20'}`}
-                  >
-                    {value === 5000 ? 'No limit' : `$${value.toLocaleString()}`}
-                  </button>
-                ))}
-              </div>
+        <div className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
+          <SliderRow label="Riding style" valueLabel={styleLabel(style)} value={style} onChange={setStyle} left="Foil" right="Big air" />
+          <SliderRow label="Kite shape" valueLabel={shape < 35 ? 'Low aspect' : shape > 65 ? 'High aspect' : 'Medium aspect'} value={shape} onChange={setShape} left="Low aspect · C" right="High aspect · Bow" />
+          <SliderRow label="Wave priority" valueLabel={wavePriority < 30 ? 'Low' : wavePriority > 70 ? 'Core priority' : 'Important'} value={wavePriority} onChange={setWavePriority} left="Not important" right="Wave focused" />
+          <SliderRow label="Handling" valueLabel={handling < 35 ? 'Calm & forgiving' : handling > 65 ? 'Fast & reactive' : 'Balanced'} value={handling} onChange={setHandling} left="Forgiving" right="Performance" />
+          <SliderRow label="Typical wind" valueLabel={wind < 35 ? 'Mostly light' : wind > 65 ? 'Mostly strong' : 'Mixed conditions'} value={wind} onChange={setWind} left="Light wind" right="Strong wind" />
+          <div>
+            <div className="mb-2 flex items-baseline justify-between">
+              <label className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Maximum price</label>
+              <span className="text-xs font-bold text-ocean">{budget >= 5000 ? 'No limit' : `$${budget.toLocaleString()}`}</span>
             </div>
+            <input type="range" min={800} max={5000} step={100} value={budget} onChange={event => setBudget(Number(event.target.value))} className="w-full" style={{ '--range-pct': rangePct(budget, 800, 5000) } as React.CSSProperties} aria-label="Maximum price" aria-valuetext={budget >= 5000 ? 'No limit' : `$${budget}`} />
+            <div className="mt-1.5 flex justify-between text-[9px] text-gray-400"><span>$800</span><span>No limit</span></div>
+          </div>
+        </div>
 
-            <div className="mt-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500">Construction</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
-                  <button
-                    key={value}
-                    type="button"
-                    aria-pressed={answers.construction === value}
-                    onClick={() => setAnswers(previous => ({ ...previous, construction: value }))}
-                    className={`rounded-full border px-3 py-1.5 text-xs font-semibold capitalize transition-colors ${answers.construction === value ? 'border-ocean bg-ocean/10 text-ocean' : 'border-white/10 text-gray-500 hover:border-white/20'}`}
-                  >
-                    {value === 'all' ? 'Any construction' : value}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 border-t border-white/10 pt-5">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">Current shortlist · {preview.length} shown</p>
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                {preview.map(match => (
-                  <div key={match.slug} className="rounded-lg bg-white/[0.03] p-3 text-center">
-                    <p className="font-display text-xl font-black italic text-ocean">{match.score}%</p>
-                    <p className="truncate text-[10px] font-bold text-gray-700">{match.brand}</p>
-                    <p className="truncate text-[10px] text-gray-400">{match.model}</p>
-                  </div>
-                ))}
-              </div>
+        <div className="mt-5 grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2">
+          <div>
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Rider level</p>
+            <div className="flex gap-1.5">
+              {(['beginner', 'intermediate', 'advanced'] as const).map(value => (
+                <button key={value} type="button" aria-pressed={level === value} onClick={() => setLevel(value)} className={`flex-1 rounded-lg border px-2 py-1.5 text-[10px] font-semibold capitalize transition-colors ${level === value ? 'border-ocean bg-ocean/10 text-ocean' : 'border-white/10 text-gray-500 hover:border-white/20'}`}>{value}</button>
+              ))}
             </div>
           </div>
-        )}
-
-        <div className="mt-7 flex items-center gap-3">
-          {step > 0 && (
-            <button type="button" onClick={() => setStep(value => value - 1)} className="px-3 py-3 text-xs font-semibold text-gray-500 hover:text-white">
-              ← Back
-            </button>
-          )}
-          <button
-            type="button"
-            onClick={isFinalStep ? submit : () => setStep(value => value + 1)}
-            className="flex-1 rounded-xl bg-ocean px-6 py-3 font-display text-xl font-black italic uppercase tracking-wide text-[#08101A] shadow-[0_0_24px_rgba(0,229,255,0.3)] transition-all hover:bg-ocean-light hover:shadow-[0_0_32px_rgba(0,229,255,0.45)]"
-          >
-            {isFinalStep ? `See ${preview.length ? 'my matches' : 'results'} →` : 'Next →'}
-          </button>
+          <div>
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Construction</p>
+            <div className="flex flex-wrap gap-1.5">
+              {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
+                <button key={value} type="button" aria-pressed={construction === value} onClick={() => setConstruction(value)} className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold capitalize transition-colors ${construction === value ? 'border-ocean bg-ocean/10 text-ocean' : 'border-white/10 text-gray-500 hover:border-white/20'}`}>{value === 'all' ? 'Any' : value}</button>
+              ))}
+            </div>
+          </div>
         </div>
+
+        <div className="mt-5 border-t border-white/10 pt-4">
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">Live top matches</p>
+            <p className="text-[9px] text-gray-400">Updates as you tune</p>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {matches.slice(0, 3).map(match => (
+              <div key={match.slug} className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-2.5 text-center transition-all duration-200">
+                <p className="font-display text-xl font-black italic leading-none text-ocean">{match.score}%</p>
+                <p className="mt-1 truncate text-[10px] font-bold text-gray-700">{match.brand}</p>
+                <p className="truncate text-[9px] text-gray-400">{match.model}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button type="button" onClick={openResults} className="mt-5 w-full rounded-xl bg-ocean px-6 py-3 font-display text-xl font-black italic uppercase tracking-wide text-[#08101A] shadow-[0_0_24px_rgba(0,229,255,0.3)] transition-all hover:bg-ocean-light hover:shadow-[0_0_32px_rgba(0,229,255,0.45)]">
+          Explore my matches →
+        </button>
       </div>
     </div>
   );
