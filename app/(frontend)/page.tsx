@@ -1,9 +1,15 @@
 import StyleMatcher from '@/components/StyleMatcher';
+import AdvisorMatcher from '@/components/AdvisorMatcher';
 import { getActiveKites } from '@/lib/getKites';
 import Link from 'next/link';
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ legacy?: string }>;
+}) {
   const kites = await getActiveKites();
+  const { legacy } = await searchParams;
 
   return (
     <div className="min-h-[calc(100vh-3.5rem)]">
@@ -78,8 +84,17 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* Right: StyleMatcher */}
-          <StyleMatcher kites={kites} />
+          {/* Right: guided advisor with a reversible classic path */}
+          {legacy === '1' ? (
+            <div>
+              <div className="mb-3 flex justify-end">
+                <Link href="/" className="text-xs text-gray-400 hover:text-ocean">Try the guided fitter →</Link>
+              </div>
+              <StyleMatcher kites={kites} />
+            </div>
+          ) : (
+            <AdvisorMatcher kites={kites} />
+          )}
         </div>
       </section>
 

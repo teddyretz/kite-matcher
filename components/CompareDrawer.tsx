@@ -27,6 +27,8 @@ export default function CompareDrawer() {
             >
               <span className="font-medium">{kite.brand} {kite.model}</span>
               <button
+                type="button"
+                aria-label={`Remove ${kite.brand} ${kite.model} from comparison`}
                 onClick={() => removeFromCompare(kite.slug)}
                 className="text-gray-400 hover:text-red-500"
               >

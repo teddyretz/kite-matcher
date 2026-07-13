@@ -187,7 +187,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         </select>
       </div>
 
-      <div className="flex gap-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
         <KiteFilters kites={allKites} onFilter={handleSidebarFilter} />
         <div className="flex-1">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

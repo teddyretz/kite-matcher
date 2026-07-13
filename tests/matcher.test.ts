@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { filterByMatchConstraints, getRankedMatchesV2, matchScore } from '../lib/matcher';
+import { filterByMatchConstraints, getAdvisorMatches, getRankedMatchesV2, matchScore } from '../lib/matcher';
 import type { Kite } from '../lib/types';
 
 function kite(overrides: Partial<Kite> = {}): Kite {
@@ -72,4 +72,36 @@ test('V2 applies constraints before ranking eligible kites', () => {
   );
 
   assert.deepEqual(ranked.map(item => item.slug), ['eligible']);
+});
+
+test('advisor excludes kites that are not suitable for the rider level', () => {
+  const ranked = getAdvisorMatches(
+    [
+      kite({ slug: 'advanced-only', skill_level: ['advanced'] }),
+      kite({ slug: 'beginner-fit', skill_level: ['beginner', 'intermediate'] }),
+    ],
+    { version: 2, goal: 'freeride', level: 'beginner', feel: 'forgiving', wind: 'mixed' },
+  );
+
+  assert.deepEqual(ranked.map(item => item.slug), ['beginner-fit']);
+});
+
+test('advisor returns human-readable reasons and honest tradeoffs', () => {
+  const [match] = getAdvisorMatches(
+    [kite({ relaunch: 'hard', low_end_power: 4, price_new: 2800 })],
+    { version: 2, goal: 'freeride', level: 'intermediate', feel: 'balanced', wind: 'light' },
+  );
+
+  assert.ok(match.reasons.some(reason => reason.includes('freeride')));
+  assert.ok(match.tradeoffs.includes('Relaunch takes more technique'));
+  assert.ok(match.tradeoffs.includes('Needs more wind to come alive'));
+});
+
+test('advisor does not describe a weak style fit as strong alignment', () => {
+  const [match] = getAdvisorMatches(
+    [kite({ style_spectrum: 95, wave_spectrum: 5 })],
+    { version: 2, goal: 'wave', level: 'intermediate', feel: 'balanced', wind: 'mixed' },
+  );
+
+  assert.equal(match.reasons[0], 'Closest available wave fit');
 });
