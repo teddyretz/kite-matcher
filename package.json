@@ -1,5 +1,6 @@
 {
-  "name": "tmp-app",
+  "name": "findmykite",
+  "description": "A kite buying advisor that matches riders to the right kite using quiz preferences, catalog filters, and structured review data.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,32 +9,35 @@
     "test": "tsx --test tests/**/*.test.ts",
     "start": "next start",
     "lint": "next lint",
-    "seed": "dotenv -e .env.local -- npx tsx scripts/seed-kites.ts",
-    "generate:types": "payload generate:types",
-    "postinstall": "node scripts/patch-payload-loadenv.js"
+    "check-buy-links": "tsx scripts/check-buy-links.ts",
+    "validate-kites": "tsx scripts/validate-kites.ts",
+    "prebuild": "tsx scripts/validate-kites.ts",
+    "process-reviews": "tsx --env-file-if-exists=.env.local scripts/process-reviews.ts",
+    "ingest-review": "tsx --env-file-if-exists=.env.local scripts/ingest-review.ts",
+    "find-candidates": "tsx scripts/find-candidates.ts",
+    "search-candidates": "tsx --env-file-if-exists=.env.local scripts/search-candidates.ts",
+    "bulk-ingest": "tsx scripts/bulk-ingest.ts",
+    "check-links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "^3.80.0",
-    "@payloadcms/next": "^3.80.0",
-    "@payloadcms/richtext-lexical": "^3.80.0",
+    "@anthropic-ai/sdk": "^0.90.0",
     "@supabase/supabase-js": "^2.100.0",
-    "graphql": "^16.13.2",
+    "@vercel/analytics": "^2.0.1",
     "next": "15.4.11",
-    "payload": "^3.80.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "dotenv": "^17.3.1",
-    "dotenv-cli": "^11.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.4.11",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.0",
     "typescript": "^5"
   }
 }

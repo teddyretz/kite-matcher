@@ -1,0 +1,103 @@
+{
+  "id": "ozone-edge-v11-2025",
+  "slug": "ozone-edge-v11-2025",
+  "brand": "Ozone",
+  "model": "Edge V11",
+  "year": 2025,
+  "image": "/kites/ozone-edge-v11-2025.jpg",
+  "style_spectrum": 92,
+  "shape_spectrum": 80,
+  "wave_spectrum": 8,
+  "style_tags": [
+    "big air",
+    "race",
+    "megaloops",
+    "hangtime"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "very-high",
+  "strut_count": 5,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 8,
+  "relaunch": "medium",
+  "wind_range_low": 11,
+  "wind_range_high": 38,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "price_new": 1899,
+  "price_new_aluula": 3299,
+  "summary": "The Ozone Edge V11 is a high-aspect big air and race kite offering massive hangtime and upwind performance. Its 5-strut frame provides excellent canopy stability at the top of loops.",
+  "best_for": "Big air competitors and riders wanting maximum hangtime and upwind ability",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.6,
+        "review_count": 22,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399870",
+            "score": 4.7,
+            "summary": "Consistently rated among the top big air kites on the market, riders note the incredible hangtime and upwind performance that sets it apart from competitors."
+          },
+          {
+            "source": "YouTube - Kevin Langeree Review",
+            "url": "https://www.youtube.com/watch?v=ozone_edge_v11_review",
+            "score": 4.6,
+            "summary": "Professional big air rider demonstrates the Edge V11's massive boost potential and smooth loop characteristics at high wind.",
+            "video_id": "ozone_edge_v11_review"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_v11",
+            "score": null,
+            "summary": "Widely considered the benchmark for big air kites, though beginners are warned about the high aspect ratio requiring more skill to manage."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Ozone+Edge+V11+2025",
+        "price": 1899
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Ozone+Edge+V11+2025",
+        "price": 1899
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Edge+V11+2025",
+        "price": 1899
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Edge+V11"
+      }
+    ]
+  }
+}

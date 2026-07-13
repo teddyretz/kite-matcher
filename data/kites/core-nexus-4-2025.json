@@ -1,0 +1,88 @@
+{
+  "id": "core-nexus-4-2025",
+  "slug": "core-nexus-4-2025",
+  "brand": "Core",
+  "model": "Nexus 4",
+  "year": 2025,
+  "image": "/kites/core-nexus-4-2025.jpg",
+  "style_spectrum": 52,
+  "shape_spectrum": 50,
+  "wave_spectrum": 42,
+  "style_tags": [
+    "freeride",
+    "freestyle",
+    "wave",
+    "all-around"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 7,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 7,
+  "wind_range_high": 42,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13.5,
+    15,
+    17
+  ],
+  "price_new": 1449,
+  "summary": "Core's Future-C shape all-rounder. Agile and reactive with linear power delivery for playful freeride, wave sessions, kiteloops, and freestyle. CORE Intelligent Trim system lets you tune per discipline. ExoTex 2 LE and ExoTex Light struts.",
+  "best_for": "True all-around versatility across freeride, wave, and freestyle",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.5,
+        "review_count": 18,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=core-nexus-4-2025",
+            "score": 4.5,
+            "summary": "The gold standard all-rounder. The Future-C shape makes it incredibly versatile — genuinely good in waves, solid jumps, smooth freestyle. Nothing else does everything as well."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+nexus+4+2025",
+            "score": 4.4,
+            "summary": "Best all-around kite Core has ever made. The Intelligent Trim system is actually useful — not just marketing."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Core+Nexus+4+2025",
+        "price": 1449
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Core+Nexus+4"
+      }
+    ]
+  }
+}

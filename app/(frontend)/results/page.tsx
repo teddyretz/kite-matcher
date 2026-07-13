@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { getActiveKites } from '@/lib/getKites';
 import ResultsContent from './ResultsContent';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Your Kite Matches',
-  description: 'Personalized kite recommendations based on your riding and equipment preferences.',
+  // Quiz results are per-user query-param permutations — keep them out of
+  // the index but let crawlers follow links through to the kite pages.
   robots: { index: false, follow: true },
 };
 

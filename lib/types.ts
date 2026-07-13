@@ -34,6 +34,7 @@ export type ReviewEntry =
       video_url: string;
       excerpt: string;
       verdict: string;
+      summary?: string;
       full_transcript?: string;
     }
   | {
@@ -49,6 +50,7 @@ export interface BuyLink {
   retailer: string;
   url: string;
   price: number;
+  type?: 'direct_product' | 'search_fallback';
 }
 
 export interface Kite {

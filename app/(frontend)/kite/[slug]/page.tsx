@@ -1,39 +1,60 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import { getAllKites, getKiteBySlug } from '@/lib/getKites';
+import { SITE_URL, kiteJsonLd, breadcrumbJsonLd, brandSlug } from '@/lib/seo';
 import KiteDetailClient from './KiteDetailClient';
 
-type PageProps = { params: Promise<{ slug: string }> };
+export async function generateStaticParams() {
+  const kites = await getAllKites();
+  return kites.map((k) => ({ slug: k.slug }));
+}
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const kite = await getKiteBySlug(slug);
-  if (!kite) return { title: 'Kite not found' };
+  if (!kite) {
+    return {
+      title: 'Kite not found — FindMyKite',
+      robots: { index: false },
+    };
+  }
 
-  const title = `${kite.brand} ${kite.model} ${kite.year} Review & Specs`;
-  const description = kite.structured_review?.rec_blurb || kite.summary;
+  const title = `${kite.brand} ${kite.model} ${kite.year} — Review, Specs & Where to Buy`;
+  const description =
+    kite.structured_review?.summary ?? kite.structured_review?.rec_blurb ?? kite.summary;
+  const image = `${SITE_URL}/kites/${kite.slug}.jpg`;
+  const url = `${SITE_URL}/kite/${kite.slug}`;
 
   return {
     title,
     description,
-    alternates: { canonical: `/kite/${kite.slug}` },
+    alternates: { canonical: url },
     openGraph: {
-      type: 'article',
       title,
       description,
-      url: `/kite/${kite.slug}`,
-      images: [{ url: kite.image, alt: `${kite.brand} ${kite.model} ${kite.year}` }],
+      url,
+      type: 'article',
+      siteName: 'FindMyKite',
+      images: [{ url: image, width: 1200, height: 630, alt: `${kite.brand} ${kite.model}` }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [kite.image],
+      images: [image],
     },
   };
 }
 
-export default async function KiteProfilePage({ params }: PageProps) {
+export default async function KiteProfilePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const [kite, allKites] = await Promise.all([
     getKiteBySlug(slug),
@@ -41,34 +62,28 @@ export default async function KiteProfilePage({ params }: PageProps) {
   ]);
 
   if (!kite) {
-    notFound();
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <h1 className="text-2xl font-bold text-slate mb-4">Kite not found</h1>
+        <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+      </div>
+    );
   }
-
-  const prices = kite.buy_links.new.map(link => link.price).filter(price => price > 0);
-  const productData = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: `${kite.brand} ${kite.model} ${kite.year}`,
-    image: `https://findmykite.com${kite.image}`,
-    description: kite.summary,
-    brand: { '@type': 'Brand', name: kite.brand },
-    category: 'Kitesurfing Kite',
-    ...(prices.length > 0 ? {
-      offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        lowPrice: Math.min(...prices),
-        highPrice: Math.max(...prices),
-        offerCount: prices.length,
-      },
-    } : {}),
-  };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productData).replace(/</g, '\\u003c') }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            kiteJsonLd(kite),
+            breadcrumbJsonLd([
+              { name: 'Browse', url: `${SITE_URL}/kites` },
+              { name: kite.brand, url: `${SITE_URL}/brand/${brandSlug(kite.brand)}` },
+              { name: `${kite.model} ${kite.year}`, url: `${SITE_URL}/kite/${kite.slug}` },
+            ]),
+          ]),
+        }}
       />
       <KiteDetailClient kite={kite} allKites={allKites} />
     </>

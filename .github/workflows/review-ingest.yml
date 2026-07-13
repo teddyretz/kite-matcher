@@ -1,0 +1,125 @@
+# Discover candidate review videos, or ingest YouTube transcripts into the
+# kite JSON files. This is the BEST-EFFORT half of the pipeline.
+#
+# ⚠️ CAVEAT: yt-dlp talks to YouTube, which frequently rate-limits or
+# bot-blocks datacenter IPs — including GitHub-hosted runners. When that
+# happens the ingest/discover steps fail with "Failed to extract any player
+# response" or an HTTP 429/403. If this workflow is unreliable for you, run
+# the same scripts locally (npm run find-candidates / ingest-review /
+# bulk-ingest) where your residential IP is not blocked, then push the
+# transcripts and let review-synthesis.yml do the (reliable) synthesis.
+#
+# Modes:
+#   discover — run find-candidates and upload the report as an artifact. Read
+#              only; commits nothing. Use it to build a slug/url worklist.
+#   ingest   — bulk-ingest the "slug url" pairs you paste, optionally chain
+#              synthesis, then commit transcripts + reviews back to the branch.
+#
+# Requires repo secret ANTHROPIC_API_KEY only when run_synthesis=true.
+
+name: Review ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "discover (report only) or ingest (pull transcripts)"
+        required: true
+        type: choice
+        options: [discover, ingest]
+        default: discover
+      pairs:
+        description: "ingest mode: one '<slug> <youtube-url>' per line"
+        required: false
+        type: string
+      run_synthesis:
+        description: "ingest mode: run process-reviews after ingesting"
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: review-ingest-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install yt-dlp
+        run: pip install --upgrade yt-dlp
+
+      - run: npm ci
+
+      # ── discover ────────────────────────────────────────────────────────
+      - name: Find candidate review videos
+        if: ${{ inputs.mode == 'discover' }}
+        run: npm run find-candidates -- --out candidates.md || true
+
+      - name: Upload candidate report
+        if: ${{ inputs.mode == 'discover' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-candidates
+          path: candidates.md
+          if-no-files-found: warn
+
+      # ── ingest ──────────────────────────────────────────────────────────
+      - name: Write pairs file
+        if: ${{ inputs.mode == 'ingest' }}
+        env:
+          PAIRS: ${{ inputs.pairs }}
+        run: |
+          if [ -z "$PAIRS" ]; then
+            echo "::error::ingest mode requires the 'pairs' input (one '<slug> <url>' per line)."
+            exit 1
+          fi
+          printf '%s\n' "$PAIRS" > reviews.txt
+          echo "Ingest list:"; cat reviews.txt
+
+      - name: Bulk-ingest transcripts
+        if: ${{ inputs.mode == 'ingest' }}
+        run: npm run bulk-ingest -- --file reviews.txt --skip-existing
+
+      - name: Synthesize reviews
+        if: ${{ inputs.mode == 'ingest' && inputs.run_synthesis == true }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::run_synthesis=true but ANTHROPIC_API_KEY secret is not set."
+            exit 1
+          fi
+          npm run process-reviews
+
+      - name: Validate kite files
+        if: ${{ inputs.mode == 'ingest' }}
+        run: npm run validate-kites
+
+      - name: Commit & push
+        if: ${{ inputs.mode == 'ingest' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f reviews.txt
+          if git diff --quiet -- data/kites/; then
+            echo "No transcript/review changes to commit."
+            exit 0
+          fi
+          git add data/kites/
+          git commit -m "Ingest review transcripts via review-ingest workflow"
+          git push origin HEAD:${{ github.ref_name }}

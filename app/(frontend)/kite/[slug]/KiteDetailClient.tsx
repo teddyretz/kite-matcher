@@ -1,17 +1,39 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Kite, ReviewSource } from "@/lib/types";
+import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
+import { retailerSearchUrls } from '@/lib/retailers';
+import { brandSlug } from '@/lib/seo';
 import SpectrumBar from '@/components/SpectrumBar';
-import ReviewSources from '@/components/ReviewSources';
+import StructuredReview from '@/components/StructuredReview';
+import YouTubeReviews from '@/components/YouTubeReviews';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
-import StructuredReviewPanel from '@/components/StructuredReviewPanel';
+import { normalizeBuyLink } from '@/lib/buyLinks';
+
+function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
+  if (type === 'direct_product') {
+    return {
+      badge: 'Direct',
+      detail: 'Product page',
+    };
+  }
+
+  return {
+    badge: 'Search',
+    detail: 'Retailer search',
+  };
+}
 
 export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
   const related = getRelatedKites(kite, allKites, 3);
+  const youtubeReviews = (kite.reviews ?? []).filter(
+    (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
+  );
+  const [imgError, setImgError] = useState(false);
 
   const specs = [
     ['Aspect Ratio', kite.aspect_ratio.replace('-', ' ')],
@@ -31,21 +53,30 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       <nav className="text-sm text-gray-500 mb-6">
         <Link href="/kites" className="hover:text-ocean">Browse</Link>
         <span className="mx-2">/</span>
-        <span className="text-slate">{kite.brand} {kite.model} {kite.year}</span>
+        <Link href={`/brand/${brandSlug(kite.brand)}`} className="hover:text-ocean">{kite.brand}</Link>
+        <span className="mx-2">/</span>
+        <span className="text-slate">{kite.model} {kite.year}</span>
       </nav>
 
       {/* Hero */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="relative h-64 md:h-auto min-h-[20rem] bg-gray-50 flex items-center justify-center overflow-hidden">
-            <Image
-              src={kite.image || `/kites/${kite.slug}.jpg`}
-              alt={`${kite.brand} ${kite.model}`}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="relative h-48 sm:h-64 md:h-auto md:min-h-[320px] bg-gray-50 overflow-hidden">
+            {imgError ? (
+              <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
+                {kite.brand} {kite.model}
+              </div>
+            ) : (
+              <Image
+                src={`/kites/${kite.slug}.jpg`}
+                alt={`${kite.brand} ${kite.model} ${kite.year} kite`}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                onError={() => setImgError(true)}
+              />
+            )}
           </div>
           <div className="p-6 sm:p-8">
             <p className="text-sm text-gray-500 mb-1">{kite.brand} &middot; {kite.year}</p>
@@ -67,8 +98,6 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         </div>
       </div>
 
-      {kite.structured_review && <StructuredReviewPanel review={kite.structured_review} />}
-
       {/* Spectrum Bars */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8 space-y-6">
         <h2 className="text-lg font-bold text-slate">Style Placement</h2>
@@ -79,10 +108,10 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           rightLabel="Big Air"
         />
         <SpectrumBar
-          label="Kite Shape"
+          label="Kite Shape & Aspect"
           value={kite.shape_spectrum}
-          leftLabel="Low Aspect (C/Delta)"
-          rightLabel="High Aspect (Bow/LEI)"
+          leftLabel="Low Aspect · C-Kite"
+          rightLabel="High Aspect · Bow"
         />
       </div>
 
@@ -99,15 +128,36 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         </div>
       </div>
 
-      {/* Reviews */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-        <h2 className="text-lg font-bold text-slate mb-4">Reviews</h2>
-        <ReviewSources
-          sources={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.sources) ?? []}
-          aggregateScore={kite.structured_review?.rating ?? ((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.aggregate_score) ?? 0}
-          reviewCount={((kite.reviews.find(r => r.source === "aggregate_placeholder") as unknown as { data: { sources: ReviewSource[]; aggregate_score: number; review_count: number } } | undefined)?.data?.review_count) ?? 0}
-        />
-      </div>
+      {/* Review Summary */}
+      {kite.structured_review ? (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <div className="flex items-center gap-3 mb-1">
+            <h2 className="text-lg font-bold text-slate">Review Summary</h2>
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-ocean/10 text-ocean text-[11px] font-semibold uppercase tracking-wide">
+              AI-distilled
+            </span>
+          </div>
+          <p className="text-xs text-gray-500 mb-5">
+            Distilled by AI from independent video reviews — no brand or sponsor input. Sources listed below.
+          </p>
+          <StructuredReview review={kite.structured_review} />
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <h2 className="text-lg font-bold text-slate mb-2">Review Summary</h2>
+          <p className="text-sm text-gray-500">
+            We haven&apos;t gathered enough independent reviews to summarize this kite yet. Check back soon.
+          </p>
+        </div>
+      )}
+
+      {/* Video Reviews */}
+      {youtubeReviews.length > 0 && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <h2 className="text-lg font-bold text-slate mb-4">Video Reviews</h2>
+          <YouTubeReviews reviews={youtubeReviews} />
+        </div>
+      )}
 
       {/* User Reviews */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
@@ -121,18 +171,30 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div>
             <h3 className="text-sm font-semibold text-gray-500 mb-3">New</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {kite.buy_links.new.map((link, i) => (
+              {kite.buy_links.new.map((rawLink, i) => {
+                const link = normalizeBuyLink(rawLink);
+                const meta = buyLinkTypeMeta(link.type);
+                return (
                 <a
                   key={i}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
+                  className="flex items-center justify-between gap-3 p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
                 >
-                  <span className="font-medium text-sm">{link.retailer}</span>
-                  <span className="text-ocean font-bold">${link.price.toLocaleString()}</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium text-sm">{link.retailer}</span>
+                      <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate">
+                        {meta.badge}
+                      </span>
+                    </div>
+                    <div className="mt-1 text-xs text-gray-500">{meta.detail}</div>
+                  </div>
+                  <span className="text-ocean font-bold whitespace-nowrap">${link.price.toLocaleString()}</span>
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
           {kite.price_new_aluula && (
@@ -153,6 +215,31 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Search retailers — guaranteed-working fallback links */}
+          <div className="pt-6 border-t border-gray-100">
+            <h3 className="text-sm font-semibold text-gray-500 mb-3">
+              Or search popular retailers
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {retailerSearchUrls(kite).map((r) => (
+                <a
+                  key={r.name}
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 border border-gray-200 rounded-full text-gray-600 hover:border-ocean hover:text-ocean transition-colors"
+                >
+                  <span className="font-medium">{r.name}</span>
+                  {r.region && <span className="text-gray-400">· {r.region}</span>}
+                  <span aria-hidden>→</span>
+                </a>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] text-gray-400">
+              Direct retailer pricing changes often. The links above run a search at each shop for {kite.brand} {kite.model} {kite.year}.
+            </p>
           </div>
         </div>
       </div>

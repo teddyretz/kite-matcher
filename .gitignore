@@ -37,3 +37,11 @@ next-env.d.ts
 payload-types.ts
 .vercel
 public/kites/backup/
+
+# scratch/output artifacts from review-discovery scripts
+data/_channel-cache/
+data/_search-cache/
+candidates.md
+search.md
+links.md
+reviews.txt

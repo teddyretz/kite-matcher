@@ -1,0 +1,84 @@
+{
+  "id": "duotone-juice-2026",
+  "slug": "duotone-juice-2026",
+  "brand": "Duotone",
+  "model": "Juice",
+  "year": 2026,
+  "image": "/kites/duotone-juice-2026.jpg",
+  "style_spectrum": 62,
+  "shape_spectrum": 55,
+  "wave_spectrum": 22,
+  "style_tags": [
+    "freeride",
+    "lightwind",
+    "foil"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 9,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 8,
+  "wind_range_high": 28,
+  "sizes": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    17,
+    19,
+    21
+  ],
+  "price_new": 1399,
+  "summary": "Duotone's lightwind freeride machine with a 6-point bridle for a slimmer LE, redesigned tip geometry for sharper steering, and thinner LE for faster window speed. Effortless early planing and water relaunch in minimal breeze.",
+  "best_for": "Lightwind freeride and foiling sessions",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 9,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-juice-2026",
+            "score": 4.3,
+            "summary": "Lightwind riders love the effortless early planing and smooth power delivery. The 6-point bridle is a game changer for the category."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+juice+2026",
+            "score": 4.2,
+            "summary": "Solid lightwind option from Duotone. The thinner LE makes a real difference in low-end grunt."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Duotone+Juice+2026",
+        "price": 1399
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Juice+2026"
+      }
+    ]
+  }
+}

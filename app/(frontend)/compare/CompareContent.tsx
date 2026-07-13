@@ -1,21 +1,222 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useCallback, useMemo } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Kite } from '@/lib/types';
+import { matchScore } from '@/lib/matcher';
+import { useFilters, DEFAULT_FILTERS } from '@/lib/useFilters';
+import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import SpectrumBar from '@/components/SpectrumBar';
+
+const MAX_COMPARE = 3;
+
+const styleZones = [
+  { label: 'Foil',      color: 'text-teal-400'    },
+  { label: 'Surf',      color: 'text-emerald-400' },
+  { label: 'Freestyle', color: 'text-violet-400'  },
+  { label: 'Freeride',  color: 'text-blue-400'    },
+  { label: 'Big Air',   color: 'text-orange-400'  },
+];
+function getActiveZone(value: number): number {
+  if (value <= 20) return 0;
+  if (value <= 40) return 1;
+  if (value <= 60) return 2;
+  if (value <= 80) return 3;
+  return 4;
+}
 
 export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   const searchParams = useSearchParams();
-  const slugs = (searchParams.get('kites') ?? '').split(',').filter(Boolean);
-  const kites = slugs.map(s => allKites.find(k => k.slug === s)).filter(Boolean) as Kite[];
+  const router = useRouter();
+  const pathname = usePathname();
+  const { filters, setFilters } = useFilters();
 
-  if (kites.length === 0) {
+  const slugs = (searchParams.get('kites') ?? '').split(',').filter(Boolean);
+  const bySlug = useMemo(() => new Map(allKites.map((k) => [k.slug, k])), [allKites]);
+  const kitesInCompare = useMemo(
+    () => slugs.map((s) => bySlug.get(s)).filter((k): k is Kite => Boolean(k)),
+    [slugs, bySlug],
+  );
+  const missing = slugs.filter((s) => !bySlug.has(s));
+
+  // Local-state-with-debounced-commit: sliders stay snappy while the
+  // (relatively expensive) URL update fires 250ms after the last change.
+  const commitStyle = useCallback((v: number) => setFilters({ style: v }), [setFilters]);
+  const commitShape = useCallback((v: number) => setFilters({ shape: v }), [setFilters]);
+  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
+  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+
+  const slidersAdjusted =
+    styleVal !== DEFAULT_FILTERS.style || shapeVal !== DEFAULT_FILTERS.shape;
+
+  // Score + sort. Always score; only show the score badge when sliders are
+  // off the default so we don't visually emphasize a meaningless 50/50 result.
+  const scoredKites = useMemo(() => {
+    return kitesInCompare
+      .map((k) => ({ kite: k, score: matchScore(k, styleVal, shapeVal) }))
+      .sort((a, b) => b.score - a.score);
+  }, [kitesInCompare, styleVal, shapeVal]);
+
+  const updateKites = useCallback(
+    (newSlugs: string[]) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (newSlugs.length > 0) params.set('kites', newSlugs.join(','));
+      else params.delete('kites');
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    },
+    [searchParams, router, pathname],
+  );
+
+  const addKite = (slug: string) => {
+    if (!slug || slugs.includes(slug) || slugs.length >= MAX_COMPARE) return;
+    updateKites([...slugs, slug]);
+  };
+  const removeKite = (slug: string) => updateKites(slugs.filter((s) => s !== slug));
+
+  const available = useMemo(() => {
+    return allKites
+      .filter((k) => !slugs.includes(k.slug))
+      .sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`));
+  }, [allKites, slugs]);
+
+  const availableByBrand = useMemo(() => {
+    const groups: Record<string, Kite[]> = {};
+    for (const k of available) {
+      (groups[k.brand] ??= []).push(k);
+    }
+    return groups;
+  }, [available]);
+
+  // Slider + dropdown header — always rendered, even when nothing is selected.
+  const Header = (
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6 mb-6 space-y-5">
+      <div className="grid sm:grid-cols-2 gap-5">
+        {/* Style slider */}
+        <div>
+          <div className="flex items-baseline justify-between mb-2">
+            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
+              Riding Style
+            </label>
+            <span
+              className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}
+            >
+              {styleZones[getActiveZone(styleVal)].label}
+            </span>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={styleVal}
+            onChange={(e) => setStyleVal(Number(e.target.value))}
+            className="w-full"
+            style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
+            aria-label="Riding style preference"
+          />
+          <div className="flex justify-between mt-1.5">
+            {styleZones.map((zone, i) => (
+              <span
+                key={zone.label}
+                className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
+              >
+                {zone.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Shape slider */}
+        <div>
+          <div className="flex items-baseline justify-between mb-2">
+            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
+              Kite Shape & Aspect
+            </label>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={shapeVal}
+            onChange={(e) => setShapeVal(Number(e.target.value))}
+            className="w-full"
+            style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
+            aria-label="Kite character preference"
+          />
+          <div className="flex justify-between mt-1.5">
+            <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
+            <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Add-kite dropdown */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 border-t border-gray-100">
+        <label className="text-xs font-semibold tracking-widest uppercase text-gray-500 shrink-0">
+          Add a kite
+        </label>
+        <select
+          className="flex-1 text-sm border border-gray-200 rounded-lg px-3 py-2 disabled:opacity-50"
+          value=""
+          disabled={slugs.length >= MAX_COMPARE}
+          onChange={(e) => {
+            if (e.target.value) {
+              addKite(e.target.value);
+              e.target.selectedIndex = 0;
+            }
+          }}
+        >
+          <option value="">
+            {slugs.length >= MAX_COMPARE
+              ? `Limit reached (${MAX_COMPARE} max) — remove one first`
+              : 'Pick a kite to add to the comparison…'}
+          </option>
+          {Object.entries(availableByBrand).map(([brand, list]) => (
+            <optgroup key={brand} label={brand}>
+              {list.map((k) => (
+                <option key={k.slug} value={k.slug}>
+                  {k.model} {k.year}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </div>
+
+      {slidersAdjusted && (
+        <p className="text-xs text-gray-500">
+          Columns ordered by match score against your sliders. Adjust to re-rank.
+        </p>
+      )}
+    </div>
+  );
+
+  if (slugs.length === 0) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold text-slate mb-4">Compare Kites</h1>
-        <p className="text-gray-500 mb-6">Add kites to compare by clicking the &ldquo;Compare&rdquo; button on any kite card.</p>
-        <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+        {Header}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
+          <p className="text-gray-500 mb-4">Pick a kite from the dropdown above, or add one from any kite card.</p>
+          <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (kitesInCompare.length === 0) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+        {Header}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
+          <p className="text-gray-500 mb-2">
+            We couldn&apos;t find {missing.length === 1 ? 'this kite' : 'these kites'}:
+          </p>
+          <p className="text-sm text-gray-400 mb-6 font-mono">{missing.join(', ')}</p>
+          <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+        </div>
       </div>
     );
   }
@@ -39,7 +240,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       case 'price': return `$${k.price_new.toLocaleString()}`;
       case 'aluula': return k.aluula ? 'Yes' : 'No';
       case 'brainchild': return k.brainchild ? 'Yes' : 'No';
-      case 'review_score': return (k.structured_review?.rating ?? 0).toFixed(1);
+      case 'review_score': return k.structured_review ? k.structured_review.rating.toFixed(1) : '—';
       default: return '';
     }
   };
@@ -57,29 +258,61 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
     aluula: 'Aluula', brainchild: 'Brainchild', review_score: 'Review Score',
   };
 
-  const rows: SpecRow[] = fields.map(f => {
-    const values = kites.map(k => getVal(k, f));
+  // Order kites by score (highest match first) and compute per-row values in
+  // that same order.
+  const orderedKites = scoredKites;
+  const rows: SpecRow[] = fields.map((f) => {
+    const values = orderedKites.map(({ kite }) => getVal(kite, f));
     const unique = new Set(values);
     return { label: labels[f], values, highlight: unique.size > 1 };
   });
+
+  function scoreBadgeClass(score: number): string {
+    if (score >= 80) return 'bg-ocean/15 text-ocean';
+    if (score >= 60) return 'bg-sand/15 text-sand';
+    return 'bg-gray-100 text-gray-500';
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
 
-      {/* Kite headers */}
+      {Header}
+
+      {missing.length > 0 && (
+        <div className="mb-4 px-4 py-3 bg-amber-50 border border-amber-200 text-amber-900 text-sm rounded-lg">
+          {missing.length === 1
+            ? <>Skipped <span className="font-mono">{missing[0]}</span> — kite not found.</>
+            : <>Skipped {missing.length} kites that couldn&apos;t be found: <span className="font-mono">{missing.join(', ')}</span></>}
+        </div>
+      )}
+
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[480px]">
             <thead>
               <tr className="border-b border-gray-100">
-                <th className="text-left p-4 w-40 text-sm font-medium text-gray-500">Spec</th>
-                {kites.map(k => (
-                  <th key={k.id} className="p-4 text-center">
-                    <Link href={`/kite/${k.slug}`} className="hover:text-ocean">
-                      <p className="font-bold text-slate">{k.model}</p>
-                      <p className="text-xs text-gray-500">{k.brand} {k.year}</p>
-                    </Link>
+                <th className="text-left p-3 sm:p-4 w-28 sm:w-40 text-xs sm:text-sm font-medium text-gray-500">Spec</th>
+                {orderedKites.map(({ kite, score }) => (
+                  <th key={kite.id} className="p-3 sm:p-4 text-center align-top">
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Link href={`/kite/${kite.slug}`} className="hover:text-ocean">
+                        <p className="font-bold text-slate text-sm sm:text-base">{kite.model}</p>
+                        <p className="text-[11px] sm:text-xs text-gray-500">{kite.brand} {kite.year}</p>
+                      </Link>
+                      {slidersAdjusted && (
+                        <span className={`px-2 py-0.5 text-[11px] font-bold rounded ${scoreBadgeClass(score)}`}>
+                          {score}% match
+                        </span>
+                      )}
+                      <button
+                        onClick={() => removeKite(kite.slug)}
+                        className="text-[11px] text-gray-400 hover:text-red-500"
+                        aria-label={`Remove ${kite.model} from compare`}
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -87,9 +320,9 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} className={`border-b border-gray-50 ${row.highlight ? 'bg-sand/5' : ''}`}>
-                  <td className="p-4 text-sm text-gray-500 font-medium">{row.label}</td>
+                  <td className="p-3 sm:p-4 text-xs sm:text-sm text-gray-500 font-medium">{row.label}</td>
                   {row.values.map((val, i) => (
-                    <td key={i} className={`p-4 text-center text-sm capitalize ${row.highlight ? 'font-semibold text-slate' : 'text-gray-700'}`}>
+                    <td key={i} className={`p-3 sm:p-4 text-center text-xs sm:text-sm capitalize ${row.highlight ? 'font-semibold text-slate' : 'text-gray-700'}`}>
                       {val}
                     </td>
                   ))}
@@ -103,10 +336,10 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       {/* Style spectrum visual */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mt-8 space-y-4">
         <h2 className="text-lg font-bold text-slate">Style Comparison</h2>
-        {kites.map(k => (
-          <div key={k.id}>
-            <p className="text-sm font-medium text-gray-600 mb-1">{k.brand} {k.model}</p>
-            <SpectrumBar label="" value={k.style_spectrum} leftLabel="Foiling" rightLabel="Big Air" />
+        {orderedKites.map(({ kite }) => (
+          <div key={kite.id}>
+            <p className="text-sm font-medium text-gray-600 mb-1">{kite.brand} {kite.model}</p>
+            <SpectrumBar label="" value={kite.style_spectrum} leftLabel="Foiling" rightLabel="Big Air" />
           </div>
         ))}
       </div>

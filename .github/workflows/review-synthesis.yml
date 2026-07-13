@@ -1,0 +1,106 @@
+# Synthesize structured_review for kites from YouTube transcripts already in
+# the repo, then commit the results back to the triggering branch.
+#
+# This is the RELIABLE half of the review pipeline: it only talks to the
+# Anthropic API (no YouTube), so it works whenever transcripts are present in
+# data/kites/*.json. Ingest transcripts first (locally, or via the
+# review-ingest workflow), then run this.
+#
+# Requires repo secret: ANTHROPIC_API_KEY  (sk-ant-...)
+#
+# process-reviews only touches kites that have a transcript and no
+# structured_review, so re-running is safe and a no-op when nothing is pending
+# (unless you pass overwrite=true).
+
+name: Review synthesis
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Single kite slug to process (blank = all pending)"
+        required: false
+        type: string
+      overwrite:
+        description: "Regenerate reviews that already exist"
+        required: false
+        type: boolean
+        default: false
+      dry_run:
+        description: "Preview only — do not write or commit"
+        required: false
+        type: boolean
+        default: false
+      limit:
+        description: "Max kites to process (blank = no limit)"
+        required: false
+        type: string
+  # Weekly sweep picks up any transcripts ingested since the last run.
+  schedule:
+    - cron: "0 7 * * 1"
+
+concurrency:
+  group: review-synthesis-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard — API key present
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY secret is not set. Add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build process-reviews args
+        id: args
+        env:
+          SLUG: ${{ inputs.slug }}
+          OVERWRITE: ${{ inputs.overwrite }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          ARGS=""
+          [ -n "$SLUG" ] && ARGS="$ARGS --slug $SLUG"
+          [ "$OVERWRITE" = "true" ] && ARGS="$ARGS --overwrite"
+          [ "$DRY_RUN" = "true" ] && ARGS="$ARGS --dry-run"
+          [ -n "$LIMIT" ] && ARGS="$ARGS --limit $LIMIT"
+          echo "value=$ARGS" >> "$GITHUB_OUTPUT"
+          echo "Running: npm run process-reviews --$ARGS"
+
+      - name: Synthesize reviews
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run process-reviews -- ${{ steps.args.outputs.value }}
+
+      - name: Validate kite files
+        run: npm run validate-kites
+
+      - name: Commit & push results
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/kites/; then
+            echo "No review changes to commit."
+            exit 0
+          fi
+          git add data/kites/
+          git commit -m "Generate structured reviews via review-synthesis workflow"
+          git push origin HEAD:${{ github.ref_name }}

@@ -1,7 +1,7 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { KiteSummary } from '@/lib/types';
+import { createContext, useContext, useState, useEffect, useMemo, useCallback, ReactNode } from 'react';
+import { Kite } from '@/lib/types';
 
 interface CompareContextType {
   compareKites: string[];
@@ -9,50 +9,90 @@ interface CompareContextType {
   removeFromCompare: (slug: string) => void;
   clearCompare: () => void;
   isInCompare: (slug: string) => boolean;
-  allKites: KiteSummary[];
+  allKites: Kite[];
   kitesLoading: boolean;
 }
 
 const CompareContext = createContext<CompareContextType | undefined>(undefined);
 
+const STORAGE_KEY = 'findmykite:compare:v1';
+const MAX_COMPARE = 3;
+
+function readStoredSlugs(): string[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((s): s is string => typeof s === 'string').slice(0, MAX_COMPARE);
+  } catch {
+    return [];
+  }
+}
+
 export function CompareProvider({ children }: { children: ReactNode }) {
   const [compareKites, setCompareKites] = useState<string[]>([]);
-  const [allKites, setAllKites] = useState<KiteSummary[]>([]);
+  const [allKites, setAllKites] = useState<Kite[]>([]);
   const [kitesLoading, setKitesLoading] = useState(true);
+
+  // Hydrate from localStorage after mount (avoids SSR mismatch).
+  useEffect(() => {
+    setCompareKites(readStoredSlugs());
+  }, []);
+
+  // Persist on change.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(compareKites));
+    } catch {
+      // localStorage may be disabled (private mode); failure is non-fatal.
+    }
+  }, [compareKites]);
 
   useEffect(() => {
     fetch('/api/kites')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load kite summaries');
-        return res.json() as Promise<KiteSummary[]>;
-      })
-      .then((data) => {
+      .then(res => res.json())
+      .then((data: Kite[]) => {
         setAllKites(data);
         setKitesLoading(false);
       })
       .catch(() => setKitesLoading(false));
   }, []);
 
-  const addToCompare = (slug: string) => {
-    setCompareKites(prev => {
-      if (prev.length >= 3 || prev.includes(slug)) return prev;
+  // Stable callbacks (functional setState; no closure deps) so the context
+  // value's reference identity only changes when state actually changes.
+  // Without this, every parent render produces a new value object which
+  // re-renders all useCompare() consumers (79 KiteCards on the browse page
+  // — the cause of the slider sluggishness reported on /results).
+  const addToCompare = useCallback((slug: string) => {
+    setCompareKites((prev) => {
+      if (prev.length >= MAX_COMPARE || prev.includes(slug)) return prev;
       return [...prev, slug];
     });
-  };
+  }, []);
 
-  const removeFromCompare = (slug: string) => {
-    setCompareKites(prev => prev.filter(s => s !== slug));
-  };
+  const removeFromCompare = useCallback((slug: string) => {
+    setCompareKites((prev) => prev.filter((s) => s !== slug));
+  }, []);
 
-  const clearCompare = () => setCompareKites([]);
+  const clearCompare = useCallback(() => setCompareKites([]), []);
 
-  const isInCompare = (slug: string) => compareKites.includes(slug);
-
-  return (
-    <CompareContext.Provider value={{ compareKites, addToCompare, removeFromCompare, clearCompare, isInCompare, allKites, kitesLoading }}>
-      {children}
-    </CompareContext.Provider>
+  const value = useMemo<CompareContextType>(
+    () => ({
+      compareKites,
+      addToCompare,
+      removeFromCompare,
+      clearCompare,
+      isInCompare: (slug: string) => compareKites.includes(slug),
+      allKites,
+      kitesLoading,
+    }),
+    [compareKites, allKites, kitesLoading, addToCompare, removeFromCompare, clearCompare],
   );
+
+  return <CompareContext.Provider value={value}>{children}</CompareContext.Provider>;
 }
 
 export function useCompare() {
@@ -60,3 +100,4 @@ export function useCompare() {
   if (!context) throw new Error('useCompare must be used within CompareProvider');
   return context;
 }
+

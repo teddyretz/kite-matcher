@@ -4,13 +4,17 @@ import Link from "next/link";
 import { useState } from "react";
 import { CompareProvider } from "@/components/CompareContext";
 import CompareDrawer from "@/components/CompareDrawer";
+import CompareNavLink from "@/components/CompareNavLink";
+import SiteFooter from "@/components/SiteFooter";
 
 const navLinks = [
   { href: "/", label: "Matcher" },
   { href: "/kites", label: "Browse" },
-  { href: "/compare", label: "Compare" },
   { href: "/about", label: "About" },
 ];
+
+const navLinkClass =
+  "text-sm font-medium text-gray-500 hover:text-white transition-colors duration-200";
 
 export default function FrontendLayout({
   children,
@@ -34,14 +38,11 @@ export default function FrontendLayout({
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-gray-500 hover:text-white transition-colors duration-200"
-                >
+                <Link key={link.href} href={link.href} className={navLinkClass}>
                   {link.label}
                 </Link>
               ))}
+              <CompareNavLink className={navLinkClass} />
             </div>
 
             {/* Mobile toggle */}
@@ -73,12 +74,17 @@ export default function FrontendLayout({
                   {link.label}
                 </Link>
               ))}
+              <CompareNavLink
+                className="block px-3 py-2 text-sm font-medium text-gray-500 hover:text-white hover:bg-gray-100 rounded-lg transition-colors"
+                onClick={() => setMobileOpen(false)}
+              />
             </div>
           )}
         </div>
       </nav>
 
-      <main>{children}</main>
+      <main className="pb-24 lg:pb-0">{children}</main>
+      <SiteFooter />
       <CompareDrawer />
     </CompareProvider>
   );

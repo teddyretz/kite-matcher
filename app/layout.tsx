@@ -1,5 +1,7 @@
-import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata } from "next";
+import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -17,26 +19,19 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://findmykite.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "FindMyKite — Find Your Next Kite",
     template: "%s | FindMyKite",
   },
   description:
     "Match your riding style to the right kite — with real reviews, not sponsored content.",
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "FindMyKite",
-    title: "FindMyKite — Find Your Next Kite",
-    description: "Independent kite recommendations matched to how you actually ride.",
-    url: "/",
+    url: SITE_URL,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "FindMyKite — Find Your Next Kite",
-    description: "Independent kite recommendations matched to how you actually ride.",
-  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -50,6 +45,7 @@ export default function RootLayout({
         className={`${jakartaSans.variable} ${barlowCondensed.variable} font-sans antialiased bg-surface text-slate`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

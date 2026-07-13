@@ -1,0 +1,102 @@
+{
+  "id": "ozone-enduro-v3-2025",
+  "slug": "ozone-enduro-v3-2025",
+  "brand": "Ozone",
+  "model": "Enduro V3",
+  "year": 2025,
+  "image": "/kites/ozone-enduro-v3-2025.jpg",
+  "style_spectrum": 65,
+  "shape_spectrum": 55,
+  "wave_spectrum": 38,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "foil-friendly"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "both",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1649,
+  "summary": "The Ozone Enduro V3 is a versatile freeride kite with excellent depower range and predictable handling. Great for twin-tip cruising, foilboarding, and progressing riders.",
+  "best_for": "Freeriders and progressing kiters wanting a forgiving all-around kite",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.5,
+        "review_count": 18,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399880",
+            "score": 4.5,
+            "summary": "Praised for its smooth power delivery, excellent depower, and easy relaunch. Many riders call it one of the best all-around freeride kites available."
+          },
+          {
+            "source": "YouTube - Progression Kite Review",
+            "url": "https://www.youtube.com/watch?v=ozone_enduro_v3_rev",
+            "score": 4.4,
+            "summary": "Reviewer highlights the Enduro V3's user-friendly nature and impressive wind range, making it a top choice for intermediate riders.",
+            "video_id": "ozone_enduro_v3_rev"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v3",
+            "score": null,
+            "summary": "Popular recommendation for anyone looking for a do-it-all kite. Users note it pairs well with both twin-tips and foilboards."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Ozone+Enduro+V3+2025",
+        "price": 1649
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Ozone+Enduro+V3+2025",
+        "price": 1649
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Ozone+Enduro+V3+2025",
+        "price": 1649
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Ozone+Enduro+V3"
+      }
+    ]
+  }
+}

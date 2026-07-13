@@ -1,0 +1,102 @@
+{
+  "id": "slingshot-rally-gt-v2-2025",
+  "slug": "slingshot-rally-gt-v2-2025",
+  "brand": "Slingshot",
+  "model": "Rally GT V2",
+  "year": 2025,
+  "image": "/kites/slingshot-rally-gt-v2-2025.jpg",
+  "style_spectrum": 62,
+  "shape_spectrum": 50,
+  "wave_spectrum": 30,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "beginner-friendly"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "both",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 30,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1399,
+  "summary": "The Slingshot Rally GT V2 is Slingshot's all-around freeride kite with excellent depower range and forgiving handling. A great choice for progressing riders and freeriders alike.",
+  "best_for": "All-around freeriders and progressing kiters on a budget",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 14,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=2399710",
+            "score": 4.2,
+            "summary": "Riders praise the Rally GT V2's ease of use, excellent relaunch, and great value proposition. A solid do-everything kite without breaking the bank."
+          },
+          {
+            "source": "YouTube - Kite Review Channel",
+            "url": "https://www.youtube.com/watch?v=slingshot_rally_gt_v2",
+            "score": 4.3,
+            "summary": "Reviewer highlights the predictable power delivery and wide wind range, recommending it as an ideal first kite for riders who want to grow into it.",
+            "video_id": "slingshot_rally_gt_v2"
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rally_gt_v2",
+            "score": null,
+            "summary": "Frequently recommended as a budget-friendly alternative to premium freeride kites. Users note it punches above its price point."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Slingshot+Rally+GT+V2+2025",
+        "price": 1399
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Slingshot+Rally+GT+V2+2025",
+        "price": 1399
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Slingshot+Rally+GT+V2+2025",
+        "price": 1399
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Slingshot+Rally+GT"
+      }
+    ]
+  }
+}

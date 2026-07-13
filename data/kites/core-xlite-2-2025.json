@@ -1,0 +1,88 @@
+{
+  "id": "core-xlite-2-2025",
+  "slug": "core-xlite-2-2025",
+  "brand": "Core",
+  "model": "XLite 2",
+  "year": 2025,
+  "image": "/kites/core-xlite-2-2025.jpg",
+  "style_spectrum": 8,
+  "shape_spectrum": 72,
+  "wave_spectrum": 28,
+  "style_tags": [
+    "foil",
+    "lightwind",
+    "travel"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 1,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 9,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 5,
+  "wind_range_high": 28,
+  "sizes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13.5
+  ],
+  "price_new": 1349,
+  "summary": "Core's dedicated single-strut foil kite. 30% lighter than the Nexus, CoreTex 2.0 canopy with improved tear resistance, anti-snag bridles. Fuses Nexus power with Section wave drift. Now includes 2m and 3m sizes for racing and gorge conditions. Reverse launch capable.",
+  "best_for": "Foiling and light wind in all conditions",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.5,
+        "review_count": 16,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=core-xlite-2-2025",
+            "score": 4.5,
+            "summary": "The XLite 2 is the real deal for foil kiting. The tiny 2m and 3m sizes are a genuine innovation for high-wind foil racing. Incredibly light and responsive."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xlite+2+2025",
+            "score": 4.4,
+            "summary": "Best foil kite Core has made. The new canopy is noticeably more durable than the original XLite."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Core+XLite+2+2025",
+        "price": 1349
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Core+XLite+2"
+      }
+    ]
+  }
+}

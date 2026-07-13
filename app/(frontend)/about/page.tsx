@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'Why FindMyKite provides independent, rider-first kite recommendations without sponsored rankings.',
-  alternates: { canonical: '/about' },
+  title: 'About — Why FindMyKite Exists',
+  description:
+    'FindMyKite is an independent kite buying advisor: no sponsors, no paid placements, review summaries distilled from independent video reviewers.',
+  alternates: { canonical: `${SITE_URL}/about` },
 };
 
 export default function AboutPage() {

@@ -1,0 +1,102 @@
+{
+  "id": "cabrinha-switchblade-apex-2026",
+  "slug": "cabrinha-switchblade-apex-2026",
+  "brand": "Cabrinha",
+  "model": "Switchblade Apex",
+  "year": 2026,
+  "image": "/kites/cabrinha-switchblade-apex-2026.jpg",
+  "style_spectrum": 65,
+  "shape_spectrum": 47,
+  "wave_spectrum": 37,
+  "style_tags": [
+    "freeride",
+    "all-around",
+    "boosting"
+  ],
+  "skill_level": [
+    "beginner",
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 7,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 10,
+  "wind_range_high": 31,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 2049,
+  "summary": "The next evolution of the Switchblade featuring Cabrinha's Apex construction for improved durability and lighter weight. Retains the legendary Switchblade versatility with refined performance.",
+  "best_for": "All-around freeriding with premium build",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.3,
+        "review_count": 8,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-apex-2026",
+            "score": 4.4,
+            "summary": "Refinements over the 2025 model include lighter weight and improved upwind performance. Still the reliable Switchblade at its core."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+apex+2026",
+            "score": 4.2,
+            "summary": "A solid update to an already great kite. The Apex construction adds noticeable crispness to the ride."
+          },
+          {
+            "source": "YouTube - Progression",
+            "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+apex+2026+review",
+            "score": 4.3,
+            "summary": "Incremental but welcome improvements to the Switchblade formula. Still a top choice for one-kite quivers.",
+            "video_id": null
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Cabrinha+Switchblade+Apex+2026",
+        "price": 1699
+      },
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=Cabrinha+Switchblade+Apex+2026",
+        "price": 1699
+      },
+      {
+        "retailer": "Kite Paddle Surf",
+        "url": "https://www.kitepaddlesurf.com/search?q=Cabrinha+Switchblade+Apex+2026",
+        "price": 1699
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+Apex+2026"
+      }
+    ]
+  }
+}

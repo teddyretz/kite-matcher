@@ -1,6 +1,10 @@
-import { withPayload } from '@payloadcms/next/withPayload'
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  // Bundle per-kite JSON files with serverless functions so /api/kites
+  // and on-demand server renders can read them at runtime.
+  outputFileTracingIncludes: {
+    '/**': ['./data/kites/**/*.json'],
+  },
+};
 
-export default withPayload(nextConfig);
+export default nextConfig;

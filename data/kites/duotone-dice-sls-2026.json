@@ -1,0 +1,84 @@
+{
+  "id": "duotone-dice-sls-2026",
+  "slug": "duotone-dice-sls-2026",
+  "brand": "Duotone",
+  "model": "Dice SLS",
+  "year": 2026,
+  "image": "/kites/duotone-dice-sls-2026.jpg",
+  "style_spectrum": 55,
+  "shape_spectrum": 42,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "freestyle",
+    "wave",
+    "freeride",
+    "all-around"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 6,
+  "depower_range": 8,
+  "relaunch": "easy",
+  "wind_range_low": 11,
+  "wind_range_high": 36,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1999,
+  "summary": "The ultimate freestyle and wave all-rounder. Penta TX and Trinity TX build, 3-strut pure control. Explosive pop and crisp slack for tricks, effortless drift for waves. Refined arc shape with open center and pulled-in tips for longer depower stroke and lighter steering.",
+  "best_for": "Freestyle, wave riding, and sporty all-around riding",
+  "reviews": [
+    {
+      "source": "aggregate_placeholder",
+      "data": {
+        "aggregate_score": 4.5,
+        "review_count": 14,
+        "sources": [
+          {
+            "source": "Kiteforum",
+            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-sls-2026",
+            "score": 4.5,
+            "summary": "The Dice SLS is the most versatile kite in the Duotone range — genuinely excellent at freestyle and waves. The longer depower stroke and lighter steering are meaningful upgrades over the standard Dice."
+          },
+          {
+            "source": "Reddit r/kiteboarding",
+            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+sls+2026",
+            "score": 4.4,
+            "summary": "Best two-in-one kite Duotone makes. If you want one kite that handles both freestyle and surf, the Dice SLS is the answer."
+          }
+        ]
+      }
+    }
+  ],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "Real Watersports",
+        "url": "https://www.realwatersports.com/search?q=Duotone+Dice+SLS+2026",
+        "price": 1999
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Dice+SLS"
+      }
+    ]
+  }
+}
