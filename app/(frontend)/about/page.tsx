@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Why FindMyKite provides independent, rider-first kite recommendations without sponsored rankings.',
+  alternates: { canonical: '/about' },
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
