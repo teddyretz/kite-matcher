@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Kite } from '@/lib/types';
-import { getTopMatches } from '@/lib/matcher';
+import { displayFitScore, getTopMatches } from '@/lib/matcher';
 
 interface StyleMatcherProps {
   kites: Kite[];
@@ -182,7 +182,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
                     kite.score >= 60 ? 'text-sand' :
                     'text-gray-500'
                   }`}>
-                    {kite.score}%
+                    ≈{displayFitScore(kite.score)}%
                   </div>
                   <p className="text-[11px] font-semibold text-slate truncate leading-snug">{kite.brand}</p>
                   <p className="text-[10px] text-gray-400 truncate">{kite.model}</p>

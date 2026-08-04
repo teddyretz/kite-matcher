@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { filterByMatchConstraints, getAdvisorMatches, getRankedMatchesV2, getSliderAdvisorMatches, matchScore } from '../lib/matcher';
+import { displayFitScore, filterByMatchConstraints, getAdvisorMatches, getDiverseAdvisorShortlist, getRankedMatchesV2, getSliderAdvisorMatches, matchScore } from '../lib/matcher';
 import type { Kite } from '../lib/types';
 
 function kite(overrides: Partial<Kite> = {}): Kite {
@@ -127,4 +127,52 @@ test('wave-priority slider can lift a wave-oriented kite in the ranking', () => 
   });
 
   assert.equal(matches[0].slug, 'wave');
+});
+
+test('beginner ranking prioritizes control and relaunch over technical performance', () => {
+  const matches = getSliderAdvisorMatches(
+    [
+      kite({ slug: 'technical', skill_level: ['beginner'], turning_speed: 'very-fast', depower_range: 4, relaunch: 'hard' }),
+      kite({ slug: 'forgiving', skill_level: ['beginner'], turning_speed: 'medium', depower_range: 10, relaunch: 'easy' }),
+    ],
+    { version: 2, style: 50, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'beginner' },
+  );
+
+  assert.equal(matches[0].slug, 'forgiving');
+  assert.ok(matches[0].reasons.includes('Control and relaunch suit a newer rider'));
+});
+
+test('brand identity never changes a fit score', () => {
+  const matches = getSliderAdvisorMatches(
+    [
+      kite({ id: 'core', slug: 'core', brand: 'Core' }),
+      kite({ id: 'other', slug: 'other', brand: 'Other' }),
+    ],
+    { version: 2, style: 50, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'intermediate' },
+  );
+
+  assert.equal(matches[0].score, matches[1].score);
+});
+
+test('displayed fit scores round to five-point increments', () => {
+  assert.equal(displayFitScore(93), 95);
+  assert.equal(displayFitScore(92), 90);
+});
+
+test('advisor shortlist limits brand repetition without changing fit scores', () => {
+  const ranked = getSliderAdvisorMatches(
+    [
+      kite({ id: 'core-1', slug: 'core-1', brand: 'Core', style_spectrum: 50 }),
+      kite({ id: 'core-2', slug: 'core-2', brand: 'Core', style_spectrum: 51 }),
+      kite({ id: 'core-3', slug: 'core-3', brand: 'Core', style_spectrum: 52 }),
+      kite({ id: 'north-1', slug: 'north-1', brand: 'North', style_spectrum: 55 }),
+    ],
+    { version: 2, style: 50, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'intermediate' },
+  );
+  const originalScore = ranked.find(match => match.slug === 'core-1')?.score;
+  const shortlist = getDiverseAdvisorShortlist(ranked, 3, 2);
+
+  assert.equal(shortlist.filter(match => match.brand === 'Core').length, 2);
+  assert.ok(shortlist.some(match => match.brand === 'North'));
+  assert.equal(ranked.find(match => match.slug === 'core-1')?.score, originalScore);
 });

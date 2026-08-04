@@ -28,6 +28,7 @@ export interface AdvisorPreferences extends MatchConstraints {
 
 export interface AdvisorMatch extends Kite {
   score: number;
+  fitLabel: 'Excellent fit' | 'Strong fit' | 'Good fit' | 'Worth a look';
   reasons: string[];
   tradeoffs: string[];
 }
@@ -115,12 +116,68 @@ function sliderWindFit(kite: Kite, wind: number): number {
   return mixed * (1 - weight) + strong * weight;
 }
 
+function riderLevelFit(kite: Kite, level: SkillLevel): number {
+  if (level === 'beginner') {
+    return kite.depower_range * 6 + relaunchValues[kite.relaunch] * 0.4;
+  }
+
+  if (level === 'intermediate') {
+    const rangeWidth = Math.min(100, Math.max(0, kite.wind_range_high - kite.wind_range_low) * 4);
+    return kite.depower_range * 4
+      + relaunchValues[kite.relaunch] * 0.25
+      + closeness(turningValues[kite.turning_speed], 60) * 0.2
+      + rangeWidth * 0.15;
+  }
+
+  return 100;
+}
+
+export function displayFitScore(score: number): number {
+  return Math.max(0, Math.min(100, Math.round(score / 5) * 5));
+}
+
+export function fitLabel(score: number): AdvisorMatch['fitLabel'] {
+  if (score >= 88) return 'Excellent fit';
+  if (score >= 78) return 'Strong fit';
+  if (score >= 68) return 'Good fit';
+  return 'Worth a look';
+}
+
+/**
+ * Builds a discovery shortlist without changing any underlying fit score.
+ * Overflow candidates are appended only when the brand cap would leave the
+ * shortlist short, so small categories still return the requested count.
+ */
+export function getDiverseAdvisorShortlist(
+  matches: AdvisorMatch[],
+  count = 12,
+  maxPerBrand = 2,
+): AdvisorMatch[] {
+  const selected: AdvisorMatch[] = [];
+  const overflow: AdvisorMatch[] = [];
+  const brandCounts = new Map<string, number>();
+
+  for (const match of matches) {
+    const brandCount = brandCounts.get(match.brand) ?? 0;
+    if (brandCount < maxPerBrand && selected.length < count) {
+      selected.push(match);
+      brandCounts.set(match.brand, brandCount + 1);
+    } else {
+      overflow.push(match);
+    }
+  }
+
+  return selected.concat(overflow.slice(0, Math.max(0, count - selected.length))).slice(0, count);
+}
+
 function sliderReasons(kite: Kite, preferences: SliderAdvisorPreferences): string[] {
   const reasons: string[] = [];
   const styleDifference = Math.abs(kite.style_spectrum - preferences.style);
   if (styleDifference <= 10) reasons.push('Closely matches your riding-style target');
   else if (styleDifference <= 20) reasons.push('Versatile fit for your selected style');
 
+  if (preferences.level === 'beginner' && kite.relaunch === 'easy' && kite.depower_range >= 8) reasons.push('Control and relaunch suit a newer rider');
+  if (preferences.level === 'intermediate' && kite.relaunch === 'easy' && kite.depower_range >= 7) reasons.push('Versatile platform with room to progress');
   if (preferences.wavePriority >= 60 && kite.wave_spectrum >= 75) reasons.push('High wave score for drift-focused sessions');
   if (preferences.handling <= 35 && kite.relaunch === 'easy') reasons.push('Easy relaunch supports a forgiving feel');
   if (preferences.handling >= 65 && turningValues[kite.turning_speed] >= 80) reasons.push('Fast steering matches your performance bias');
@@ -137,6 +194,7 @@ function sliderTradeoffs(kite: Kite, preferences: SliderAdvisorPreferences): str
   if (kite.low_end_power <= 5 && preferences.wind <= 50) tradeoffs.push('Needs more wind to come alive');
   if (kite.depower_range <= 5 && preferences.wind >= 50) tradeoffs.push('Less forgiving when conditions get gusty');
   if (preferences.handling >= 65 && turningValues[kite.turning_speed] <= 40) tradeoffs.push('Steering may feel slower than requested');
+  if (preferences.level === 'beginner' && turningValues[kite.turning_speed] >= 80) tradeoffs.push('Fast steering may feel busy while progressing');
   if (kite.price_new >= 2500) tradeoffs.push('Premium price is the main compromise');
   return tradeoffs.slice(0, 2);
 }
@@ -144,20 +202,28 @@ function sliderTradeoffs(kite: Kite, preferences: SliderAdvisorPreferences): str
 export function getSliderAdvisorMatches(kites: Kite[], preferences: SliderAdvisorPreferences): AdvisorMatch[] {
   const waveWeight = Math.max(0, Math.min(100, preferences.wavePriority)) / 100 * 0.35;
 
+  const weights = preferences.level === 'beginner'
+    ? { style: 0.3, shape: 0.05, handling: 0.15, wind: 0.2, level: 0.3 }
+    : preferences.level === 'intermediate'
+      ? { style: 0.45, shape: 0.08, handling: 0.2, wind: 0.17, level: 0.1 }
+      : { style: 0.5, shape: 0.1, handling: 0.2, wind: 0.2, level: 0 };
+
   return filterByMatchConstraints(kites, preferences)
     .filter(kite => kite.skill_level.includes(preferences.level))
     .map(kite => {
       const styleScore = closeness(kite.style_spectrum, preferences.style) * (1 - waveWeight)
         + closeness(kite.wave_spectrum, 90) * waveWeight;
       const score = Math.round(
-        styleScore * 0.5
-        + closeness(kite.shape_spectrum, preferences.shape) * 0.1
-        + sliderHandlingFit(kite, preferences.handling) * 0.2
-        + sliderWindFit(kite, preferences.wind) * 0.2,
+        styleScore * weights.style
+        + closeness(kite.shape_spectrum, preferences.shape) * weights.shape
+        + sliderHandlingFit(kite, preferences.handling) * weights.handling
+        + sliderWindFit(kite, preferences.wind) * weights.wind
+        + riderLevelFit(kite, preferences.level) * weights.level,
       );
       return {
         ...kite,
         score,
+        fitLabel: fitLabel(score),
         reasons: sliderReasons(kite, preferences),
         tradeoffs: sliderTradeoffs(kite, preferences),
       };
@@ -201,16 +267,20 @@ function advisorTradeoffs(kite: Kite, preferences: AdvisorPreferences): string[]
 export function getAdvisorMatches(kites: Kite[], preferences: AdvisorPreferences): AdvisorMatch[] {
   return filterByMatchConstraints(kites, preferences)
     .filter(kite => kite.skill_level.includes(preferences.level))
-    .map(kite => ({
-      ...kite,
-      score: Math.round(
+    .map(kite => {
+      const score = Math.round(
         styleFit(kite, preferences.goal) * 0.55
         + feelFit(kite, preferences.feel) * 0.25
         + windFit(kite, preferences.wind) * 0.2,
-      ),
-      reasons: advisorReasons(kite, preferences),
-      tradeoffs: advisorTradeoffs(kite, preferences),
-    }))
+      );
+      return {
+        ...kite,
+        score,
+        fitLabel: fitLabel(score),
+        reasons: advisorReasons(kite, preferences),
+        tradeoffs: advisorTradeoffs(kite, preferences),
+      };
+    })
     .sort((a, b) => b.score - a.score);
 }
 

@@ -53,15 +53,17 @@ export default function AboutPage() {
         <section>
           <h2 className="text-xl font-bold text-slate mb-3">How the matching works</h2>
           <p>
-            Every kite gets plotted on two scales: your riding style (from foiling all the way
-            to big air) and what kind of kite shape you want (low-aspect C-kites on one end,
-            high-aspect bows on the other). You move the sliders, and the site scores every
-            kite against what you picked. Style matters a bit more than shape in the scoring
-            because honestly, how a kite flies is more important than what it looks like on paper.
+            Every kite is scored against the way you actually want to ride: discipline, flight
+            character, wave priority, handling, wind profile, budget, construction, and rider
+            level. The sliders update the ranking live. Rider level changes the emphasis too:
+            newer riders get more weight on control and relaunch, while advanced riders can let
+            the performance controls drive the result.
           </p>
           <p className="mt-3">
-            It&apos;s not perfect. Two kites with the same score can feel totally different on
-            the water. But it gets you in the right neighborhood fast, which is the whole point.
+            The fit percentage is an estimate, not a laboratory measurement. We round the number
+            and show the review-source count separately so a close match is never confused with
+            strong independent evidence. Two kites with the same score can still feel very
+            different on the water, but the matcher gets you into the right neighborhood quickly.
           </p>
         </section>
 
