@@ -2,53 +2,10 @@
 
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { track } from '@vercel/analytics/react';
 import type { Kite, SkillLevel } from '@/lib/types';
-import { getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
-
-const styleZones = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
-
-function styleLabel(value: number): string {
-  return styleZones[Math.min(4, Math.floor(value / 20))];
-}
-
-function rangePct(value: number, min = 0, max = 100): string {
-  return `${((value - min) / (max - min)) * 100}%`;
-}
-
-type SliderRowProps = {
-  label: string;
-  valueLabel: string;
-  value: number;
-  onChange: (value: number) => void;
-  left: string;
-  right: string;
-};
-
-function SliderRow({ label, valueLabel, value, onChange, left, right }: SliderRowProps) {
-  return (
-    <div>
-      <div className="mb-2 flex items-baseline justify-between gap-3">
-        <label className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">{label}</label>
-        <span className="text-xs font-bold text-ocean">{valueLabel}</span>
-      </div>
-      <input
-        type="range"
-        min={0}
-        max={100}
-        value={value}
-        onChange={event => onChange(Number(event.target.value))}
-        className="w-full"
-        style={{ '--range-pct': rangePct(value) } as React.CSSProperties}
-        aria-label={label}
-        aria-valuetext={valueLabel}
-      />
-      <div className="mt-1.5 flex justify-between text-[9px] text-gray-400">
-        <span>{left}</span>
-        <span>{right}</span>
-      </div>
-    </div>
-  );
-}
+import { getDiverseAdvisorShortlist, getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
+import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorControls';
 
 export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
   const [style, setStyle] = useState(70);
@@ -72,8 +29,14 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
     construction,
     budget: budget < 5000 ? budget : undefined,
   }), [budget, construction, handling, kites, level, shape, style, wavePriority, wind]);
+  const topMatches = useMemo(() => getDiverseAdvisorShortlist(matches, 3, 1), [matches]);
 
   const openResults = () => {
+    track('advisor_results_opened', {
+      level,
+      top_brand: matches[0]?.brand ?? 'none',
+      eligible_count: matches.length,
+    });
     const params = new URLSearchParams({
       advisor: 'sliders',
       style: String(style),
@@ -86,6 +49,19 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
       budget: String(budget),
     });
     router.push(`/results?${params.toString()}`);
+  };
+
+  const updateSlider = (name: AdvisorControlName, value: number) => {
+    if (name === 'style') setStyle(value);
+    else if (name === 'shape') setShape(value);
+    else if (name === 'wave') setWavePriority(value);
+    else if (name === 'handling') setHandling(value);
+    else if (name === 'wind') setWind(value);
+    else setBudget(value);
+  };
+
+  const trackSlider = (name: AdvisorControlName, value: number) => {
+    track('advisor_preference_changed', { control: name, value, level });
   };
 
   return (
@@ -103,40 +79,26 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
           </div>
         </div>
 
-        <div className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
-          <SliderRow label="Riding style" valueLabel={styleLabel(style)} value={style} onChange={setStyle} left="Foil" right="Big air" />
-          <SliderRow label="Kite shape" valueLabel={shape < 35 ? 'Low aspect' : shape > 65 ? 'High aspect' : 'Medium aspect'} value={shape} onChange={setShape} left="Low aspect · C" right="High aspect · Bow" />
-          <SliderRow label="Wave priority" valueLabel={wavePriority < 30 ? 'Low' : wavePriority > 70 ? 'Core priority' : 'Important'} value={wavePriority} onChange={setWavePriority} left="Not important" right="Wave focused" />
-          <SliderRow label="Handling" valueLabel={handling < 35 ? 'Calm & forgiving' : handling > 65 ? 'Fast & reactive' : 'Balanced'} value={handling} onChange={setHandling} left="Forgiving" right="Performance" />
-          <SliderRow label="Typical wind" valueLabel={wind < 35 ? 'Mostly light' : wind > 65 ? 'Mostly strong' : 'Mixed conditions'} value={wind} onChange={setWind} left="Light wind" right="Strong wind" />
-          <div>
-            <div className="mb-2 flex items-baseline justify-between">
-              <label className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Maximum price</label>
-              <span className="text-xs font-bold text-ocean">{budget >= 5000 ? 'No limit' : `$${budget.toLocaleString()}`}</span>
-            </div>
-            <input type="range" min={800} max={5000} step={100} value={budget} onChange={event => setBudget(Number(event.target.value))} className="w-full" style={{ '--range-pct': rangePct(budget, 800, 5000) } as React.CSSProperties} aria-label="Maximum price" aria-valuetext={budget >= 5000 ? 'No limit' : `$${budget}`} />
-            <div className="mt-1.5 flex justify-between text-[9px] text-gray-400"><span>$800</span><span>No limit</span></div>
-          </div>
-        </div>
-
-        <div className="mt-5 grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2">
-          <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Rider level</p>
-            <div className="flex gap-1.5">
-              {(['beginner', 'intermediate', 'advanced'] as const).map(value => (
-                <button key={value} type="button" aria-pressed={level === value} onClick={() => setLevel(value)} className={`flex-1 rounded-lg border px-2 py-1.5 text-[10px] font-semibold capitalize transition-colors ${level === value ? 'border-ocean bg-ocean/10 text-ocean' : 'border-white/10 text-gray-500 hover:border-white/20'}`}>{value}</button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Construction</p>
-            <div className="flex flex-wrap gap-1.5">
-              {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
-                <button key={value} type="button" aria-pressed={construction === value} onClick={() => setConstruction(value)} className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold capitalize transition-colors ${construction === value ? 'border-ocean bg-ocean/10 text-ocean' : 'border-white/10 text-gray-500 hover:border-white/20'}`}>{value === 'all' ? 'Any' : value}</button>
-              ))}
-            </div>
-          </div>
-        </div>
+        <AdvisorControls
+          style={style}
+          shape={shape}
+          wavePriority={wavePriority}
+          handling={handling}
+          wind={wind}
+          level={level}
+          construction={construction}
+          budget={budget}
+          onSliderChange={updateSlider}
+          onSliderCommit={trackSlider}
+          onLevelChange={value => {
+            setLevel(value);
+            track('advisor_level_changed', { level: value });
+          }}
+          onConstructionChange={value => {
+            setConstruction(value);
+            track('advisor_construction_changed', { construction: value });
+          }}
+        />
 
         <div className="mt-5 border-t border-white/10 pt-4">
           <div className="mb-2 flex items-center justify-between">
@@ -144,10 +106,10 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
             <p className="text-[9px] text-gray-400">Updates as you tune</p>
           </div>
           <div className="grid grid-cols-3 gap-2">
-            {matches.slice(0, 3).map(match => (
+            {topMatches.map(match => (
               <div key={match.slug} className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-2.5 text-center transition-all duration-200">
-                <p className="font-display text-xl font-black italic leading-none text-ocean">{match.score}%</p>
-                <p className="mt-1 truncate text-[10px] font-bold text-gray-700">{match.brand}</p>
+                <p className="font-display text-xl font-black italic leading-none text-ocean">≈{Math.round(match.score / 5) * 5}%</p>
+                <p className="mt-1 truncate text-[10px] font-bold text-gray-300">{match.brand}</p>
                 <p className="truncate text-[9px] text-gray-400">{match.model}</p>
               </div>
             ))}

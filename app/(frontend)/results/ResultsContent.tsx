@@ -1,12 +1,14 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { track } from '@vercel/analytics/react';
 import type { Kite, SkillLevel } from '@/lib/types';
 import {
   type AdvisorMatch,
   type FlightFeel,
   getAdvisorMatches,
+  getDiverseAdvisorShortlist,
   getSliderAdvisorMatches,
   matchScore,
   type RidingGoal,
@@ -16,6 +18,7 @@ import { applyFilters, useFilters } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
+import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorControls';
 
 const styleZones = [
   { label: 'Foil', color: 'text-teal-400' },
@@ -44,11 +47,15 @@ function parseSliderValue(value: string | null, fallback: number): number {
 
 export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const advisorParam = searchParams.get('advisor');
   const sliderMode = advisorParam === 'sliders';
   const advisorMode = sliderMode || advisorParam === '1';
   const { filters, setFilters } = useFilters();
   const [slidersOpen, setSlidersOpen] = useState(!advisorMode);
+  const [advisorTunerOpen, setAdvisorTunerOpen] = useState(false);
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
   const [showAll, setShowAll] = useState(false);
 
   const goal = parseAdvisorValue<RidingGoal>(
@@ -75,24 +82,82 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
   const handling = parseSliderValue(searchParams.get('handling'), 50);
   const windValue = parseSliderValue(searchParams.get('wind'), 50);
 
+  const commitAdvisorParam = useCallback((name: string, value: string | number) => {
+    const next = new URLSearchParams(window.location.search);
+    next.set(name, String(value));
+    router.replace(`${pathname}?${next.toString()}`, { scroll: false });
+  }, [pathname, router]);
+
   const commitStyle = useCallback((value: number) => setFilters({ style: value }), [setFilters]);
   const commitShape = useCallback((value: number) => setFilters({ shape: value }), [setFilters]);
+  const commitWave = useCallback((value: number) => commitAdvisorParam('wave', value), [commitAdvisorParam]);
+  const commitHandling = useCallback((value: number) => commitAdvisorParam('handling', value), [commitAdvisorParam]);
+  const commitWindValue = useCallback((value: number) => commitAdvisorParam('wind', value), [commitAdvisorParam]);
+  const commitBudget = useCallback((value: number) => setFilters({ budget: value }), [setFilters]);
   const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
   const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+  const [waveVal, setWaveVal] = useDebouncedNumber(wavePriority, commitWave);
+  const [handlingVal, setHandlingVal] = useDebouncedNumber(handling, commitHandling);
+  const [windSliderVal, setWindSliderVal] = useDebouncedNumber(windValue, commitWindValue);
+  const [budgetVal, setBudgetVal] = useDebouncedNumber(filters.budget, commitBudget);
+
+  const updateAdvisorSlider = (name: AdvisorControlName, value: number) => {
+    if (name === 'style') setStyleVal(value);
+    else if (name === 'shape') setShapeVal(value);
+    else if (name === 'wave') setWaveVal(value);
+    else if (name === 'handling') setHandlingVal(value);
+    else if (name === 'wind') setWindSliderVal(value);
+    else setBudgetVal(value);
+  };
+
+  const resetAdvisor = () => {
+    track('advisor_profile_reset', { level });
+    router.replace('/results?advisor=sliders&style=70&shape=55&wave=20&handling=50&wind=50&level=intermediate&construction=all&budget=5000', { scroll: false });
+  };
+
+  const shareAdvisor = async () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('advisor', 'sliders');
+    url.searchParams.set('style', String(styleVal));
+    url.searchParams.set('shape', String(shapeVal));
+    url.searchParams.set('wave', String(waveVal));
+    url.searchParams.set('handling', String(handlingVal));
+    url.searchParams.set('wind', String(windSliderVal));
+    url.searchParams.set('level', level);
+    url.searchParams.set('construction', filters.construction);
+    url.searchParams.set('budget', String(budgetVal));
+
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'My FindMyKite matches', url: url.toString() });
+      } else {
+        await navigator.clipboard.writeText(url.toString());
+        setShareStatus('copied');
+        window.setTimeout(() => setShareStatus('idle'), 1800);
+      }
+      track('advisor_profile_shared', { level });
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
+      await navigator.clipboard.writeText(url.toString());
+      setShareStatus('copied');
+      window.setTimeout(() => setShareStatus('idle'), 1800);
+    }
+  };
 
   const eligibleKites = useMemo(() => {
-    const filtered = applyFilters(kites, filters);
+    const liveFilters = { ...filters, style: styleVal, shape: shapeVal, budget: budgetVal };
+    const filtered = applyFilters(kites, liveFilters);
     if (sliderMode) {
       return getSliderAdvisorMatches(filtered, {
         version: 2,
-        style: filters.style,
-        shape: filters.shape,
-        wavePriority,
-        handling,
-        wind: windValue,
+        style: styleVal,
+        shape: shapeVal,
+        wavePriority: waveVal,
+        handling: handlingVal,
+        wind: windSliderVal,
         level,
         construction: filters.construction,
-        budget: filters.budget < 5000 ? filters.budget : undefined,
+        budget: budgetVal < 5000 ? budgetVal : undefined,
       });
     }
     if (advisorMode) {
@@ -109,9 +174,11 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
     return filtered
       .map(kite => ({ ...kite, score: matchScore(kite, styleVal, shapeVal) }))
       .sort((a, b) => b.score - a.score);
-  }, [advisorMode, feel, filters, goal, handling, kites, level, shapeVal, sliderMode, styleVal, wavePriority, wind, windValue]);
+  }, [advisorMode, budgetVal, feel, filters, goal, handlingVal, kites, level, shapeVal, sliderMode, styleVal, waveVal, wind, windSliderVal]);
 
-  const displayKites = advisorMode && !showAll ? eligibleKites.slice(0, 12) : eligibleKites;
+  const displayKites = advisorMode && !showAll && eligibleKites.length > 12
+    ? getDiverseAdvisorShortlist(eligibleKites as AdvisorMatch[], 12, 2)
+    : eligibleKites;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -124,13 +191,13 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
         </h1>
         <p className="text-sm text-gray-500">
           {advisorMode && !showAll && eligibleKites.length > 12
-            ? `Showing the strongest 12 of ${eligibleKites.length} eligible kites`
+            ? `Showing a brand-diverse shortlist of 12 from ${eligibleKites.length} eligible kites`
             : `${eligibleKites.length} eligible kites, ranked for fit`}
         </p>
         {advisorMode && (
           <div className="mt-3 flex flex-wrap gap-2">
             {(sliderMode
-              ? [styleZones[getActiveZone(filters.style)].label, level, handling < 35 ? 'forgiving handling' : handling > 65 ? 'performance handling' : 'balanced handling', windValue < 35 ? 'light wind' : windValue > 65 ? 'strong wind' : 'mixed wind']
+              ? [styleZones[getActiveZone(styleVal)].label, level, handlingVal < 35 ? 'forgiving handling' : handlingVal > 65 ? 'performance handling' : 'balanced handling', windSliderVal < 35 ? 'light wind' : windSliderVal > 65 ? 'strong wind' : 'mixed wind']
               : [goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`]
             ).map(item => (
               <span key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs capitalize text-gray-600">
@@ -140,6 +207,68 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
           </div>
         )}
       </div>
+
+      {sliderMode && (
+        <section className="mb-6 overflow-hidden rounded-2xl border border-ocean/15 bg-[#0B1420] shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+          <button
+            type="button"
+            onClick={() => {
+              const next = !advisorTunerOpen;
+              setAdvisorTunerOpen(next);
+              if (next) track('advisor_tuner_opened', { level });
+            }}
+            className="flex min-h-16 w-full items-center justify-between gap-4 px-4 py-3 text-left sm:px-5"
+            aria-expanded={advisorTunerOpen}
+          >
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">Live match controls</p>
+              <p className="truncate text-sm font-semibold text-slate">
+                Tune any preference and the ranking updates instantly
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <span className="hidden text-xs text-gray-400 sm:inline">{advisorTunerOpen ? 'Hide controls' : 'Tune results'}</span>
+              <svg className={`h-5 w-5 text-ocean transition-transform ${advisorTunerOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+
+          {advisorTunerOpen && (
+            <div className="border-t border-white/10 px-4 pb-5 pt-5 sm:px-5">
+              <AdvisorControls
+                compact
+                style={styleVal}
+                shape={shapeVal}
+                wavePriority={waveVal}
+                handling={handlingVal}
+                wind={windSliderVal}
+                level={level}
+                construction={filters.construction}
+                budget={budgetVal}
+                onSliderChange={updateAdvisorSlider}
+                onSliderCommit={(control, value) => track('advisor_preference_changed', { control, value, level, surface: 'results' })}
+                onLevelChange={value => {
+                  commitAdvisorParam('level', value);
+                  track('advisor_level_changed', { level: value, surface: 'results' });
+                }}
+                onConstructionChange={value => {
+                  setFilters({ construction: value });
+                  track('advisor_construction_changed', { construction: value, surface: 'results' });
+                }}
+              />
+              <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-4 sm:flex-row sm:justify-end">
+                <button type="button" onClick={resetAdvisor} className="min-h-11 rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-gray-400 transition-colors hover:border-white/20 hover:text-slate">
+                  Reset profile
+                </button>
+                <button type="button" onClick={shareAdvisor} className="min-h-11 rounded-lg border border-ocean/30 bg-ocean/10 px-4 py-2 text-xs font-bold text-ocean transition-colors hover:bg-ocean/15">
+                  {shareStatus === 'copied' ? 'Link copied ✓' : 'Share these matches'}
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+      )}
 
       {!advisorMode && <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
         <button
@@ -194,6 +323,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
                   key={kite.id}
                   kite={kite}
                   matchScore={kite.score}
+                  matchLabel={advisorMatch?.fitLabel}
                   matchReasons={advisorMatch?.reasons}
                   tradeoff={advisorMatch?.tradeoffs[0]}
                 />
@@ -206,7 +336,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
           {advisorMode && eligibleKites.length > 12 && (
             <div className="mt-8 text-center">
               <button type="button" onClick={() => setShowAll(value => !value)} className="rounded-lg border border-white/10 px-5 py-2.5 text-sm font-semibold text-gray-600 transition-colors hover:border-ocean/40 hover:text-ocean">
-                {showAll ? 'Show strongest 12' : `Show all ${eligibleKites.length} eligible kites`}
+                {showAll ? 'Show diverse shortlist' : `Show all ${eligibleKites.length} eligible kites`}
               </button>
             </div>
           )}

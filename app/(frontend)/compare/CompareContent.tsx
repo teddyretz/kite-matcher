@@ -4,7 +4,7 @@ import { useCallback, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Kite } from '@/lib/types';
-import { matchScore } from '@/lib/matcher';
+import { displayFitScore, matchScore } from '@/lib/matcher';
 import { useFilters, DEFAULT_FILTERS } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import SpectrumBar from '@/components/SpectrumBar';
@@ -302,7 +302,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
                       </Link>
                       {slidersAdjusted && (
                         <span className={`px-2 py-0.5 text-[11px] font-bold rounded ${scoreBadgeClass(score)}`}>
-                          {score}% match
+                          ≈{displayFitScore(score)}% fit
                         </span>
                       )}
                       <button
