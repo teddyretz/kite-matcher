@@ -1,20 +1,30 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { Kite } from '@/lib/types';
-import { matchScore } from '@/lib/matcher';
+import { useSearchParams } from 'next/navigation';
+import type { Kite, SkillLevel } from '@/lib/types';
+import {
+  type AdvisorMatch,
+  type FlightFeel,
+  getAdvisorMatches,
+  getSliderAdvisorMatches,
+  matchScore,
+  type RidingGoal,
+  type WindProfile,
+} from '@/lib/matcher';
 import { applyFilters, useFilters } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
 const styleZones = [
-  { label: 'Foil',      color: 'text-teal-400'    },
-  { label: 'Surf',      color: 'text-emerald-400' },
-  { label: 'Freestyle', color: 'text-violet-400'  },
-  { label: 'Freeride',  color: 'text-blue-400'    },
-  { label: 'Big Air',   color: 'text-orange-400'  },
+  { label: 'Foil', color: 'text-teal-400' },
+  { label: 'Surf', color: 'text-emerald-400' },
+  { label: 'Freestyle', color: 'text-violet-400' },
+  { label: 'Freeride', color: 'text-blue-400' },
+  { label: 'Big Air', color: 'text-orange-400' },
 ];
+
 function getActiveZone(value: number): number {
   if (value <= 20) return 0;
   if (value <= 40) return 1;
@@ -23,103 +33,146 @@ function getActiveZone(value: number): number {
   return 4;
 }
 
-export default function ResultsContent({ kites }: { kites: Kite[] }) {
-  const { filters, setFilters } = useFilters();
-  const [slidersOpen, setSlidersOpen] = useState(true);
+function parseAdvisorValue<T extends string>(value: string | null, allowed: readonly T[], fallback: T): T {
+  return value && allowed.includes(value as T) ? value as T : fallback;
+}
 
-  // Slider state is local for instant feedback; debounced commit pushes
-  // to URL state 250ms after the user stops dragging. Keeps the route
-  // tree from re-rendering 79 KiteCards on every input event.
-  const commitStyle = useCallback((v: number) => setFilters({ style: v }), [setFilters]);
-  const commitShape = useCallback((v: number) => setFilters({ shape: v }), [setFilters]);
+function parseSliderValue(value: string | null, fallback: number): number {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : fallback;
+}
+
+export default function ResultsContent({ kites }: { kites: Kite[] }) {
+  const searchParams = useSearchParams();
+  const advisorParam = searchParams.get('advisor');
+  const sliderMode = advisorParam === 'sliders';
+  const advisorMode = sliderMode || advisorParam === '1';
+  const { filters, setFilters } = useFilters();
+  const [slidersOpen, setSlidersOpen] = useState(!advisorMode);
+  const [showAll, setShowAll] = useState(false);
+
+  const goal = parseAdvisorValue<RidingGoal>(
+    searchParams.get('goal'),
+    ['freeride', 'big-air', 'wave', 'freestyle', 'foil'],
+    'freeride',
+  );
+  const level = parseAdvisorValue<SkillLevel>(
+    searchParams.get('level'),
+    ['beginner', 'intermediate', 'advanced'],
+    'intermediate',
+  );
+  const feel = parseAdvisorValue<FlightFeel>(
+    searchParams.get('feel'),
+    ['forgiving', 'balanced', 'performance'],
+    'balanced',
+  );
+  const wind = parseAdvisorValue<WindProfile>(
+    searchParams.get('wind'),
+    ['light', 'mixed', 'strong'],
+    'mixed',
+  );
+  const wavePriority = parseSliderValue(searchParams.get('wave'), 20);
+  const handling = parseSliderValue(searchParams.get('handling'), 50);
+  const windValue = parseSliderValue(searchParams.get('wind'), 50);
+
+  const commitStyle = useCallback((value: number) => setFilters({ style: value }), [setFilters]);
+  const commitShape = useCallback((value: number) => setFilters({ shape: value }), [setFilters]);
   const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
   const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
 
-  const displayKites = useMemo(() => {
+  const eligibleKites = useMemo(() => {
     const filtered = applyFilters(kites, filters);
+    if (sliderMode) {
+      return getSliderAdvisorMatches(filtered, {
+        version: 2,
+        style: filters.style,
+        shape: filters.shape,
+        wavePriority,
+        handling,
+        wind: windValue,
+        level,
+        construction: filters.construction,
+        budget: filters.budget < 5000 ? filters.budget : undefined,
+      });
+    }
+    if (advisorMode) {
+      return getAdvisorMatches(filtered, {
+        version: 2,
+        goal,
+        level,
+        feel,
+        wind,
+        construction: filters.construction,
+        budget: filters.budget < 5000 ? filters.budget : undefined,
+      });
+    }
     return filtered
-      .map((k) => ({ ...k, score: matchScore(k, styleVal, shapeVal) }))
+      .map(kite => ({ ...kite, score: matchScore(kite, styleVal, shapeVal) }))
       .sort((a, b) => b.score - a.score);
-  }, [kites, filters, styleVal, shapeVal]);
+  }, [advisorMode, feel, filters, goal, handling, kites, level, shapeVal, sliderMode, styleVal, wavePriority, wind, windValue]);
+
+  const displayKites = advisorMode && !showAll ? eligibleKites.slice(0, 12) : eligibleKites;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate">Your Kite Matches</h1>
-        <p className="text-sm text-gray-500">{displayKites.length} kites found</p>
+        {advisorMode && (
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">Your rider profile</p>
+        )}
+        <h1 className={advisorMode ? 'font-display text-4xl font-black italic uppercase text-slate' : 'text-2xl font-bold text-slate'}>
+          Your Kite Matches
+        </h1>
+        <p className="text-sm text-gray-500">
+          {advisorMode && !showAll && eligibleKites.length > 12
+            ? `Showing the strongest 12 of ${eligibleKites.length} eligible kites`
+            : `${eligibleKites.length} eligible kites, ranked for fit`}
+        </p>
+        {advisorMode && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {(sliderMode
+              ? [styleZones[getActiveZone(filters.style)].label, level, handling < 35 ? 'forgiving handling' : handling > 65 ? 'performance handling' : 'balanced handling', windValue < 35 ? 'light wind' : windValue > 65 ? 'strong wind' : 'mixed wind']
+              : [goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`]
+            ).map(item => (
+              <span key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs capitalize text-gray-600">
+                {item}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Match preferences — collapsible, default expanded */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+      {!advisorMode && <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
         <button
+          type="button"
           onClick={() => setSlidersOpen(!slidersOpen)}
           className="w-full flex items-center justify-between p-4 text-left"
           aria-expanded={slidersOpen}
         >
           <span className="font-semibold text-slate text-sm">Match Preferences</span>
-          <svg
-            className={`w-5 h-5 text-gray-400 transition-transform ${slidersOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className={`w-5 h-5 text-gray-400 transition-transform ${slidersOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </button>
         {slidersOpen && (
           <div className="px-4 pb-5 border-t border-gray-100 pt-4">
             <div className="grid sm:grid-cols-2 gap-6">
-              {/* Style */}
               <div>
                 <div className="flex items-baseline justify-between mb-2">
-                  <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-                    Riding Style
-                  </label>
-                  <span
-                    className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}
-                  >
+                  <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">Riding Style</label>
+                  <span className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}>
                     {styleZones[getActiveZone(styleVal)].label}
                   </span>
                 </div>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={styleVal}
-                  onChange={(e) => setStyleVal(Number(e.target.value))}
-                  className="w-full"
-                  style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
-                  aria-label="Riding style preference"
-                />
+                <input type="range" min={0} max={100} value={styleVal} onChange={event => setStyleVal(Number(event.target.value))} className="w-full" style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties} aria-label="Riding style preference" />
                 <div className="flex justify-between mt-1.5">
-                  {styleZones.map((zone, i) => (
-                    <span
-                      key={zone.label}
-                      className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
-                    >
-                      {zone.label}
-                    </span>
+                  {styleZones.map((zone, index) => (
+                    <span key={zone.label} className={`text-[10px] font-medium ${index === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}>{zone.label}</span>
                   ))}
                 </div>
               </div>
-
-              {/* Shape */}
               <div>
-                <div className="flex items-baseline justify-between mb-2">
-                  <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-                    Kite Shape & Aspect
-                  </label>
-                </div>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={shapeVal}
-                  onChange={(e) => setShapeVal(Number(e.target.value))}
-                  className="w-full"
-                  style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
-                  aria-label="Kite character preference"
-                />
+                <label className="mb-2 block text-xs font-semibold tracking-widest uppercase text-gray-500">Kite Shape & Aspect</label>
+                <input type="range" min={0} max={100} value={shapeVal} onChange={event => setShapeVal(Number(event.target.value))} className="w-full" style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties} aria-label="Kite character preference" />
                 <div className="flex justify-between mt-1.5">
                   <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
                   <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
@@ -128,19 +181,33 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
             </div>
           </div>
         )}
-      </div>
+      </div>}
 
       <div className="flex flex-col gap-4 lg:flex-row lg:gap-8">
         <KiteFilters kites={kites} />
         <div className="flex-1 min-w-0">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayKites.map((kite) => (
-              <KiteCard key={kite.id} kite={kite} matchScore={kite.score} />
-            ))}
+            {displayKites.map(kite => {
+              const advisorMatch = advisorMode ? kite as AdvisorMatch : null;
+              return (
+                <KiteCard
+                  key={kite.id}
+                  kite={kite}
+                  matchScore={kite.score}
+                  matchReasons={advisorMatch?.reasons}
+                  tradeoff={advisorMatch?.tradeoffs[0]}
+                />
+              );
+            })}
           </div>
           {displayKites.length === 0 && (
-            <div className="text-center py-20 text-gray-400">
-              No kites match your filters. Try adjusting your criteria.
+            <div className="text-center py-20 text-gray-400">No kites match your filters. Try adjusting your criteria.</div>
+          )}
+          {advisorMode && eligibleKites.length > 12 && (
+            <div className="mt-8 text-center">
+              <button type="button" onClick={() => setShowAll(value => !value)} className="rounded-lg border border-white/10 px-5 py-2.5 text-sm font-semibold text-gray-600 transition-colors hover:border-ocean/40 hover:text-ocean">
+                {showAll ? 'Show strongest 12' : `Show all ${eligibleKites.length} eligible kites`}
+              </button>
             </div>
           )}
         </div>

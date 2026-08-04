@@ -103,3 +103,6 @@ export interface Kite {
     used: { source: string; url: string }[];
   };
 }
+
+/** Minimal catalog identity used by the global compare drawer. */
+export type KiteSummary = Pick<Kite, 'slug' | 'brand' | 'model' | 'year'>;

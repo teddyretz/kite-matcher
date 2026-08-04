@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import type { Kite } from './types'
+import { stripPrivateReviewContent } from './publicKites'
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'kites')
 
@@ -13,7 +14,8 @@ function loadAllFromDisk(): Kite[] {
   const files = fs.readdirSync(DATA_DIR).filter((f) => f.endsWith('.json')).sort()
   const kites: Kite[] = files.map((f) => {
     const raw = fs.readFileSync(path.join(DATA_DIR, f), 'utf-8')
-    return JSON.parse(raw) as Kite
+    const kite = JSON.parse(raw) as Kite
+    return { ...kite, reviews: stripPrivateReviewContent(kite.reviews) }
   })
   return kites
 }

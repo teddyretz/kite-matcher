@@ -97,9 +97,11 @@ function KiteImage({ slug, model, brand }: { slug: string; model: string; brand:
 interface KiteCardProps {
   kite: Kite;
   matchScore?: number;
+  matchReasons?: string[];
+  tradeoff?: string;
 }
 
-export default function KiteCard({ kite, matchScore }: KiteCardProps) {
+export default function KiteCard({ kite, matchScore, matchReasons, tradeoff }: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
 
@@ -183,6 +185,25 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
           </span>
         </div>
 
+        {matchReasons && matchReasons.length > 0 && (
+          <div className="rounded-xl border border-ocean/15 bg-ocean/[0.04] p-3">
+            <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-ocean">Why it fits</p>
+            <ul className="mt-2 space-y-1.5">
+              {matchReasons.slice(0, 2).map(reason => (
+                <li key={reason} className="flex gap-2 text-[11px] leading-4 text-gray-600">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ocean" />
+                  {reason}
+                </li>
+              ))}
+            </ul>
+            {tradeoff && (
+              <p className="mt-2 border-t border-white/10 pt-2 text-[10px] leading-4 text-gray-400">
+                <span className="font-bold text-sand">Tradeoff:</span> {tradeoff}
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Buttons */}
         <div className="flex gap-2 pt-1">
           <Link
@@ -192,6 +213,7 @@ export default function KiteCard({ kite, matchScore }: KiteCardProps) {
             View
           </Link>
           <button
+            type="button"
             onClick={() =>
               inCompare ? removeFromCompare(kite.slug) : addToCompare(kite.slug)
             }
