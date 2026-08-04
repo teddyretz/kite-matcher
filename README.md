@@ -24,11 +24,20 @@ Each kite has spectrum scores from 0–100:
 - `shape_spectrum`: Low aspect / C-kite → High aspect / Bow kite
 - `wave_spectrum`: secondary wave-oriented score
 
-Default match score:
+The live advisor combines style, kite character, wave priority, handling, wind,
+budget, construction, and rider level. Rider level changes the weighting:
 
-`100 - (0.6 × style_diff + 0.4 × shape_diff)`
+- **Beginner:** control, relaunch, depower, and usable wind range receive more weight
+- **Intermediate:** progression and versatility supplement the selected preferences
+- **Advanced:** the rider's performance sliders drive the result directly
 
-When wave is included, weighting becomes 40/30/30 across style, shape, and wave.
+Exact scores determine rank, while the UI rounds the displayed fit to the nearest
+five points to avoid implying laboratory precision. Review ratings and their source
+counts are displayed separately and never affect the fit score. The initial results
+shortlist is brand-diverse; “show all” restores the complete score-ordered ranking.
+
+The legacy two-slider score remains available for browse and comparison tools:
+`100 - (0.6 × style_diff + 0.4 × shape_diff)`.
 
 ---
 

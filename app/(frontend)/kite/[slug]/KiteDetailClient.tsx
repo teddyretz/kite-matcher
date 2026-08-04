@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { track } from '@vercel/analytics/react';
 import { Kite, ReviewEntry } from "@/lib/types";
 import { getRelatedKites } from '@/lib/matcher';
 import { retailerSearchUrls } from '@/lib/retailers';
@@ -180,6 +181,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('retailer_clicked', { slug: kite.slug, retailer: link.retailer, link_type: link.type ?? 'search_fallback' })}
                   className="flex items-center justify-between gap-3 p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
                 >
                   <div>
@@ -209,6 +211,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('used_market_clicked', { slug: kite.slug, source: link.source })}
                   className="text-sm text-ocean hover:underline"
                 >
                   {link.source} &rarr;
@@ -229,6 +232,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   href={r.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('retailer_search_clicked', { slug: kite.slug, retailer: r.name })}
                   className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 border border-gray-200 rounded-full text-gray-600 hover:border-ocean hover:text-ocean transition-colors"
                 >
                   <span className="font-medium">{r.name}</span>

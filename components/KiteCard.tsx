@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { track } from '@vercel/analytics/react';
 import { Kite } from '@/lib/types';
+import { displayFitScore } from '@/lib/matcher';
 import { useCompare } from './CompareContext';
 
 function getStyleZone(spectrum: number): string {
@@ -14,7 +16,7 @@ function getStyleZone(spectrum: number): string {
   return 'Big Air';
 }
 
-function StarRating({ score }: { score: number }) {
+function StarRating({ score, sourceCount }: { score: number; sourceCount: number }) {
   const full = Math.floor(score);
   const hasHalf = score - full >= 0.3;
   return (
@@ -35,7 +37,9 @@ function StarRating({ score }: { score: number }) {
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
-      <span className="ml-1 text-xs text-gray-400">{score.toFixed(1)}</span>
+      <span className="ml-1 text-xs text-gray-400">
+        {score.toFixed(1)} · {sourceCount} {sourceCount === 1 ? 'source' : 'sources'}
+      </span>
     </div>
   );
 }
@@ -97,11 +101,12 @@ function KiteImage({ slug, model, brand }: { slug: string; model: string; brand:
 interface KiteCardProps {
   kite: Kite;
   matchScore?: number;
+  matchLabel?: string;
   matchReasons?: string[];
   tradeoff?: string;
 }
 
-export default function KiteCard({ kite, matchScore, matchReasons, tradeoff }: KiteCardProps) {
+export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, tradeoff }: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
 
@@ -116,13 +121,18 @@ export default function KiteCard({ kite, matchScore, matchReasons, tradeoff }: K
             {kite.brand}
           </span>
           {matchScore !== undefined && (
-            <span className={`font-display font-black italic text-xl leading-none ${
-              matchScore >= 80 ? 'text-ocean' :
-              matchScore >= 60 ? 'text-sand' :
-              'text-gray-400'
-            }`}>
-              {matchScore}%
-            </span>
+            <div className="text-right">
+              <span className={`font-display font-black italic text-xl leading-none ${
+                matchScore >= 80 ? 'text-ocean' :
+                matchScore >= 60 ? 'text-sand' :
+                'text-gray-400'
+              }`}>
+                ≈{displayFitScore(matchScore)}%
+              </span>
+              <span className="block text-[8px] font-bold uppercase tracking-[0.14em] text-gray-400">
+                {matchLabel ?? 'Estimated fit'}
+              </span>
+            </div>
           )}
         </div>
 
@@ -176,7 +186,7 @@ export default function KiteCard({ kite, matchScore, matchReasons, tradeoff }: K
         {/* Rating + price */}
         <div className="flex items-center justify-between">
           {kite.structured_review?.rating ? (
-            <StarRating score={kite.structured_review.rating} />
+            <StarRating score={kite.structured_review.rating} sourceCount={kite.structured_review.sources.length} />
           ) : (
             <div />
           )}
@@ -208,15 +218,20 @@ export default function KiteCard({ kite, matchScore, matchReasons, tradeoff }: K
         <div className="flex gap-2 pt-1">
           <Link
             href={`/kite/${kite.slug}`}
+            onClick={() => track('kite_detail_opened', { slug: kite.slug, source: matchScore === undefined ? 'catalog' : 'results' })}
             className="flex-1 text-center py-2 px-3 bg-ocean text-[#080D16] text-sm font-bold rounded-lg hover:bg-ocean-light transition-colors"
           >
             View
           </Link>
           <button
             type="button"
-            onClick={() =>
-              inCompare ? removeFromCompare(kite.slug) : addToCompare(kite.slug)
-            }
+            onClick={() => {
+              if (inCompare) removeFromCompare(kite.slug);
+              else {
+                addToCompare(kite.slug);
+                track('kite_added_to_compare', { slug: kite.slug, source: matchScore === undefined ? 'catalog' : 'results' });
+              }
+            }}
             aria-label={inCompare ? `Remove ${kite.model} from compare` : `Add ${kite.model} to compare`}
             aria-pressed={inCompare}
             className={`py-2 px-4 text-sm font-semibold rounded-lg border transition-all duration-150 active:scale-90 ${
