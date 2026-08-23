@@ -326,6 +326,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
                   matchLabel={advisorMatch?.fitLabel}
                   matchReasons={advisorMatch?.reasons}
                   tradeoff={advisorMatch?.tradeoffs[0]}
+                  compactMatch={advisorMode}
                 />
               );
             })}

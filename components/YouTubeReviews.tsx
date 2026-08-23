@@ -43,23 +43,8 @@ export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }
 
           {r.summary ? (
             <div className="p-4">
-              <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">What they said</p>
+              <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">Review takeaway</p>
               <p className="text-sm text-gray-700 leading-relaxed">{r.summary}</p>
-            </div>
-          ) : (r.excerpt || r.verdict) ? (
-            <div className="p-4 space-y-3">
-              {r.excerpt && (
-                <div>
-                  <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">What they said</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">{r.excerpt}</p>
-                </div>
-              )}
-              {r.verdict && (
-                <div>
-                  <p className="text-xs font-bold tracking-wide uppercase text-gray-500 mb-1">Bottom line</p>
-                  <p className="text-sm text-gray-700 leading-relaxed italic">{r.verdict}</p>
-                </div>
-              )}
             </div>
           ) : null}
         </div>

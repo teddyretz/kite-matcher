@@ -44,7 +44,7 @@ function StarRating({ score, sourceCount }: { score: number; sourceCount: number
   );
 }
 
-function KiteImage({ slug, model, brand }: { slug: string; model: string; brand: string }) {
+function KiteImage({ slug, model, brand, compact = false }: { slug: string; model: string; brand: string; compact?: boolean }) {
   const [imgError, setImgError] = useState(false);
   const brandColors: Record<string, string> = {
     Duotone:   '#00A3E0',
@@ -66,7 +66,7 @@ function KiteImage({ slug, model, brand }: { slug: string; model: string; brand:
     const color = brandColors[brand] || '#3D5870';
     return (
       <div
-        className="w-full h-44 flex items-center justify-center bg-gray-50"
+        className={`w-full ${compact ? 'h-36 sm:h-44' : 'h-44'} flex items-center justify-center bg-gray-50`}
         style={{ borderBottom: `1px solid ${color}20` }}
       >
         <div className="text-center">
@@ -83,7 +83,7 @@ function KiteImage({ slug, model, brand }: { slug: string; model: string; brand:
   }
 
   return (
-    <div className="relative w-full h-44 overflow-hidden bg-gray-50">
+    <div className={`relative w-full ${compact ? 'h-36 sm:h-44' : 'h-44'} overflow-hidden bg-gray-50`}>
       <Image
         src={`/kites/${slug}.jpg`}
         alt={`${brand} ${model}`}
@@ -104,17 +104,19 @@ interface KiteCardProps {
   matchLabel?: string;
   matchReasons?: string[];
   tradeoff?: string;
+  compactMatch?: boolean;
 }
 
-export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, tradeoff }: KiteCardProps) {
+export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, tradeoff, compactMatch = false }: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   return (
     <div className="group bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,229,255,0.06)]">
-      <KiteImage slug={kite.slug} model={kite.model} brand={kite.brand} />
+      <KiteImage slug={kite.slug} model={kite.model} brand={kite.brand} compact={compactMatch} />
 
-      <div className="px-4 pb-5 pt-1 space-y-3">
+      <div className={`px-4 pt-1 ${compactMatch ? 'space-y-2 pb-4 sm:space-y-3 sm:pb-5' : 'space-y-3 pb-5'}`}>
         {/* Brand + match score */}
         <div className="flex items-center justify-between">
           <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400">
@@ -122,15 +124,15 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
           </span>
           {matchScore !== undefined && (
             <div className="text-right">
-              <span className={`font-display font-black italic text-xl leading-none ${
+              <span className={`block text-[10px] font-bold uppercase tracking-[0.12em] ${
                 matchScore >= 80 ? 'text-ocean' :
                 matchScore >= 60 ? 'text-sand' :
                 'text-gray-400'
               }`}>
-                ≈{displayFitScore(matchScore)}%
-              </span>
-              <span className="block text-[8px] font-bold uppercase tracking-[0.14em] text-gray-400">
                 {matchLabel ?? 'Estimated fit'}
+              </span>
+              <span className="block text-[10px] text-gray-400">
+                ≈{displayFitScore(matchScore)}% preference match
               </span>
             </div>
           )}
@@ -145,7 +147,7 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
             </span>
           </h3>
           {kite.structured_review?.rec_blurb && (
-            <p className="text-xs text-gray-500 mt-1 leading-snug line-clamp-2">
+            <p className={`text-xs text-gray-500 mt-1 leading-snug ${compactMatch ? 'line-clamp-1 sm:line-clamp-2' : 'line-clamp-2'}`}>
               {kite.structured_review.rec_blurb}
             </p>
           )}
@@ -197,20 +199,35 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
 
         {matchReasons && matchReasons.length > 0 && (
           <div className="rounded-xl border border-ocean/15 bg-ocean/[0.04] p-3">
-            <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-ocean">Why it fits</p>
-            <ul className="mt-2 space-y-1.5">
-              {matchReasons.slice(0, 2).map(reason => (
+            <div className="flex items-start gap-2 text-[11px] leading-4 text-gray-600">
+              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ocean" />
+              <span>{matchReasons[0]}</span>
+            </div>
+            {compactMatch && (matchReasons.length > 1 || tradeoff) && (
+              <button
+                type="button"
+                onClick={() => setDetailsOpen(value => !value)}
+                className="mt-2 min-h-8 text-[10px] font-bold uppercase tracking-[0.14em] text-ocean hover:text-ocean-light"
+                aria-expanded={detailsOpen}
+              >
+                {detailsOpen ? 'Hide match details' : 'Why this match?'}
+              </button>
+            )}
+            <div className={compactMatch && !detailsOpen ? 'hidden' : 'block'}>
+              <ul className="mt-2 space-y-1.5">
+              {matchReasons.slice(1, 2).map(reason => (
                 <li key={reason} className="flex gap-2 text-[11px] leading-4 text-gray-600">
                   <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ocean" />
                   {reason}
                 </li>
               ))}
-            </ul>
-            {tradeoff && (
-              <p className="mt-2 border-t border-white/10 pt-2 text-[10px] leading-4 text-gray-400">
-                <span className="font-bold text-sand">Tradeoff:</span> {tradeoff}
-              </p>
-            )}
+              </ul>
+              {tradeoff && (
+                <p className="mt-2 border-t border-white/10 pt-2 text-[10px] leading-4 text-gray-400">
+                  <span className="font-bold text-sand">Tradeoff:</span> {tradeoff}
+                </p>
+              )}
+            </div>
           </div>
         )}
 
@@ -234,7 +251,7 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
             }}
             aria-label={inCompare ? `Remove ${kite.model} from compare` : `Add ${kite.model} to compare`}
             aria-pressed={inCompare}
-            className={`py-2 px-4 text-sm font-semibold rounded-lg border transition-all duration-150 active:scale-90 ${
+            className={`min-h-11 min-w-11 py-2 px-4 text-sm font-semibold rounded-lg border transition-all duration-150 active:scale-90 ${
               inCompare
                 ? 'bg-ocean/15 border-ocean text-ocean ring-2 ring-ocean/30'
                 : 'border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-600'

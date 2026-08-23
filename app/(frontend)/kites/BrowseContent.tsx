@@ -54,6 +54,8 @@ function sortKites<K extends Kite & { score?: number }>(
 export default function BrowseContent({ kites }: { kites: Kite[] }) {
   const { filters, setFilters } = useFilters();
   const [filtersOpen, setFiltersOpen] = useState(true);
+  const [query, setQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(12);
 
   // Debounced slider state — see lib/useDebouncedNumber. Adjusting style or
   // shape also flips sort to 'match'; we batch that into the commit.
@@ -64,8 +66,14 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
 
   const displayKites = useMemo(() => {
     const filtered = applyFilters(kites, filters);
-    return sortKites(filtered, filters.sort, styleVal, shapeVal);
-  }, [kites, filters, styleVal, shapeVal]);
+    const normalizedQuery = query.trim().toLowerCase();
+    const searched = normalizedQuery
+      ? filtered.filter(kite => `${kite.brand} ${kite.model} ${kite.year}`.toLowerCase().includes(normalizedQuery))
+      : filtered;
+    return sortKites(searched, filters.sort, styleVal, shapeVal);
+  }, [kites, filters, query, styleVal, shapeVal]);
+
+  const visibleKites = displayKites.slice(0, visibleCount);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -109,6 +117,8 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                   value={styleVal}
                   onChange={(e) => setStyleVal(Number(e.target.value))}
                   className="w-full"
+                  style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
+                  aria-label="Riding style preference"
                 />
                 <div className="flex justify-between mt-1">
                   {styleZones.map((zone, i) => (
@@ -132,6 +142,8 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                   value={shapeVal}
                   onChange={(e) => setShapeVal(Number(e.target.value))}
                   className="w-full"
+                  style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
+                  aria-label="Kite shape and aspect preference"
                 />
                 <div className="flex justify-between mt-1">
                   <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
@@ -156,7 +168,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                     <button
                       key={opt.value}
                       onClick={() => setFilters({ construction: opt.value as Construction })}
-                      className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                      className={`min-h-9 px-3 py-1 text-xs rounded-full border transition-colors ${
                         filters.construction === opt.value
                           ? 'bg-ocean text-white border-ocean'
                           : 'bg-white text-gray-600 border-gray-200 hover:border-ocean hover:text-ocean'
@@ -181,6 +193,8 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
                   value={filters.budget}
                   onChange={(e) => setFilters({ budget: Number(e.target.value) })}
                   className="w-full"
+                  style={{ '--range-pct': `${((filters.budget - 500) / 4500) * 100}%` } as React.CSSProperties}
+                  aria-label="Maximum budget"
                 />
                 <div className="flex justify-between mt-1">
                   <span className="text-[10px] text-gray-400">$500</span>
@@ -192,7 +206,23 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         )}
       </div>
 
-      <div className="flex justify-end mb-4">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <label className="relative block flex-1 sm:max-w-md">
+          <span className="sr-only">Search kites by brand or model</span>
+          <svg className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+          </svg>
+          <input
+            type="search"
+            value={query}
+            onChange={event => {
+              setQuery(event.target.value);
+              setVisibleCount(12);
+            }}
+            placeholder="Search brand or model"
+            className="min-h-11 w-full rounded-lg border border-white/10 bg-white py-2 pl-10 pr-3 text-sm text-slate placeholder:text-gray-400"
+          />
+        </label>
         <select
           value={filters.sort}
           onChange={(e) => setFilters({ sort: e.target.value as SortOption })}
@@ -211,7 +241,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         <KiteFilters kites={kites} />
         <div className="flex-1 min-w-0">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayKites.map((kite) => (
+            {visibleKites.map((kite) => (
               <KiteCard
                 key={kite.id}
                 kite={kite}
@@ -223,6 +253,17 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
           </div>
           {displayKites.length === 0 && (
             <div className="text-center py-20 text-gray-400">No kites match your filters.</div>
+          )}
+          {visibleCount < displayKites.length && (
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount(count => count + 12)}
+                className="min-h-11 rounded-lg border border-ocean/30 bg-ocean/10 px-6 py-2.5 text-sm font-bold text-ocean transition-colors hover:bg-ocean/15"
+              >
+                Show 12 more <span className="font-normal text-gray-400">({displayKites.length - visibleCount} remaining)</span>
+              </button>
+            </div>
           )}
         </div>
       </div>

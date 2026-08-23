@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Kite } from '@/lib/types';
@@ -31,6 +31,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const { filters, setFilters } = useFilters();
+  const [showOnlyDifferences, setShowOnlyDifferences] = useState(true);
 
   const slugs = (searchParams.get('kites') ?? '').split(',').filter(Boolean);
   const bySlug = useMemo(() => new Map(allKites.map((k) => [k.slug, k])), [allKites]);
@@ -287,7 +288,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
         </div>
       )}
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="hidden bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden md:block">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[480px]">
             <thead>
@@ -332,6 +333,40 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
           </table>
         </div>
       </div>
+
+      <section className="space-y-3 md:hidden" aria-labelledby="mobile-comparison-title">
+        <div className="sticky top-14 z-20 rounded-xl border border-white/10 bg-[#0D1421]/95 p-3 shadow-lg backdrop-blur-md">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="mobile-comparison-title" className="text-sm font-bold text-slate">Decision view</h2>
+            <label className="flex min-h-11 items-center gap-2 text-xs text-gray-500">
+              <input
+                type="checkbox"
+                checked={showOnlyDifferences}
+                onChange={event => setShowOnlyDifferences(event.target.checked)}
+                className="h-4 w-4 accent-cyan-400"
+              />
+              Differences only
+            </label>
+          </div>
+          <p className="text-[11px] text-gray-400">Every row keeps the kite names visible—no sideways table required.</p>
+        </div>
+
+        {rows
+          .filter(row => !showOnlyDifferences || row.highlight)
+          .map(row => (
+            <article key={row.label} className={`rounded-xl border p-4 ${row.highlight ? 'border-sand/20 bg-sand/[0.04]' : 'border-white/10 bg-white'}`}>
+              <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{row.label}</h3>
+              <div className="space-y-2">
+                {row.values.map((value, index) => (
+                  <div key={orderedKites[index].kite.slug} className="flex items-baseline justify-between gap-4 border-t border-white/5 pt-2 first:border-0 first:pt-0">
+                    <span className="min-w-0 truncate text-xs text-gray-500">{orderedKites[index].kite.model}</span>
+                    <span className="text-right text-sm font-semibold capitalize text-slate">{value}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+      </section>
 
       {/* Style spectrum visual */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mt-8 space-y-4">

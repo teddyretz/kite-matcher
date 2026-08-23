@@ -95,6 +95,27 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
             <p className="text-sm text-gray-500">
               <span className="font-semibold text-slate">Best for:</span> {kite.best_for}
             </p>
+            {kite.structured_review && (
+              <div className="mt-5 rounded-xl border border-ocean/15 bg-ocean/[0.04] p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-ocean">Independent review verdict</p>
+                    <p className="mt-1 text-sm font-semibold text-slate">{kite.structured_review.rec_blurb}</p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <span className="font-display text-2xl font-black italic text-sand">{kite.structured_review.rating.toFixed(1)}</span>
+                    <span className="block text-[9px] text-gray-400">/ 5 review rating</span>
+                  </div>
+                </div>
+                <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
+                  <p className="text-gray-500"><span className="font-bold text-ocean">Strength:</span> {kite.structured_review.pros[0]}</p>
+                  <p className="text-gray-500"><span className="font-bold text-sand">Tradeoff:</span> {kite.structured_review.cons[0]}</p>
+                </div>
+                <a href="#review-summary" className="mt-3 inline-flex min-h-9 items-center text-xs font-bold text-ocean hover:text-ocean-light">
+                  Read the full evidence-backed verdict ↓
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -131,7 +152,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
 
       {/* Review Summary */}
       {kite.structured_review ? (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+        <div id="review-summary" className="scroll-mt-20 bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
           <div className="flex items-center gap-3 mb-1">
             <h2 className="text-lg font-bold text-slate">Review Summary</h2>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-ocean/10 text-ocean text-[11px] font-semibold uppercase tracking-wide">
