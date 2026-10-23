@@ -61,7 +61,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install yt-dlp
-        run: pip install --upgrade yt-dlp
+        run: pip install "yt-dlp==2026.10.21"
 
       - run: npm ci
 

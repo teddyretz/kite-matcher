@@ -12,7 +12,7 @@ A kite buying advisor at **findmykite.com**. Helps kitesurfers find the right ki
 
 | Layer | Tech |
 |---|---|
-| Framework | Next.js 15.4.11 (App Router) |
+| Framework | Next.js 15.5.28 (App Router) |
 | React | 19 |
 | Styling | Tailwind CSS 3.4.x |
 | Data | Per-kite JSON files in `data/kites/` (Zod-validated) |
