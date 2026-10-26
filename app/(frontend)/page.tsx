@@ -3,139 +3,43 @@ import AdvisorMatcher from '@/components/AdvisorMatcher';
 import { getActiveKites } from '@/lib/getKites';
 import Link from 'next/link';
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ legacy?: string }>;
-}) {
+export default async function Home({ searchParams }: { searchParams: Promise<{ legacy?: string }> }) {
   const kites = await getActiveKites();
   const { legacy } = await searchParams;
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)]">
-
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden min-h-[80vh] sm:min-h-[88vh] flex items-center">
-
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#040810] via-surface to-[#061018]" />
-
-        {/* Glowing ambient orbs */}
-        <div className="absolute top-1/4 right-1/3 w-[700px] h-[700px] rounded-full bg-ocean/[0.04] blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-sand/[0.04] blur-[120px] pointer-events-none" />
-
-        {/* Diagonal grid */}
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              'linear-gradient(#00E5FF 1px, transparent 1px), linear-gradient(90deg, #00E5FF 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-
-        {/* Wind line SVGs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 1400 700"
-            preserveAspectRatio="xMidYMid slice"
-            fill="none"
-          >
-            <path d="M-200 450 Q300 120 800 380 T1600 200" stroke="#00E5FF" strokeWidth="1.5" opacity="0.07" />
-            <path d="M-200 550 Q300 220 800 480 T1600 300" stroke="#00E5FF" strokeWidth="1" opacity="0.05" />
-            <path d="M-200 350 Q400 80 900 320 T1600 100" stroke="#00E5FF" strokeWidth="0.75" opacity="0.04" />
-            <path d="M-200 620 Q200 350 700 550 T1600 420" stroke="#FF5A30" strokeWidth="0.75" opacity="0.05" />
-            <path d="M-200 680 Q250 420 750 610 T1600 480" stroke="#FF5A30" strokeWidth="0.5" opacity="0.04" />
-          </svg>
-        </div>
-
-        {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
-
-          {/* Left: Headline */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-ocean/25 bg-ocean/8 text-ocean text-xs font-semibold tracking-widest uppercase mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-ocean animate-pulse" />
-              {kites.length} kites · Zero sponsors
+    <div>
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-ocean/[0.06] blur-3xl" />
+        <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-[1440px] lg:grid-cols-[minmax(0,1.08fr)_minmax(430px,.92fr)]">
+          <div className="relative flex flex-col justify-between border-white/10 px-4 py-8 sm:px-8 sm:py-12 lg:border-r lg:px-12 lg:py-14">
+            <div className="editorial-in my-14 [animation-delay:80ms] lg:my-8">
+              <p className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-sand">Independent kite review aggregator</p>
+              <h1 className="font-display text-[clamp(4.8rem,9vw,8.5rem)] font-black uppercase leading-[0.92] tracking-[-0.02em] text-slate">
+                Find your<br />next <span className="text-ocean">kite.</span>
+              </h1>
+              <div className="mt-8 max-w-xl">
+                <p className="max-w-md text-base leading-relaxed text-gray-600 sm:text-lg">Tell us how you actually ride. We&apos;ll cut through the launch copy and show you what belongs on your shortlist.</p>
+              </div>
             </div>
 
-            <h1 className="font-display font-black italic uppercase leading-[0.88] tracking-tight text-white"
-                style={{ fontSize: 'clamp(4.5rem, 11vw, 9rem)' }}>
-              Find<br />
-              <span className="text-ocean drop-shadow-[0_0_30px_rgba(0,229,255,0.4)]">Your</span><br />
-              Kite.
-            </h1>
-
-            <p className="mt-7 text-gray-500 text-lg max-w-[340px] leading-relaxed">
-              Match your riding style to the right kite — with real reviews, not sponsored content.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/kites"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-100 text-gray-600 text-sm font-medium hover:text-white hover:bg-gray-200 transition-colors"
-              >
-                Browse all {kites.length} kites
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+            <div className="editorial-in grid grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] [animation-delay:160ms]">
+              <div className="px-4 py-4"><strong className="block font-display text-3xl font-black text-slate">{kites.length}</strong><span className="text-[9px] font-bold uppercase tracking-[0.17em] text-gray-400">Kites indexed</span></div>
+              <div className="border-x border-white/15 px-4 py-4"><strong className="block font-display text-3xl font-black text-slate">13</strong><span className="text-[9px] font-bold uppercase tracking-[0.17em] text-gray-400">Brands</span></div>
+              <Link href="/kites" className="group px-4 py-4 transition-colors hover:bg-ocean hover:text-surface"><strong className="block font-display text-3xl font-black">→</strong><span className="text-[9px] font-bold uppercase tracking-[0.17em]">Open kite index</span></Link>
             </div>
           </div>
 
-          {/* Right: guided advisor with a reversible classic path */}
-          {legacy === '1' ? (
-            <div>
-              <div className="mb-3 flex justify-end">
-                <Link href="/" className="text-xs text-gray-400 hover:text-ocean">Try the guided fitter →</Link>
-              </div>
-              <StyleMatcher kites={kites} />
+          <div className="relative flex items-center bg-card/50 px-4 py-10 sm:px-8 lg:px-10 lg:py-14">
+            <div className="editorial-in relative w-full [animation-delay:220ms]">
+              {legacy === '1' ? (
+                <div><div className="mb-3 flex justify-end"><Link href="/" className="text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-ocean">Use the full finder →</Link></div><StyleMatcher kites={kites} /></div>
+              ) : <AdvisorMatcher kites={kites} />}
             </div>
-          ) : (
-            <AdvisorMatcher kites={kites} />
-          )}
+          </div>
         </div>
       </section>
 
-      {/* ── How it works ── */}
-      <section className="max-w-5xl mx-auto px-4 py-16 sm:py-24">
-        <div className="flex items-center gap-5 mb-16">
-          <div className="h-px flex-1 bg-gray-100" />
-          <h2 className="font-display font-bold italic text-xl uppercase tracking-widest text-gray-400">
-            How It Works
-          </h2>
-          <div className="h-px flex-1 bg-gray-100" />
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-10">
-          {[
-            {
-              num: '01',
-              title: 'Set Your Style',
-              desc: 'Use the sliders to tell us how you ride and what you want in a kite.',
-            },
-            {
-              num: '02',
-              title: 'See Matches',
-              desc: 'We score every kite against your preferences and surface the best fits.',
-            },
-            {
-              num: '03',
-              title: 'Compare & Buy',
-              desc: 'Read real reviews, compare specs side by side, and find the best deal.',
-            },
-          ].map((item) => (
-            <div key={item.num} className="group">
-              <div className="font-display font-black italic text-7xl text-gray-100 leading-none mb-5 group-hover:text-ocean/20 transition-colors duration-500">
-                {item.num}
-              </div>
-              <h3 className="font-semibold text-slate mb-2 text-base">{item.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

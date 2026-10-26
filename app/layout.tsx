@@ -21,11 +21,11 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FindMyKite — Find Your Next Kite",
+    default: "FindMyKite — Independent Kite Review Aggregator",
     template: "%s | FindMyKite",
   },
   description:
-    "Match your riding style to the right kite — with real reviews, not sponsored content.",
+    "Independent kite review aggregator and riding-style matcher, built from real reviews without sponsored rankings.",
   openGraph: {
     type: "website",
     siteName: "FindMyKite",

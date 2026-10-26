@@ -37,6 +37,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">Year</h4>
         <select
+          aria-label="Filter by year"
           value={filters.year}
           onChange={(e) => setFilters({ year: e.target.value })}
           className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
@@ -90,6 +91,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">Bar Type</h4>
         <select
+          aria-label="Filter by bar type"
           value={filters.barType}
           onChange={(e) => setFilters({ barType: e.target.value as typeof filters.barType })}
           className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
@@ -105,6 +107,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">Aspect Ratio</h4>
         <select
+          aria-label="Filter by aspect ratio"
           value={filters.aspect}
           onChange={(e) => setFilters({ aspect: e.target.value as typeof filters.aspect })}
           className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
@@ -122,6 +125,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">Construction</h4>
         <select
+          aria-label="Filter by construction"
           value={filters.construction}
           onChange={(e) => setFilters({ construction: e.target.value as typeof filters.construction })}
           className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
@@ -153,6 +157,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
           Max Price: {filters.budget >= 5000 ? 'No limit' : `$${filters.budget.toLocaleString()}`}
         </h4>
         <input
+          aria-label="Maximum price"
           type="range"
           min={500}
           max={5000}
@@ -168,15 +173,15 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
   return (
     <>
       <button
-        className="lg:hidden w-full py-2 px-4 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 mb-4"
+        className="mb-4 min-h-11 w-full rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 lg:hidden"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        {mobileOpen ? 'Hide Filters' : 'Show Filters'}
+        {mobileOpen ? 'Hide technical filters' : 'Show technical filters'}
       </button>
 
       <div className="hidden lg:block w-64 shrink-0">
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sticky top-20">
-          <h3 className="font-bold text-slate mb-4">Filters</h3>
+          <h3 className="font-bold text-slate mb-4">Technical filters</h3>
           {filterContent}
         </div>
       </div>

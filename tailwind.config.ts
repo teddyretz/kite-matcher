@@ -10,33 +10,33 @@ const config: Config = {
     extend: {
       colors: {
         ocean: {
-          DEFAULT: "#00E5FF",
-          light: "#33ECFF",
-          dark: "#00B8CC",
+          DEFAULT: "#3CB8E3",
+          light: "#79D3F1",
+          dark: "#1684A8",
         },
         sand: {
-          DEFAULT: "#FF5A30",
-          light: "#FF7D5C",
-          dark: "#CC4020",
+          DEFAULT: "#FF8358",
+          light: "#FFA080",
+          dark: "#D95B34",
         },
         slate: {
-          DEFAULT: "#E8EFFF",
+          DEFAULT: "#F4F8FA",
         },
-        surface: "#080D16",
-        card: "#0D1421",
+        surface: "#0C1A24",
+        card: "#122633",
         // Inverted gray scale for dark-first design
         // Low numbers = dark backgrounds/borders, High numbers = light text
         gray: {
-          50:  "#0D1421",
-          100: "#1A2535",
-          200: "#253848",
-          300: "#3D5870",
-          400: "#5C7A94",
-          500: "#7A9BB5",
-          600: "#9DB5CC",
-          700: "#C0D0E0",
-          800: "#D8E5F0",
-          900: "#E8EFFF",
+          50:  "#122633",
+          100: "#1D3442",
+          200: "#2C4554",
+          300: "#466170",
+          400: "#8398A3",
+          500: "#A2B2BA",
+          600: "#BCC8CE",
+          700: "#D2DBDF",
+          800: "#E4EAED",
+          900: "#F4F8FA",
         },
       },
       fontFamily: {

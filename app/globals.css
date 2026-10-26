@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 body {
-  color: #E8EFFF;
-  background: #080D16;
+  color: #F4F8FA;
+  background: #0C1A24;
 }
 
 :focus-visible {
-  outline: 2px solid #00E5FF;
+  outline: 2px solid #3CB8E3;
   outline-offset: 3px;
 }
 
 [aria-current="page"] {
-  color: #E8EFFF;
+  color: #F4F8FA;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,31 +25,31 @@ body {
   }
 }
 
-/* Grain texture overlay — atmospheric depth */
+/* A dry, printed grain keeps the interface closer to a gear annual than software UI. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.04;
+  opacity: 0.055;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 180px 180px;
 }
 
-/* bg-white → dark card in dark theme */
+/* Legacy utility mapping for the dark editorial theme. */
 .bg-white {
-  background-color: #0D1421 !important;
+  background-color: #122633 !important;
 }
 
-/* Range slider — cyan glow */
+/* Range sliders: bright rigging line, no neon glow. */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   height: 4px;
   border-radius: 2px;
-  background: #1A2535;
+  background: #3A3C32;
   outline: none;
   cursor: pointer;
 }
@@ -59,8 +59,8 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 2px;
   background: linear-gradient(
     to right,
-    #00E5FF var(--range-pct, 50%),
-    #1A2535 var(--range-pct, 50%)
+    #3CB8E3 var(--range-pct, 50%),
+    #3A3C32 var(--range-pct, 50%)
   );
 }
 
@@ -70,10 +70,10 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #00E5FF;
+  background: #3CB8E3;
   cursor: pointer;
-  border: 3px solid #080D16;
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  border: 3px solid #0C1A24;
+  box-shadow: none;
   margin-top: -8px;
 }
 
@@ -81,34 +81,34 @@ input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #00E5FF;
+  background: #3CB8E3;
   cursor: pointer;
-  border: 3px solid #080D16;
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  border: 3px solid #0C1A24;
+  box-shadow: none;
 }
 
 input[type="range"]::-moz-range-track {
   height: 4px;
   border-radius: 2px;
-  background: #1A2535;
+  background: #3A3C32;
 }
 
 /* Select elements */
 select {
-  background-color: #0D1421;
-  color: #E8EFFF;
-  border-color: #1A2535;
+  background-color: #122633;
+  color: #F4F8FA;
+  border-color: #3A3C32;
 }
 
 select option {
-  background-color: #0D1421;
-  color: #E8EFFF;
+  background-color: #122633;
+  color: #F4F8FA;
 }
 
 /* Text selection */
 ::selection {
-  background: rgba(0, 229, 255, 0.25);
-  color: #E8EFFF;
+  background: #3CB8E3;
+  color: #0C1A24;
 }
 
 /* Scrollbar */
@@ -116,12 +116,30 @@ select option {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #080D16;
+  background: #0C1A24;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1A2535;
-  border-radius: 3px;
+  background: #3A3C32;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #253848;
+  background: #535649;
+}
+
+.type-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #F4F8FA;
+  text-stroke: 1.5px #F4F8FA;
+}
+
+.editorial-rule {
+  background-image: repeating-linear-gradient(90deg, transparent 0 7px, rgba(241, 237, 227, 0.28) 7px 8px);
+}
+
+@keyframes editorial-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.editorial-in {
+  animation: editorial-in 650ms cubic-bezier(.2,.75,.25,1) both;
 }

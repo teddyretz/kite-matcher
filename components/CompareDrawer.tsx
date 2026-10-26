@@ -27,7 +27,7 @@ export default function CompareDrawer() {
             kite ? (
               <div
                 key={slug}
-                className="flex items-center gap-1.5 sm:gap-2 bg-surface px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm shrink-0"
+                className="flex shrink-0 items-center gap-1.5 border border-white/15 bg-surface px-2.5 py-1 text-xs sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
               >
                 <span className="font-medium whitespace-nowrap">{kite.brand} {kite.model}</span>
                 <button
@@ -41,7 +41,7 @@ export default function CompareDrawer() {
             ) : (
               <div
                 key={slug}
-                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm shrink-0 bg-gray-100 text-gray-400 animate-pulse"
+                className="flex shrink-0 animate-pulse items-center gap-1.5 border border-white/10 bg-gray-100 px-2.5 py-1 text-xs text-gray-400 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
                 aria-busy={kitesLoading || undefined}
               >
                 <span className="font-medium whitespace-nowrap">{kitesLoading ? 'Loading…' : slug}</span>
@@ -82,4 +82,3 @@ export default function CompareDrawer() {
     </div>
   );
 }
-

@@ -23,7 +23,7 @@ import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorCo
 const styleZones = [
   { label: 'Foil', color: 'text-teal-400' },
   { label: 'Surf', color: 'text-emerald-400' },
-  { label: 'Freestyle', color: 'text-violet-400' },
+  { label: 'Freestyle', color: 'text-sand' },
   { label: 'Freeride', color: 'text-blue-400' },
   { label: 'Big Air', color: 'text-orange-400' },
 ];
@@ -180,13 +180,20 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
     ? getDiverseAdvisorShortlist(eligibleKites as AdvisorMatch[], 12, 2)
     : eligibleKites;
 
+  const resultSections = advisorMode
+    ? [
+        { title: 'Your top three', description: 'The clearest starting points, each with a slightly different case.', items: displayKites.slice(0, 3) },
+        { title: 'More strong options', description: 'Good fits worth exploring if the top three miss a detail that matters to you.', items: displayKites.slice(3) },
+      ]
+    : [{ title: '', description: '', items: displayKites }];
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="mb-6">
         {advisorMode && (
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">Your rider profile</p>
         )}
-        <h1 className={advisorMode ? 'font-display text-4xl font-black italic uppercase text-slate' : 'text-2xl font-bold text-slate'}>
+        <h1 className={advisorMode ? 'font-display text-5xl font-black text-slate' : 'text-2xl font-bold text-slate'}>
           Your Kite Matches
         </h1>
         <p className="text-sm text-gray-500">
@@ -200,7 +207,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
               ? [styleZones[getActiveZone(styleVal)].label, level, handlingVal < 35 ? 'forgiving handling' : handlingVal > 65 ? 'performance handling' : 'balanced handling', windSliderVal < 35 ? 'light wind' : windSliderVal > 65 ? 'strong wind' : 'mixed wind']
               : [goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`]
             ).map(item => (
-              <span key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs capitalize text-gray-600">
+              <span key={item} className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1 text-xs capitalize text-gray-600">
                 {item}
               </span>
             ))}
@@ -209,7 +216,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
       </div>
 
       {sliderMode && (
-        <section className="mb-6 overflow-hidden rounded-2xl border border-ocean/15 bg-[#0B1420] shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+        <section className="mb-8 overflow-hidden rounded-2xl border border-ocean/20 bg-card/70">
           <button
             type="button"
             onClick={() => {
@@ -221,7 +228,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
             aria-expanded={advisorTunerOpen}
           >
             <div className="min-w-0">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">Live match controls</p>
+              <p className="text-xs font-semibold text-ocean">Live match controls</p>
               <p className="truncate text-sm font-semibold text-slate">
                 Tune any preference and the ranking updates instantly
               </p>
@@ -258,10 +265,10 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
                 }}
               />
               <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-4 sm:flex-row sm:justify-end">
-                <button type="button" onClick={resetAdvisor} className="min-h-11 rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-gray-400 transition-colors hover:border-white/20 hover:text-slate">
+                <button type="button" onClick={resetAdvisor} className="min-h-11 rounded-lg border border-white/15 px-4 py-2 text-xs font-semibold text-gray-400 transition-colors hover:border-white/40 hover:text-slate">
                   Reset profile
                 </button>
-                <button type="button" onClick={shareAdvisor} className="min-h-11 rounded-lg border border-ocean/30 bg-ocean/10 px-4 py-2 text-xs font-bold text-ocean transition-colors hover:bg-ocean/15">
+                <button type="button" onClick={shareAdvisor} className="min-h-11 rounded-lg border border-ocean bg-ocean px-4 py-2 text-xs font-bold text-surface transition-colors hover:bg-white">
                   {shareStatus === 'copied' ? 'Link copied ✓' : 'Share these matches'}
                 </button>
               </div>
@@ -270,7 +277,7 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
         </section>
       )}
 
-      {!advisorMode && <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+      {!advisorMode && <div className="mb-6 border border-gray-100 bg-white">
         <button
           type="button"
           onClick={() => setSlidersOpen(!slidersOpen)}
@@ -315,28 +322,41 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
       <div className="flex flex-col gap-4 lg:flex-row lg:gap-8">
         <KiteFilters kites={kites} />
         <div className="flex-1 min-w-0">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayKites.map(kite => {
-              const advisorMatch = advisorMode ? kite as AdvisorMatch : null;
-              return (
-                <KiteCard
-                  key={kite.id}
-                  kite={kite}
-                  matchScore={kite.score}
-                  matchLabel={advisorMatch?.fitLabel}
-                  matchReasons={advisorMatch?.reasons}
-                  tradeoff={advisorMatch?.tradeoffs[0]}
-                  compactMatch={advisorMode}
-                />
-              );
-            })}
+          <div className="space-y-10">
+            {resultSections.filter(section => section.items.length > 0).map((section, sectionIndex) => (
+              <section key={section.title || 'all-results'}>
+                {section.title && (
+                  <div className="mb-4">
+                    <h2 className="font-display text-2xl font-black text-slate">{section.title}</h2>
+                    <p className="text-sm text-gray-500">{section.description}</p>
+                  </div>
+                )}
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {section.items.map((kite, itemIndex) => {
+                    const advisorMatch = advisorMode ? kite as AdvisorMatch : null;
+                    const pickLabels = ['Best overall', 'Strong alternative', 'Wildcard pick'];
+                    return (
+                      <KiteCard
+                        key={kite.id}
+                        kite={kite}
+                        matchScore={kite.score}
+                        matchReasons={advisorMatch?.reasons}
+                        tradeoff={advisorMatch?.tradeoffs[0]}
+                        compactMatch={advisorMode}
+                        pickLabel={advisorMode && sectionIndex === 0 ? pickLabels[itemIndex] : advisorMode ? 'Good match' : undefined}
+                      />
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
           </div>
           {displayKites.length === 0 && (
             <div className="text-center py-20 text-gray-400">No kites match your filters. Try adjusting your criteria.</div>
           )}
           {advisorMode && eligibleKites.length > 12 && (
             <div className="mt-8 text-center">
-              <button type="button" onClick={() => setShowAll(value => !value)} className="rounded-lg border border-white/10 px-5 py-2.5 text-sm font-semibold text-gray-600 transition-colors hover:border-ocean/40 hover:text-ocean">
+              <button type="button" onClick={() => setShowAll(value => !value)} className="border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-gray-600 transition-colors hover:border-ocean hover:text-ocean">
                 {showAll ? 'Show diverse shortlist' : `Show all ${eligibleKites.length} eligible kites`}
               </button>
             </div>

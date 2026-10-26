@@ -14,7 +14,7 @@ const MAX_COMPARE = 3;
 const styleZones = [
   { label: 'Foil',      color: 'text-teal-400'    },
   { label: 'Surf',      color: 'text-emerald-400' },
-  { label: 'Freestyle', color: 'text-violet-400'  },
+  { label: 'Freestyle', color: 'text-sand'        },
   { label: 'Freeride',  color: 'text-blue-400'    },
   { label: 'Big Air',   color: 'text-orange-400'  },
 ];
@@ -281,7 +281,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       {Header}
 
       {missing.length > 0 && (
-        <div className="mb-4 px-4 py-3 bg-amber-50 border border-amber-200 text-amber-900 text-sm rounded-lg">
+        <div className="mb-4 border-l-2 border-sand bg-sand/[0.04] px-4 py-3 text-sm text-gray-700">
           {missing.length === 1
             ? <>Skipped <span className="font-mono">{missing[0]}</span> — kite not found.</>
             : <>Skipped {missing.length} kites that couldn&apos;t be found: <span className="font-mono">{missing.join(', ')}</span></>}

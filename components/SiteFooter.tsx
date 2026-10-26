@@ -2,26 +2,24 @@ import Link from 'next/link';
 import { STYLE_ZONES } from '@/lib/seo';
 
 const footerLinks = [
-  { href: '/', label: 'Matcher' },
-  { href: '/kites', label: 'Browse' },
+  { href: '/', label: 'Kite finder' },
+  { href: '/kites', label: 'Kite index' },
   { href: '/compare', label: 'Compare' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'The story' },
 ];
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 mt-16">
+    <footer className="mt-16 border-t border-white/10 bg-[#08141D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
           <div className="max-w-sm">
-            <Link href="/" className="font-display font-black italic text-lg tracking-tight select-none">
-              <span className="text-white">find</span>
-              <span className="text-ocean">my</span>
-              <span className="text-white">kite</span>
+            <Link href="/" className="font-display text-2xl font-black uppercase tracking-tight text-white select-none">
+              Find My Kite<span className="text-ocean">.</span>
             </Link>
             <p className="mt-3 text-xs text-gray-400 leading-relaxed">
-              Review summaries are AI-distilled from independent video reviewers —
-              never from brands or sponsors. No paid placements, no sponsored rankings.
+              An independent kite review aggregator, stripped of shop bias and launch-day hype.
+              No paid placements. No sponsored rankings.
             </p>
           </div>
 

@@ -35,6 +35,10 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
     (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
   );
   const [imgError, setImgError] = useState(false);
+  const evidenceSources = kite.structured_review?.sources ?? [];
+  const evidenceLabel = evidenceSources.length === 1
+    ? 'Single-source perspective'
+    : `${evidenceSources.length} independent sources`;
 
   const specs = [
     ['Aspect Ratio', kite.aspect_ratio.replace('-', ' ')],
@@ -60,7 +64,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       </nav>
 
       {/* Hero */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+      <div className="mb-8 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.14)]">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative h-48 sm:h-64 md:h-auto md:min-h-[320px] bg-gray-50 overflow-hidden">
             {imgError ? (
@@ -80,23 +84,23 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
             )}
           </div>
           <div className="p-6 sm:p-8">
-            <p className="text-sm text-gray-500 mb-1">{kite.brand} &middot; {kite.year}</p>
-            <h1 className="text-3xl font-bold text-slate mb-3">{kite.model}</h1>
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">{kite.brand} / {kite.year}</p>
+            <h1 className="mb-4 font-display text-5xl font-black uppercase leading-none text-slate">{kite.model}</h1>
             <div className="flex flex-wrap gap-2 mb-4">
-              {kite.teds_pick && <span className="px-3 py-1 bg-amber-100 text-amber-700 text-sm rounded-full font-medium">Ted&apos;s Pick</span>}
+              {kite.teds_pick && <span className="border border-sand/50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sand">Ted&apos;s Pick</span>}
               {kite.style_tags.map(tag => (
-                <span key={tag} className="px-3 py-1 bg-ocean/5 text-ocean text-sm rounded-full">{tag}</span>
+                <span key={tag} className="border border-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-600">{tag}</span>
               ))}
-              {kite.aluula && <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">Aluula</span>}
-              {kite.brainchild && <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">Brainchild</span>}
-              {kite.snow_kite && <span className="px-3 py-1 bg-sky-100 text-sky-700 text-sm rounded-full font-medium">Great for Snow</span>}
+              {kite.aluula && <span className="border border-ocean/50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ocean">Aluula</span>}
+              {kite.brainchild && <span className="border border-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-600">Brainchild</span>}
+              {kite.snow_kite && <span className="border border-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-600">Great for Snow</span>}
             </div>
             <p className="text-gray-600 mb-6">{kite.summary}</p>
             <p className="text-sm text-gray-500">
               <span className="font-semibold text-slate">Best for:</span> {kite.best_for}
             </p>
             {kite.structured_review && (
-              <div className="mt-5 rounded-xl border border-ocean/15 bg-ocean/[0.04] p-4">
+              <div className="mt-5 rounded-2xl bg-ocean/[0.055] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-ocean">Independent review verdict</p>
@@ -104,12 +108,16 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   </div>
                   <div className="shrink-0 text-right">
                     <span className="font-display text-2xl font-black italic text-sand">{kite.structured_review.rating.toFixed(1)}</span>
-                    <span className="block text-[9px] text-gray-400">/ 5 review rating</span>
+                    <span className="block text-[9px] text-gray-400">/ 5 review synthesis</span>
                   </div>
                 </div>
                 <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
                   <p className="text-gray-500"><span className="font-bold text-ocean">Strength:</span> {kite.structured_review.pros[0]}</p>
                   <p className="text-gray-500"><span className="font-bold text-sand">Tradeoff:</span> {kite.structured_review.cons[0]}</p>
+                </div>
+                <div className="mt-3 rounded-lg border border-white/10 bg-white/[0.025] px-3 py-2 text-[11px] text-gray-500">
+                  <span className="font-semibold text-slate">Evidence:</span> {evidenceLabel}
+                  {evidenceSources.length > 0 && <> · {evidenceSources.join(', ')}</>}
                 </div>
                 <a href="#review-summary" className="mt-3 inline-flex min-h-9 items-center text-xs font-bold text-ocean hover:text-ocean-light">
                   Read the full evidence-backed verdict ↓
@@ -121,7 +129,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       </div>
 
       {/* Spectrum Bars */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8 space-y-6">
+      <div className="mb-8 space-y-6 rounded-2xl border border-gray-100 bg-white p-6">
         <h2 className="text-lg font-bold text-slate">Style Placement</h2>
         <SpectrumBar
           label="Riding Style"
@@ -138,7 +146,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
       </div>
 
       {/* Specs */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+      <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-6">
         <h2 className="text-lg font-bold text-slate mb-4">Specifications</h2>
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
           {specs.map(([label, value]) => (
@@ -152,15 +160,15 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
 
       {/* Review Summary */}
       {kite.structured_review ? (
-        <div id="review-summary" className="scroll-mt-20 bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+        <div id="review-summary" className="mb-8 scroll-mt-20 rounded-2xl border border-gray-100 bg-white p-6">
           <div className="flex items-center gap-3 mb-1">
             <h2 className="text-lg font-bold text-slate">Review Summary</h2>
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-ocean/10 text-ocean text-[11px] font-semibold uppercase tracking-wide">
-              AI-distilled
+            <span className="inline-flex items-center border border-ocean/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean">
+              Independent sources
             </span>
           </div>
           <p className="text-xs text-gray-500 mb-5">
-            Distilled by AI from independent video reviews — no brand or sponsor input. Sources listed below.
+            {evidenceLabel}. A concise synthesis with no brand or sponsor input. Sources listed below.
           </p>
           <StructuredReview review={kite.structured_review} />
         </div>
@@ -208,7 +216,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-medium text-sm">{link.retailer}</span>
-                      <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate">
+                      <span className="inline-flex items-center border border-white/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate">
                         {meta.badge}
                       </span>
                     </div>
@@ -254,7 +262,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track('retailer_search_clicked', { slug: kite.slug, retailer: r.name })}
-                  className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 border border-gray-200 rounded-full text-gray-600 hover:border-ocean hover:text-ocean transition-colors"
+                  className="inline-flex items-center gap-1.5 border border-gray-200 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-600 transition-colors hover:border-ocean hover:text-ocean"
                 >
                   <span className="font-medium">{r.name}</span>
                   {r.region && <span className="text-gray-400">· {r.region}</span>}

@@ -12,7 +12,7 @@ interface StyleMatcherProps {
 const styleZones = [
   { label: 'Foil',      color: 'text-teal-400'    },
   { label: 'Surf',      color: 'text-emerald-400'  },
-  { label: 'Freestyle', color: 'text-violet-400'   },
+  { label: 'Freestyle', color: 'text-sand'         },
   { label: 'Freeride',  color: 'text-blue-400'     },
   { label: 'Big Air',   color: 'text-orange-400'   },
 ];
@@ -60,7 +60,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
 
   return (
     <div className="w-full">
-      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 sm:p-7 space-y-6">
+      <div className="space-y-6 border border-gray-100 bg-gray-50 p-6 sm:p-7">
 
         {/* Style Slider */}
         <div>
@@ -127,9 +127,9 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
               <button
                 key={opt}
                 onClick={() => setConstruction(opt)}
-                className={`px-3 py-1 text-xs font-semibold rounded-full border capitalize transition-all duration-200 ${
+                className={`border px-3 py-1 text-xs font-bold uppercase tracking-wide transition-colors ${
                   construction === opt
-                    ? 'bg-ocean border-ocean text-[#080D16] shadow-[0_0_12px_rgba(0,229,255,0.3)]'
+                    ? 'bg-ocean border-ocean text-surface'
                     : 'border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-600'
                 }`}
               >
@@ -175,7 +175,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
               {topMatches.map((kite) => (
                 <div
                   key={kite.id}
-                  className="p-3 bg-surface rounded-xl border border-gray-100 text-center"
+                  className="border border-gray-100 bg-surface p-3 text-center"
                 >
                   <div className={`font-display font-black italic text-xl leading-none mb-1 ${
                     kite.score >= 80 ? 'text-ocean' :
@@ -199,7 +199,7 @@ export default function StyleMatcher({ kites }: StyleMatcherProps) {
               `/results?style=${styleValue}&shape=${shapeValue}&construction=${construction}&budget=${budget}`
             )
           }
-          className="w-full py-3.5 px-6 bg-ocean text-[#080D16] font-display font-black italic text-2xl uppercase tracking-wide rounded-xl hover:bg-ocean-light transition-all duration-200 shadow-[0_0_24px_rgba(0,229,255,0.35)] hover:shadow-[0_0_32px_rgba(0,229,255,0.5)]"
+          className="w-full bg-ocean px-6 py-3.5 font-display text-2xl font-black uppercase tracking-wide text-surface transition-colors hover:bg-white"
         >
           Find Kites →
         </button>

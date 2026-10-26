@@ -66,7 +66,7 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
           <p className="text-xs font-bold tracking-wide uppercase text-emerald-700 mb-1">Best for</p>
           <p className="text-sm text-gray-700">{review.best_for}</p>
         </div>
-        <div className="bg-amber-50/60 border border-amber-100 rounded-lg p-4">
+        <div className="border border-sand/25 bg-sand/[0.04] p-4">
           <p className="text-xs font-bold tracking-wide uppercase text-amber-700 mb-1">Not for</p>
           <p className="text-sm text-gray-700">{review.not_for}</p>
         </div>
@@ -75,7 +75,7 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
       {review.sources.length > 0 && (
         <div className="pt-2 border-t border-gray-100">
           <p className="text-xs text-gray-500">
-            <span className="font-semibold">AI summary of independent reviews by:</span>{' '}
+            <span className="font-semibold">Distilled from independent reviews by:</span>{' '}
             {review.sources.join(', ')}
           </p>
         </div>

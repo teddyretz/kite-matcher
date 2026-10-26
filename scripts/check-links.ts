@@ -175,7 +175,7 @@ async function main() {
       lines.push('')
     }
   } else {
-    lines.push(`No broken links 🎉\n`)
+    lines.push(`No broken links.\n`)
   }
 
   if (args.includeOk && ok.length > 0) {

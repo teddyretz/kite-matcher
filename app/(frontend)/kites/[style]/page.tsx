@@ -90,7 +90,7 @@ export default async function StylePage({ params }: { params: Promise<{ style: s
             <Link
               key={z.slug}
               href={`/kites/${z.slug}`}
-              className="px-3 py-1.5 text-sm border border-gray-200 rounded-full text-gray-500 hover:border-ocean hover:text-ocean transition-colors"
+              className="border border-gray-200 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-500 transition-colors hover:border-ocean hover:text-ocean"
             >
               {z.label}
             </Link>

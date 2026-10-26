@@ -3,17 +3,17 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Kite } from '@/lib/types';
 import { matchScore } from '@/lib/matcher';
-import { applyFilters, useFilters, type Construction, type SortOption } from '@/lib/useFilters';
+import { applyFilters, useFilters, type SortOption } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
 
 const styleZones = [
-  { label: 'Foil', color: 'text-teal-600' },
-  { label: 'Surf', color: 'text-emerald-600' },
-  { label: 'Freestyle', color: 'text-violet-600' },
-  { label: 'Freeride', color: 'text-blue-600' },
-  { label: 'Big Air', color: 'text-orange-600' },
+  { label: 'Foil', value: 10 },
+  { label: 'Wave', value: 30 },
+  { label: 'Freestyle', value: 50 },
+  { label: 'Freeride', value: 70 },
+  { label: 'Big Air', value: 90 },
 ];
 
 function getActiveZone(value: number): number {
@@ -53,7 +53,7 @@ function sortKites<K extends Kite & { score?: number }>(
 
 export default function BrowseContent({ kites }: { kites: Kite[] }) {
   const { filters, setFilters } = useFilters();
-  const [filtersOpen, setFiltersOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(12);
 
@@ -76,20 +76,23 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
   const visibleKites = displayKites.slice(0, visibleCount);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate">Browse All Kites</h1>
-        <p className="text-sm text-gray-500">{displayKites.length} kites</p>
+    <div className="max-w-7xl mx-auto px-4 py-10 sm:py-14">
+      <div className="mb-8 grid gap-3 border-b border-white/20 pb-7 sm:grid-cols-[1fr_auto] sm:items-end">
+        <div>
+          <p className="mb-2 text-xs font-semibold text-ocean">Explore the kite index</p>
+          <h1 className="font-display text-5xl font-black leading-none text-slate sm:text-7xl">Every kite.<br/><span className="text-ocean">One place.</span></h1>
+        </div>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-500">{displayKites.length} kites in view</p>
       </div>
 
       {/* Quick Filters */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+      <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 bg-white">
         <button
           onClick={() => setFiltersOpen(!filtersOpen)}
           className="w-full flex items-center justify-between p-4 text-left"
           aria-expanded={filtersOpen}
         >
-          <span className="font-semibold text-slate text-sm">Quick Filters</span>
+          <div><span className="block text-sm font-semibold text-slate">Riding fit</span><span className="text-xs text-gray-400">Choose a discipline and tune the kite character</span></div>
           <svg
             className={`w-5 h-5 text-gray-400 transition-transform ${filtersOpen ? 'rotate-180' : ''}`}
             fill="none"
@@ -104,30 +107,16 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
             <div className="grid sm:grid-cols-2 gap-6">
               {/* Style */}
               <div>
-                <label className="block text-xs font-semibold text-ocean mb-1">
-                  Riding Style:{' '}
-                  <span className={styleZones[getActiveZone(styleVal)].color}>
-                    {styleZones[getActiveZone(styleVal)].label}
-                  </span>
-                </label>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={styleVal}
-                  onChange={(e) => setStyleVal(Number(e.target.value))}
-                  className="w-full"
-                  style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
-                  aria-label="Riding style preference"
-                />
-                <div className="flex justify-between mt-1">
+                <label className="mb-2 block text-xs font-semibold text-gray-500">Primary discipline</label>
+                <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-5">
                   {styleZones.map((zone, i) => (
-                    <span
+                    <button
                       key={zone.label}
-                      className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
-                    >
-                      {zone.label}
-                    </span>
+                      type="button"
+                      onClick={() => setStyleVal(zone.value)}
+                      aria-pressed={i === getActiveZone(styleVal)}
+                      className={`min-h-11 rounded-lg border px-2 text-xs font-semibold transition-colors ${i === getActiveZone(styleVal) ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-500 hover:border-white/30'}`}
+                    >{zone.label}</button>
                   ))}
                 </div>
               </div>
@@ -152,56 +141,6 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {/* Construction */}
-              <div>
-                <label className="block text-xs font-semibold text-ocean mb-2">Construction</label>
-                <div className="flex flex-wrap gap-1.5">
-                  {(
-                    [
-                      { value: 'all', label: 'All' },
-                      { value: 'dacron', label: 'Dacron' },
-                      { value: 'aluula', label: 'Aluula' },
-                      { value: 'brainchild', label: 'Brainchild' },
-                    ] as const
-                  ).map((opt) => (
-                    <button
-                      key={opt.value}
-                      onClick={() => setFilters({ construction: opt.value as Construction })}
-                      className={`min-h-9 px-3 py-1 text-xs rounded-full border transition-colors ${
-                        filters.construction === opt.value
-                          ? 'bg-ocean text-white border-ocean'
-                          : 'bg-white text-gray-600 border-gray-200 hover:border-ocean hover:text-ocean'
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Budget */}
-              <div>
-                <label className="block text-xs font-semibold text-ocean mb-2">
-                  Budget: {filters.budget >= 5000 ? 'No limit' : `Up to $${filters.budget.toLocaleString()}`}
-                </label>
-                <input
-                  type="range"
-                  min={500}
-                  max={5000}
-                  step={100}
-                  value={filters.budget}
-                  onChange={(e) => setFilters({ budget: Number(e.target.value) })}
-                  className="w-full"
-                  style={{ '--range-pct': `${((filters.budget - 500) / 4500) * 100}%` } as React.CSSProperties}
-                  aria-label="Maximum budget"
-                />
-                <div className="flex justify-between mt-1">
-                  <span className="text-[10px] text-gray-400">$500</span>
-                  <span className="text-[10px] text-gray-400">$5,000+</span>
-                </div>
-              </div>
-            </div>
           </div>
         )}
       </div>
@@ -220,13 +159,13 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               setVisibleCount(12);
             }}
             placeholder="Search brand or model"
-            className="min-h-11 w-full rounded-lg border border-white/10 bg-white py-2 pl-10 pr-3 text-sm text-slate placeholder:text-gray-400"
+            className="min-h-11 w-full rounded-xl border border-white/10 bg-white py-2 pl-10 pr-3 text-sm text-slate placeholder:text-gray-400"
           />
         </label>
         <select
           value={filters.sort}
           onChange={(e) => setFilters({ sort: e.target.value as SortOption })}
-          className="text-sm border border-gray-200 rounded-lg px-3 py-1.5"
+          className="min-h-11 rounded-xl border border-gray-200 px-3 py-1.5 text-sm"
           aria-label="Sort kites"
         >
           <option value="alpha">A–Z</option>
@@ -259,7 +198,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
               <button
                 type="button"
                 onClick={() => setVisibleCount(count => count + 12)}
-                className="min-h-11 rounded-lg border border-ocean/30 bg-ocean/10 px-6 py-2.5 text-sm font-bold text-ocean transition-colors hover:bg-ocean/15"
+              className="min-h-11 border border-ocean bg-ocean px-6 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-surface transition-colors hover:bg-white"
               >
                 Show 12 more <span className="font-normal text-gray-400">({displayKites.length - visibleCount} remaining)</span>
               </button>
