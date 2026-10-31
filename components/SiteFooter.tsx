@@ -18,8 +18,8 @@ export default function SiteFooter() {
               Find My Kite<span className="text-ocean">.</span>
             </Link>
             <p className="mt-3 text-xs text-gray-400 leading-relaxed">
-              An independent kite review aggregator, stripped of shop bias and launch-day hype.
-              No paid placements. No sponsored rankings.
+              An independent kite review aggregator. Every review source is labeled, so shop and
+              brand hype is easy to spot. No paid placements. No sponsored rankings.
             </p>
           </div>
 

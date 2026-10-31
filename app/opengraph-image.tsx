@@ -44,7 +44,7 @@ export default async function Image() {
           <span>Kite.</span>
         </div>
         <div style={{ display: 'flex', marginTop: 36, fontSize: 30, color: '#9DB5CC', maxWidth: 700 }}>
-          {kiteCount} kites, 13 brands — matched to your riding style. Independent reviews, zero sponsors.
+          {kiteCount} kites, 13 brands — matched to your riding style. Every review source labeled, zero sponsors.
         </div>
       </div>
     ),
