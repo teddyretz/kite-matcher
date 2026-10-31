@@ -42,34 +42,6 @@
   "best_for": "Experienced riders chasing maximum height and megaloops",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 10,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400135",
-            "score": 4.3,
-            "summary": "Big air enthusiasts appreciate the explosive lift and predictable looping characteristics, though some note it lacks versatility outside of powered riding."
-          },
-          {
-            "source": "YouTube - Big Air Kite Review",
-            "url": "https://www.youtube.com/watch?v=fone_trigger_2026_rev",
-            "score": 4.5,
-            "summary": "Reviewer documents impressive hangtime and stable flight through megaloops, praising the 5-strut rigidity and bar pressure feedback.",
-            "video_id": "fone_trigger_2026_rev"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/fone_trigger_26",
-            "score": null,
-            "summary": "Users compare favorably to the Duotone Rebel, noting more direct steering and better megaloop characteristics."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Jason Montreal",
       "channel": "Plus-Sized Kite Reviews",
@@ -128,7 +100,7 @@
     "not_for": "Pro-level big air competitors chasing maximum single-loop hangtime or judges rewarding fully powered low sweeping megaloops.",
     "rec_blurb": "The most forgiving fast kite on the market — loops catch you almost everywhere you send it.",
     "sources": [
-      "Jason Montreal (Plus-Sized Kite Reviews)"
+      "Jason Montreal"
     ]
   }
 }

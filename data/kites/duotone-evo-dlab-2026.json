@@ -5,7 +5,7 @@
   "model": "Evo D/LAB",
   "year": 2026,
   "image": "/kites/duotone-evo-dlab-2026.jpg",
-  "style_spectrum": 83,
+  "style_spectrum": 75,
   "shape_spectrum": 58,
   "wave_spectrum": 32,
   "style_tags": [
@@ -20,7 +20,7 @@
   ],
   "teds_pick": false,
   "aspect_ratio": "high",
-  "strut_count": 5,
+  "strut_count": 3,
   "bar_type": "high-y",
   "aluula": true,
   "brainchild": false,
@@ -43,27 +43,6 @@
   "summary": "Aluula Gold + Trinity TX construction. The King of the Air winner with Andrea Principi. 6-point bridle, narrower LE for better upwind and depower, additional tip segment for agility. Floaty hangtime, unmatched vertical boost, explosive jumps and precise loops.",
   "best_for": "Big air / King of the Air / Aluula all-round performance",
   "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.7,
-        "review_count": 12,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-dlab-2026",
-            "score": 4.7,
-            "summary": "The King of the Air winner and it shows. Hangtime is in a class of its own. The Aluula Gold construction is noticeably lighter and stiffer than anything else on the market."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+dlab+2026",
-            "score": 4.6,
-            "summary": "Best all-round big air kite money can buy. The Evo D/LAB punches above its price point even at premium pricing."
-          }
-        ]
-      }
-    },
     {
       "source": "youtube",
       "reviewer": "Jason Montreal",
@@ -126,7 +105,7 @@
     "not_for": "Riders whose primary focus is progressing kite loops, or complete beginners who need a forgiving first Aluula kite.",
     "rec_blurb": "King-of-the-Air DNA in a more forgiving package — still the benchmark big-air all-rounder.",
     "sources": [
-      "Jason Montreal (Plus-Sized Kite Reviews)",
+      "Jason Montreal",
       "Kitemana"
     ]
   }

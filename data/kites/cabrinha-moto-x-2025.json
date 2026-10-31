@@ -4,7 +4,7 @@
   "brand": "Cabrinha",
   "model": "Moto X",
   "year": 2025,
-  "image": "/kites/cabrinha-moto-2025.jpg",
+  "image": "/kites/cabrinha-moto-x-2025.jpg",
   "style_spectrum": 75,
   "shape_spectrum": 60,
   "wave_spectrum": 20,
@@ -45,34 +45,6 @@
   "summary": "Cabrinha's high-performance freeride/big air kite with explosive boost and great hangtime. Available in standard and Aluula versions for maximum weight savings and performance.",
   "best_for": "Big air and performance freeriding",
   "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 25,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-moto-2025",
-            "score": 4.4,
-            "summary": "Riders love the explosive pop and hangtime. The Aluula version is praised as a game-changer for light wind big air."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+moto+2025",
-            "score": 4.3,
-            "summary": "The Moto sits nicely between an all-around kite and a dedicated big air machine. Aluula version worth the premium."
-          },
-          {
-            "source": "YouTube - Ride with Blake",
-            "url": "https://www.youtube.com/results?search_query=cabrinha+moto+2025+review",
-            "score": 4.5,
-            "summary": "Highlighted as one of the best performing kites in its class with fantastic boost and a fun ride feel.",
-            "video_id": null
-          }
-        ]
-      }
-    },
     {
       "source": "youtube",
       "reviewer": "Jason Montreal",
@@ -133,7 +105,7 @@
     "not_for": "Progressing riders still learning to loop or riders who prefer a forgiving, sheet-and-go big air experience — stick with the Nitro instead.",
     "rec_blurb": "Explosive Aluula big air with serious hang time — but it demands precise technique to unlock.",
     "sources": [
-      "Jason Montreal (Plus-Sized Kite Reviews)"
+      "Jason Montreal"
     ]
   }
 }

@@ -46,34 +46,6 @@
   "best_for": "Premium all-around riding with the latest material technology",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.6,
-        "review_count": 10,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400300",
-            "score": 4.6,
-            "summary": "Riders note a dramatic improvement over the standard Pivot thanks to Aluula and Quadtex. The weight savings translate directly into better drift and low-end performance."
-          },
-          {
-            "source": "YouTube - Premium Kite Comparison",
-            "url": "https://www.youtube.com/watch?v=naish_pivot_nvision_2026",
-            "score": 4.7,
-            "summary": "Side-by-side comparison with the standard Pivot shows the Nvision holding its shape better in gusts and providing noticeably more hangtime.",
-            "video_id": "naish_pivot_nvision_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/naish_nvision_26",
-            "score": null,
-            "summary": "The Nvision is seen as the ultimate version of the already-popular Pivot. Price is the main discussion point, with most agreeing the performance gains are real."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Kitemana",
       "channel": "Kitemana",

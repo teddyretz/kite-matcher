@@ -1,0 +1,62 @@
+{
+  "id": "north-orbit-2027",
+  "slug": "north-orbit-2027",
+  "brand": "North",
+  "model": "Orbit",
+  "year": 2027,
+  "image": "/kites/north-orbit-2027.jpg",
+  "style_spectrum": 85,
+  "shape_spectrum": 60,
+  "wave_spectrum": 12,
+  "style_tags": [
+    "big air",
+    "kiteloops",
+    "freeride",
+    "hangtime"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 10,
+  "wind_range_high": 38,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14
+  ],
+  "price_new": 1799,
+  "summary": "North's 5-strut big air benchmark, refined for 2027 with a slimmer leading edge, updated bridle geometry and slimmer wingtips. North says it keeps the 2026 Orbit's performance while improving aerodynamic efficiency.",
+  "best_for": "Big air riders who want proven hangtime and loop control",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/search?q=North+Orbit+2027",
+        "price": 1799
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+2027"
+      }
+    ]
+  }
+}

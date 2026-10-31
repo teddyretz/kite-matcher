@@ -7,7 +7,7 @@ import BrowseContent from './BrowseContent';
 export const metadata: Metadata = {
   title: 'Browse All Kites — Filter by Style, Brand, Budget & Skill',
   description:
-    'Browse every kitesurfing kite in our catalog. Filter by riding style, brand, skill level, construction, and budget — with independent review summaries.',
+    'Browse every kitesurfing kite in our catalog. Filter by riding style, brand, skill level, construction, and budget — with labeled review summaries.',
   alternates: { canonical: `${SITE_URL}/kites` },
 };
 

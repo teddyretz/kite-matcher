@@ -1,0 +1,63 @@
+{
+  "id": "harlem-thrive-v2-2026",
+  "slug": "harlem-thrive-v2-2026",
+  "brand": "Harlem",
+  "model": "Thrive V2",
+  "year": 2026,
+  "image": "/kites/harlem-thrive-v2-2026.jpg",
+  "style_spectrum": 72,
+  "shape_spectrum": 55,
+  "wave_spectrum": 38,
+  "style_tags": [
+    "freeride",
+    "big air",
+    "wave"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 3,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": true,
+  "turning_speed": "fast",
+  "low_end_power": 7,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 42,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "price_new": 2049,
+  "summary": "Harlem's 3-strut high-performance all-rounder, updated with a revised trailing edge and bladder construction for durability. Built with a PROWELD leading edge and laminated Mylar struts. Harlem claims more vertical launch and hangtime than the V1.",
+  "best_for": "Riders wanting one lively kite for boosting, freeride and waves",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/harlem-thrive-v2-kiteboarding-kite/",
+        "price": 2049,
+        "type": "direct_product"
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Harlem+Thrive+V2+2026"
+      }
+    ]
+  }
+}

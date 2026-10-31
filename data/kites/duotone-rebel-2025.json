@@ -43,37 +43,7 @@
   "price_new": 1749,
   "summary": "Duotone's dedicated big air machine built for massive boosts and megaloops. The 5-strut design provides rock-solid stability in strong winds with explosive pop and extended hangtime.",
   "best_for": "Big air and megaloops",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 32,
-        "sources": [
-          {
-            "source": "Jason Montreal",
-            "url": "https://www.youtube.com/results?search_query=jason+montreal+duotone+rebel+2025",
-            "score": 4.5,
-            "summary": "Jason highlights the Rebel's explosive pop and long hangtime, noting it remains one of the top big air kites on the market.",
-            "video_id": "placeholder_rebel_review",
-            "jason_montreal": true
-          },
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-rebel-2025",
-            "score": 4.4,
-            "summary": "Big air enthusiasts love the raw power and lift. Some note it's less versatile than the Evo but unmatched for boosting."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+rebel+2025",
-            "score": 4.5,
-            "summary": "Considered a top-tier big air kite. Riders report insane hangtime and predictable looping characteristics."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

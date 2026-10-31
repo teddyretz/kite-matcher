@@ -24,7 +24,7 @@ export async function generateMetadata({
   const count = kites.filter((k) => styleZoneForKite(k).slug === zone.slug).length;
   const year = new Date().getFullYear();
   const title = `Best ${zone.label} Kites ${year} — ${count} Kites Ranked & Reviewed`;
-  const description = `${zone.blurb} Compare ${count} ${zone.label.toLowerCase()} kites ranked by independent review scores, with specs and where to buy.`;
+  const description = `${zone.blurb} Compare ${count} ${zone.label.toLowerCase()} kites ranked by review scores, with specs and where to buy.`;
   const url = `${SITE_URL}/kites/${zone.slug}`;
   return {
     title,
@@ -70,7 +70,7 @@ export default async function StylePage({ params }: { params: Promise<{ style: s
       </h1>
       <p className="text-gray-500 max-w-2xl mb-2">{zone.blurb}</p>
       <p className="text-sm text-gray-400 mb-8">
-        {reviewed} of these {kites.length} kites have independent review summaries — those rank first,
+        {reviewed} of these {kites.length} kites have review summaries — those rank first,
         highest-rated on top. Not sure {zone.label.toLowerCase()} is your style?{' '}
         <Link href="/" className="text-ocean hover:underline">Take the matcher</Link>.
       </p>

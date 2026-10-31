@@ -45,35 +45,6 @@
   "best_for": "Advanced riders wanting a premium all-around kite with cutting-edge construction",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.6,
-        "review_count": 14,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400128",
-            "score": 4.5,
-            "summary": "Riders praise the lighter feel and quicker turning over the standard Bandit, noting the Brainchild construction makes a noticeable difference in responsiveness."
-          },
-          {
-            "source": "YouTube - Jason Montreal",
-            "url": "https://www.youtube.com/watch?v=fone_bandit_bc_2026",
-            "score": 4.7,
-            "summary": "Jason highlights the improved drift and bar feel, calling it the best Bandit iteration yet with Brainchild tech elevating an already great platform.",
-            "video_id": "fone_bandit_bc_2026",
-            "jason_montreal": true
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/fone_bandit_bc26",
-            "score": null,
-            "summary": "Community feedback is enthusiastic about the weight savings and performance gains, though some question whether the premium over the standard Bandit is justified."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Jason Montreal",
       "channel": "Plus-Sized Kite Reviews",
@@ -133,7 +104,7 @@
     "not_for": "Riders whose primary goal is maximum boosting height and consistent hang time — a dedicated big air kite will outperform it there.",
     "rec_blurb": "The do-it-all Bandit that loops high and tight and handles gusts like they're nothing.",
     "sources": [
-      "Jason Montreal (Plus-Sized Kite Reviews)"
+      "Jason Montreal"
     ]
   }
 }

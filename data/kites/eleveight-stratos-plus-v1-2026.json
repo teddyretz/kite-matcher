@@ -1,0 +1,60 @@
+{
+  "id": "eleveight-stratos-plus-v1-2026",
+  "slug": "eleveight-stratos-plus-v1-2026",
+  "brand": "Eleveight",
+  "model": "Stratos+ V1",
+  "year": 2026,
+  "image": "/kites/eleveight-stratos-plus-v1-2026.jpg",
+  "style_spectrum": 88,
+  "shape_spectrum": 58,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "big air",
+    "hangtime",
+    "kiteloops"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 8,
+  "relaunch": "medium",
+  "wind_range_low": 10,
+  "wind_range_high": 38,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    12
+  ],
+  "price_new": 2049,
+  "summary": "Eleveight's 5-strut delta-hybrid big air kite with a 6-point bridle. It replaces both the XS and XS Pro, and test reviews praise its lift and hangtime.",
+  "best_for": "Big air riders looking for a strong-value alternative to the big-brand boosters",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/2027-eleveight-stratos-v1-kiteboarding-kite/",
+        "price": 2049,
+        "type": "direct_product"
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+Stratos%2B+V1+2026"
+      }
+    ]
+  }
+}

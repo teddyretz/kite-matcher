@@ -7,6 +7,7 @@
 import fs from 'fs'
 import path from 'path'
 import { KiteSchema } from '../lib/schema'
+import { reviewerByName, reviewerForChannel } from '../lib/reviewers'
 
 const ROOT = path.resolve(__dirname, '..')
 const DIR = path.join(ROOT, 'data', 'kites')
@@ -23,6 +24,7 @@ function main() {
   }
 
   let invalid = 0
+  const summaryOwner = new Map<string, string>()
   for (const f of files) {
     const raw = fs.readFileSync(path.join(DIR, f), 'utf-8')
     let data: unknown
@@ -46,6 +48,40 @@ function main() {
     if (parsed.data.slug !== expectedSlug) {
       invalid++
       console.error(`✗ ${f}: slug mismatch — file says "${expectedSlug}", JSON says "${parsed.data.slug}"`)
+    }
+
+    // Data-integrity checks the schema can't express.
+    const kite = parsed.data
+    const problems: string[] = []
+    if (kite.wind_range_low >= kite.wind_range_high) problems.push('wind_range_low must be below wind_range_high')
+    if (kite.sizes.some((s, i) => i > 0 && s <= kite.sizes[i - 1])) problems.push('sizes must be strictly ascending')
+    if (!fs.existsSync(path.join(ROOT, 'public', kite.image))) problems.push(`image ${kite.image} does not exist`)
+    // Ratings must be grounded in a transcript we hold, never invented.
+    const hasTranscript = kite.reviews.some((r) => r.source === 'youtube' && (r.full_transcript?.length ?? 0) > 200)
+    if (kite.structured_review && !hasTranscript) problems.push('structured_review has no YouTube transcript to back it')
+    // Every source needs a label; ratings may only cite labeled, non-brand reviewers on this kite.
+    const reviewerNames = new Set<string>()
+    for (const r of kite.reviews) {
+      if (r.source === 'youtube') {
+        const known = reviewerForChannel(r.channel_url)
+        if (!known) problems.push(`channel ${r.channel_url} is not in lib/reviewers.ts`)
+        else if (known.name !== r.reviewer) problems.push(`reviewer "${r.reviewer}" should be "${known.name}"`)
+        else reviewerNames.add(known.name)
+      } else if (r.kite_year_discussed !== null && r.kite_year_discussed !== kite.year) {
+        problems.push(`forum thread ${r.thread_url} discusses the ${r.kite_year_discussed} model, not ${kite.year}`)
+      }
+    }
+    for (const s of kite.structured_review?.sources ?? []) {
+      if (!reviewerNames.has(s)) problems.push(`structured_review source "${s}" is not a reviewer on this kite`)
+      else if (reviewerByName(s)?.type === 'brand') problems.push(`structured_review cites brand content (${s})`)
+    }
+    // Copy-pasted summaries are how duplicate kite files slip in.
+    const dupOf = summaryOwner.get(kite.summary)
+    if (dupOf) problems.push(`summary is identical to ${dupOf}`)
+    else summaryOwner.set(kite.summary, f)
+    if (problems.length) {
+      invalid++
+      for (const p of problems) console.error(`✗ ${f}: ${p}`)
     }
   }
 

@@ -44,34 +44,6 @@
   "best_for": "Foil racers and ultra-light wind specialists",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 14,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399300",
-            "score": 4.5,
-            "summary": "The benchmark for foil racing kites. Riders praise the Sonic V4's incredible upwind angle and ability to generate power in virtually no wind."
-          },
-          {
-            "source": "YouTube - Foil Racing Review",
-            "url": "https://www.youtube.com/watch?v=flysurfer_sonic_v4",
-            "score": 4.6,
-            "summary": "Detailed review of the Sonic V4's racing performance, showcasing its superior upwind VMG and light wind capabilities compared to LEI alternatives.",
-            "video_id": "flysurfer_sonic_v4"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_sonic_v4",
-            "score": null,
-            "summary": "Respected as the top open-cell foil kite for racing. Users note the relaunch difficulty is the main trade-off for its exceptional performance."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Our Kite Life",
       "channel": "Our Kite Life",

@@ -7,7 +7,7 @@
   "image": "/kites/slingshot-ghost-v4-2026.jpg",
   "style_spectrum": 15,
   "shape_spectrum": 65,
-  "wave_spectrum": 70,
+  "wave_spectrum": 35,
   "style_tags": [
     "freeride",
     "wave",
@@ -31,40 +31,20 @@
   "wind_range_low": 8,
   "wind_range_high": 30,
   "sizes": [
-    5,
-    7,
+    3,
+    4,
+    6,
+    8,
     9,
     10,
     12,
-    14,
+    15,
     17
   ],
   "price_new": 1609,
   "summary": "Slingshot's single-luff-strut freeride and foil crossover. Framelite construction keeps the Ghost V4 ultra-light and responsive. Excellent drift, refined canopy layout that resists bagging, and a versatile feel across foil and wave sessions.",
   "best_for": "Freeride, foil, and light wind crossover",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 8,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=slingshot-ghost-v4-2026",
-            "score": 4.3,
-            "summary": "A refined update to the Ghost line. Light, responsive, and versatile for foil and freeride."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/search/?q=slingshot+ghost+v4+2026",
-            "score": 4.2,
-            "summary": "Well received for its light wind capability and drift. Good upgrade over the V3."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

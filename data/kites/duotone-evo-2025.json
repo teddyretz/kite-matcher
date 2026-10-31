@@ -44,61 +44,7 @@
   "price_new": 1599,
   "summary": "The benchmark all-around kite that excels in every condition. Known for its incredible wind range, easy handling, and versatility across twin-tip, surfboard, and foil riding.",
   "best_for": "All-around freeriding",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 38,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-evo-2025",
-            "score": 4.5,
-            "summary": "Riders praise the Evo's incredible versatility and wind range, calling it the best all-around kite on the market."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+evo+2025",
-            "score": 4.4,
-            "summary": "Frequently recommended as the go-to kite for riders wanting one quiver. Great low-end and smooth power delivery."
-          },
-          {
-            "source": "YouTube - Kite Lounge",
-            "url": "https://www.youtube.com/results?search_query=duotone+evo+2025+review",
-            "score": 4.6,
-            "summary": "Praised for predictable power delivery, excellent depower, and the ability to handle gusty conditions gracefully.",
-            "video_id": null
-          }
-        ]
-      }
-    }
-  ],
-  "structured_review": {
-    "rating": 4.6,
-    "summary": "The most successful big air kite ever made. The Evo D/Lab flies behind you with ease, has an unmoving sweetspot across all wind strengths, and delivers roughly 30% more performance than standard kites. But it stalls on loops if you are sheeted in, the durability is terrible, and it costs more than some cars.",
-    "pros": [
-      "Flies behind you with ease for incredible second lift",
-      "Sweetspot never moves regardless of wind strength",
-      "Standardized pop and stance across all conditions",
-      "Drives forward into gusts instead of being pushed back",
-      "Years ahead of competition when released",
-      "Won every major competition in 2023"
-    ],
-    "cons": [
-      "Stalls on loops if sheeted in - must loop half-sheeted out",
-      "Terrible durability - bladders twist, kites explode",
-      "Extremely expensive without bar included",
-      "Bag barely fits the 6m, pump nozzle is proprietary",
-      "Duotone stock lines are not trusted by their own pro team"
-    ],
-    "best_for": "Serious big air riders who want the absolute best flying characteristics and can tolerate durability issues",
-    "not_for": "Budget-conscious riders, anyone who values reliability, or beginners who loop sheeted in",
-    "rec_blurb": "The most iconic big air kite ever. Unmatched flying characteristics, but bring spare bladders.",
-    "sources": [
-      "Portrait Kite"
-    ]
-  },
+  "reviews": [],
   "buy_links": {
     "new": [
       {

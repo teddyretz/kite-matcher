@@ -42,36 +42,7 @@
   "price_new": 1419,
   "summary": "The Airush Ultra V5 is the latest evolution of Airush's flagship big air kite, featuring refined canopy profiling and updated bridle geometry for improved boost and more predictable looping behavior.",
   "best_for": "Advanced riders chasing maximum hangtime with a refined big air platform",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 6,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400410",
-            "score": 4.5,
-            "summary": "Riders upgrading from the V4 note improved looping predictability and slightly better low-end power. Considered a meaningful upgrade."
-          },
-          {
-            "source": "YouTube - Big Air Kite 2026",
-            "url": "https://www.youtube.com/watch?v=airush_ultra_v5_2026",
-            "score": 4.6,
-            "summary": "Reviewer praises the V5's hangtime improvements and smoother power curve through megaloops, calling it Airush's best big air kite yet.",
-            "video_id": "airush_ultra_v5_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/airush_ultra_v5",
-            "score": null,
-            "summary": "Positive early reception with riders noting the V5 competes directly with the Core GTS and Ozone Edge in the big air category."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

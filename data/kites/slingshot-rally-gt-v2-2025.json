@@ -44,36 +44,7 @@
   "price_new": 1399,
   "summary": "The Slingshot Rally GT V2 is Slingshot's all-around freeride kite with excellent depower range and forgiving handling. A great choice for progressing riders and freeriders alike.",
   "best_for": "All-around freeriders and progressing kiters on a budget",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 14,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399710",
-            "score": 4.2,
-            "summary": "Riders praise the Rally GT V2's ease of use, excellent relaunch, and great value proposition. A solid do-everything kite without breaking the bank."
-          },
-          {
-            "source": "YouTube - Kite Review Channel",
-            "url": "https://www.youtube.com/watch?v=slingshot_rally_gt_v2",
-            "score": 4.3,
-            "summary": "Reviewer highlights the predictable power delivery and wide wind range, recommending it as an ideal first kite for riders who want to grow into it.",
-            "video_id": "slingshot_rally_gt_v2"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/slingshot_rally_gt_v2",
-            "score": null,
-            "summary": "Frequently recommended as a budget-friendly alternative to premium freeride kites. Users note it punches above its price point."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

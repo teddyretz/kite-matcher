@@ -6,15 +6,6 @@ const TurningSpeed = z.enum(['slow', 'medium', 'medium-fast', 'fast', 'very-fast
 const Relaunch = z.enum(['easy', 'medium', 'hard']);
 const AspectRatio = z.enum(['low', 'medium', 'medium-high', 'high', 'very-high']);
 
-const ReviewSource = z.object({
-  source: z.string(),
-  url: z.string(),
-  score: z.number().nullable(),
-  summary: z.string(),
-  video_id: z.string().nullable().optional(),
-  jason_montreal: z.boolean().optional(),
-});
-
 const YouTubeReview = z.object({
   source: z.literal('youtube'),
   reviewer: z.string(),
@@ -29,16 +20,22 @@ const YouTubeReview = z.object({
   full_transcript: z.string().optional(),
 });
 
-const AggregatePlaceholder = z.object({
-  source: z.literal('aggregate_placeholder'),
-  data: z.object({
-    aggregate_score: z.number(),
-    review_count: z.number(),
-    sources: z.array(ReviewSource),
-  }),
+// An owner-written thread on Reddit or Kiteforum, read and approved by a human
+// before it goes in. Shown as owner reports; never feeds structured_review.
+const ForumReport = z.object({
+  source: z.literal('forum'),
+  platform: z.enum(['reddit', 'kiteforum']),
+  thread_url: z.string().url(),
+  thread_title: z.string(),
+  posted: z.string().regex(/^\d{4}-\d{2}$/, 'posted must be YYYY-MM'),
+  kite_year_discussed: z.number().int().nullable(),
+  owner_count: z.number().int().min(1),
+  excerpt: z.string().max(300),
+  summary: z.string(),
+  approved_by: z.string(),
 });
 
-const ReviewEntry = z.discriminatedUnion('source', [YouTubeReview, AggregatePlaceholder]);
+const ReviewEntry = z.discriminatedUnion('source', [YouTubeReview, ForumReport]);
 
 const StructuredReview = z.object({
   rating: z.number().min(0).max(5),

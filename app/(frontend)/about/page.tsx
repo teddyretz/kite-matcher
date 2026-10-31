@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/seo';
 export const metadata: Metadata = {
   title: 'About — Why FindMyKite Exists',
   description:
-    'FindMyKite is an independent kite buying advisor: no sponsors, no paid placements, review summaries distilled from independent video reviewers.',
+    'FindMyKite is an independent kite buying advisor: no sponsors, no paid placements, review summaries with every source labeled by who made it.',
   alternates: { canonical: `${SITE_URL}/about` },
 };
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <p className="mt-3">
             The fit percentage is an estimate, not a laboratory measurement. We round the number
             and show the review-source count separately so a close match is never confused with
-            strong independent evidence. Two kites with the same score can still feel very
+            strong review evidence. Two kites with the same score can still feel very
             different on the water, but the matcher gets you into the right neighborhood quickly.
           </p>
         </section>
@@ -74,6 +74,12 @@ export default function AboutPage() {
             No brand deals. I pay for the hosting and the development myself because I wanted a
             tool that doesn&apos;t have strings attached. If a kite scores well it&apos;s because
             the math says it matches what you&apos;re looking for, not because someone wrote me a check.
+          </p>
+          <p className="mt-3">
+            The reviews are a different story, because nobody in kiting reviews for free. So every
+            source on the site is labeled: independent reviewers, owners posting on forums, shops that
+            sell the kite they&apos;re reviewing, and the brands themselves. Shop reviews can still be
+            useful, you just deserve to know who&apos;s talking. Brand videos never count toward a rating.
           </p>
         </section>
 

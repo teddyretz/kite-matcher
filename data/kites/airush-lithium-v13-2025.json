@@ -44,36 +44,7 @@
   "price_new": 899,
   "summary": "The Airush Lithium V13 is a long-running freeride platform now in its 13th iteration. It offers predictable handling, wide depower range, and excellent relaunch for riders of all levels.",
   "best_for": "All-level freeriders wanting a proven and reliable kite",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 16,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399510",
-            "score": 4.3,
-            "summary": "The Lithium continues to be a reliable all-around performer. V13 brings minor refinements to an already well-proven platform."
-          },
-          {
-            "source": "YouTube - Freeride Kite Comparison",
-            "url": "https://www.youtube.com/watch?v=airush_lithium_v13",
-            "score": 4.2,
-            "summary": "Reviewer compares the Lithium to other freeride kites and finds it competitive on all fronts, praising its consistency and beginner-friendly nature.",
-            "video_id": "airush_lithium_v13"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/airush_lithium_v13",
-            "score": null,
-            "summary": "A common recommendation for first-time buyers. Users note the Lithium has been refined over 13 versions into a very polished freeride kite."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

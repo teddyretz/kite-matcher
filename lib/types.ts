@@ -3,15 +3,6 @@ export type BarType = 'high-y' | 'low-v' | 'both';
 export type TurningSpeed = 'slow' | 'medium' | 'medium-fast' | 'fast' | 'very-fast';
 export type RelaunchDifficulty = 'easy' | 'medium' | 'hard';
 
-export interface ReviewSource {
-  source: string;
-  url: string;
-  score: number | null;
-  summary: string;
-  video_id?: string | null;
-  jason_montreal?: boolean;
-}
-
 export interface StructuredReview {
   rating: number;
   summary: string;
@@ -38,12 +29,16 @@ export type ReviewEntry =
       full_transcript?: string;
     }
   | {
-      source: 'aggregate_placeholder';
-      data: {
-        aggregate_score: number;
-        review_count: number;
-        sources: ReviewSource[];
-      };
+      source: 'forum';
+      platform: 'reddit' | 'kiteforum';
+      thread_url: string;
+      thread_title: string;
+      posted: string;
+      kite_year_discussed: number | null;
+      owner_count: number;
+      excerpt: string;
+      summary: string;
+      approved_by: string;
     };
 
 export interface BuyLink {

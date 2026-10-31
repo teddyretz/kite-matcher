@@ -1,4 +1,6 @@
 import { StructuredReview as StructuredReviewType } from '@/lib/types';
+import { sourceType } from '@/lib/reviewers';
+import SourceBadge from './SourceBadge';
 
 function Stars({ rating }: { rating: number }) {
   const full = Math.floor(rating);
@@ -25,7 +27,15 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default function StructuredReview({ review }: { review: StructuredReviewType }) {
+type SourceVideo = { reviewer: string; video_url: string; video_title: string };
+
+export default function StructuredReview({
+  review,
+  videos = [],
+}: {
+  review: StructuredReviewType;
+  videos?: SourceVideo[];
+}) {
   return (
     <div className="space-y-6">
       <div className="flex items-baseline gap-4">
@@ -75,8 +85,30 @@ export default function StructuredReview({ review }: { review: StructuredReviewT
       {review.sources.length > 0 && (
         <div className="pt-2 border-t border-gray-100">
           <p className="text-xs text-gray-500">
-            <span className="font-semibold">Distilled from independent reviews by:</span>{' '}
-            {review.sources.join(', ')}
+            <span className="font-semibold">Distilled from reviews by:</span>{' '}
+            {review.sources.map((source, i) => {
+              // Link each reviewer to their original video so readers can check the source.
+              const video = videos.find((v) => v.reviewer === source);
+              return (
+                <span key={source}>
+                  {i > 0 && ', '}
+                  {video ? (
+                    <a
+                      href={video.video_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={video.video_title}
+                      className="text-ocean hover:underline"
+                    >
+                      {source}
+                    </a>
+                  ) : (
+                    source
+                  )}{' '}
+                  <SourceBadge type={sourceType(source)} />
+                </span>
+              );
+            })}
           </p>
         </div>
       )}

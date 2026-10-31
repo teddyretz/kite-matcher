@@ -43,36 +43,7 @@
   "price_new": 1699,
   "summary": "The Reedin Super Model V3 is a performance freeride kite with a higher aspect ratio than typical all-around kites. It delivers excellent upwind ability and good boost while remaining user-friendly.",
   "best_for": "Performance-oriented freeriders wanting upwind ability and versatility",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 11,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399400",
-            "score": 4.4,
-            "summary": "Riders impressed by the Super Model's combination of freeride comfort and performance capability. The higher aspect ratio gives it an edge upwind."
-          },
-          {
-            "source": "YouTube - Reedin Super Model V3",
-            "url": "https://www.youtube.com/watch?v=reedin_supermodel_v3",
-            "score": 4.5,
-            "summary": "Reviewer highlights the Super Model's excellent upwind performance and versatile nature, noting it bridges the gap between freeride and performance categories.",
-            "video_id": "reedin_supermodel_v3"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_supermodel_v3",
-            "score": null,
-            "summary": "Growing fan base for Reedin's innovative approach. Users note the Super Model offers a unique feel compared to established brands."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

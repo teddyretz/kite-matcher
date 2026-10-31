@@ -11,9 +11,11 @@ import { brandSlug } from '@/lib/seo';
 import SpectrumBar from '@/components/SpectrumBar';
 import StructuredReview from '@/components/StructuredReview';
 import YouTubeReviews from '@/components/YouTubeReviews';
+import OwnerReports from '@/components/OwnerReports';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
 import { normalizeBuyLink } from '@/lib/buyLinks';
+import { sourceMixLabel, sourceType } from '@/lib/reviewers';
 
 function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
   if (type === 'direct_product') {
@@ -34,11 +36,13 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
   const youtubeReviews = (kite.reviews ?? []).filter(
     (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
   );
+  const forumReports = (kite.reviews ?? []).filter(
+    (r): r is Extract<ReviewEntry, { source: 'forum' }> => r.source === 'forum',
+  );
   const [imgError, setImgError] = useState(false);
   const evidenceSources = kite.structured_review?.sources ?? [];
-  const evidenceLabel = evidenceSources.length === 1
-    ? 'Single-source perspective'
-    : `${evidenceSources.length} independent sources`;
+  const evidenceLabel = sourceMixLabel(evidenceSources);
+  const allIndependent = evidenceSources.length > 0 && evidenceSources.every((s) => sourceType(s) === 'independent');
 
   const specs = [
     ['Aspect Ratio', kite.aspect_ratio.replace('-', ' ')],
@@ -103,7 +107,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
               <div className="mt-5 rounded-2xl bg-ocean/[0.055] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-ocean">Independent review verdict</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-ocean">Review verdict</p>
                     <p className="mt-1 text-sm font-semibold text-slate">{kite.structured_review.rec_blurb}</p>
                   </div>
                   <div className="shrink-0 text-right">
@@ -164,19 +168,19 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div className="flex items-center gap-3 mb-1">
             <h2 className="text-lg font-bold text-slate">Review Summary</h2>
             <span className="inline-flex items-center border border-ocean/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean">
-              Independent sources
+              {allIndependent ? 'Independent sources' : 'Mixed sources'}
             </span>
           </div>
           <p className="text-xs text-gray-500 mb-5">
-            {evidenceLabel}. A concise synthesis with no brand or sponsor input. Sources listed below.
+            Based on {evidenceLabel}. Each source is labeled below; brand-made content is never used in ratings.
           </p>
-          <StructuredReview review={kite.structured_review} />
+          <StructuredReview review={kite.structured_review} videos={youtubeReviews} />
         </div>
       ) : (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
           <h2 className="text-lg font-bold text-slate mb-2">Review Summary</h2>
           <p className="text-sm text-gray-500">
-            We haven&apos;t gathered enough independent reviews to summarize this kite yet. Check back soon.
+            We haven&apos;t gathered enough reviews to summarize this kite yet. Check back soon.
           </p>
         </div>
       )}
@@ -186,6 +190,13 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
           <h2 className="text-lg font-bold text-slate mb-4">Video Reviews</h2>
           <YouTubeReviews reviews={youtubeReviews} />
+        </div>
+      )}
+
+      {/* Owner Reports (Reddit / Kiteforum) */}
+      {forumReports.length > 0 && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <OwnerReports reports={forumReports} />
         </div>
       )}
 

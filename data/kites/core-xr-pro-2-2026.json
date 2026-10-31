@@ -44,34 +44,6 @@
   "best_for": "Competition big air",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.7,
-        "review_count": 10,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr-pro-2-2026",
-            "score": 4.8,
-            "summary": "The pinnacle of big air kite technology. CoreTex material makes a significant difference in responsiveness and weight."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr+pro+2+2026",
-            "score": 4.6,
-            "summary": "Premium price but premium performance. The lightest big air kite available with unmatched boost potential."
-          },
-          {
-            "source": "YouTube - The Kite Show",
-            "url": "https://www.youtube.com/results?search_query=core+xr+pro+2+2026+review",
-            "score": 4.7,
-            "summary": "The ultimate expression of Core's big air DNA. CoreTex delivers tangible performance gains for serious big air riders.",
-            "video_id": null
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Kitemana",
       "channel": "Kitemana",

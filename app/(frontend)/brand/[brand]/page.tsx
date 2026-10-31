@@ -30,7 +30,7 @@ export async function generateMetadata({
 
   const years = data.kites.map((k) => k.year);
   const title = `${data.name} Kites — ${Math.min(...years)}–${Math.max(...years)} Lineup, Reviews & Specs`;
-  const description = `Compare all ${data.kites.length} ${data.name} kites side by side: independent review summaries, specs, style placement, and where to buy.`;
+  const description = `Compare all ${data.kites.length} ${data.name} kites side by side: review summaries, specs, style placement, and where to buy.`;
   const url = `${SITE_URL}/brand/${brand}`;
   return {
     title,
@@ -76,7 +76,7 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
       <p className="text-gray-500 max-w-2xl mb-2">
         All {kites.length} current {name} kites in our catalog, covering {zones.join(', ')}.
         {reviewed > 0 && (
-          <> {reviewed} of them have independent review summaries distilled from video reviews — ranked highest-rated first.</>
+          <> {reviewed} of them have review summaries distilled from labeled video reviews — ranked highest-rated first.</>
         )}
       </p>
       <p className="text-sm text-gray-400 mb-8">

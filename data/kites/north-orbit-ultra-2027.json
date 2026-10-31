@@ -1,0 +1,62 @@
+{
+  "id": "north-orbit-ultra-2027",
+  "slug": "north-orbit-ultra-2027",
+  "brand": "North",
+  "model": "Orbit Ultra",
+  "year": 2027,
+  "image": "/kites/north-orbit-ultra-2027.jpg",
+  "style_spectrum": 90,
+  "shape_spectrum": 62,
+  "wave_spectrum": 10,
+  "style_tags": [
+    "big air",
+    "kiteloops",
+    "hangtime",
+    "premium"
+  ],
+  "skill_level": [
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "high",
+  "strut_count": 5,
+  "bar_type": "low-v",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 7,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 39,
+  "sizes": [
+    5.9,
+    6.6,
+    7.3,
+    8.1,
+    9,
+    10,
+    11,
+    12
+  ],
+  "price_new": 2149,
+  "summary": "The lightweight version of the Orbit, built on North's N-u80 airframe (100% ultra-PE fiber with Technora reinforcement) rather than Aluula. Thinner leading edge and struts, a six-point bridle and slightly higher aspect than the standard Orbit, in in-between sizes like 7.3 and 8.1m.",
+  "best_for": "Competitive big air riders chasing maximum height and lighter-weight feel",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/2027-north-orbit-ultra-kiteboarding-kite/",
+        "price": 2149,
+        "type": "direct_product"
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=North+Orbit+Ultra+2027"
+      }
+    ]
+  }
+}
