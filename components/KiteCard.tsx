@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { track } from '@vercel/analytics/react';
 import { Kite } from '@/lib/types';
 import { useCompare } from './CompareContext';
+import { limitedEvidenceLabel } from '@/lib/reviewers';
 
 function getStyleZone(spectrum: number): string {
   if (spectrum <= 20) return 'Foil';
@@ -181,7 +182,14 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
 
         {/* Rating + price */}
         <div className="flex items-center justify-between">
-          {kite.structured_review?.rating ? (
+          {kite.structured_review?.rating && limitedEvidenceLabel(kite.structured_review.sources) ? (
+            <span className="text-[11px] text-gray-400">
+              <span className="border border-amber-300 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">
+                {limitedEvidenceLabel(kite.structured_review.sources)}
+              </span>{' '}
+              {kite.structured_review.rating.toFixed(1)}
+            </span>
+          ) : kite.structured_review?.rating ? (
             <StarRating score={kite.structured_review.rating} sourceCount={kite.structured_review.sources.length} />
           ) : (
             <div />

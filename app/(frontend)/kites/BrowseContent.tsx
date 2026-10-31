@@ -7,6 +7,7 @@ import { applyFilters, useFilters, type SortOption } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
+import { reviewSortKey } from '@/lib/reviewers';
 
 const styleZones = [
   { label: 'Foil', value: 10 },
@@ -41,7 +42,7 @@ function sortKites<K extends Kite & { score?: number }>(
       return [...list].sort((a, b) => b.price_new - a.price_new);
     case 'rating':
       return [...list].sort(
-        (a, b) => (b.structured_review?.rating ?? 0) - (a.structured_review?.rating ?? 0),
+        (a, b) => reviewSortKey(b.structured_review) - reviewSortKey(a.structured_review),
       );
     case 'alpha':
     default:

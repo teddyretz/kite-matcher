@@ -8,6 +8,7 @@ import { displayFitScore, matchScore } from '@/lib/matcher';
 import { useFilters, DEFAULT_FILTERS } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 import SpectrumBar from '@/components/SpectrumBar';
+import { limitedEvidenceLabel } from '@/lib/reviewers';
 
 const MAX_COMPARE = 3;
 
@@ -241,7 +242,11 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
       case 'price': return `$${k.price_new.toLocaleString()}`;
       case 'aluula': return k.aluula ? 'Yes' : 'No';
       case 'brainchild': return k.brainchild ? 'Yes' : 'No';
-      case 'review_score': return k.structured_review ? k.structured_review.rating.toFixed(1) : '—';
+      case 'review_score':
+        if (!k.structured_review) return '—';
+        return limitedEvidenceLabel(k.structured_review.sources)
+          ? `${k.structured_review.rating.toFixed(1)} (${limitedEvidenceLabel(k.structured_review.sources)})`
+          : k.structured_review.rating.toFixed(1);
       default: return '';
     }
   };
