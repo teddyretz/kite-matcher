@@ -172,7 +172,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div className="flex items-center gap-3 mb-1">
             <h2 className="text-lg font-bold text-slate">Review Summary</h2>
             <span className="inline-flex items-center border border-ocean/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean">
-              {allIndependent ? 'Independent sources' : 'Mixed sources'}
+              {allIndependent ? 'Independent sources' : limitedEvidenceLabel(evidenceSources) ?? 'Mixed sources'}
             </span>
           </div>
           <p className="text-xs text-gray-500 mb-5">
