@@ -23,6 +23,7 @@ function main() {
   }
 
   let invalid = 0
+  const summaryOwner = new Map<string, string>()
   for (const f of files) {
     const raw = fs.readFileSync(path.join(DIR, f), 'utf-8')
     let data: unknown
@@ -46,6 +47,23 @@ function main() {
     if (parsed.data.slug !== expectedSlug) {
       invalid++
       console.error(`✗ ${f}: slug mismatch — file says "${expectedSlug}", JSON says "${parsed.data.slug}"`)
+    }
+
+    // Data-integrity checks the schema can't express.
+    const kite = parsed.data
+    const problems: string[] = []
+    if (kite.wind_range_low >= kite.wind_range_high) problems.push('wind_range_low must be below wind_range_high')
+    if (kite.sizes.some((s, i) => i > 0 && s <= kite.sizes[i - 1])) problems.push('sizes must be strictly ascending')
+    // Ratings must be grounded in a transcript we hold, never invented.
+    const hasTranscript = kite.reviews.some((r) => r.source === 'youtube' && (r.full_transcript?.length ?? 0) > 200)
+    if (kite.structured_review && !hasTranscript) problems.push('structured_review has no YouTube transcript to back it')
+    // Copy-pasted summaries are how duplicate kite files slip in.
+    const dupOf = summaryOwner.get(kite.summary)
+    if (dupOf) problems.push(`summary is identical to ${dupOf}`)
+    else summaryOwner.set(kite.summary, f)
+    if (problems.length) {
+      invalid++
+      for (const p of problems) console.error(`✗ ${f}: ${p}`)
     }
   }
 

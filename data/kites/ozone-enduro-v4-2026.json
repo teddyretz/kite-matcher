@@ -44,36 +44,7 @@
   "price_new": 1699,
   "summary": "The Ozone Enduro V4 builds on the beloved V3 freeride platform with updated canopy profiling and refined tip shape for improved turning and slightly better upwind performance.",
   "best_for": "Freeriders and all-around kiters wanting Ozone's latest versatile platform",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 6,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400210",
-            "score": 4.4,
-            "summary": "Initial reviews highlight improved turning speed and slightly better upwind angle over the V3, while maintaining the same user-friendly character."
-          },
-          {
-            "source": "YouTube - Freeride Kite Review",
-            "url": "https://www.youtube.com/watch?v=ozone_enduro_v4_2026",
-            "score": 4.5,
-            "summary": "Reviewer finds the V4 to be a solid incremental update with noticeable improvements in light wind performance and turning response.",
-            "video_id": "ozone_enduro_v4_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_enduro_v4",
-            "score": null,
-            "summary": "Users appreciate the refinements and continue to recommend the Enduro line as one of the best freeride options on the market."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

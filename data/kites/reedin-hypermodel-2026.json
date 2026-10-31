@@ -21,7 +21,7 @@
   "aspect_ratio": "high",
   "strut_count": 3,
   "bar_type": "high-y",
-  "aluula": false,
+  "aluula": true,
   "brainchild": true,
   "turning_speed": "fast",
   "low_end_power": 8,
@@ -43,34 +43,6 @@
   "summary": "The Reedin Hyper Model combines Aluula construction with a high-performance freeride/big air design. The premium materials deliver exceptional weight savings for extended hangtime and broader wind range.",
   "best_for": "Premium big air/freeride riders wanting Aluula performance from Reedin",
   "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 6,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400510",
-            "score": 4.5,
-            "summary": "The Aluula construction brings noticeable improvements to the already-capable Reedin platform. Riders report impressive hangtime and low-end grunt."
-          },
-          {
-            "source": "YouTube - Reedin Hyper Model Review",
-            "url": "https://www.youtube.com/watch?v=reedin_hypermodel_2026",
-            "score": 4.6,
-            "summary": "Reviewer is impressed by the weight savings and how the Aluula construction translates into tangible performance gains in both light and strong wind.",
-            "video_id": "reedin_hypermodel_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_hyper_26",
-            "score": null,
-            "summary": "Discussion focuses on whether Reedin's Aluula implementation competes with Ozone's and Duotone's premium offerings. Early consensus is very positive."
-          }
-        ]
-      }
-    },
     {
       "source": "youtube",
       "reviewer": "Jason Montreal",

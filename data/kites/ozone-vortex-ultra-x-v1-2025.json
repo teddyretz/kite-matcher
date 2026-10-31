@@ -19,9 +19,9 @@
     "advanced"
   ],
   "teds_pick": true,
-  "aspect_ratio": "very-high",
-  "strut_count": 5,
-  "bar_type": "high-y",
+  "aspect_ratio": "high",
+  "strut_count": 3,
+  "bar_type": "low-v",
   "aluula": true,
   "brainchild": false,
   "turning_speed": "medium",
@@ -40,42 +40,12 @@
     11,
     12,
     13,
-    14
+    15
   ],
   "price_new": 3299,
   "summary": "The Ozone Edge Aluula is the premium version of their flagship big air kite, using Aluula composite material for dramatically reduced weight and increased rigidity. The result is extended hangtime and broader wind range.",
   "best_for": "Elite big air riders wanting the absolute best performance with no budget constraints",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.8,
-        "review_count": 16,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399890",
-            "score": 4.8,
-            "summary": "Universally praised as the gold standard for big air kites. The Aluula construction noticeably improves low-end performance and hangtime over the standard Edge."
-          },
-          {
-            "source": "YouTube - Jason Montreal",
-            "url": "https://www.youtube.com/watch?v=ozone_edge_aluula_2025",
-            "score": 4.7,
-            "summary": "Jason calls it the ultimate big air weapon, noting the Aluula version feels like riding a size larger in light wind while maintaining the same top-end control.",
-            "video_id": "ozone_edge_aluula_2025",
-            "jason_montreal": true
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/ozone_edge_aluula",
-            "score": null,
-            "summary": "Riders who have tried it agree the Aluula version is significantly better than the standard Edge, but debate whether the price premium is worth it for non-competitors."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

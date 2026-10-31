@@ -41,27 +41,6 @@
   "best_for": "Freestyle, unhooked tricks, and wakestyle",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 10,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=north-pulse-2025",
-            "score": 4.3,
-            "summary": "Freestyle riders appreciate the Modern-C geometry and direct feel. The 5-line system locks in the shape perfectly."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+pulse+2025",
-            "score": 4.2,
-            "summary": "Niche but well-loved by dedicated freestyle riders. The C-kite feel is authentic and the pop is explosive."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "North Kiteboarding",
       "channel": "North Kiteboarding",

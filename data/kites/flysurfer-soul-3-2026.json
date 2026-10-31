@@ -46,34 +46,6 @@
   "best_for": "All-around foil kite riders and multi-surface kiters",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 12,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400610",
-            "score": 4.4,
-            "summary": "Popular among riders who want a foil kite that works on water, snow, and land. The Soul 3's easy relaunch sets it apart from traditional open-cell foils."
-          },
-          {
-            "source": "YouTube - Flysurfer Soul 3 Review",
-            "url": "https://www.youtube.com/watch?v=flysurfer_soul3_2026",
-            "score": 4.3,
-            "summary": "Reviewer demonstrates the Soul 3's versatility across multiple surfaces and praises its beginner-friendly handling while noting it still performs well for experienced riders.",
-            "video_id": "flysurfer_soul3_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/flysurfer_soul3",
-            "score": null,
-            "summary": "Recommended for riders interested in foil kites but intimidated by open-cell designs. The closed-cell construction makes water relaunch straightforward."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Our Kite Life",
       "channel": "Our Kite Life",

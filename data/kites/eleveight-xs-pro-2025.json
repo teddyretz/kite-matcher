@@ -39,36 +39,7 @@
   "price_new": 2449,
   "summary": "Eleveight's premium big air kite featuring Aluula construction in the leading edge and XT Light fabric throughout. The 5-strut high aspect ratio design delivers explosive lift and hangtime for serious big air riders.",
   "best_for": "Big air and megaloops with Aluula performance",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.2,
-        "review_count": 12,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=eleveight-xs-2025",
-            "score": 4.2,
-            "summary": "A capable wave kite at a great price. Very fast turning and good drift for the money."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=eleveight+xs+2025",
-            "score": 4.1,
-            "summary": "Good value wave kite. Performs well in onshore conditions with reliable relaunch from the surf."
-          },
-          {
-            "source": "YouTube - Wave Tribe",
-            "url": "https://www.youtube.com/results?search_query=eleveight+xs+2025+review",
-            "score": 4.3,
-            "summary": "Impressive wave performance from Eleveight at a price point below the big brands. Quick turning and good drift.",
-            "video_id": null
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {
@@ -93,5 +64,6 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Eleveight+XS+2025"
       }
     ]
-  }
+  },
+  "discontinued": true
 }

@@ -47,37 +47,7 @@
   "price_new": 1899,
   "summary": "One of the most iconic big air kites ever made. The XR7 delivers massive lift, extended hangtime, and surprisingly good freeride capabilities. A staple in competitive big air.",
   "best_for": "Big air and powered freeriding",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.6,
-        "review_count": 45,
-        "sources": [
-          {
-            "source": "Jason Montreal",
-            "url": "https://www.youtube.com/results?search_query=jason+montreal+core+xr7+2025",
-            "score": 4.7,
-            "summary": "Jason raves about the XR7's unmatched combination of massive lift and versatile freeride capability. A top pick for big air.",
-            "video_id": "placeholder_xr7_review",
-            "jason_montreal": true
-          },
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=core-xr7-2025",
-            "score": 4.6,
-            "summary": "Widely considered the best big air kite on the market. Phenomenal lift and a surprisingly broad wind range."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=core+xr7+2025",
-            "score": 4.5,
-            "summary": "The gold standard for big air. Riders consistently report the longest hangtime of any kite they've tried."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {
@@ -102,5 +72,6 @@
         "url": "https://www.kiteboarder.com/classifieds/?search=Core+XR7+2025"
       }
     ]
-  }
+  },
+  "discontinued": true
 }

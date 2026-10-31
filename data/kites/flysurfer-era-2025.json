@@ -2,7 +2,7 @@
   "id": "flysurfer-era-2025",
   "slug": "flysurfer-era-2025",
   "brand": "Flysurfer",
-  "model": "Era",
+  "model": "Era 2",
   "year": 2025,
   "image": "/kites/flysurfer-era-2025.jpg",
   "style_spectrum": 83,
@@ -31,7 +31,6 @@
   "wind_range_low": 11,
   "wind_range_high": 36,
   "sizes": [
-    5,
     6,
     7,
     8,
@@ -44,27 +43,6 @@
   "summary": "Flysurfer's most powerful LEI kite and the best-value big air option on the market. 5-strut, 6-point bridle that twists the kite to change angle of attack automatically. Streamlined LE cuts through the wind window at high speed, Dacron + Teijin D2 construction. Named #5 best big air kite of 2025-26 by Jason Montreal.",
   "best_for": "Big air on a budget — the best value-per-hangtime kite available",
   "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 16,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=flysurfer-era-2025",
-            "score": 4.4,
-            "summary": "Unbelievable value for a dedicated big air kite. The 6-point bridle delivers consistent performance across the wind window and the boost is genuinely impressive for the price point."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=flysurfer+era+2025",
-            "score": 4.3,
-            "summary": "Jason Montreal put this at #5 best big air for a reason. If you can't justify $2,500 for Aluula, the Era is where you look. Punches way above its price."
-          }
-        ]
-      }
-    },
     {
       "source": "youtube",
       "reviewer": "Kitemana",

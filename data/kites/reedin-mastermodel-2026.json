@@ -43,34 +43,6 @@
   "best_for": "Committed big air riders wanting Reedin's most powerful platform",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.5,
-        "review_count": 5,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400520",
-            "score": 4.5,
-            "summary": "Impressive debut for Reedin's big air entry. The Brainchild construction and 5-strut frame deliver serious boost potential rivaling established big air kites."
-          },
-          {
-            "source": "YouTube - Big Air Kite Shootout 2026",
-            "url": "https://www.youtube.com/watch?v=reedin_mastermodel_2026",
-            "score": 4.6,
-            "summary": "In a comparison test, the Master Model holds its own against the Ozone Edge and Core GTS, impressing with its hangtime and stable looping.",
-            "video_id": "reedin_mastermodel_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_master_26",
-            "score": null,
-            "summary": "Excitement around Reedin entering the dedicated big air market. Early adopters report the Master Model is competitive with the best in class."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Kitemana",
       "channel": "Kitemana",

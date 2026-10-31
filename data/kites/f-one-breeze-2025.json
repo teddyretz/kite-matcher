@@ -40,36 +40,7 @@
   "price_new": 1449,
   "summary": "F-One's high-aspect foil specialist built for maximum efficiency in ultra-light wind. The single-strut design and very high aspect ratio deliver unmatched low-end power for foiling.",
   "best_for": "Foil specialist in light wind",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 15,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=f-one-breeze-2025",
-            "score": 4.4,
-            "summary": "The ultimate light-wind foil kite. Gets you on the water when nothing else can with incredible upwind ability."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=f-one+breeze+2025",
-            "score": 4.2,
-            "summary": "Incredible low-end power but relaunch can be challenging in very light wind. Purpose-built for foiling."
-          },
-          {
-            "source": "YouTube - Foil Academy",
-            "url": "https://www.youtube.com/results?search_query=f-one+breeze+2025+review",
-            "score": 4.3,
-            "summary": "Best-in-class for ultra-light wind foiling. The high AR design is incredibly efficient but requires experience.",
-            "video_id": null
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

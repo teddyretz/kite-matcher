@@ -45,34 +45,6 @@
   "best_for": "Performance freeriders wanting the latest Reedin freeride evolution",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 5,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2400500",
-            "score": 4.4,
-            "summary": "Early feedback suggests meaningful improvements in stability and slightly better boost over the V3, while maintaining the signature upwind performance."
-          },
-          {
-            "source": "YouTube - Reedin 2026 Lineup",
-            "url": "https://www.youtube.com/watch?v=reedin_supermodel_2026",
-            "score": 4.5,
-            "summary": "Reviewer tests the updated Super Model and notes improved gust handling and better low-end compared to the V3.",
-            "video_id": "reedin_supermodel_2026"
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/reedin_sm_2026",
-            "score": null,
-            "summary": "Reedin continues to gain market share. Users see the Super Model as a strong alternative to the North Reach and Core Nexus."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Kitemana",
       "channel": "Kitemana",

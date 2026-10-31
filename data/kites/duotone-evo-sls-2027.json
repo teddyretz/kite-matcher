@@ -1,0 +1,64 @@
+{
+  "id": "duotone-evo-sls-2027",
+  "slug": "duotone-evo-sls-2027",
+  "brand": "Duotone",
+  "model": "Evo SLS",
+  "year": 2027,
+  "image": "/kites/duotone-evo-sls-2027.jpg",
+  "style_spectrum": 70,
+  "shape_spectrum": 55,
+  "wave_spectrum": 45,
+  "style_tags": [
+    "freeride",
+    "big air",
+    "freestyle",
+    "wave"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": false,
+  "brainchild": false,
+  "turning_speed": "medium",
+  "low_end_power": 8,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 9,
+  "wind_range_high": 44,
+  "sizes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "price_new": 1819,
+  "summary": "The 2027 Evo SLS drops the Flex Strut system for thinner, stiffer struts and runs higher inflation pressure (9 psi up to 10m). Duotone says the stiffer frame gives faster steering and more progressive bar pressure, with refined wingtip connections.",
+  "best_for": "Freeriders who want one versatile 3-strut kite for boosting, cruising and waves",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/2027-duotone-evo-sls-kiteboarding-kite/",
+        "price": 1819,
+        "type": "direct_product"
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+SLS+2027"
+      }
+    ]
+  }
+}

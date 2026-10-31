@@ -45,34 +45,6 @@
   "best_for": "All-around freeride and versatility",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 22,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=north-reach-2025",
-            "score": 4.3,
-            "summary": "Excellent for foiling with great upwind ability. The single strut keeps weight down for impressive low-end."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+reach+2025",
-            "score": 4.2,
-            "summary": "A dedicated foil kite that gets you on the water earlier than most. Relaunch can be tricky in very light wind."
-          },
-          {
-            "source": "YouTube - Foil Academy",
-            "url": "https://www.youtube.com/results?search_query=north+reach+2025+review",
-            "score": 4.4,
-            "summary": "The best foil-specific kite from North. Smooth power delivery and excellent drift for foil riding.",
-            "video_id": null
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "REAL Watersports",
       "channel": "REAL Watersports",

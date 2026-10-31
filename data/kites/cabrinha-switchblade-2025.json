@@ -20,7 +20,7 @@
   ],
   "teds_pick": false,
   "aspect_ratio": "medium",
-  "strut_count": 3,
+  "strut_count": 5,
   "bar_type": "low-v",
   "aluula": false,
   "brainchild": false,
@@ -45,34 +45,6 @@
   "summary": "Cabrinha's legendary all-around kite now in its 20th+ iteration. The Switchblade delivers reliable performance across all conditions with excellent depower and a forgiving power delivery.",
   "best_for": "All-around freeriding",
   "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 30,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=cabrinha-switchblade-2025",
-            "score": 4.3,
-            "summary": "A reliable workhorse that does everything well. Riders appreciate the predictable power and wide wind range."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=cabrinha+switchblade+2025",
-            "score": 4.2,
-            "summary": "Often recommended for beginners and intermediate riders. Solid build quality and forgiving characteristics."
-          },
-          {
-            "source": "YouTube - Progression",
-            "url": "https://www.youtube.com/results?search_query=cabrinha+switchblade+2025+review",
-            "score": 4.4,
-            "summary": "Praised for its consistency year after year. Great depower range and a kite you can trust in varying conditions.",
-            "video_id": null
-          }
-        ]
-      }
-    },
     {
       "source": "youtube",
       "reviewer": "Kiteboarding St Petersburg",

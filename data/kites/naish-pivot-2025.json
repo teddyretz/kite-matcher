@@ -47,35 +47,6 @@
   "best_for": "All-around riders wanting a versatile one-kite quiver",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 20,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=2399600",
-            "score": 4.4,
-            "summary": "Long-standing favorite in the all-around category. Riders praise the Pivot's consistency year over year and its ability to handle virtually any riding style."
-          },
-          {
-            "source": "YouTube - Jason Montreal",
-            "url": "https://www.youtube.com/watch?v=naish_pivot_2025_review",
-            "score": 4.5,
-            "summary": "Jason praises the Pivot's quick turning and predictable nature, noting it remains one of the best all-around kites available at any price point.",
-            "video_id": "naish_pivot_2025_review",
-            "jason_montreal": true
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/comments/naish_pivot_2025",
-            "score": null,
-            "summary": "A perennial recommendation for riders asking about all-around kites. Community notes the Pivot works well for both twin-tip and surfboard riding."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Kitemana",
       "channel": "Kitemana",

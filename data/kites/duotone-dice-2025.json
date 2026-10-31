@@ -42,36 +42,7 @@
   "price_new": 1649,
   "summary": "A freestyle-oriented kite that bridges the gap between freestyle and freeride. Quick turning, great pop off the water, and slack for unhooked tricks while remaining fun for freeriding.",
   "best_for": "Freestyle and freeride crossover",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.3,
-        "review_count": 22,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=duotone-dice-2025",
-            "score": 4.3,
-            "summary": "Riders appreciate the fast turning and freestyle capabilities while noting it's still fun for everyday freeriding."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=duotone+dice+2025",
-            "score": 4.2,
-            "summary": "Popular among freestyle riders progressing from freeride. Good pop and slack for unhooked tricks."
-          },
-          {
-            "source": "YouTube - Kevin Langeree",
-            "url": "https://www.youtube.com/results?search_query=duotone+dice+2025+review",
-            "score": 4.4,
-            "summary": "Highlighted as the best Dice yet with improved low-end power and more direct steering.",
-            "video_id": null
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

@@ -45,7 +45,7 @@ The legacy two-slider score remains available for browse and comparison tools:
 
 - **Source of truth:** one JSON file per kite in `data/kites/`
 - **Validation:** `lib/schema.ts` uses Zod; `npm run validate-kites` runs before build
-- **Catalog size:** 79 kites across 13 brands
+- **Catalog size:** 89 kites across 13 brands
 - **Review enrichment:** selected kites include structured reviews synthesized from YouTube transcripts
 
 This project no longer uses Payload CMS or Neon as the primary catalog store. The app builds directly from the repo’s per-kite JSON files.

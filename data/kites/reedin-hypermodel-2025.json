@@ -22,7 +22,7 @@
   "aspect_ratio": "high",
   "strut_count": 3,
   "bar_type": "high-y",
-  "aluula": false,
+  "aluula": true,
   "brainchild": true,
   "turning_speed": "fast",
   "low_end_power": 7,
@@ -43,29 +43,7 @@
   "price_new": 2199,
   "summary": "The original Reedin Hyper Model using Brainchild construction for a lighter, more responsive big air and freeride platform. Delivers impressive hangtime and boost with the weight savings of Brainchild's advanced materials.",
   "best_for": "Big air/freeride riders wanting Brainchild performance from Reedin",
-  "reviews": [
-    {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 8,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=reedin-hypermodel-2025",
-            "score": 4.4,
-            "summary": "The Brainchild construction brings real performance gains. Riders praise the lighter feel and responsive character."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/kiteboarding/search/?q=reedin+hypermodel+2025",
-            "score": 4.3,
-            "summary": "Solid big air performance with Brainchild's weight savings. A strong entry from Reedin into the premium category."
-          }
-        ]
-      }
-    }
-  ],
+  "reviews": [],
   "buy_links": {
     "new": [
       {

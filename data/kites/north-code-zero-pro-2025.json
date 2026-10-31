@@ -47,27 +47,6 @@
   "best_for": "Foiling, wave riding, and light wind",
   "reviews": [
     {
-      "source": "aggregate_placeholder",
-      "data": {
-        "aggregate_score": 4.4,
-        "review_count": 14,
-        "sources": [
-          {
-            "source": "Kiteforum",
-            "url": "https://www.kiteforum.com/viewtopic.php?t=north-code-zero-pro-2025",
-            "score": 4.4,
-            "summary": "Riders love the drift and light-wind capability. Top choice for foiling and wave sessions."
-          },
-          {
-            "source": "Reddit r/kiteboarding",
-            "url": "https://www.reddit.com/r/Kiteboarding/search/?q=north+code+zero+pro+2025",
-            "score": 4.3,
-            "summary": "Highly recommended for foil riders. The single-strut design keeps weight minimal for impressive light-wind performance."
-          }
-        ]
-      }
-    },
-    {
       "source": "youtube",
       "reviewer": "Brad Strahm",
       "channel": "Brad Strahm",

@@ -1,0 +1,63 @@
+{
+  "id": "duotone-evo-dlab-2027",
+  "slug": "duotone-evo-dlab-2027",
+  "brand": "Duotone",
+  "model": "Evo D/LAB",
+  "year": 2027,
+  "image": "/kites/duotone-evo-dlab-2027.jpg",
+  "style_spectrum": 75,
+  "shape_spectrum": 55,
+  "wave_spectrum": 35,
+  "style_tags": [
+    "freeride",
+    "big air",
+    "freestyle",
+    "wave"
+  ],
+  "skill_level": [
+    "intermediate",
+    "advanced"
+  ],
+  "teds_pick": false,
+  "aspect_ratio": "medium-high",
+  "strut_count": 3,
+  "bar_type": "high-y",
+  "aluula": true,
+  "brainchild": false,
+  "turning_speed": "fast",
+  "low_end_power": 8,
+  "depower_range": 9,
+  "relaunch": "easy",
+  "wind_range_low": 8,
+  "wind_range_high": 42,
+  "sizes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "price_new": 2799,
+  "summary": "Duotone's 3-strut Aluula D/TX all-rounder, now with a new 6-point bridle, Micro Batten construction and Micro Loop connections. Runs at up to 10 psi for a very stiff frame; covers freeride, big air, freestyle and wave in one ultralight kite.",
+  "best_for": "One-kite quivers for riders who want Aluula weight savings across freeride, big air and waves",
+  "reviews": [],
+  "buy_links": {
+    "new": [
+      {
+        "retailer": "MACkite",
+        "url": "https://www.mackiteboarding.com/2027-duotone-evo-d-lab-kiteboarding-kite/",
+        "price": 2799,
+        "type": "direct_product"
+      }
+    ],
+    "used": [
+      {
+        "source": "Kiteboarder Classifieds",
+        "url": "https://www.kiteboarder.com/classifieds/?search=Duotone+Evo+D%2FLAB+2027"
+      }
+    ]
+  }
+}

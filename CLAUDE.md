@@ -43,7 +43,7 @@ app/
 ```
 
 ### Data Flow
-- **Source of truth:** `data/kites/<slug>.json` — one file per kite, 79 total.
+- **Source of truth:** `data/kites/<slug>.json` — one file per kite, 89 total.
 - **Validation:** `lib/schema.ts` — Zod `KiteSchema`. `npm run validate-kites` (also runs as `prebuild`) blocks the build on any malformed file.
 - **Server reads:** `lib/getKites.ts` reads + caches in module scope. SSG bakes the data into static HTML at build.
 - **Runtime reads:** `app/api/kites/route.ts` (used by `CompareContext`) reads from disk on demand. Files are bundled into the serverless function via `outputFileTracingIncludes` in `next.config.mjs`.
@@ -62,7 +62,7 @@ app/
 
 ## Data
 
-- **79 kites** across 13 brands: Duotone (13), Core (12), Slingshot (8), North (7), Ozone (6), Flysurfer (6), Cabrinha (5), Reedin (5), F-One (4), Eleveight (4), Airush (4), Harlem (3), Naish (2)
+- **89 kites** across 13 brands: Duotone (17), Core (13), North (8), Ozone (8), Slingshot (8), Cabrinha (6), Eleveight (5), Flysurfer (5), Reedin (5), Airush (4), F-One (4), Harlem (4), Naish (2)
 - **Each kite is one file** at `data/kites/<slug>.json`. Editing or adding a kite = editing or creating one file. Validation enforces shape; `npm run validate-kites` runs in `prebuild` so a malformed file fails the deploy.
 - **Adding a kite:** copy any existing file as a template, change `slug` and the rest, drop an image at `public/kites/<slug>.jpg`, commit. The new kite is picked up automatically (no index file).
 
@@ -127,7 +127,9 @@ Vector store of transcripts + text query UI.
 ---
 
 ## Review Coverage (kites with YouTube transcripts)
-**Jason Montreal** (@jasonofmontreal): duotone-rebel-dlab-2026, duotone-evo-dlab-2026, duotone-rebel-sls-2026, duotone-evo-sls-2026, f-one-bandit-brainchild-2026, f-one-trigger-2026, ozone-edge-vt-2026, harlem-peak-2025, harlem-thrive-2025, reedin-hypermodel-2026, cabrinha-moto-x-2025, north-orbit-2026, core-pace-pro-2026, slingshot-code-nxt-2026, flysurfer-era-2025
+**Jason Montreal** (@jasonofmontreal): cabrinha-moto-x-2025, core-pace-pro-2025, duotone-evo-dlab-2026, duotone-evo-sls-2026, duotone-juice-dlab-2026, duotone-rebel-dlab-2026, f-one-bandit-brainchild-2026, f-one-trigger-2026, flysurfer-era-2025, flysurfer-sonic-5-2026, harlem-peak-2025, harlem-thrive-2025, north-orbit-2025, ozone-edge-vt-2026, ozone-reflex-v1-2026, ozone-vortex-ultra-x-v2-2026, reedin-hypermodel-2026, slingshot-code-nxt-2026, slingshot-code-v2-2025
+
+Before attaching a review, check the video's upload date and the exact model/version in its title against the kite's year and model (see `docs/data-audit-2026-10.md` for the misattributions this caused).
 
 **Kitemana** (@Kitemana): core-xr-pro-2-2026, core-pace-2026, naish-pivot-2025, naish-pivot-nvision-2026, reedin-supermodel-2026, reedin-mastermodel-2026, eleveight-rs-v10-2026, north-orbit-2026 (2nd), duotone-rebel-dlab-2026 (2nd), duotone-evo-dlab-2026 (2nd), harlem-peak-2025 (2nd), flysurfer-era-2025 (2nd)
 
