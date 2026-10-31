@@ -39,7 +39,21 @@
   "price_new": 2049,
   "summary": "Cabrinha's dedicated big air weapon built for maximum altitude and hangtime. The 5-strut design provides exceptional rigidity at speed and in strong gusts for confident megaloops.",
   "best_for": "Dedicated big air and megaloops",
-  "reviews": [],
+  "reviews": [
+    {
+      "source": "youtube",
+      "reviewer": "MACkite",
+      "channel": "MACkite",
+      "channel_url": "https://www.youtube.com/@MACkiteboarding",
+      "video_id": "2bLTv9iLo24",
+      "video_title": "2026 Cabrinha Nitro Review | Hang-Time, Loops and High-V | Brazilian Brothers",
+      "video_url": "https://www.youtube.com/watch?v=2bLTv9iLo24",
+      "excerpt": "For 2026, the biggest improvement that we've noticed with the Nitro after riding here in Brazil for the past several weeks is the consistency of hang time.",
+      "verdict": "If you're looking for a kite that's super easy to loop and that's going to get you looping without a problem, we would highly recommend the 7 m nitro and even the 8 m nitro as well.",
+      "full_transcript": "What's up, guys? It's the Brazilbras with MC High Boarding bringing you a very special review of the brand new 2026 Cabrina Nitro. [music] The Nitro is a five strut big air kite by Cabrina, and we cannot wait to walk you through its features and let you know our personal feelings about this kite by Cabrina. &gt;&gt; [music] &gt;&gt; The first version of the Nitro came out in 2023 and it was [music] developed by Pat Goodman shortly after he had a sbatical and north tie boarding. Pat used all the experience he's [music] gained over the years developing the Switchblade as well as the North orbit to develop the Nitro. Personally, [music] we've been using it for the past 3 years and so we are very used to it and we know exactly how the kite performs [music] over a wide range of conditions. This is one of the reasons why we use it here in Brazil [music] for our kite clinics. We see it as one of the easiest kites to perform in terms of haloops and overall kite [music] loop progression. For 2026, the biggest improvement that we've noticed with the Nitro after riding here in Brazil for the past several [music] weeks is the consistency of hang time. In past versions of the Nitro, we've noticed that [music] the kite had inconsistent lift at times, which means that sometimes you get really good lift, other times not [music] so much. For 2026, this this has been drastically improved. We're able to come down softly from big [music] jumps and for big loops way more consistently, which translates into an even easier kite to use. In terms of jumping, the kite remains a very easy [music] and accessible kite for people of all levels. You're able to hop on it and immediately take advantage of the big [music] sweet spot and the ability to go nice and high. The Nitro remains a kite that is meant to be ridden overpowered and meant to be ridden powered [music] up. You are not going to be able to hop on this kite in under 25 knots and [music] go to the moon. You really want to be on an 8 m or 9 m in over 25 knots wind because [music] this is when you're going to be able to get your highest jumps and the best [music] performance out of the kite. In terms of looping, we remain fans of the Nitro. Some other companies like North has taken the orbit and has made it a little more technical of a looper, but [music] thankfully the Nitro remains a very easy and a very intuitive kite to loop. The kite has very little yank and it's really fast through the loop, which gives people [music] confidence to throw their first loops and to progress through their kai loop rotations. This [music] is one of the reasons why we love the Nitro because it allows us to give it to people that have never looped [music] before and have them looping their butts off almost immediately. In terms of ease of use, the Nitro is awesome. It is obviously not as easy to [music] use as something as a Switchblade for instance, but we're pretty confident that intermediate to advanced riders [music] are really going to hop on this kite and be immediately comfortable on it. The light bar pressure, direct feedback [music] on the bar, and the newly acquired accessible lift makes it [music] a kite for people that are trying to improve on their big air game. Like we've said this before, this is not the kite for you to be taken out when you're doing strapless or foil. This is really a big air fivestar machine that performs better when you're riding lit and with a twin tip on your feet. When we are riding the Nitro, we always ride it in the A setting. [music] Like we've said before, this is our preferred setting for most kites because it allows the bar pressure to be really light on this kite. Probably one of the lightest out there and also allows the kite to be even more pivotal to the loop. The other thing we're doing with the Nitro is that we're actually riding it with a high V bar. This is something that we've learned from Pat [music] when we talked to him during our interview. Make sure to check it out if you haven't. Uh, and he suggested us to try it with a Hi V and we are [music] pleasantly surprised. Would actually recommend everyone that's watching to take the Nitro out in the high V configuration because it's made the kite even faster through the loop with an even lighter bar feel. So, we highly recommend it for you to be riding in the A configuration with a high V bar for the [music] best performance. Overall, we continue to be stoked on the Nitro for 2026. They've [music] kept a lot of the aspects that we love about it, including the light bar pressure, [music] the ease of loop, and overall ability to be ridden really overpowered. And they've also improved the overall lift [music] and second lift of the kite. If you're looking for a kite that's super easy to loop and that's going to get you looping without a [music] problem, we would highly recommend the 7 m nitro and even the 8 m nitro [music] as well. Those are our two favorite sizes because we're guaranteed you're going to be looping in no time. As always, thanks so [music] much for watching this review. Make sure to subscribe to Mac Kit's YouTube channel, to follow the Brazilian [music] brothers on Instagram, and to also leave in the comments the kites you want us to compare to the Nitro. Thank you so much, and see you in the next video.",
+      "summary": "After weeks of riding it in Brazil, the Brazilian Brothers say the 2026 Nitro fixes the earlier versions' inconsistent lift, with softer landings from big jumps and loops. It stays one of the easiest kites to learn kiteloops on, with light bar pressure and little yank, but it needs 25+ knots and overpowered riding and is not a strapless or foil kite."
+    }
+  ],
   "buy_links": {
     "new": [
       {
@@ -63,6 +77,28 @@
         "source": "Kiteboarder Classifieds",
         "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Nitro+Apex+2026"
       }
+    ]
+  },
+  "structured_review": {
+    "rating": 4.2,
+    "summary": "An easy, intuitive 5-strut big air kite and one of the friendliest kites for learning kiteloops: light bar pressure, little yank and a fast loop. The 2026 version fixes the inconsistent lift of earlier Nitros, but it only really comes alive overpowered in 25+ knots and is not meant for strapless or foil.",
+    "pros": [
+      "Among the easiest kites to learn kiteloops on: fast loop with little yank",
+      "More consistent lift and softer landings than previous Nitros",
+      "Very light bar pressure, especially in the A setting",
+      "Big sweet spot for jumping; accessible to intermediate riders",
+      "Stays manageable when ridden overpowered"
+    ],
+    "cons": [
+      "Needs strong wind (25+ knots) for its best jumps",
+      "Not suited to strapless or foil riding",
+      "Less user-friendly than the Switchblade for general riding"
+    ],
+    "best_for": "Intermediate to advanced twin-tip riders learning and progressing kiteloops in strong wind.",
+    "not_for": "Light-wind riders, or anyone wanting one kite for foil and strapless.",
+    "rec_blurb": "Loop school in a kite: light, fast, and very little yank.",
+    "sources": [
+      "MACkite"
     ]
   }
 }
