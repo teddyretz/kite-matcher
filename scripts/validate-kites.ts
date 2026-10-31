@@ -54,6 +54,7 @@ function main() {
     const problems: string[] = []
     if (kite.wind_range_low >= kite.wind_range_high) problems.push('wind_range_low must be below wind_range_high')
     if (kite.sizes.some((s, i) => i > 0 && s <= kite.sizes[i - 1])) problems.push('sizes must be strictly ascending')
+    if (!fs.existsSync(path.join(ROOT, 'public', kite.image))) problems.push(`image ${kite.image} does not exist`)
     // Ratings must be grounded in a transcript we hold, never invented.
     const hasTranscript = kite.reviews.some((r) => r.source === 'youtube' && (r.full_transcript?.length ?? 0) > 200)
     if (kite.structured_review && !hasTranscript) problems.push('structured_review has no YouTube transcript to back it')

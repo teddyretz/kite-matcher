@@ -170,7 +170,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <p className="text-xs text-gray-500 mb-5">
             {evidenceLabel}. A concise synthesis with no brand or sponsor input. Sources listed below.
           </p>
-          <StructuredReview review={kite.structured_review} />
+          <StructuredReview review={kite.structured_review} videos={youtubeReviews} />
         </div>
       ) : (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
