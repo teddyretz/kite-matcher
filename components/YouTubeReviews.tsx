@@ -1,4 +1,6 @@
 import { ReviewEntry } from '@/lib/types';
+import { reviewerForChannel } from '@/lib/reviewers';
+import SourceBadge from './SourceBadge';
 
 type YouTubeReview = Extract<ReviewEntry, { source: 'youtube' }>;
 
@@ -11,7 +13,13 @@ export default function YouTubeReviews({ reviews }: { reviews: YouTubeReview[] }
         <div key={i} className="bg-surface rounded-lg border border-gray-100 overflow-hidden">
           <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div>
-              <p className="text-sm font-semibold text-slate">{r.reviewer}</p>
+              <p className="flex items-center gap-2 text-sm font-semibold text-slate">
+                {r.reviewer}
+                <SourceBadge
+                  type={reviewerForChannel(r.channel_url)?.type ?? 'unverified'}
+                  note={reviewerForChannel(r.channel_url)?.note}
+                />
+              </p>
               <a
                 href={r.channel_url}
                 target="_blank"

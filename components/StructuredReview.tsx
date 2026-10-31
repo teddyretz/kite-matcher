@@ -1,4 +1,6 @@
 import { StructuredReview as StructuredReviewType } from '@/lib/types';
+import { sourceType } from '@/lib/reviewers';
+import SourceBadge from './SourceBadge';
 
 function Stars({ rating }: { rating: number }) {
   const full = Math.floor(rating);
@@ -83,7 +85,7 @@ export default function StructuredReview({
       {review.sources.length > 0 && (
         <div className="pt-2 border-t border-gray-100">
           <p className="text-xs text-gray-500">
-            <span className="font-semibold">Distilled from independent reviews by:</span>{' '}
+            <span className="font-semibold">Distilled from reviews by:</span>{' '}
             {review.sources.map((source, i) => {
               // Link each reviewer to their original video so readers can check the source.
               const video = videos.find((v) => v.reviewer === source);
@@ -102,7 +104,8 @@ export default function StructuredReview({
                     </a>
                   ) : (
                     source
-                  )}
+                  )}{' '}
+                  <SourceBadge type={sourceType(source)} />
                 </span>
               );
             })}

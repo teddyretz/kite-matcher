@@ -46,8 +46,8 @@
   "reviews": [
     {
       "source": "youtube",
-      "reviewer": "FORCE Kiteboarding & Wakeboarding Lessons & Gear",
-      "channel": "FORCE Kiteboarding & Wakeboarding Lessons & Gear",
+      "reviewer": "FORCE Kiteboarding",
+      "channel": "FORCE Kiteboarding",
       "channel_url": "https://www.youtube.com/@Forcekiteandwake",
       "video_id": "CG6KhOW7htk",
       "video_title": "Airush Ultra v4 - First look review",
@@ -103,7 +103,7 @@
     "not_for": "Riders who prioritize snappy, direct bar feedback and explosive power delivery over smooth, dampened response.",
     "rec_blurb": "A light-wind foiling weapon that practically refuses to backstall.",
     "sources": [
-      "Chilly Graves"
+      "FORCE Kiteboarding"
     ]
   }
 }

@@ -7,6 +7,7 @@
 import fs from 'fs'
 import path from 'path'
 import { KiteSchema } from '../lib/schema'
+import { reviewerByName, reviewerForChannel } from '../lib/reviewers'
 
 const ROOT = path.resolve(__dirname, '..')
 const DIR = path.join(ROOT, 'data', 'kites')
@@ -58,6 +59,22 @@ function main() {
     // Ratings must be grounded in a transcript we hold, never invented.
     const hasTranscript = kite.reviews.some((r) => r.source === 'youtube' && (r.full_transcript?.length ?? 0) > 200)
     if (kite.structured_review && !hasTranscript) problems.push('structured_review has no YouTube transcript to back it')
+    // Every source needs a label; ratings may only cite labeled, non-brand reviewers on this kite.
+    const reviewerNames = new Set<string>()
+    for (const r of kite.reviews) {
+      if (r.source === 'youtube') {
+        const known = reviewerForChannel(r.channel_url)
+        if (!known) problems.push(`channel ${r.channel_url} is not in lib/reviewers.ts`)
+        else if (known.name !== r.reviewer) problems.push(`reviewer "${r.reviewer}" should be "${known.name}"`)
+        else reviewerNames.add(known.name)
+      } else if (r.kite_year_discussed !== null && r.kite_year_discussed !== kite.year) {
+        problems.push(`forum thread ${r.thread_url} discusses the ${r.kite_year_discussed} model, not ${kite.year}`)
+      }
+    }
+    for (const s of kite.structured_review?.sources ?? []) {
+      if (!reviewerNames.has(s)) problems.push(`structured_review source "${s}" is not a reviewer on this kite`)
+      else if (reviewerByName(s)?.type === 'brand') problems.push(`structured_review cites brand content (${s})`)
+    }
     // Copy-pasted summaries are how duplicate kite files slip in.
     const dupOf = summaryOwner.get(kite.summary)
     if (dupOf) problems.push(`summary is identical to ${dupOf}`)

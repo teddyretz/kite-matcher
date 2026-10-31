@@ -17,7 +17,8 @@
     "find-candidates": "tsx scripts/find-candidates.ts",
     "search-candidates": "tsx --env-file-if-exists=.env.local scripts/search-candidates.ts",
     "bulk-ingest": "tsx scripts/bulk-ingest.ts",
-    "check-links": "tsx scripts/check-links.ts"
+    "check-links": "tsx scripts/check-links.ts",
+    "add-owner-report": "tsx scripts/add-owner-report.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
