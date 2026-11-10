@@ -69,8 +69,8 @@ function SliderRow({ name, label, valueLabel, value, onChange, onCommit, left, r
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between gap-3">
-        <label htmlFor={`advisor-${name}`} className="text-[11px] font-semibold text-gray-500">{label}</label>
-        <span className="text-xs font-bold text-ocean">{valueLabel}</span>
+        <label htmlFor={`advisor-${name}`} className="text-xs font-semibold text-gray-300">{label}</label>
+        <span className="text-sm font-bold text-ocean">{valueLabel}</span>
       </div>
       <input
         id={`advisor-${name}`}
@@ -87,7 +87,7 @@ function SliderRow({ name, label, valueLabel, value, onChange, onCommit, left, r
         aria-label={label}
         aria-valuetext={valueLabel}
       />
-      <div className="mt-1.5 flex justify-between text-[10px] text-gray-400">
+      <div className="mt-1.5 flex justify-between text-xs text-gray-400">
         <span>{left}</span>
         <span>{right}</span>
       </div>
@@ -99,7 +99,6 @@ export default function AdvisorControls({
   style,
   shape,
   wavePriority,
-  handling,
   wind,
   level,
   construction,
@@ -108,14 +107,13 @@ export default function AdvisorControls({
   onSliderCommit,
   onLevelChange,
   onConstructionChange,
-  compact = false,
 }: AdvisorControlsProps) {
   return (
     <>
       <fieldset className="mb-5">
         <div className="mb-2 flex items-baseline justify-between gap-3">
-          <legend className="text-[11px] font-semibold text-gray-500">Primary riding discipline</legend>
-          <span className="text-xs font-bold text-ocean">{styleLabel(style)}</span>
+          <legend className="text-xs font-semibold text-gray-300">1. What do you want to ride?</legend>
+          <span className="text-sm font-bold text-ocean">{styleLabel(style)}</span>
         </div>
         <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
           {disciplineOptions.map(option => {
@@ -129,43 +127,79 @@ export default function AdvisorControls({
                   onSliderChange('style', option.value);
                   onSliderCommit?.('style', option.value);
                 }}
-                className={`min-h-11 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-500 hover:border-white/35 hover:text-slate'}`}
+                className={`min-h-11 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/35 hover:text-slate'}`}
               >
                 {option.label}
               </button>
             );
           })}
         </div>
-        <p className="mt-2 text-[10px] leading-4 text-gray-400">Choose the session you want this kite to be best at. Use the controls below to shape the feel.</p>
+        <p className="mt-2 text-xs leading-5 text-gray-400">Pick the kind of session you want this kite to be best at.</p>
       </fieldset>
 
-      <div className={`grid gap-x-6 ${compact ? 'gap-y-5 md:grid-cols-3' : 'gap-y-4 sm:grid-cols-2'}`}>
-        <SliderRow name="shape" label="Kite character" valueLabel={shape < 35 ? 'Direct & pivotal' : shape > 65 ? 'Efficient & floaty' : 'Balanced'} value={shape} onChange={onSliderChange} onCommit={onSliderCommit} left="Direct · C-shaped" right="Efficient · high aspect" />
-        <SliderRow name="wave" label="Wave priority" valueLabel={wavePriority < 30 ? 'Low' : wavePriority > 70 ? 'Core priority' : 'Important'} value={wavePriority} onChange={onSliderChange} onCommit={onSliderCommit} left="Not important" right="Wave focused" />
-        <SliderRow name="handling" label="Handling" valueLabel={handling < 35 ? 'Calm & forgiving' : handling > 65 ? 'Fast & reactive' : 'Balanced'} value={handling} onChange={onSliderChange} onCommit={onSliderCommit} left="Forgiving" right="Performance" />
-        <SliderRow name="wind" label="Typical wind" valueLabel={wind < 35 ? 'Mostly light' : wind > 65 ? 'Mostly strong' : 'Mixed conditions'} value={wind} onChange={onSliderChange} onCommit={onSliderCommit} left="Light wind" right="Strong wind" />
-        <SliderRow name="budget" label="Maximum price" valueLabel={budget >= 5000 ? 'No limit' : `$${budget.toLocaleString()}`} value={budget} onChange={onSliderChange} onCommit={onSliderCommit} left="$800" right="No limit" min={800} max={5000} step={100} />
-      </div>
-
-      <div className={`mt-5 grid gap-4 border-t border-white/20 pt-4 ${compact ? 'md:grid-cols-[1fr_1fr]' : 'sm:grid-cols-2'}`}>
+      <div className="grid gap-5 border-t border-white/15 pt-5 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <p className="mb-2 text-[11px] font-semibold text-gray-500">Rider level</p>
+          <p className="mb-2 text-xs font-semibold text-gray-300">2. Rider level</p>
           <div className="flex gap-1.5">
             {(['beginner', 'intermediate', 'advanced'] as const).map(value => (
-              <button key={value} type="button" aria-pressed={level === value} onClick={() => onLevelChange(value)} className={`min-h-11 flex-1 rounded-lg border px-2 py-2 text-[11px] font-semibold capitalize transition-colors ${level === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-500 hover:border-white/40'}`}>{value}</button>
+              <button key={value} type="button" aria-pressed={level === value} onClick={() => onLevelChange(value)} className={`min-h-11 flex-1 rounded-lg border px-2 py-2 text-xs font-semibold capitalize transition-colors ${level === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{value}</button>
             ))}
           </div>
-          <p className="mt-2 text-[10px] leading-4 text-gray-400">{skillGuidance[level]}</p>
+          <p className="mt-2 text-xs leading-5 text-gray-400">{skillGuidance[level]}</p>
         </div>
-        <div>
-          <p className="mb-2 text-[11px] font-semibold text-gray-500">Construction <span className="font-normal text-gray-400">· optional</span></p>
-          <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap">
-            {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
-              <button key={value} type="button" aria-pressed={construction === value} onClick={() => onConstructionChange(value)} className={`min-h-11 rounded-lg border px-3 py-2 text-[11px] font-semibold capitalize transition-colors ${construction === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-500 hover:border-white/40'}`}>{value === 'all' ? 'Any material' : value}</button>
-            ))}
-          </div>
-        </div>
+        <SliderRow name="wind" label="3. Typical wind" valueLabel={wind < 35 ? 'Mostly light' : wind > 65 ? 'Mostly strong' : 'Mixed conditions'} value={wind} onChange={onSliderChange} onCommit={onSliderCommit} left="Light wind" right="Strong wind" />
+        <SliderRow name="budget" label="4. Budget per kite" valueLabel={budget >= 5000 ? 'No budget limit' : `Up to $${budget.toLocaleString()}`} value={budget} onChange={onSliderChange} onCommit={onSliderCommit} left="$800" right="No limit" min={800} max={5000} step={100} />
       </div>
+
+      <details open className="group mt-5 border-t border-white/15 pt-4">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-1 text-left transition-colors hover:text-white">
+          <span>
+            <span className="block text-sm font-bold text-slate">Fine-tune your match <span className="font-normal text-gray-400">(optional)</span></span>
+            <span className="mt-0.5 block text-xs text-gray-400">Adjust feel, wave focus, or construction if you already know what you prefer.</span>
+          </span>
+          <span className="text-xl text-ocean transition-transform group-open:rotate-45" aria-hidden>+</span>
+        </summary>
+
+        <div className="mt-4 grid gap-5 border-t border-white/10 pt-5 lg:grid-cols-3">
+          <fieldset>
+            <legend className="mb-2 text-xs font-semibold text-gray-300">Feel</legend>
+            <div className="grid grid-cols-3 gap-1.5">
+              {([
+                { label: 'Easy', value: 20 },
+                { label: 'Balanced', value: 50 },
+                { label: 'Fast & direct', value: 80 },
+              ] as const).map((option, index) => {
+                const selected = index === (shape < 35 ? 0 : shape > 65 ? 2 : 1);
+                return <button key={option.label} type="button" aria-pressed={selected} onClick={() => { onSliderChange('shape', option.value); onSliderCommit?.('shape', option.value); }} className={`min-h-11 rounded-lg border px-2 py-2 text-xs font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{option.label}</button>;
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend className="mb-2 text-xs font-semibold text-gray-300">How important are waves?</legend>
+            <div className="grid grid-cols-3 gap-1.5">
+              {([
+                { label: 'Not important', value: 10 },
+                { label: 'Sometimes', value: 50 },
+                { label: 'Main focus', value: 90 },
+              ] as const).map((option, index) => {
+                const selected = index === (wavePriority < 30 ? 0 : wavePriority > 70 ? 2 : 1);
+                return <button key={option.label} type="button" aria-pressed={selected} onClick={() => { onSliderChange('wave', option.value); onSliderCommit?.('wave', option.value); }} className={`min-h-11 rounded-lg border px-2 py-2 text-xs font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{option.label}</button>;
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend className="mb-2 text-xs font-semibold text-gray-300">Construction</legend>
+            <div className="grid grid-cols-2 gap-1.5">
+              {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
+                <button key={value} type="button" aria-pressed={construction === value} onClick={() => onConstructionChange(value)} className={`min-h-11 rounded-lg border px-3 py-2 text-xs font-semibold capitalize transition-colors ${construction === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{value === 'all' ? 'Any material' : value}</button>
+              ))}
+            </div>
+            <p className="mt-2 text-xs leading-5 text-gray-400">Dacron is the standard build. Aluula is lighter and stiffer. Brainchild uses welded construction.</p>
+          </fieldset>
+        </div>
+      </details>
     </>
   );
 }

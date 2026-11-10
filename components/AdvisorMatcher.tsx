@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { track } from '@vercel/analytics/react';
 import type { Kite, SkillLevel } from '@/lib/types';
-import { getDiverseAdvisorShortlist, getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
+import { getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
 import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorControls';
 
 export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
@@ -29,8 +29,6 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
     construction,
     budget: budget < 5000 ? budget : undefined,
   }), [budget, construction, handling, kites, level, shape, style, wavePriority, wind]);
-  const topMatches = useMemo(() => getDiverseAdvisorShortlist(matches, 3, 1), [matches]);
-
   const openResults = () => {
     track('advisor_results_opened', {
       level,
@@ -65,16 +63,13 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface/95 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-      <div className="relative p-5 sm:p-7">
-        <div className="mb-6 flex items-start justify-between gap-4 border-b border-white/10 pb-5">
+    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-surface/95 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+      <div className="relative p-5 sm:p-6 lg:p-7">
+        <div className="mb-5 border-b border-white/10 pb-4">
           <div>
-            <p className="text-xs font-semibold text-ocean">Live kite finder</p>
-            <h2 className="mt-1 font-display text-3xl font-black text-white">Build your riding brief</h2>
-          </div>
-          <div className="border-l border-white/20 pl-4 text-right">
-            <p className="font-display text-4xl font-black leading-none text-ocean">{matches.length}</p>
-            <p className="text-[9px] uppercase tracking-wider text-gray-400">eligible</p>
+            <p className="text-xs font-semibold text-ocean">Kite matcher</p>
+            <h2 className="mt-1 font-display text-3xl font-black text-white">Tell us how you ride</h2>
+            <p className="mt-1.5 text-sm text-gray-400">Choose a few basics and we&apos;ll narrow {kites.length} kites to your best matches.</p>
           </div>
         </div>
 
@@ -99,25 +94,15 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
           }}
         />
 
-        <div className="mt-6 border-t border-white/20 pt-5">
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">Live top matches</p>
-            <p className="text-[9px] text-gray-400">Updates as you tune</p>
+        <div className="mt-5 flex flex-col gap-3 border-t border-white/20 pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-baseline gap-2">
+            <strong className="font-display text-3xl font-black leading-none text-ocean">{matches.length}</strong>
+            <span className="text-sm font-semibold text-gray-300">kites match</span>
           </div>
-          <div className="grid grid-cols-3 border border-white/10">
-            {topMatches.map((match, index) => (
-              <div key={match.slug} className="border-r border-white/10 p-2.5 text-center last:border-r-0">
-                <p className="font-display text-xl font-black leading-none text-ocean">#{index + 1}</p>
-                <p className="mt-1 truncate text-[10px] font-bold text-gray-300">{match.brand}</p>
-                <p className="truncate text-[9px] text-gray-400">{match.model}</p>
-              </div>
-            ))}
-          </div>
+          <button type="button" onClick={openResults} className="w-full rounded-lg bg-ocean px-8 py-3.5 font-display text-xl font-black text-surface transition-colors hover:bg-white sm:w-auto">
+            View my matches →
+          </button>
         </div>
-
-        <button type="button" onClick={openResults} className="mt-5 w-full rounded-xl bg-ocean px-6 py-3.5 font-display text-xl font-black text-surface transition-colors hover:bg-white">
-          Show my shortlist →
-        </button>
       </div>
     </div>
   );
