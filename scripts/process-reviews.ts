@@ -3,6 +3,7 @@ import path from 'path'
 
 import Anthropic from '@anthropic-ai/sdk'
 import { KiteSchema, type ValidatedKite } from '../lib/schema'
+import { reviewerForChannel } from '../lib/reviewers'
 
 type YouTubeReview = Extract<ValidatedKite['reviews'][number], { source: 'youtube' }>
 type StructuredReview = NonNullable<ValidatedKite['structured_review']>
@@ -76,6 +77,19 @@ const SCHEMA = {
 interface LlmOutput {
   review: StructuredReview
   videos: Array<{ video_id: string; summary: string }>
+}
+
+// Brand-made videos are shown on the site but must never feed a rating
+// (validate-kites rejects a structured_review that cites one), so they are
+// kept out of the synthesis input entirely.
+function isRatingSource(
+  r: ValidatedKite['reviews'][number],
+): r is YouTubeReview & { full_transcript: string } {
+  return (
+    r.source === 'youtube' &&
+    !!r.full_transcript &&
+    reviewerForChannel(r.channel_url)?.type !== 'brand'
+  )
 }
 
 function loadAllKites(): ValidatedKite[] {
@@ -157,7 +171,7 @@ async function main() {
 
   const targets = filtered.filter((k) => {
     const hasTranscript = k.reviews.some(
-      (r) => r.source === 'youtube' && r.full_transcript && r.full_transcript.length > 200,
+      (r) => isRatingSource(r) && r.full_transcript.length > 200,
     )
     const hasStructured = !!k.structured_review && typeof k.structured_review.rating === 'number'
     return hasTranscript && (args.overwrite || !hasStructured)
@@ -171,9 +185,7 @@ async function main() {
   let ok = 0
   let failed = 0
   for (const kite of batch) {
-    const transcripts = kite.reviews.filter(
-      (r): r is YouTubeReview => r.source === 'youtube' && !!r.full_transcript,
-    )
+    const transcripts = kite.reviews.filter(isRatingSource)
     console.log(`\n[${ok + failed + 1}/${batch.length}] ${kite.slug} — ${transcripts.length} transcript(s)`)
     try {
       const { review, videos } = await generateStructuredReview(client, kite, transcripts)

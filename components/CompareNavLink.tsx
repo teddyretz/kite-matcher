@@ -22,7 +22,7 @@ export default function CompareNavLink({ className = '', onClick }: CompareNavLi
       {count > 0 && (
         <span
           key={count}
-          className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] font-bold rounded-full bg-ocean text-[#080D16] animate-[badgePop_220ms_ease-out]"
+          className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] font-bold rounded-full bg-ocean text-[#080D16] animate-badge-pop"
         >
           {count}
         </span>

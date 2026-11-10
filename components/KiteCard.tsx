@@ -101,17 +101,16 @@ function KiteImage({ slug, model, brand, compact = false }: { slug: string; mode
 interface KiteCardProps {
   kite: Kite;
   matchScore?: number;
-  matchLabel?: string;
   matchReasons?: string[];
   tradeoff?: string;
   compactMatch?: boolean;
   pickLabel?: string;
 }
 
-export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, tradeoff, compactMatch = false, pickLabel }: KiteCardProps) {
+export default function KiteCard({ kite, matchScore, matchReasons, tradeoff, compactMatch = false, pickLabel }: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
-  const fitTier = pickLabel ?? matchLabel ?? (matchScore !== undefined && matchScore >= 80 ? 'Strong match' : matchScore !== undefined && matchScore >= 60 ? 'Good match' : 'Worth a look');
+  const fitTier = pickLabel ?? (matchScore !== undefined && matchScore >= 80 ? 'Strong match' : matchScore !== undefined && matchScore >= 60 ? 'Good match' : 'Worth a look');
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-gray-50 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ocean/50">

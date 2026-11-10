@@ -89,7 +89,7 @@ export interface Kite {
   // Reviews — now an array of mixed entry types
   reviews: ReviewEntry[];
 
-  // Structured review derived from YouTube transcripts (25 kites have this)
+  // Structured review derived from YouTube transcripts (optional)
   structured_review?: StructuredReview;
 
   // Shopping

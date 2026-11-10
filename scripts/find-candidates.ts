@@ -3,7 +3,7 @@
  *
  * Lists every recent upload from a small set of known kite-review channels
  * (Jason Montreal, Kitemana, Our Kite Life, MACkite — extend with --channel),
- * fuzzy-matches each video title against the 79 kite slugs in data/kites/,
+ * fuzzy-matches each video title against every kite in data/kites/,
  * and prints a per-kite list of likely matches with ready-to-paste
  * `npm run ingest-review` commands.
  *
