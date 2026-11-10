@@ -125,16 +125,6 @@ select option {
   background: #535649;
 }
 
-.type-outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px #F4F8FA;
-  text-stroke: 1.5px #F4F8FA;
-}
-
-.editorial-rule {
-  background-image: repeating-linear-gradient(90deg, transparent 0 7px, rgba(241, 237, 227, 0.28) 7px 8px);
-}
-
 @keyframes editorial-in {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { track } from '@vercel/analytics/react';
 import { Kite } from '@/lib/types';
 import { useCompare } from './CompareContext';
+import { limitedEvidenceLabel } from '@/lib/reviewers';
 
 function getStyleZone(spectrum: number): string {
   if (spectrum <= 20) return 'Foil';
@@ -100,17 +101,16 @@ function KiteImage({ slug, model, brand, compact = false }: { slug: string; mode
 interface KiteCardProps {
   kite: Kite;
   matchScore?: number;
-  matchLabel?: string;
   matchReasons?: string[];
   tradeoff?: string;
   compactMatch?: boolean;
   pickLabel?: string;
 }
 
-export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, tradeoff, compactMatch = false, pickLabel }: KiteCardProps) {
+export default function KiteCard({ kite, matchScore, matchReasons, tradeoff, compactMatch = false, pickLabel }: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
-  const fitTier = pickLabel ?? matchLabel ?? (matchScore !== undefined && matchScore >= 80 ? 'Strong match' : matchScore !== undefined && matchScore >= 60 ? 'Good match' : 'Worth a look');
+  const fitTier = pickLabel ?? (matchScore !== undefined && matchScore >= 80 ? 'Strong match' : matchScore !== undefined && matchScore >= 60 ? 'Good match' : 'Worth a look');
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-gray-50 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ocean/50">
@@ -181,7 +181,14 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
 
         {/* Rating + price */}
         <div className="flex items-center justify-between">
-          {kite.structured_review?.rating ? (
+          {kite.structured_review?.rating && limitedEvidenceLabel(kite.structured_review.sources) ? (
+            <span className="text-[11px] text-gray-400">
+              <span className="border border-amber-300 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">
+                {limitedEvidenceLabel(kite.structured_review.sources)}
+              </span>{' '}
+              {kite.structured_review.rating.toFixed(1)}
+            </span>
+          ) : kite.structured_review?.rating ? (
             <StarRating score={kite.structured_review.rating} sourceCount={kite.structured_review.sources.length} />
           ) : (
             <div />

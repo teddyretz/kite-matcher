@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useMemo, useCallback, ReactNode } from 'react';
-import { Kite } from '@/lib/types';
+import type { KiteSummary } from '@/lib/types';
 
 interface CompareContextType {
   compareKites: string[];
@@ -9,7 +9,8 @@ interface CompareContextType {
   removeFromCompare: (slug: string) => void;
   clearCompare: () => void;
   isInCompare: (slug: string) => boolean;
-  allKites: Kite[];
+  /** Identity fields only (what /api/kites returns), for labelling compare pills. */
+  allKites: KiteSummary[];
   kitesLoading: boolean;
 }
 
@@ -33,38 +34,51 @@ function readStoredSlugs(): string[] {
 
 export function CompareProvider({ children }: { children: ReactNode }) {
   const [compareKites, setCompareKites] = useState<string[]>([]);
-  const [allKites, setAllKites] = useState<Kite[]>([]);
+  const [hydrated, setHydrated] = useState(false);
+  const [allKites, setAllKites] = useState<KiteSummary[]>([]);
   const [kitesLoading, setKitesLoading] = useState(true);
 
   // Hydrate from localStorage after mount (avoids SSR mismatch).
   useEffect(() => {
     setCompareKites(readStoredSlugs());
+    setHydrated(true);
   }, []);
 
-  // Persist on change.
+  // Persist on change — but not before hydration, or the initial empty list
+  // overwrites what was stored (in dev StrictMode that wiped it on every load).
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (!hydrated) return;
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(compareKites));
     } catch {
       // localStorage may be disabled (private mode); failure is non-fatal.
     }
-  }, [compareKites]);
+  }, [compareKites, hydrated]);
 
+  // The name lookup is only needed once something is in the compare list, so
+  // visitors who never compare don't pay for the request.
+  const needsKites = compareKites.length > 0 && allKites.length === 0;
   useEffect(() => {
+    if (!needsKites) return;
+    let cancelled = false;
     fetch('/api/kites')
       .then(res => res.json())
-      .then((data: Kite[]) => {
-        setAllKites(data);
-        setKitesLoading(false);
+      .then((data: KiteSummary[]) => {
+        if (!cancelled) setAllKites(data);
       })
-      .catch(() => setKitesLoading(false));
-  }, []);
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setKitesLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [needsKites]);
 
   // Stable callbacks (functional setState; no closure deps) so the context
   // value's reference identity only changes when state actually changes.
   // Without this, every parent render produces a new value object which
-  // re-renders all useCompare() consumers (79 KiteCards on the browse page
+  // re-renders all useCompare() consumers (every KiteCard on the browse page
   // — the cause of the slider sluggishness reported on /results).
   const addToCompare = useCallback((slug: string) => {
     setCompareKites((prev) => {

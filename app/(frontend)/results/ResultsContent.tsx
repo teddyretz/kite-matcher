@@ -41,6 +41,8 @@ function parseAdvisorValue<T extends string>(value: string | null, allowed: read
 }
 
 function parseSliderValue(value: string | null, fallback: number): number {
+  // Number(null) and Number('') are 0, so a missing param must be caught first.
+  if (value === null || value.trim() === '') return fallback;
   const parsed = Number(value);
   return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : fallback;
 }

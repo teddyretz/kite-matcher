@@ -1,5 +1,5 @@
 import { StructuredReview as StructuredReviewType } from '@/lib/types';
-import { sourceType } from '@/lib/reviewers';
+import { limitedEvidenceLabel, sourceType } from '@/lib/reviewers';
 import SourceBadge from './SourceBadge';
 
 function Stars({ rating }: { rating: number }) {
@@ -36,13 +36,24 @@ export default function StructuredReview({
   review: StructuredReviewType;
   videos?: SourceVideo[];
 }) {
+  const limited = limitedEvidenceLabel(review.sources);
   return (
     <div className="space-y-6">
-      <div className="flex items-baseline gap-4">
-        <span className="text-4xl font-bold text-slate">{review.rating.toFixed(1)}</span>
-        <Stars rating={review.rating} />
-        <span className="text-sm text-gray-500">/ 5.0</span>
-      </div>
+      {limited ? (
+        <div className="flex flex-wrap items-baseline gap-3">
+          <span className="text-2xl font-bold text-gray-400">{review.rating.toFixed(1)}</span>
+          <span className="border border-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">
+            {limited}
+          </span>
+          <span className="text-xs text-gray-500">No independent review yet, so this score is not ranked with the others.</span>
+        </div>
+      ) : (
+        <div className="flex items-baseline gap-4">
+          <span className="text-4xl font-bold text-slate">{review.rating.toFixed(1)}</span>
+          <Stars rating={review.rating} />
+          <span className="text-sm text-gray-500">/ 5.0</span>
+        </div>
+      )}
 
       <p className="text-gray-700 leading-relaxed">{review.summary}</p>
 

@@ -132,7 +132,11 @@ Vector store of transcripts + text query UI.
 
 Before attaching a review, check the video's upload date and the exact model/version in its title against the kite's year and model (see `docs/data-audit-2026-10.md` for the misattributions this caused).
 
-**Kitemana** (@Kitemana): core-xr-pro-2-2026, core-pace-2026, naish-pivot-2025, naish-pivot-nvision-2026, reedin-supermodel-2026, reedin-mastermodel-2026, eleveight-rs-v10-2026, north-orbit-2026 (2nd), duotone-rebel-dlab-2026 (2nd), duotone-evo-dlab-2026 (2nd), harlem-peak-2025 (2nd), flysurfer-era-2025 (2nd)
+**Kitemana** (@Kitemana, retailer): core-pace-2026, core-xr-pro-2-2026, duotone-evo-dlab-2026, duotone-evo-dlab-2027, duotone-rebel-dlab-2026, f-one-bandit-2025, flysurfer-era-2025, harlem-peak-2025, naish-pivot-2025, naish-pivot-nvision-2026, north-orbit-2026, north-orbit-ultra-2027, ozone-reflex-v1-2026, ozone-vortex-ultra-x-v2-2026, reedin-mastermodel-2026, reedin-supermodel-2026
+
+**MACkite / Brazilian Brothers** (@MACkiteboarding, retailer): cabrinha-nitro-apex-2026, cabrinha-switchblade-apex-2026, duotone-rebel-sls-2026, north-orbit-2026, north-orbit-ultra-2027
+
+Only write a `structured_review` from a video where the presenter actually rode and evaluated the kite. First-impression sessions with the brand's own team riders, and brand-run launch interviews, stay as labeled videos without a rating.
 
 **Our Kite Life** (@OurKiteLife): flysurfer-soul-3-2026, flysurfer-sonic-v4-2025, flysurfer-stoke-3-2025
 

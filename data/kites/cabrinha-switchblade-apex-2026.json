@@ -44,7 +44,21 @@
   "price_new": 2049,
   "summary": "The next evolution of the Switchblade featuring Cabrinha's Apex construction for improved durability and lighter weight. Retains the legendary Switchblade versatility with refined performance.",
   "best_for": "All-around freeriding with premium build",
-  "reviews": [],
+  "reviews": [
+    {
+      "source": "youtube",
+      "reviewer": "MACkite",
+      "channel": "MACkite",
+      "channel_url": "https://www.youtube.com/@MACkiteboarding",
+      "video_id": "7qVDUobuRiU",
+      "video_title": "2026 Cabrinha Switchblade | Brazilian Brothers | Huge Range, Light Bar, Easy Jumps!",
+      "video_url": "https://www.youtube.com/watch?v=7qVDUobuRiU",
+      "excerpt": "The first thing you notice when you put the Switchblade in the air is how light the bar feels.",
+      "verdict": "It has retained a lot of its original characteristics like a big jumping sweet spot and a big wind range, but it has also evolved into a kite with a much lighter bar pressure that is also much faster through the loops.",
+      "full_transcript": "[Music] What's up, guys? It's the Brazilian Bros with MACkiteboarding bringing you a very special review of the 2026 Cabrinha Switchblade. The kite was just publicly released, but we've had the opportunity to test it here in Brazil over the past couple weeks, and we cannot wait to give you the inside scoop about this awesome kite from Cabrinha. The Switchblade was designed by kite design legend Pat Goodman over 20 years ago. In its history, it has revolutionized the kite industry because it introduced a massive depower and a huge wind range to the kite world. Over the last 20 years, the Switchblade is arguably the most sold kite of all time, and we were pretty interested in hopping on this brand new 2026 version to see how it has evolved. We actually learned how to kitesurf on a Switchblade many years ago, and we've always had this notion that the Switchblade is a slow kite with a heavy bar pressure. For 2026, we were beyond happy to see the drastic improvement that has been done to this kite over the recent years. The first thing you notice when you put the Switchblade in the air is how light the bar feels. The bar has definitely gotten lighter over the past couple of years, and now it actually feels closer to a Nitro in terms of light bar pressure as ever before. The other thing we've noticed with this 2026 version is that the kite has not lost its initial characteristics. It still has a huge wind range and is still a very intuitive and easy kite to get used to. We hadn't flown a Switchblade in a couple of years, and we immediately felt comfortable on this kite. It is for sure a kite that anyone can hop into and have a ton of fun. In terms of jumping, the Switchblade performs really well. It is a very accessible kite that allows anybody to hop on it and get some good air time. If you have your technique dialed, this kite is also really fun because it has a moderate aspect ratio. This allows the Switchblade to be faster than ever and to be flown across the wind window much faster, which gives you some really good vertical lift. It has a moderate aspect ratio, which therefore decreases the lift of it compared to something like a Nitro, for instance, but the ease of use in terms of jumping is what stands out on a Switchblade. Anybody can hop on it and get some really good lift and come down relatively softly. In terms of looping, the Switchblade by Cabrinha in the 2026 version has really impressed us. The looping of this kite has definitely been improved, and it is now a really tight and fast loop with a really nice catch. The lighter bar pressure makes it much easier and much more comfortable to pull the loops on the Switchblade, and the thing that impressed us the most is that there's absolutely no fluttering or no flapping. There's no sound when this kite loops around, which for us is awesome. In terms of ease of use, this is where the Switchblade absolutely shines. Whether you are a beginner kiter looking to improve in your jumps or an advanced rider looking to do your first boogie loops, the Switchblade is awesome. It has a big wind range, an easy relaunch, and a really good degree of depower. We were doing boogies on this kite almost immediately, so it is definitely not going to hold back your progression even if you're an advanced rider. Overall, we are super happy and even surprised with the Cabrinha Switchblade 2026. It has retained a lot of its original characteristics like a big jumping sweet spot and a big wind range, but it has also evolved into a kite with a much lighter bar pressure that is also much faster through the loops. Thank you so much for watching this review. Make sure to subscribe to MACkite's YouTube channel. Leave a like if you love this video, and make sure to also follow the Brazilian Bros on Instagram for more awesome kitesurfing content. [Music]",
+      "summary": "The Brazilian Brothers found the 2026 Switchblade much lighter on the bar than older versions, closer to a Nitro, while keeping its huge wind range, depower and easy relaunch. Jumping is accessible though with less lift than a Nitro, and loops are now tight and quiet with a good catch."
+    }
+  ],
   "buy_links": {
     "new": [
       {
@@ -68,6 +82,27 @@
         "source": "Kiteboarder Classifieds",
         "url": "https://www.kiteboarder.com/classifieds/?search=Cabrinha+Switchblade+Apex+2026"
       }
+    ]
+  },
+  "structured_review": {
+    "rating": 4.1,
+    "summary": "The classic Switchblade keeps its huge wind range, depower and easy relaunch, and the 2026 version is much lighter on the bar and quicker through tight, quiet loops. It gives up some lift to higher-aspect big air kites like the Nitro, but almost anyone can jump it well.",
+    "pros": [
+      "Huge wind range and strong depower",
+      "Much lighter bar pressure than older Switchblades",
+      "Tight, fast loop with a good catch and no fluttering",
+      "Easy relaunch and very intuitive to fly",
+      "Accessible jumping for all levels"
+    ],
+    "cons": [
+      "Less lift and hangtime than a higher-aspect kite like the Nitro",
+      "Moderate aspect means it is not a dedicated big air machine"
+    ],
+    "best_for": "Riders from progressing beginners to advanced who want one forgiving, wide-range freeride kite that still loops.",
+    "not_for": "Riders chasing maximum height and hangtime.",
+    "rec_blurb": "The do-everything Switchblade, now with a light bar and a quick loop.",
+    "sources": [
+      "MACkite"
     ]
   }
 }

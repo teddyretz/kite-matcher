@@ -25,7 +25,7 @@ export default function SpectrumBar({ label, value, leftLabel, rightLabel }: Spe
           {/* Thumb */}
           <div
             className="absolute top-1/2 h-5 w-2 -translate-y-1/2 bg-ocean"
-            style={{ left: `calc(${v}% - 10px)` }}
+            style={{ left: `calc(${v}% - 4px)` }}
           />
         </div>
         <div className="flex justify-between mt-2">

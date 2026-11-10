@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics/react';
 import { Kite, ReviewEntry } from "@/lib/types";
-import { getRelatedKites } from '@/lib/matcher';
 import { retailerSearchUrls } from '@/lib/retailers';
 import { brandSlug } from '@/lib/seo';
 import SpectrumBar from '@/components/SpectrumBar';
@@ -15,7 +14,7 @@ import OwnerReports from '@/components/OwnerReports';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
 import { normalizeBuyLink } from '@/lib/buyLinks';
-import { sourceMixLabel, sourceType } from '@/lib/reviewers';
+import { limitedEvidenceLabel, sourceMixLabel, sourceType } from '@/lib/reviewers';
 
 function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
   if (type === 'direct_product') {
@@ -31,8 +30,7 @@ function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
   };
 }
 
-export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
-  const related = getRelatedKites(kite, allKites, 3);
+export default function KiteDetailClient({ kite, related }: { kite: Kite; related: Kite[] }) {
   const youtubeReviews = (kite.reviews ?? []).filter(
     (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
   );
@@ -111,8 +109,12 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                     <p className="mt-1 text-sm font-semibold text-slate">{kite.structured_review.rec_blurb}</p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <span className="font-display text-2xl font-black italic text-sand">{kite.structured_review.rating.toFixed(1)}</span>
-                    <span className="block text-[9px] text-gray-400">/ 5 review synthesis</span>
+                    <span className={`font-display text-2xl font-black italic ${limitedEvidenceLabel(evidenceSources) ? 'text-gray-400' : 'text-sand'}`}>
+                      {kite.structured_review.rating.toFixed(1)}
+                    </span>
+                    <span className="block text-[9px] text-gray-400">
+                      {limitedEvidenceLabel(evidenceSources) ?? '/ 5 review synthesis'}
+                    </span>
                   </div>
                 </div>
                 <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
@@ -168,7 +170,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
           <div className="flex items-center gap-3 mb-1">
             <h2 className="text-lg font-bold text-slate">Review Summary</h2>
             <span className="inline-flex items-center border border-ocean/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean">
-              {allIndependent ? 'Independent sources' : 'Mixed sources'}
+              {allIndependent ? 'Independent sources' : limitedEvidenceLabel(evidenceSources) ?? 'Mixed sources'}
             </span>
           </div>
           <p className="text-xs text-gray-500 mb-5">

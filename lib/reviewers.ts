@@ -29,6 +29,11 @@ export const REVIEWERS: Record<string, Reviewer> = {
     note: 'Plus-Sized Kite Reviews. Discloses demo kites lent by MACkiteboarding and brands.',
   },
   '@kitemana': { name: 'Kitemana', type: 'retailer', note: 'Online kite shop that sells the kites it reviews.' },
+  '@mackiteboarding': {
+    name: 'MACkite',
+    type: 'retailer',
+    note: 'US kite shop; includes Brazilian Brothers reviews. Also lends Jason Montreal most of his demo kites.',
+  },
   '@realwatersports': { name: 'REAL Watersports', type: 'retailer', note: 'Kite shop and school, Cape Hatteras.' },
   '@kiterepublicaustralia': { name: 'Kite Republic', type: 'retailer', note: 'Australian kite shop.' },
   '@forcekiteandwake': { name: 'FORCE Kiteboarding', type: 'retailer', note: 'Kite shop and school.' },
@@ -59,6 +64,22 @@ export function reviewerByName(name: string): Reviewer | undefined {
 
 export function sourceType(name: string): SourceType {
   return reviewerByName(name)?.type ?? 'unverified';
+}
+
+// A rating needs at least one independent or owner source to count fully. Ratings
+// backed only by shops or unconfirmed channels still show their summary, but get a
+// tag instead of stars, rank below fully backed ratings, and never reach Google.
+export function limitedEvidenceLabel(sources: string[]): string | null {
+  if (sources.length === 0) return null;
+  const types = sources.map(sourceType);
+  if (types.some((t) => t === 'independent' || t === 'owner')) return null;
+  return types.every((t) => t === 'retailer') ? 'Shop reviews only' : 'No independent review yet';
+}
+
+// Sort key for "best reviewed first": fully backed ratings, then limited ones, then unreviewed.
+export function reviewSortKey(review: { rating: number; sources: string[] } | null | undefined): number {
+  if (!review) return -1;
+  return limitedEvidenceLabel(review.sources) ? review.rating : 10 + review.rating;
 }
 
 // "1 independent + 1 retailer source" — honest evidence wording for a rating.

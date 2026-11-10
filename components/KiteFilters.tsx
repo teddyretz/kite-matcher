@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Kite } from '@/lib/types';
 import { useFilters, type SkillLevel } from '@/lib/useFilters';
+import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 
 interface KiteFiltersProps {
   kites: Kite[];
@@ -13,6 +14,8 @@ const SKILL_LEVELS: SkillLevel[] = ['beginner', 'intermediate', 'advanced'];
 export default function KiteFilters({ kites }: KiteFiltersProps) {
   const { filters, setFilters } = useFilters();
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Dragging the price slider would otherwise rewrite the URL on every tick.
+  const [budgetVal, setBudgetVal] = useDebouncedNumber(filters.budget, (v) => setFilters({ budget: v }));
 
   const brands = [...new Set(kites.map((k) => k.brand))].sort();
   const years = [...new Set(kites.map((k) => k.year))].sort((a, b) => b - a);
@@ -154,7 +157,7 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
       {/* Price */}
       <div>
         <h4 className="text-sm font-semibold text-slate mb-2">
-          Max Price: {filters.budget >= 5000 ? 'No limit' : `$${filters.budget.toLocaleString()}`}
+          Max Price: {budgetVal >= 5000 ? 'No limit' : `$${budgetVal.toLocaleString()}`}
         </h4>
         <input
           aria-label="Maximum price"
@@ -162,9 +165,10 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
           min={500}
           max={5000}
           step={100}
-          value={filters.budget}
-          onChange={(e) => setFilters({ budget: Number(e.target.value) })}
+          value={budgetVal}
+          onChange={(e) => setBudgetVal(Number(e.target.value))}
           className="w-full"
+          style={{ '--range-pct': `${((budgetVal - 500) / 4500) * 100}%` } as React.CSSProperties}
         />
       </div>
     </div>
