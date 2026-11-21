@@ -143,10 +143,30 @@ export function fitLabel(score: number): AdvisorMatch['fitLabel'] {
   return 'Worth a look';
 }
 
+export function hasReviewEvidence(kite: Kite): boolean {
+  return Boolean(kite.structured_review);
+}
+
+/**
+ * Groups model-year and version pairs into one line, e.g. "Thrive" and
+ * "Thrive V2", or "Sonic V4" and "Sonic 5", so a shortlist doesn't spend two
+ * slots on the same kite in different years.
+ */
+export function modelLineKey(kite: Pick<Kite, 'brand' | 'model'>): string {
+  let model = kite.model.toLowerCase().trim();
+  let previous = '';
+  while (model !== previous) {
+    previous = model;
+    model = model.replace(/\s+(v\d+|\d+)$/, '').trim();
+  }
+  return `${kite.brand.toLowerCase()}::${model}`;
+}
+
 /**
  * Builds a discovery shortlist without changing any underlying fit score.
- * Overflow candidates are appended only when the brand cap would leave the
- * shortlist short, so small categories still return the requested count.
+ * One kite per model line and at most `maxPerBrand` per brand; overflow
+ * candidates are appended only when the caps would leave the shortlist short,
+ * so small categories still return the requested count.
  */
 export function getDiverseAdvisorShortlist(
   matches: AdvisorMatch[],
@@ -156,12 +176,15 @@ export function getDiverseAdvisorShortlist(
   const selected: AdvisorMatch[] = [];
   const overflow: AdvisorMatch[] = [];
   const brandCounts = new Map<string, number>();
+  const modelLines = new Set<string>();
 
   for (const match of matches) {
     const brandCount = brandCounts.get(match.brand) ?? 0;
-    if (brandCount < maxPerBrand && selected.length < count) {
+    const line = modelLineKey(match);
+    if (brandCount < maxPerBrand && !modelLines.has(line) && selected.length < count) {
       selected.push(match);
       brandCounts.set(match.brand, brandCount + 1);
+      modelLines.add(line);
     } else {
       overflow.push(match);
     }
@@ -170,23 +193,190 @@ export function getDiverseAdvisorShortlist(
   return selected.concat(overflow.slice(0, Math.max(0, count - selected.length))).slice(0, count);
 }
 
-function sliderReasons(kite: Kite, preferences: SliderAdvisorPreferences): string[] {
-  const reasons: string[] = [];
-  const styleDifference = Math.abs(kite.style_spectrum - preferences.style);
-  if (styleDifference <= 10) reasons.push('Closely matches your riding-style target');
-  else if (styleDifference <= 20) reasons.push('Versatile fit for your selected style');
+/** How far below the best score a reviewed kite can sit and still take a top-pick slot. */
+export const REVIEWED_PICK_MARGIN = 8;
 
-  if (preferences.level === 'beginner' && kite.relaunch === 'easy' && kite.depower_range >= 8) reasons.push('Control and relaunch suit a newer rider');
-  if (preferences.level === 'intermediate' && kite.relaunch === 'easy' && kite.depower_range >= 7) reasons.push('Versatile platform with room to progress');
-  if (preferences.wavePriority >= 60 && kite.wave_spectrum >= 75) reasons.push('High wave score for drift-focused sessions');
-  if (preferences.handling <= 35 && kite.relaunch === 'easy') reasons.push('Easy relaunch supports a forgiving feel');
-  if (preferences.handling >= 65 && turningValues[kite.turning_speed] >= 80) reasons.push('Fast steering matches your performance bias');
-  if (preferences.wind <= 35 && kite.low_end_power >= 8) reasons.push('Strong low-end power for lighter wind');
-  if (preferences.wind >= 65 && kite.depower_range >= 8) reasons.push('Wide depower range for stronger wind');
-  if (preferences.wind > 35 && preferences.wind < 65 && kite.wind_range_high - kite.wind_range_low >= 20) reasons.push('Broad usable wind range');
-  if (reasons.length < 2) reasons.push(`Suitable for ${preferences.level} riders`);
-  return reasons.slice(0, 3);
+/**
+ * Reorders the first `slots` picks so kites with review evidence go first when
+ * their fit is close to the best one. Unreviewed kites only take a top slot when
+ * there aren't enough reviewed kites near the top. Scores never change.
+ */
+export function prioritizeReviewedPicks<T extends Kite & { score: number }>(
+  matches: T[],
+  slots = 3,
+  margin = REVIEWED_PICK_MARGIN,
+): T[] {
+  if (matches.length === 0) return matches;
+  const best = matches[0].score;
+  const top: T[] = matches
+    .filter(match => hasReviewEvidence(match) && match.score >= best - margin)
+    .slice(0, slots);
+  for (const match of matches) {
+    if (top.length >= slots) break;
+    if (!top.includes(match)) top.push(match);
+  }
+  return top.concat(matches.filter(match => !top.includes(match)));
 }
+
+export const SHORTLIST_SIZE = 12;
+
+/**
+ * The list both the homepage preview and the results page show, so the
+ * homepage's top three always match the results page's top three.
+ */
+export function getAdvisorShortlist(matches: AdvisorMatch[], showAll = false): AdvisorMatch[] {
+  if (showAll || matches.length <= SHORTLIST_SIZE) return prioritizeReviewedPicks(matches);
+  return prioritizeReviewedPicks(getDiverseAdvisorShortlist(matches, SHORTLIST_SIZE, 2));
+}
+
+const styleZoneLabels = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
+
+function styleZoneLabel(value: number): string {
+  if (value <= 20) return styleZoneLabels[0];
+  if (value <= 40) return styleZoneLabels[1];
+  if (value <= 60) return styleZoneLabels[2];
+  if (value <= 80) return styleZoneLabels[3];
+  return styleZoneLabels[4];
+}
+
+const turningLabels: Record<Kite['turning_speed'], string> = {
+  slow: 'Slow, steady',
+  medium: 'Medium',
+  'medium-fast': 'Medium-fast',
+  fast: 'Fast',
+  'very-fast': 'Very fast',
+};
+
+/** Rider preferences on a 0-100 scale, shared by both advisor modes. */
+interface ReasonPreferences {
+  style: number;
+  handling: number;
+  wind: number;
+  wavePriority: number;
+  level: SkillLevel;
+}
+
+interface ReasonTrait {
+  value: (kite: Kite) => number;
+  relevant: (prefs: ReasonPreferences) => boolean;
+  applies: (kite: Kite, prefs: ReasonPreferences) => boolean;
+  text: (kite: Kite, prefs: ReasonPreferences) => string;
+}
+
+const reasonTraits: ReasonTrait[] = [
+  {
+    value: kite => kite.low_end_power,
+    relevant: prefs => prefs.wind <= 50,
+    applies: kite => kite.low_end_power >= 7,
+    text: kite => `Low-end power ${kite.low_end_power}/10 for lighter days`,
+  },
+  {
+    value: kite => kite.depower_range,
+    relevant: prefs => prefs.wind >= 50 || prefs.handling <= 50 || prefs.level === 'beginner',
+    applies: kite => kite.depower_range >= 7,
+    text: kite => `Depower ${kite.depower_range}/10 keeps gusts manageable`,
+  },
+  {
+    value: kite => kite.wind_range_high - kite.wind_range_low,
+    relevant: prefs => prefs.wind > 30 && prefs.wind < 70,
+    applies: kite => kite.wind_range_high - kite.wind_range_low >= 18,
+    text: kite => `Usable from ${kite.wind_range_low} to ${kite.wind_range_high} knots`,
+  },
+  {
+    value: kite => kite.wind_range_high,
+    relevant: prefs => prefs.wind >= 65,
+    applies: kite => kite.wind_range_high >= 35,
+    text: kite => `Rated up to ${kite.wind_range_high} knots for strong days`,
+  },
+  {
+    value: kite => turningValues[kite.turning_speed],
+    relevant: prefs => prefs.handling >= 55 && prefs.level !== 'beginner',
+    applies: kite => turningValues[kite.turning_speed] >= 60,
+    text: (kite, prefs) => `${turningLabels[kite.turning_speed]} turning, fits your ${prefs.handling >= 65 ? 'performance' : 'balanced'} handling`,
+  },
+  {
+    value: kite => relaunchValues[kite.relaunch],
+    relevant: prefs => prefs.handling <= 45 || prefs.level === 'beginner',
+    applies: kite => kite.relaunch === 'easy',
+    text: (_kite, prefs) => prefs.level === 'beginner' ? 'Easy relaunch for a newer rider' : 'Easy relaunch suits a forgiving feel',
+  },
+  {
+    value: kite => kite.wave_spectrum,
+    relevant: prefs => prefs.wavePriority >= 40,
+    applies: kite => kite.wave_spectrum >= 65,
+    text: kite => `Wave score ${kite.wave_spectrum}/100 for drift and surf sessions`,
+  },
+  {
+    value: kite => kite.structured_review?.rating ?? 0,
+    relevant: () => true,
+    applies: kite => (kite.structured_review?.rating ?? 0) >= 4,
+    text: kite => {
+      const review = kite.structured_review!;
+      const count = review.sources.length;
+      return `Rated ${review.rating.toFixed(1)}/5 by ${count} review ${count === 1 ? 'source' : 'sources'}`;
+    },
+  },
+];
+
+function percentile(value: number, pool: number[]): number {
+  if (pool.length <= 1) return 0.5;
+  let below = 0;
+  let equal = 0;
+  for (const other of pool) {
+    if (other < value) below += 1;
+    else if (other === value) equal += 1;
+  }
+  return (below + (equal - 1) / 2) / (pool.length - 1);
+}
+
+function styleReason(kite: Kite, prefs: ReasonPreferences): string {
+  const zone = styleZoneLabel(kite.style_spectrum);
+  const targetZone = styleZoneLabel(prefs.style);
+  const difference = kite.style_spectrum - prefs.style;
+  if (Math.abs(difference) <= 5) return `Sits right on your ${targetZone} target`;
+  if (zone !== targetZone) return `${zone}-leaning, next to the ${targetZone} you picked`;
+  return difference > 0
+    ? `${zone} kite with a lean toward ${styleZoneLabels[Math.min(4, styleZoneLabels.indexOf(zone) + 1)]}`
+    : `${zone} kite with a lean toward ${styleZoneLabels[Math.max(0, styleZoneLabels.indexOf(zone) - 1)]}`;
+}
+
+/**
+ * Picks the reasons that make this kite stand out from the rest of the pool
+ * for what the rider asked for, so cards don't all repeat the same line.
+ */
+function traitReasons(kite: Kite, prefs: ReasonPreferences, pool: Kite[]): string[] {
+  return reasonTraits
+    .filter(trait => trait.relevant(prefs) && trait.applies(kite, prefs))
+    .map(trait => ({
+      text: trait.text(kite, prefs),
+      rank: percentile(trait.value(kite), pool.map(trait.value)),
+    }))
+    .filter(candidate => candidate.rank >= 0.5)
+    .sort((a, b) => b.rank - a.rank)
+    .map(candidate => candidate.text);
+}
+
+function buildReasons(kite: Kite, prefs: ReasonPreferences, pool: Kite[]): string[] {
+  // Lead with what sets this kite apart; the style line only fills a gap,
+  // because most shortlisted kites sit close to the style target anyway.
+  const reasons = traitReasons(kite, prefs, pool).slice(0, 2);
+  if (reasons.length < 2) reasons.push(styleReason(kite, prefs));
+  if (reasons.length < 2) reasons.push(`Suitable for ${prefs.level} riders`);
+  return reasons;
+}
+
+function sliderReasonPrefs(preferences: SliderAdvisorPreferences): ReasonPreferences {
+  return {
+    style: preferences.style,
+    handling: preferences.handling,
+    wind: preferences.wind,
+    wavePriority: preferences.wavePriority,
+    level: preferences.level,
+  };
+}
+
+const feelToHandling: Record<FlightFeel, number> = { forgiving: 20, balanced: 50, performance: 80 };
+const windToValue: Record<WindProfile, number> = { light: 20, mixed: 50, strong: 80 };
 
 function sliderTradeoffs(kite: Kite, preferences: SliderAdvisorPreferences): string[] {
   const tradeoffs: string[] = [];
@@ -208,8 +398,11 @@ export function getSliderAdvisorMatches(kites: Kite[], preferences: SliderAdviso
       ? { style: 0.45, shape: 0.08, handling: 0.2, wind: 0.17, level: 0.1 }
       : { style: 0.5, shape: 0.1, handling: 0.2, wind: 0.2, level: 0 };
 
-  return filterByMatchConstraints(kites, preferences)
-    .filter(kite => kite.skill_level.includes(preferences.level))
+  const pool = filterByMatchConstraints(kites, preferences)
+    .filter(kite => kite.skill_level.includes(preferences.level));
+  const reasonPrefs = sliderReasonPrefs(preferences);
+
+  return pool
     .map(kite => {
       const styleScore = closeness(kite.style_spectrum, preferences.style) * (1 - waveWeight)
         + closeness(kite.wave_spectrum, 90) * waveWeight;
@@ -224,14 +417,14 @@ export function getSliderAdvisorMatches(kites: Kite[], preferences: SliderAdviso
         ...kite,
         score,
         fitLabel: fitLabel(score),
-        reasons: sliderReasons(kite, preferences),
+        reasons: buildReasons(kite, reasonPrefs, pool),
         tradeoffs: sliderTradeoffs(kite, preferences),
       };
     })
     .sort((a, b) => b.score - a.score);
 }
 
-function advisorReasons(kite: Kite, preferences: AdvisorPreferences): string[] {
+function advisorReasons(kite: Kite, preferences: AdvisorPreferences, pool: Kite[]): string[] {
   const goalFit = styleFit(kite, preferences.goal);
   const goalLabel = preferences.goal.replace('-', ' ');
   const reasons = [
@@ -242,15 +435,15 @@ function advisorReasons(kite: Kite, preferences: AdvisorPreferences): string[] {
         : `Closest available ${goalLabel} fit`,
   ];
 
-  if (preferences.feel === 'forgiving' && kite.relaunch === 'easy') reasons.push('Easy relaunch builds confidence');
-  else if (preferences.feel === 'performance' && turningValues[kite.turning_speed] >= 80) reasons.push('Fast steering suits an aggressive rider');
-  else if (kite.depower_range >= 8) reasons.push('Wide depower range adds control');
-
-  if (preferences.wind === 'light' && kite.low_end_power >= 8) reasons.push('Strong low-end power for lighter sessions');
-  else if (preferences.wind === 'strong' && kite.wind_range_high >= 35) reasons.push('High top end for stronger wind');
-  else if (preferences.wind === 'mixed' && kite.wind_range_high - kite.wind_range_low >= 20) reasons.push('Broad usable wind range');
-
-  if (kite.skill_level.includes(preferences.level)) reasons.push(`Suitable for ${preferences.level} riders`);
+  const prefs: ReasonPreferences = {
+    style: styleTargets[preferences.goal],
+    handling: feelToHandling[preferences.feel],
+    wind: windToValue[preferences.wind],
+    wavePriority: preferences.goal === 'wave' ? 80 : 0,
+    level: preferences.level,
+  };
+  reasons.push(...traitReasons(kite, prefs, pool).slice(0, 2));
+  if (reasons.length < 2) reasons.push(`Suitable for ${preferences.level} riders`);
   return reasons.slice(0, 3);
 }
 
@@ -265,8 +458,10 @@ function advisorTradeoffs(kite: Kite, preferences: AdvisorPreferences): string[]
 }
 
 export function getAdvisorMatches(kites: Kite[], preferences: AdvisorPreferences): AdvisorMatch[] {
-  return filterByMatchConstraints(kites, preferences)
-    .filter(kite => kite.skill_level.includes(preferences.level))
+  const pool = filterByMatchConstraints(kites, preferences)
+    .filter(kite => kite.skill_level.includes(preferences.level));
+
+  return pool
     .map(kite => {
       const score = Math.round(
         styleFit(kite, preferences.goal) * 0.55
@@ -277,7 +472,7 @@ export function getAdvisorMatches(kites: Kite[], preferences: AdvisorPreferences
         ...kite,
         score,
         fitLabel: fitLabel(score),
-        reasons: advisorReasons(kite, preferences),
+        reasons: advisorReasons(kite, preferences, pool),
         tradeoffs: advisorTradeoffs(kite, preferences),
       };
     })

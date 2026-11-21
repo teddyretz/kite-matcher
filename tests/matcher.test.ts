@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { displayFitScore, filterByMatchConstraints, getAdvisorMatches, getDiverseAdvisorShortlist, getRankedMatchesV2, getSliderAdvisorMatches, matchScore } from '../lib/matcher';
+import { displayFitScore, filterByMatchConstraints, getAdvisorMatches, getAdvisorShortlist, getDiverseAdvisorShortlist, getRankedMatchesV2, getSliderAdvisorMatches, matchScore, modelLineKey, prioritizeReviewedPicks } from '../lib/matcher';
 import type { Kite } from '../lib/types';
 
 function kite(overrides: Partial<Kite> = {}): Kite {
@@ -139,7 +139,7 @@ test('beginner ranking prioritizes control and relaunch over technical performan
   );
 
   assert.equal(matches[0].slug, 'forgiving');
-  assert.ok(matches[0].reasons.includes('Control and relaunch suit a newer rider'));
+  assert.ok(matches[0].reasons.includes('Easy relaunch for a newer rider'));
 });
 
 test('brand identity never changes a fit score', () => {
@@ -175,4 +175,65 @@ test('advisor shortlist limits brand repetition without changing fit scores', ()
   assert.equal(shortlist.filter(match => match.brand === 'Core').length, 2);
   assert.ok(shortlist.some(match => match.brand === 'North'));
   assert.equal(ranked.find(match => match.slug === 'core-1')?.score, originalScore);
+});
+
+const review = { rating: 4.2, summary: 's', pros: ['p'], cons: ['c'], best_for: 'b', not_for: 'n', rec_blurb: 'r', sources: ['Jason Montreal'] };
+
+test('model-year and version pairs share one model line', () => {
+  assert.equal(modelLineKey({ brand: 'Harlem', model: 'Thrive' }), modelLineKey({ brand: 'Harlem', model: 'Thrive V2' }));
+  assert.equal(modelLineKey({ brand: 'Flysurfer', model: 'Sonic V4' }), modelLineKey({ brand: 'Flysurfer', model: 'Sonic 5' }));
+  assert.notEqual(modelLineKey({ brand: 'Core', model: 'XR7' }), modelLineKey({ brand: 'Core', model: 'XR8' }));
+  assert.notEqual(modelLineKey({ brand: 'Core', model: 'Pace' }), modelLineKey({ brand: 'Core', model: 'Pace Pro' }));
+});
+
+test('shortlist shows one kite per model line', () => {
+  const ranked = getSliderAdvisorMatches(
+    [
+      kite({ id: 'thrive-25', slug: 'thrive-25', brand: 'Harlem', model: 'Thrive', style_spectrum: 70 }),
+      kite({ id: 'thrive-26', slug: 'thrive-26', brand: 'Harlem', model: 'Thrive V2', style_spectrum: 70 }),
+      kite({ id: 'orbit', slug: 'orbit', brand: 'North', model: 'Orbit', style_spectrum: 60 }),
+    ],
+    { version: 2, style: 70, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'intermediate' },
+  );
+  const shortlist = getDiverseAdvisorShortlist(ranked, 2, 2);
+  assert.deepEqual(shortlist.map(m => m.slug).sort(), ['orbit', 'thrive-25']);
+});
+
+test('reviewed kites take the top picks when their fit is close', () => {
+  const matches = [
+    { ...kite({ slug: 'unreviewed-a' }), score: 90 },
+    { ...kite({ slug: 'unreviewed-b' }), score: 89 },
+    { ...kite({ slug: 'reviewed-close', structured_review: review }), score: 85 },
+    { ...kite({ slug: 'reviewed-far', structured_review: review }), score: 70 },
+  ];
+  const ordered = prioritizeReviewedPicks(matches, 3, 8);
+  assert.deepEqual(ordered.map(m => m.slug), ['reviewed-close', 'unreviewed-a', 'unreviewed-b', 'reviewed-far']);
+  assert.equal(ordered[0].score, 85);
+});
+
+test('homepage preview and results share the same top three', () => {
+  const kites = Array.from({ length: 20 }, (_, i) => kite({
+    id: `k${i}`, slug: `k${i}`, brand: `Brand${i % 7}`, model: `Model${i}`, style_spectrum: 50 + i,
+    structured_review: i % 3 === 0 ? review : undefined,
+  }));
+  const prefs = { version: 2 as const, style: 60, shape: 50, wavePriority: 0, handling: 50, wind: 50, level: 'intermediate' as const };
+  const matches = getSliderAdvisorMatches(kites, prefs);
+  const results = getAdvisorShortlist(matches);
+  assert.deepEqual(getAdvisorShortlist(matches).slice(0, 3).map(m => m.slug), results.slice(0, 3).map(m => m.slug));
+  assert.ok(results.slice(0, 3).every(m => m.structured_review));
+});
+
+test('match reasons differ between kites with different strengths', () => {
+  const matches = getSliderAdvisorMatches(
+    [
+      kite({ slug: 'light-wind', style_spectrum: 70, low_end_power: 9, depower_range: 5, turning_speed: 'medium' }),
+      kite({ slug: 'gusty', style_spectrum: 70, low_end_power: 5, depower_range: 10, turning_speed: 'medium' }),
+      kite({ slug: 'fast', style_spectrum: 70, low_end_power: 5, depower_range: 5, turning_speed: 'very-fast' }),
+    ],
+    { version: 2, style: 70, shape: 50, wavePriority: 0, handling: 70, wind: 45, level: 'intermediate' },
+  );
+  const reasons = new Map(matches.map(m => [m.slug, m.reasons.join(' | ')]));
+  assert.equal(new Set(reasons.values()).size, 3);
+  assert.ok(reasons.get('light-wind')!.includes('Low-end power 9/10'));
+  assert.ok(reasons.get('fast')!.includes('Very fast turning'));
 });

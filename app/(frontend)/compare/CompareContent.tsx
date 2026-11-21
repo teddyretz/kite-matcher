@@ -177,7 +177,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
             <optgroup key={brand} label={brand}>
               {list.map((k) => (
                 <option key={k.slug} value={k.slug}>
-                  {k.model} {k.year}
+                  {k.brand} {k.model} {k.year}
                 </option>
               ))}
             </optgroup>
@@ -223,12 +223,22 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   }
 
   type SpecRow = { label: string; values: string[]; highlight: boolean };
+  const styleWords = (value: number): string => {
+    const zones = ['Foil', 'Surf', 'Freestyle', 'Freeride', 'Big Air'];
+    const index = Math.min(4, Math.floor(Math.max(0, value - 1) / 20));
+    const within = value - index * 20;
+    if (within <= 5 && index > 0) return `${zones[index]}, leaning ${zones[index - 1]}`;
+    if (within >= 16 && index < 4) return `${zones[index]}, leaning ${zones[index + 1]}`;
+    return zones[index];
+  };
+  const shapeWords = (value: number): string =>
+    value < 35 ? 'C-style, low aspect' : value < 65 ? 'Hybrid, mid aspect' : 'Bow, high aspect';
   const getVal = (k: Kite, field: string): string => {
     switch (field) {
       case 'brand': return k.brand;
       case 'year': return k.year.toString();
-      case 'style_spectrum': return k.style_spectrum.toString();
-      case 'shape_spectrum': return k.shape_spectrum.toString();
+      case 'style_spectrum': return styleWords(k.style_spectrum);
+      case 'shape_spectrum': return shapeWords(k.shape_spectrum);
       case 'aspect_ratio': return k.aspect_ratio.replace('-', ' ');
       case 'strut_count': return k.strut_count === 0 ? 'Strutless' : k.strut_count.toString();
       case 'bar_type': return k.bar_type === 'high-y' ? 'High-Y' : k.bar_type === 'low-v' ? 'Low-V' : 'Both';
@@ -252,7 +262,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
     'relaunch', 'wind_range', 'sizes', 'price', 'aluula', 'brainchild', 'review_score',
   ];
   const labels: Record<string, string> = {
-    brand: 'Brand', year: 'Year', style_spectrum: 'Style Spectrum', shape_spectrum: 'Shape Spectrum',
+    brand: 'Brand', year: 'Year', style_spectrum: 'Riding Style', shape_spectrum: 'Kite Shape',
     aspect_ratio: 'Aspect Ratio', strut_count: 'Struts', bar_type: 'Bar Type',
     turning_speed: 'Turning Speed', low_end_power: 'Low-End Power', depower_range: 'Depower Range',
     relaunch: 'Relaunch', wind_range: 'Wind Range', sizes: 'Sizes', price: 'Price (New)',

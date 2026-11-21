@@ -1,10 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { track } from '@vercel/analytics/react';
 import type { Kite, SkillLevel } from '@/lib/types';
-import { getDiverseAdvisorShortlist, getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
+import { getAdvisorShortlist, getSliderAdvisorMatches, type KiteConstruction } from '@/lib/matcher';
 import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorControls';
 
 export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
@@ -29,7 +30,7 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
     construction,
     budget: budget < 5000 ? budget : undefined,
   }), [budget, construction, handling, kites, level, shape, style, wavePriority, wind]);
-  const topMatches = useMemo(() => getDiverseAdvisorShortlist(matches, 3, 1), [matches]);
+  const topMatches = useMemo(() => getAdvisorShortlist(matches).slice(0, 3), [matches]);
 
   const openResults = () => {
     track('advisor_results_opened', {
@@ -106,11 +107,16 @@ export default function AdvisorMatcher({ kites }: { kites: Kite[] }) {
           </div>
           <div className="grid grid-cols-3 border border-white/10">
             {topMatches.map((match, index) => (
-              <div key={match.slug} className="border-r border-white/10 p-2.5 text-center last:border-r-0">
+              <Link
+                key={match.slug}
+                href={`/kite/${match.slug}`}
+                onClick={() => track('kite_detail_opened', { slug: match.slug, source: 'homepage_preview' })}
+                className="border-r border-white/10 p-2.5 text-center transition-colors last:border-r-0 hover:bg-white/[0.04]"
+              >
                 <p className="font-display text-xl font-black leading-none text-ocean">#{index + 1}</p>
-                <p className="mt-1 truncate text-[10px] font-bold text-gray-300">{match.brand}</p>
-                <p className="truncate text-[9px] text-gray-400">{match.model}</p>
-              </div>
+                <p className="mt-1 truncate text-[11px] font-bold text-gray-300">{match.brand}</p>
+                <p className="truncate text-[10px] text-gray-400">{match.model}</p>
+              </Link>
             ))}
           </div>
         </div>

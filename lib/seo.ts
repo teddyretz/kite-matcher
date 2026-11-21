@@ -1,6 +1,6 @@
 import type { Kite } from './types';
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://findmykite.com';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.findmykite.com';
 
 export function brandSlug(brand: string): string {
   return brand.toLowerCase().replace(/\s+/g, '-');

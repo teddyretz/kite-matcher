@@ -60,10 +60,12 @@ export default function AboutPage() {
             the performance controls drive the result.
           </p>
           <p className="mt-3">
-            The fit percentage is an estimate, not a laboratory measurement. We round the number
-            and show the review-source count separately so a close match is never confused with
-            strong review evidence. Two kites with the same score can still feel very
-            different on the water, but the matcher gets you into the right neighborhood quickly.
+            The fit ranking is an estimate, not a laboratory measurement. Review evidence is shown
+            separately, with the number of sources, so a close match is never confused with
+            strong review evidence. When two kites fit about equally, the one with real reviews
+            goes first, and kites nobody has reviewed yet are marked that way. Two kites with the
+            same fit can still feel very different on the water, but the matcher gets you into
+            the right neighborhood quickly.
           </p>
         </section>
 
@@ -74,6 +76,10 @@ export default function AboutPage() {
             No brand deals. I pay for the hosting and the development myself because I wanted a
             tool that doesn&apos;t have strings attached. If a kite scores well it&apos;s because
             the math says it matches what you&apos;re looking for, not because someone wrote me a check.
+          </p>
+          <p className="mt-3">
+            A few kites carry a Ted&apos;s Pick badge. Those are just kites I personally like to
+            ride. The badge doesn&apos;t change where anything ranks.
           </p>
           <p className="mt-3">
             The reviews are a different story, because nobody in kiting reviews for free. So every
@@ -92,7 +98,11 @@ export default function AboutPage() {
           </p>
           <p className="mt-3">
             More reviews would also help. If you have a good or bad experience with a kite,
-            add a review here.
+            email me at{' '}
+            <a href="mailto:hello@findmykite.com" className="text-ocean hover:underline font-medium">
+              hello@findmykite.com
+            </a>
+            .
           </p>
         </section>
 
@@ -102,9 +112,6 @@ export default function AboutPage() {
             I pay for everything out of pocket and I&apos;m adding a tip jar soon. If FindMyKite
             has helped you at all, that&apos;ll be the way to support it. No pressure, but it
             would help me keep things running and keep adding new kites every season.
-          </p>
-          <p className="mt-4 text-sm text-gray-500 italic">
-            Tip jar coming soon.
           </p>
         </section>
 
