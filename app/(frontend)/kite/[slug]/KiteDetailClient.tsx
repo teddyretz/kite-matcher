@@ -14,11 +14,22 @@ import YouTubeReviews from '@/components/YouTubeReviews';
 import OwnerReports from '@/components/OwnerReports';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
+import { supabaseConfigured } from '@/lib/supabase';
 import { normalizeBuyLink } from '@/lib/buyLinks';
 import { sourceMixLabel, sourceType } from '@/lib/reviewers';
 
-function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
-  if (type === 'direct_product') {
+function looksLikeSearchUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return /search/i.test(parsed.pathname) || ['q', 'query', 'search', 'search_query', 's'].some(key => parsed.searchParams.has(key));
+  } catch {
+    return true;
+  }
+}
+
+function buyLinkTypeMeta(type: 'direct_product' | 'search_fallback' | undefined, url: string) {
+  const resolved = type ?? (looksLikeSearchUrl(url) ? 'search_fallback' : 'direct_product');
+  if (resolved === 'direct_product') {
     return {
       badge: 'Direct',
       detail: 'Product page',
@@ -91,7 +102,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
             <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">{kite.brand} / {kite.year}</p>
             <h1 className="mb-4 font-display text-5xl font-black uppercase leading-none text-slate">{kite.model}</h1>
             <div className="flex flex-wrap gap-2 mb-4">
-              {kite.teds_pick && <span className="border border-sand/50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sand">Ted&apos;s Pick</span>}
+              {kite.teds_pick && <span title="Ted&apos;s personal favorite. Doesn&apos;t affect rankings." className="border border-sand/50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sand">Ted&apos;s Pick</span>}
               {kite.style_tags.map(tag => (
                 <span key={tag} className="border border-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-600">{tag}</span>
               ))}
@@ -200,28 +211,40 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
         </div>
       )}
 
-      {/* User Reviews */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-        <UserReviews kiteSlug={kite.slug} />
-      </div>
+      {/* User Reviews: only once the reviews database is live */}
+      {supabaseConfigured ? (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+          <UserReviews kiteSlug={kite.slug} />
+        </div>
+      ) : (
+        <p className="mb-8 text-sm text-gray-500">
+          Ridden the {kite.brand} {kite.model}? Tell us how it flies:{' '}
+          <a href="mailto:hello@findmykite.com" className="font-medium text-ocean hover:underline">hello@findmykite.com</a>
+        </p>
+      )}
 
       {/* Pricing */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
         <h2 className="text-lg font-bold text-slate mb-4">Where to Buy</h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-sm font-semibold text-gray-500 mb-3">New</h3>
+            <div className="mb-3 flex items-baseline justify-between gap-3">
+              <h3 className="text-sm font-semibold text-gray-500">New</h3>
+              <p className="text-sm text-gray-500">
+                Typical price <span className="font-bold text-slate">${kite.price_new.toLocaleString()}</span>
+              </p>
+            </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {kite.buy_links.new.map((rawLink, i) => {
                 const link = normalizeBuyLink(rawLink);
-                const meta = buyLinkTypeMeta(link.type);
+                const meta = buyLinkTypeMeta(link.type, link.url);
                 return (
                 <a
                   key={i}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => track('retailer_clicked', { slug: kite.slug, retailer: link.retailer, link_type: link.type ?? 'search_fallback' })}
+                  onClick={() => track('retailer_clicked', { slug: kite.slug, retailer: link.retailer, link_type: link.type ?? (looksLikeSearchUrl(link.url) ? 'search_fallback' : 'direct_product') })}
                   className="flex items-center justify-between gap-3 p-4 border border-gray-200 rounded-lg hover:border-ocean transition-colors"
                 >
                   <div>
@@ -233,7 +256,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                     </div>
                     <div className="mt-1 text-xs text-gray-500">{meta.detail}</div>
                   </div>
-                  <span className="text-ocean font-bold whitespace-nowrap">${link.price.toLocaleString()}</span>
+                  <span className="text-sm text-ocean font-bold whitespace-nowrap">Check price &rarr;</span>
                 </a>
                 );
               })}
@@ -282,7 +305,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
               ))}
             </div>
             <p className="mt-2 text-[11px] text-gray-400">
-              Direct retailer pricing changes often. The links above run a search at each shop for {kite.brand} {kite.model} {kite.year}.
+              Prices vary by size and change often, so check the shop for the size you want. The links above run a search at each shop for {kite.brand} {kite.model} {kite.year}.
             </p>
           </div>
         </div>

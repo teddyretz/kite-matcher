@@ -26,6 +26,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
   );
 }
 
+// Callers should only render this when supabaseConfigured is true.
 export default function UserReviews({ kiteSlug }: UserReviewsProps) {
   const [reviews, setReviews] = useState<UserReview[]>([]);
   const [loading, setLoading] = useState(true);
@@ -206,10 +207,6 @@ export default function UserReviews({ kiteSlug }: UserReviewsProps) {
       {/* Existing Reviews */}
       {loading ? (
         <p className="text-sm text-gray-400">Loading reviews...</p>
-      ) : !supabaseConfigured ? (
-        <p className="text-sm text-gray-400 italic">
-          User reviews will be available once the database is connected.
-        </p>
       ) : reviews.length === 0 ? (
         <p className="text-sm text-gray-400">No rider reviews yet. Be the first!</p>
       ) : (

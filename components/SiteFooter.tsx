@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { STYLE_ZONES } from '@/lib/seo';
+import { STYLE_ZONES, brandSlug } from '@/lib/seo';
+
+const footerBrands = ['Airush', 'Cabrinha', 'Core', 'Duotone', 'Eleveight', 'F-One', 'Flysurfer', 'Harlem', 'Naish', 'North', 'Ozone', 'Reedin', 'Slingshot'];
 
 const footerLinks = [
   { href: '/', label: 'Kite finder' },
@@ -43,6 +45,17 @@ export default function SiteFooter() {
                   className="text-xs text-gray-400 hover:text-ocean transition-colors"
                 >
                   {zone.label} Kites
+                </Link>
+              ))}
+            </nav>
+            <nav aria-label="Brands" className="flex flex-wrap gap-x-4 gap-y-2">
+              {footerBrands.map((brand) => (
+                <Link
+                  key={brand}
+                  href={`/brand/${brandSlug(brand)}`}
+                  className="text-xs text-gray-400 hover:text-ocean transition-colors"
+                >
+                  {brand}
                 </Link>
               ))}
             </nav>

@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og';
-import { getAllKites } from '@/lib/getKites';
+import { getActiveKites } from '@/lib/getKites';
 
 export const runtime = 'nodejs';
 export const alt = 'FindMyKite — match your riding style to the right kite';
@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const kiteCount = (await getAllKites()).length;
+  const kiteCount = (await getActiveKites()).length;
   return new ImageResponse(
     (
       <div

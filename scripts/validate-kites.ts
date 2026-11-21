@@ -24,6 +24,7 @@ function main() {
   }
 
   let invalid = 0
+  const priceWarnings: string[] = []
   const summaryOwner = new Map<string, string>()
   for (const f of files) {
     const raw = fs.readFileSync(path.join(DIR, f), 'utf-8')
@@ -79,10 +80,24 @@ function main() {
     const dupOf = summaryOwner.get(kite.summary)
     if (dupOf) problems.push(`summary is identical to ${dupOf}`)
     else summaryOwner.set(kite.summary, f)
+    // Warn (don't fail) when a stored retailer price disagrees with price_new by more than 5%.
+    // The site shows price_new as the one price, so these need a data check.
+    const offPrices = kite.buy_links.new
+      .map((l) => l.price)
+      .filter((p) => p > 0 && Math.abs(p - kite.price_new) / kite.price_new > 0.05)
+    if (offPrices.length) {
+      const retailer = Array.from(new Set(offPrices)).map((p) => `$${p}`).join(', ')
+      priceWarnings.push(`${f}: price_new $${kite.price_new} vs retailer ${retailer}`)
+    }
     if (problems.length) {
       invalid++
       for (const p of problems) console.error(`✗ ${f}: ${p}`)
     }
+  }
+
+  if (priceWarnings.length) {
+    console.warn(`! ${priceWarnings.length} kite(s) have a retailer price more than 5% off price_new:`)
+    for (const w of priceWarnings) console.warn(`    ${w}`)
   }
 
   if (invalid === 0) {

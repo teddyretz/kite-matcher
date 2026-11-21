@@ -109,7 +109,7 @@ npm install
 Optional `.env.local`:
 
 ```env
-# Optional canonical URL override (production default is https://findmykite.com)
+# Optional canonical URL override (production default is https://www.findmykite.com)
 NEXT_PUBLIC_SITE_URL=
 
 # Optional — enables user review submission

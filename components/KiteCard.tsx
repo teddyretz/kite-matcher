@@ -150,7 +150,7 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
         {/* Tags */}
         <div className="flex flex-wrap gap-1">
           {kite.teds_pick && (
-            <span className="rounded-md border border-sand/40 px-2 py-0.5 text-sand text-[9px] font-semibold">
+            <span title="Ted&apos;s personal favorite. Doesn&apos;t affect rankings." className="rounded-md border border-sand/40 px-2 py-0.5 text-sand text-[9px] font-semibold">
               Ted&apos;s Pick
             </span>
           )}
@@ -170,6 +170,11 @@ export default function KiteCard({ kite, matchScore, matchLabel, matchReasons, t
           {kite.snow_kite && (
             <span className="rounded-md border border-white/15 px-2 py-0.5 text-sky-400 text-[9px] font-semibold">
               Snow
+            </span>
+          )}
+          {!kite.structured_review && (
+            <span className="rounded-md border border-dashed border-white/20 px-2 py-0.5 text-gray-400 text-[9px] font-semibold">
+              No reviews yet
             </span>
           )}
           {kite.discontinued && (

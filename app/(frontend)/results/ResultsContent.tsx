@@ -8,7 +8,8 @@ import {
   type AdvisorMatch,
   type FlightFeel,
   getAdvisorMatches,
-  getDiverseAdvisorShortlist,
+  getAdvisorShortlist,
+  SHORTLIST_SIZE,
   getSliderAdvisorMatches,
   matchScore,
   type RidingGoal,
@@ -176,8 +177,8 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
       .sort((a, b) => b.score - a.score);
   }, [advisorMode, budgetVal, feel, filters, goal, handlingVal, kites, level, shapeVal, sliderMode, styleVal, waveVal, wind, windSliderVal]);
 
-  const displayKites = advisorMode && !showAll && eligibleKites.length > 12
-    ? getDiverseAdvisorShortlist(eligibleKites as AdvisorMatch[], 12, 2)
+  const displayKites = advisorMode
+    ? getAdvisorShortlist(eligibleKites as AdvisorMatch[], showAll)
     : eligibleKites;
 
   const resultSections = advisorMode
@@ -197,8 +198,8 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
           Your Kite Matches
         </h1>
         <p className="text-sm text-gray-500">
-          {advisorMode && !showAll && eligibleKites.length > 12
-            ? `Showing a brand-diverse shortlist of 12 from ${eligibleKites.length} eligible kites`
+          {advisorMode && !showAll && eligibleKites.length > SHORTLIST_SIZE
+            ? `Showing a shortlist of ${SHORTLIST_SIZE}, one per model line, from ${eligibleKites.length} eligible kites`
             : `${eligibleKites.length} eligible kites, ranked for fit`}
         </p>
         {advisorMode && (
@@ -354,10 +355,10 @@ export default function ResultsContent({ kites }: { kites: Kite[] }) {
           {displayKites.length === 0 && (
             <div className="text-center py-20 text-gray-400">No kites match your filters. Try adjusting your criteria.</div>
           )}
-          {advisorMode && eligibleKites.length > 12 && (
+          {advisorMode && eligibleKites.length > SHORTLIST_SIZE && (
             <div className="mt-8 text-center">
               <button type="button" onClick={() => setShowAll(value => !value)} className="border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-gray-600 transition-colors hover:border-ocean hover:text-ocean">
-                {showAll ? 'Show diverse shortlist' : `Show all ${eligibleKites.length} eligible kites`}
+                {showAll ? 'Show the shortlist' : `Show all ${eligibleKites.length} eligible kites`}
               </button>
             </div>
           )}

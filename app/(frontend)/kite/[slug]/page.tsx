@@ -18,7 +18,7 @@ export async function generateMetadata({
   const kite = await getKiteBySlug(slug);
   if (!kite) {
     return {
-      title: 'Kite not found — FindMyKite',
+      title: 'Kite not found',
       robots: { index: false },
     };
   }
