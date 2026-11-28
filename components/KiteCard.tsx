@@ -8,6 +8,7 @@ import type { Kite } from '@/lib/types';
 import { displayFitScore, type KiteSizeRecommendation } from '@/lib/matcher';
 import { primaryDisciplineForKite } from '@/lib/seo';
 import { useCompare } from './CompareContext';
+import { limitedEvidenceLabel } from '@/lib/reviewers';
 
 const DISCIPLINE_LABEL: Record<string, string> = {
   freeride: 'Freeride',
@@ -48,7 +49,6 @@ function KiteImage({ slug, model, brand, compact = false }: { slug: string; mode
 interface KiteCardProps {
   kite: Kite;
   matchScore?: number;
-  matchLabel?: string;
   matchReasons?: string[];
   tradeoff?: string;
   recommendedSize?: KiteSizeRecommendation;
@@ -149,11 +149,18 @@ export default function KiteCard({
         {/* Rating + price */}
         <div className="flex items-baseline justify-between border-t border-gray-100 pt-2.5 font-mono text-xs tabular-nums">
           {kite.structured_review ? (
-            <span className="text-gray-600">
-              <strong className="text-slate">{kite.structured_review.rating.toFixed(1)}</strong>/5 ·{' '}
-              {kite.structured_review.sources.length}{' '}
-              {kite.structured_review.sources.length === 1 ? 'src' : 'srcs'}
-            </span>
+            limitedEvidenceLabel(kite.structured_review.sources) ? (
+              <span className="text-gray-500">
+                {kite.structured_review.rating.toFixed(1)}/5 ·{' '}
+                <span className="font-bold uppercase text-sand">{limitedEvidenceLabel(kite.structured_review.sources)}</span>
+              </span>
+            ) : (
+              <span className="text-gray-600">
+                <strong className="text-slate">{kite.structured_review.rating.toFixed(1)}</strong>/5 ·{' '}
+                {kite.structured_review.sources.length}{' '}
+                {kite.structured_review.sources.length === 1 ? 'src' : 'srcs'}
+              </span>
+            )
           ) : (
             <span className="text-gray-400">No synthesis yet</span>
           )}

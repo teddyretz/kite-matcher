@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics/react';
 import type { DisciplineKey, Kite, ReviewEntry } from '@/lib/types';
-import { getRelatedKites, recommendKiteSizeRange, type BoardType } from '@/lib/matcher';
+import { recommendKiteSizeRange, type BoardType } from '@/lib/matcher';
 import { retailerSearchUrls } from '@/lib/retailers';
 import { brandSlug } from '@/lib/seo';
 import StructuredReview from '@/components/StructuredReview';
@@ -14,7 +14,7 @@ import OwnerReports from '@/components/OwnerReports';
 import KiteCard from '@/components/KiteCard';
 import UserReviews from '@/components/UserReviews';
 import { normalizeBuyLink } from '@/lib/buyLinks';
-import { sourceMixLabel, sourceType } from '@/lib/reviewers';
+import { limitedEvidenceLabel, sourceMixLabel, sourceType } from '@/lib/reviewers';
 
 const DISCIPLINE_ROWS: Array<{ key: DisciplineKey; label: string }> = [
   { key: 'freeride', label: 'Freeride' },
@@ -29,8 +29,7 @@ function buyLinkTypeMeta(type?: 'direct_product' | 'search_fallback') {
   return { badge: 'Search', detail: 'Retailer search' };
 }
 
-export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKites: Kite[] }) {
-  const related = getRelatedKites(kite, allKites, 3);
+export default function KiteDetailClient({ kite, related }: { kite: Kite; related: Kite[] }) {
   const youtubeReviews = (kite.reviews ?? []).filter(
     (r): r is Extract<ReviewEntry, { source: 'youtube' }> => r.source === 'youtube',
   );
@@ -55,6 +54,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
 
   const evidenceSources = kite.structured_review?.sources ?? [];
   const evidenceLabel = sourceMixLabel(evidenceSources);
+  const limitedLabel = limitedEvidenceLabel(evidenceSources);
   const allIndependent =
     evidenceSources.length > 0 && evidenceSources.every((s) => sourceType(s) === 'independent');
 
@@ -155,10 +155,10 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
                     </p>
                   </div>
                   <div className="shrink-0 text-right font-mono">
-                    <span className="text-2xl font-bold tabular-nums text-slate">
+                    <span className={`text-2xl font-bold tabular-nums ${limitedLabel ? 'text-gray-400' : 'text-slate'}`}>
                       {kite.structured_review.rating.toFixed(1)}
                     </span>
-                    <span className="block text-[10px] text-gray-400">/ 5.0</span>
+                    <span className="block text-[10px] text-gray-400">{limitedLabel ?? '/ 5.0'}</span>
                   </div>
                 </div>
                 <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
@@ -306,7 +306,7 @@ export default function KiteDetailClient({ kite, allKites }: { kite: Kite; allKi
               Review summary
             </h2>
             <span className="border border-ocean/40 bg-ocean-light px-2 py-0.5 font-mono text-[10px] font-semibold uppercase text-ocean">
-              {allIndependent ? 'Independent sources' : 'Mixed sources'}
+              {allIndependent ? 'Independent sources' : limitedLabel ?? 'Mixed sources'}
             </span>
           </div>
           <p className="mb-5 text-xs text-gray-500">

@@ -1,6 +1,7 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getAllKites, getKiteBySlug } from '@/lib/getKites';
+import { getRelatedKites } from '@/lib/matcher';
 import { SITE_URL, kiteJsonLd, breadcrumbJsonLd, brandSlug } from '@/lib/seo';
 import KiteDetailClient from './KiteDetailClient';
 
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const kite = await getKiteBySlug(slug);
   if (!kite) {
     return {
-      title: 'Kite not found — FindMyKite',
+      title: 'Kite not found',
       robots: { index: false },
     };
   }
@@ -61,14 +62,10 @@ export default async function KiteProfilePage({
     getAllKites(),
   ]);
 
-  if (!kite) {
-    return (
-      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold text-slate mb-4">Kite not found</h1>
-        <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
-      </div>
-    );
-  }
+  if (!kite) notFound();
+
+  // Picked here so the page ships three kites to the browser, not the whole catalog.
+  const related = getRelatedKites(kite, allKites, 3);
 
   return (
     <>
@@ -85,7 +82,7 @@ export default async function KiteProfilePage({
           ]),
         }}
       />
-      <KiteDetailClient kite={kite} allKites={allKites} />
+      <KiteDetailClient kite={kite} related={related} />
     </>
   );
 }

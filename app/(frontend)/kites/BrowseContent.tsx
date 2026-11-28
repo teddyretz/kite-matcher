@@ -7,6 +7,7 @@ import { displayFitScore, scoreKite } from '@/lib/matcher';
 import { applyFilters, filtersToRiderProfile, useFilters, type SortOption } from '@/lib/useFilters';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
+import { reviewSortKey } from '@/lib/reviewers';
 
 const DISCIPLINES: Array<{ value: DisciplineKey; label: string }> = [
   { value: 'freeride', label: 'Freeride' },
@@ -49,7 +50,7 @@ export default function BrowseContent({ kites }: { kites: Kite[] }) {
         return withScores.sort((a, b) => b.kite.price_new - a.kite.price_new);
       case 'rating':
         return withScores.sort(
-          (a, b) => (b.kite.structured_review?.rating ?? 0) - (a.kite.structured_review?.rating ?? 0),
+          (a, b) => reviewSortKey(b.kite.structured_review) - reviewSortKey(a.kite.structured_review),
         );
       case 'alpha':
       default:

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import type { DisciplineKey, Kite, SkillLevel } from '@/lib/types';
 import { displayFitScore, scoreKite } from '@/lib/matcher';
 import { filtersToRiderProfile, useFilters } from '@/lib/useFilters';
+import { limitedEvidenceLabel } from '@/lib/reviewers';
 
 const MAX_COMPARE = 3;
 
@@ -230,7 +231,11 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
     { label: 'Freestyle', get: (k) => `${k.discipline_scores.freestyle}/100` },
     { label: 'Construction', get: (k) => (k.aluula ? 'Aluula' : k.brainchild ? 'Brainchild' : 'Dacron') },
     { label: 'Retail Price', get: (k) => `$${k.price_new.toLocaleString()}` },
-    { label: 'Review Score', get: (k) => (k.structured_review ? `${k.structured_review.rating.toFixed(1)}/5` : '—') },
+    { label: 'Review Score', get: (k) => {
+      if (!k.structured_review) return '—';
+      const limited = limitedEvidenceLabel(k.structured_review.sources);
+      return `${k.structured_review.rating.toFixed(1)}/5${limited ? ` (${limited})` : ''}`;
+    } },
   ];
 
   const rows = specRows.map((row) => {

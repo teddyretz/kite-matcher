@@ -12,8 +12,9 @@
  *   3. Maps the channel to a known reviewer name where possible (Jason
  *      Montreal, Kitemana, Our Kite Life), or accepts --reviewer to override.
  *   4. Appends a YouTube review entry to data/kites/<slug>.json with
- *      full_transcript filled in. excerpt + verdict are left empty —
- *      `npm run process-reviews` fills those in alongside structured_review.
+ *      full_transcript filled in. excerpt + verdict are cut from the start and
+ *      end of the transcript; `npm run process-reviews` then writes the
+ *      per-video summary and structured_review.
  *
  * Requires `yt-dlp` on PATH (brew install yt-dlp / pip install yt-dlp).
  */

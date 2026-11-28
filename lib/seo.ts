@@ -1,4 +1,5 @@
 import type { DisciplineKey, Kite } from './types';
+import { limitedEvidenceLabel, reviewSortKey } from './reviewers';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://findmykite.com';
 
@@ -94,8 +95,8 @@ export function kiteListJsonLd(name: string, kites: Kite[]): Record<string, unkn
 // unreviewed after, alphabetical within ties.
 export function sortForListing(kites: Kite[]): Kite[] {
   return [...kites].sort((a, b) => {
-    const ra = a.structured_review?.rating ?? -1;
-    const rb = b.structured_review?.rating ?? -1;
+    const ra = reviewSortKey(a.structured_review);
+    const rb = reviewSortKey(b.structured_review);
     if (rb !== ra) return rb - ra;
     return `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`);
   });
@@ -121,7 +122,12 @@ export function kiteJsonLd(kite: Kite): Record<string, unknown> {
     },
   };
 
-  if (kite.structured_review && kite.structured_review.sources.length >= 2) {
+  // Shop-only ratings never become search-result stars.
+  if (
+    kite.structured_review &&
+    kite.structured_review.sources.length >= 2 &&
+    !limitedEvidenceLabel(kite.structured_review.sources)
+  ) {
     ld.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: kite.structured_review.rating,

@@ -7,7 +7,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const kiteCount = (await getAllKites()).length;
+  const kites = await getAllKites();
+  const kiteCount = kites.length;
+  const brandCount = new Set(kites.map((k) => k.brand)).size;
   return new ImageResponse(
     (
       <div
@@ -44,7 +46,7 @@ export default async function Image() {
           <span>Kite.</span>
         </div>
         <div style={{ display: 'flex', marginTop: 36, fontSize: 30, color: '#9DB5CC', maxWidth: 700 }}>
-          {kiteCount} kites, 13 brands — matched to your riding style. Every review source labeled, zero sponsors.
+          {kiteCount} kites, {brandCount} brands — matched to your riding style. Every review source labeled, zero sponsors.
         </div>
       </div>
     ),
