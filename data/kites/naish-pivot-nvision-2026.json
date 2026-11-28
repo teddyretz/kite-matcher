@@ -5,9 +5,16 @@
   "model": "Pivot Nvision",
   "year": 2026,
   "image": "/kites/naish-pivot-nvision-2026.jpg",
-  "style_spectrum": 67,
-  "shape_spectrum": 48,
-  "wave_spectrum": 52,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 65,
+    "wave": 52,
+    "foil": 73,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "all-around",
     "premium",

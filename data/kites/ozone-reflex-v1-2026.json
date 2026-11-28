@@ -5,9 +5,16 @@
   "model": "Reflex V1",
   "year": 2026,
   "image": "/kites/ozone-reflex-v1-2026.jpg",
-  "style_spectrum": 72,
-  "shape_spectrum": 50,
-  "wave_spectrum": 35,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 88,
+    "wave": 82,
+    "foil": 82,
+    "freestyle": 48
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "big air",

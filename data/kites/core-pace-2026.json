@@ -5,9 +5,16 @@
   "model": "Pace",
   "year": 2026,
   "image": "/kites/core-pace-2026.jpg",
-  "style_spectrum": 78,
-  "shape_spectrum": 55,
-  "wave_spectrum": 20,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 88,
+    "wave": 20,
+    "foil": 50,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "kiteloops",

@@ -1,205 +1,298 @@
 'use client';
 
 import type { CSSProperties } from 'react';
-import type { SkillLevel } from '@/lib/types';
-import type { KiteConstruction } from '@/lib/matcher';
-
-export type AdvisorControlName = 'style' | 'shape' | 'wave' | 'handling' | 'wind' | 'budget';
+import type { DisciplineKey, SkillLevel } from '@/lib/types';
+import type {
+  BarPreference,
+  BarPressurePreference,
+  BoardType,
+  FlyingStylePreference,
+  KiteConstruction,
+} from '@/lib/matcher';
 
 export interface AdvisorControlValues {
-  style: number;
-  shape: number;
-  wavePriority: number;
-  handling: number;
-  wind: number;
+  discipline: DisciplineKey;
+  boardType: BoardType;
   level: SkillLevel;
+  barType: BarPreference;
   construction: KiteConstruction;
+  barPressure: BarPressurePreference;
+  flyingStyle: FlyingStylePreference;
+  windKnots: number;
   budget: number;
+  riderWeightKg: number | null;
 }
 
 interface AdvisorControlsProps extends AdvisorControlValues {
-  onSliderChange: (name: AdvisorControlName, value: number) => void;
-  onSliderCommit?: (name: AdvisorControlName, value: number) => void;
-  onLevelChange: (level: SkillLevel) => void;
-  onConstructionChange: (construction: KiteConstruction) => void;
+  onChange: (updates: Partial<AdvisorControlValues>) => void;
   compact?: boolean;
 }
 
-const skillGuidance: Record<SkillLevel, string> = {
-  beginner: 'Prioritizes control, easy relaunch and a forgiving wind range.',
-  intermediate: 'Balances progression, versatility and room to push harder.',
-  advanced: 'Lets your performance preferences drive the ranking.',
-};
+const DISCIPLINES: Array<{ value: DisciplineKey; label: string }> = [
+  { value: 'freeride', label: 'Freeride' },
+  { value: 'big_air', label: 'Big Air' },
+  { value: 'wave', label: 'Wave' },
+  { value: 'foil', label: 'Foil' },
+  { value: 'freestyle', label: 'Freestyle' },
+];
 
-const disciplineOptions = [
-  { label: 'Foil', value: 10 },
-  { label: 'Wave', value: 30 },
-  { label: 'Freestyle', value: 50 },
-  { label: 'Freeride', value: 70 },
-  { label: 'Big air', value: 90 },
-] as const;
+const BOARDS: Array<{ value: BoardType; label: string }> = [
+  { value: 'twin-tip', label: 'Twin-tip' },
+  { value: 'surfboard', label: 'Surfboard' },
+  { value: 'hydrofoil', label: 'Hydrofoil' },
+];
 
-export function styleLabel(value: number): string {
-  if (value <= 20) return 'Foil';
-  if (value <= 40) return 'Surf';
-  if (value <= 60) return 'Freestyle';
-  if (value <= 80) return 'Freeride';
-  return 'Big Air';
-}
+const LEVELS: Array<{ value: SkillLevel; label: string }> = [
+  { value: 'beginner', label: 'Beginner' },
+  { value: 'intermediate', label: 'Intermediate' },
+  { value: 'advanced', label: 'Advanced' },
+];
 
-function rangePct(value: number, min = 0, max = 100): string {
+const BAR_SYSTEMS: Array<{ value: BarPreference; label: string }> = [
+  { value: 'any', label: 'Any bar' },
+  { value: 'low-v', label: 'Low-V' },
+  { value: 'high-y', label: 'High-Y' },
+];
+
+const CONSTRUCTIONS: Array<{ value: KiteConstruction; label: string }> = [
+  { value: 'all', label: 'Any' },
+  { value: 'dacron', label: 'Dacron' },
+  { value: 'aluula', label: 'Aluula' },
+  { value: 'brainchild', label: 'Brainchild' },
+];
+
+const BAR_PRESSURES: Array<{ value: BarPressurePreference; label: string }> = [
+  { value: 'any', label: 'Any' },
+  { value: 'light', label: 'Light' },
+  { value: 'medium', label: 'Medium' },
+  { value: 'heavy', label: 'Heavy' },
+];
+
+const FLYING_STYLES: Array<{ value: FlyingStylePreference; label: string }> = [
+  { value: 'any', label: 'Any' },
+  { value: 'sheet-and-go', label: 'Sheet & go' },
+  { value: 'balanced', label: 'Balanced' },
+  { value: 'active', label: 'Active' },
+];
+
+function rangePct(value: number, min: number, max: number): string {
   return `${((value - min) / (max - min)) * 100}%`;
 }
 
-type SliderRowProps = {
-  name: AdvisorControlName;
+function SegmentedGroup<T extends string>({
+  label,
+  value,
+  options,
+  onSelect,
+  columns = 3,
+}: {
   label: string;
-  valueLabel: string;
-  value: number;
-  onChange: (name: AdvisorControlName, value: number) => void;
-  onCommit?: (name: AdvisorControlName, value: number) => void;
-  left: string;
-  right: string;
-  min?: number;
-  max?: number;
-  step?: number;
-};
+  value: T;
+  options: Array<{ value: T; label: string }>;
+  onSelect: (next: T) => void;
+  columns?: number;
+}) {
+  const gridCols =
+    columns === 5
+      ? 'grid-cols-3 sm:grid-cols-5'
+      : columns === 4
+        ? 'grid-cols-2 sm:grid-cols-4'
+        : 'grid-cols-3';
 
-function SliderRow({ name, label, valueLabel, value, onChange, onCommit, left, right, min = 0, max = 100, step = 1 }: SliderRowProps) {
   return (
-    <div>
-      <div className="mb-2 flex items-baseline justify-between gap-3">
-        <label htmlFor={`advisor-${name}`} className="text-xs font-semibold text-gray-300">{label}</label>
-        <span className="text-sm font-bold text-ocean">{valueLabel}</span>
+    <fieldset>
+      <legend className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500">
+        {label}
+      </legend>
+      <div className={`grid gap-1 ${gridCols}`}>
+        {options.map((option) => {
+          const active = value === option.value;
+          return (
+            <button
+              key={option.value}
+              type="button"
+              aria-pressed={active}
+              onClick={() => onSelect(option.value)}
+              className={`min-h-9 border px-2 py-1.5 text-xs font-semibold transition-colors ${
+                active
+                  ? 'border-ocean bg-ocean text-white'
+                  : 'border-gray-200 bg-card text-gray-600 hover:border-gray-400 hover:text-slate'
+              }`}
+            >
+              {option.label}
+            </button>
+          );
+        })}
       </div>
-      <input
-        id={`advisor-${name}`}
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        onChange={event => onChange(name, Number(event.target.value))}
-        onPointerUp={() => onCommit?.(name, value)}
-        onKeyUp={() => onCommit?.(name, value)}
-        className="w-full touch-pan-y"
-        style={{ '--range-pct': rangePct(value, min, max) } as CSSProperties}
-        aria-label={label}
-        aria-valuetext={valueLabel}
-      />
-      <div className="mt-1.5 flex justify-between text-xs text-gray-400">
-        <span>{left}</span>
-        <span>{right}</span>
-      </div>
-    </div>
+    </fieldset>
   );
 }
 
 export default function AdvisorControls({
-  style,
-  shape,
-  wavePriority,
-  wind,
+  discipline,
+  boardType,
   level,
+  barType,
   construction,
+  barPressure,
+  flyingStyle,
+  windKnots,
   budget,
-  onSliderChange,
-  onSliderCommit,
-  onLevelChange,
-  onConstructionChange,
+  riderWeightKg,
+  onChange,
+  compact = false,
 }: AdvisorControlsProps) {
   return (
-    <>
-      <fieldset className="mb-5">
-        <div className="mb-2 flex items-baseline justify-between gap-3">
-          <legend className="text-xs font-semibold text-gray-300">1. What do you want to ride?</legend>
-          <span className="text-sm font-bold text-ocean">{styleLabel(style)}</span>
-        </div>
-        <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
-          {disciplineOptions.map(option => {
-            const selected = styleLabel(style) === (option.label === 'Wave' ? 'Surf' : option.label.replace('air', 'Air'));
-            return (
-              <button
-                key={option.label}
-                type="button"
-                aria-pressed={selected}
-                onClick={() => {
-                  onSliderChange('style', option.value);
-                  onSliderCommit?.('style', option.value);
-                }}
-                className={`min-h-11 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/35 hover:text-slate'}`}
-              >
-                {option.label}
-              </button>
-            );
-          })}
-        </div>
-        <p className="mt-2 text-xs leading-5 text-gray-400">Pick the kind of session you want this kite to be best at.</p>
-      </fieldset>
+    <div className="space-y-4">
+      <SegmentedGroup
+        label="Discipline"
+        value={discipline}
+        options={DISCIPLINES}
+        columns={5}
+        onSelect={(next) => {
+          const nextBoard: BoardType =
+            next === 'foil' ? 'hydrofoil' : next === 'wave' ? 'surfboard' : boardType;
+          onChange({ discipline: next, boardType: nextBoard });
+        }}
+      />
 
-      <div className="grid gap-5 border-t border-white/15 pt-5 sm:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <p className="mb-2 text-xs font-semibold text-gray-300">2. Rider level</p>
-          <div className="flex gap-1.5">
-            {(['beginner', 'intermediate', 'advanced'] as const).map(value => (
-              <button key={value} type="button" aria-pressed={level === value} onClick={() => onLevelChange(value)} className={`min-h-11 flex-1 rounded-lg border px-2 py-2 text-xs font-semibold capitalize transition-colors ${level === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{value}</button>
-            ))}
-          </div>
-          <p className="mt-2 text-xs leading-5 text-gray-400">{skillGuidance[level]}</p>
-        </div>
-        <SliderRow name="wind" label="3. Typical wind" valueLabel={wind < 35 ? 'Mostly light' : wind > 65 ? 'Mostly strong' : 'Mixed conditions'} value={wind} onChange={onSliderChange} onCommit={onSliderCommit} left="Light wind" right="Strong wind" />
-        <SliderRow name="budget" label="4. Budget per kite" valueLabel={budget >= 5000 ? 'No budget limit' : `Up to $${budget.toLocaleString()}`} value={budget} onChange={onSliderChange} onCommit={onSliderCommit} left="$800" right="No limit" min={800} max={5000} step={100} />
+      <div className={`grid gap-4 ${compact ? 'md:grid-cols-3' : 'sm:grid-cols-2'}`}>
+        <SegmentedGroup
+          label="Board"
+          value={boardType}
+          options={BOARDS}
+          columns={3}
+          onSelect={(next) => onChange({ boardType: next })}
+        />
+        <SegmentedGroup
+          label="Skill level"
+          value={level}
+          options={LEVELS}
+          columns={3}
+          onSelect={(next) => onChange({ level: next })}
+        />
+        <SegmentedGroup
+          label="Bar system"
+          value={barType}
+          options={BAR_SYSTEMS}
+          columns={3}
+          onSelect={(next) => onChange({ barType: next })}
+        />
+        <SegmentedGroup
+          label="Construction"
+          value={construction}
+          options={CONSTRUCTIONS}
+          columns={4}
+          onSelect={(next) => onChange({ construction: next })}
+        />
+        <SegmentedGroup
+          label="Bar pressure"
+          value={barPressure}
+          options={BAR_PRESSURES}
+          columns={4}
+          onSelect={(next) => onChange({ barPressure: next })}
+        />
+        <SegmentedGroup
+          label="Flying style"
+          value={flyingStyle}
+          options={FLYING_STYLES}
+          columns={4}
+          onSelect={(next) => onChange({ flyingStyle: next })}
+        />
       </div>
 
-      <details open className="group mt-5 border-t border-white/15 pt-4">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-1 text-left transition-colors hover:text-white">
-          <span>
-            <span className="block text-sm font-bold text-slate">Fine-tune your match <span className="font-normal text-gray-400">(optional)</span></span>
-            <span className="mt-0.5 block text-xs text-gray-400">Adjust feel, wave focus, or construction if you already know what you prefer.</span>
-          </span>
-          <span className="text-xl text-ocean transition-transform group-open:rotate-45" aria-hidden>+</span>
-        </summary>
-
-        <div className="mt-4 grid gap-5 border-t border-white/10 pt-5 lg:grid-cols-3">
-          <fieldset>
-            <legend className="mb-2 text-xs font-semibold text-gray-300">Feel</legend>
-            <div className="grid grid-cols-3 gap-1.5">
-              {([
-                { label: 'Easy', value: 20 },
-                { label: 'Balanced', value: 50 },
-                { label: 'Fast & direct', value: 80 },
-              ] as const).map((option, index) => {
-                const selected = index === (shape < 35 ? 0 : shape > 65 ? 2 : 1);
-                return <button key={option.label} type="button" aria-pressed={selected} onClick={() => { onSliderChange('shape', option.value); onSliderCommit?.('shape', option.value); }} className={`min-h-11 rounded-lg border px-2 py-2 text-xs font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{option.label}</button>;
-              })}
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend className="mb-2 text-xs font-semibold text-gray-300">How important are waves?</legend>
-            <div className="grid grid-cols-3 gap-1.5">
-              {([
-                { label: 'Not important', value: 10 },
-                { label: 'Sometimes', value: 50 },
-                { label: 'Main focus', value: 90 },
-              ] as const).map((option, index) => {
-                const selected = index === (wavePriority < 30 ? 0 : wavePriority > 70 ? 2 : 1);
-                return <button key={option.label} type="button" aria-pressed={selected} onClick={() => { onSliderChange('wave', option.value); onSliderCommit?.('wave', option.value); }} className={`min-h-11 rounded-lg border px-2 py-2 text-xs font-semibold transition-colors ${selected ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{option.label}</button>;
-              })}
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend className="mb-2 text-xs font-semibold text-gray-300">Construction</legend>
-            <div className="grid grid-cols-2 gap-1.5">
-              {(['all', 'dacron', 'aluula', 'brainchild'] as const).map(value => (
-                <button key={value} type="button" aria-pressed={construction === value} onClick={() => onConstructionChange(value)} className={`min-h-11 rounded-lg border px-3 py-2 text-xs font-semibold capitalize transition-colors ${construction === value ? 'border-ocean bg-ocean text-surface' : 'border-white/15 text-gray-300 hover:border-white/40'}`}>{value === 'all' ? 'Any material' : value}</button>
-              ))}
-            </div>
-            <p className="mt-2 text-xs leading-5 text-gray-400">Dacron is the standard build. Aluula is lighter and stiffer. Brainchild uses welded construction.</p>
-          </fieldset>
+      {/* True continuums only: wind speed (kt), max budget (USD), optional rider weight (kg) */}
+      <div className={`grid gap-4 border-t border-gray-200 pt-4 ${compact ? 'md:grid-cols-3' : 'sm:grid-cols-2'}`}>
+        <div>
+          <div className="mb-1.5 flex items-baseline justify-between gap-2">
+            <label htmlFor="advisor-wind" className="text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500">
+              Typical wind
+            </label>
+            <span className="font-mono text-xs font-semibold tabular-nums text-ocean">
+              {windKnots} kt
+            </span>
+          </div>
+          <input
+            id="advisor-wind"
+            type="range"
+            min={10}
+            max={35}
+            step={1}
+            value={windKnots}
+            onChange={(e) => onChange({ windKnots: Number(e.target.value) })}
+            className="w-full"
+            style={{ '--range-pct': rangePct(windKnots, 10, 35) } as CSSProperties}
+          />
+          <div className="mt-1 flex justify-between font-mono text-[10px] text-gray-400">
+            <span>10 kt</span>
+            <span>35 kt</span>
+          </div>
         </div>
-      </details>
-    </>
+
+        <div>
+          <div className="mb-1.5 flex items-baseline justify-between gap-2">
+            <label htmlFor="advisor-budget" className="text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500">
+              Max price
+            </label>
+            <span className="font-mono text-xs font-semibold tabular-nums text-ocean">
+              {budget >= 5000 ? 'No limit' : `$${budget.toLocaleString()}`}
+            </span>
+          </div>
+          <input
+            id="advisor-budget"
+            type="range"
+            min={800}
+            max={5000}
+            step={100}
+            value={budget}
+            onChange={(e) => onChange({ budget: Number(e.target.value) })}
+            className="w-full"
+            style={{ '--range-pct': rangePct(budget, 800, 5000) } as CSSProperties}
+          />
+          <div className="mt-1 flex justify-between font-mono text-[10px] text-gray-400">
+            <span>$800</span>
+            <span>$5,000+</span>
+          </div>
+        </div>
+
+        <div className={compact ? '' : 'sm:col-span-2'}>
+          <div className="mb-1.5 flex items-baseline justify-between gap-2">
+            <label htmlFor="advisor-weight" className="text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500">
+              Rider weight <span className="font-normal normal-case text-gray-400">(optional, for kite sizing)</span>
+            </label>
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-xs font-semibold tabular-nums text-ocean">
+                {riderWeightKg ? `${riderWeightKg} kg (${Math.round(riderWeightKg * 2.20462)} lb)` : 'Not set'}
+              </span>
+              {riderWeightKg !== null && (
+                <button
+                  type="button"
+                  onClick={() => onChange({ riderWeightKg: null })}
+                  className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 hover:text-sand"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+          <input
+            id="advisor-weight"
+            type="range"
+            min={50}
+            max={120}
+            step={1}
+            value={riderWeightKg ?? 80}
+            onChange={(e) => onChange({ riderWeightKg: Number(e.target.value) })}
+            className="w-full"
+            style={{ '--range-pct': rangePct(riderWeightKg ?? 80, 50, 120) } as CSSProperties}
+          />
+          <div className="mt-1 flex justify-between font-mono text-[10px] text-gray-400">
+            <span>50 kg</span>
+            <span>85 kg</span>
+            <span>120 kg</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

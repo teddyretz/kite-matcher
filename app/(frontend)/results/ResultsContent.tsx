@@ -1,365 +1,239 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
 import { track } from '@vercel/analytics/react';
-import type { Kite, SkillLevel } from '@/lib/types';
+import type { Kite } from '@/lib/types';
 import {
-  type AdvisorMatch,
-  type FlightFeel,
-  getAdvisorMatches,
   getDiverseAdvisorShortlist,
-  getSliderAdvisorMatches,
-  matchScore,
-  type RidingGoal,
-  type WindProfile,
+  getUnifiedMatches,
+  type BarPreference,
 } from '@/lib/matcher';
-import { applyFilters, useFilters } from '@/lib/useFilters';
-import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
+import { applyFilters, filtersToRiderProfile, useFilters } from '@/lib/useFilters';
 import KiteCard from '@/components/KiteCard';
 import KiteFilters from '@/components/KiteFilters';
-import AdvisorControls, { type AdvisorControlName } from '@/components/AdvisorControls';
+import AdvisorControls, { type AdvisorControlValues } from '@/components/AdvisorControls';
 
-const styleZones = [
-  { label: 'Foil', color: 'text-teal-400' },
-  { label: 'Surf', color: 'text-emerald-400' },
-  { label: 'Freestyle', color: 'text-sand' },
-  { label: 'Freeride', color: 'text-blue-400' },
-  { label: 'Big Air', color: 'text-orange-400' },
-];
-
-function getActiveZone(value: number): number {
-  if (value <= 20) return 0;
-  if (value <= 40) return 1;
-  if (value <= 60) return 2;
-  if (value <= 80) return 3;
-  return 4;
-}
-
-function parseAdvisorValue<T extends string>(value: string | null, allowed: readonly T[], fallback: T): T {
-  return value && allowed.includes(value as T) ? value as T : fallback;
-}
-
-function parseSliderValue(value: string | null, fallback: number): number {
-  // Number(null) and Number('') are 0, so a missing param must be caught first.
-  if (value === null || value.trim() === '') return fallback;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : fallback;
-}
+const DISCIPLINE_LABEL: Record<string, string> = {
+  freeride: 'Freeride',
+  big_air: 'Big Air',
+  wave: 'Wave',
+  foil: 'Foil',
+  freestyle: 'Freestyle',
+};
 
 export default function ResultsContent({ kites }: { kites: Kite[] }) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const advisorParam = searchParams.get('advisor');
-  const sliderMode = advisorParam === 'sliders';
-  const advisorMode = sliderMode || advisorParam === '1';
-  const { filters, setFilters } = useFilters();
-  const [slidersOpen, setSlidersOpen] = useState(!advisorMode);
-  const [advisorTunerOpen, setAdvisorTunerOpen] = useState(false);
+  const { filters, setFilters, reset } = useFilters();
+  const [tunerOpen, setTunerOpen] = useState(false);
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle');
   const [showAll, setShowAll] = useState(false);
 
-  const goal = parseAdvisorValue<RidingGoal>(
-    searchParams.get('goal'),
-    ['freeride', 'big-air', 'wave', 'freestyle', 'foil'],
-    'freeride',
-  );
-  const level = parseAdvisorValue<SkillLevel>(
-    searchParams.get('level'),
-    ['beginner', 'intermediate', 'advanced'],
-    'intermediate',
-  );
-  const feel = parseAdvisorValue<FlightFeel>(
-    searchParams.get('feel'),
-    ['forgiving', 'balanced', 'performance'],
-    'balanced',
-  );
-  const wind = parseAdvisorValue<WindProfile>(
-    searchParams.get('wind'),
-    ['light', 'mixed', 'strong'],
-    'mixed',
-  );
-  const wavePriority = parseSliderValue(searchParams.get('wave'), 20);
-  const handling = parseSliderValue(searchParams.get('handling'), 50);
-  const windValue = parseSliderValue(searchParams.get('wind'), 50);
+  const profile = useMemo(() => filtersToRiderProfile(filters), [filters]);
 
-  const commitAdvisorParam = useCallback((name: string, value: string | number) => {
-    const next = new URLSearchParams(window.location.search);
-    next.set(name, String(value));
-    router.replace(`${pathname}?${next.toString()}`, { scroll: false });
-  }, [pathname, router]);
+  const rankedKites = useMemo(() => {
+    const filtered = applyFilters(kites, filters);
+    return getUnifiedMatches(filtered, profile);
+  }, [kites, filters, profile]);
 
-  const commitStyle = useCallback((value: number) => setFilters({ style: value }), [setFilters]);
-  const commitShape = useCallback((value: number) => setFilters({ shape: value }), [setFilters]);
-  const commitWave = useCallback((value: number) => commitAdvisorParam('wave', value), [commitAdvisorParam]);
-  const commitHandling = useCallback((value: number) => commitAdvisorParam('handling', value), [commitAdvisorParam]);
-  const commitWindValue = useCallback((value: number) => commitAdvisorParam('wind', value), [commitAdvisorParam]);
-  const commitBudget = useCallback((value: number) => setFilters({ budget: value }), [setFilters]);
-  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
-  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
-  const [waveVal, setWaveVal] = useDebouncedNumber(wavePriority, commitWave);
-  const [handlingVal, setHandlingVal] = useDebouncedNumber(handling, commitHandling);
-  const [windSliderVal, setWindSliderVal] = useDebouncedNumber(windValue, commitWindValue);
-  const [budgetVal, setBudgetVal] = useDebouncedNumber(filters.budget, commitBudget);
+  const displayKites =
+    !showAll && rankedKites.length > 12
+      ? getDiverseAdvisorShortlist(rankedKites, 12, 2)
+      : rankedKites;
 
-  const updateAdvisorSlider = (name: AdvisorControlName, value: number) => {
-    if (name === 'style') setStyleVal(value);
-    else if (name === 'shape') setShapeVal(value);
-    else if (name === 'wave') setWaveVal(value);
-    else if (name === 'handling') setHandlingVal(value);
-    else if (name === 'wind') setWindSliderVal(value);
-    else setBudgetVal(value);
+  const handleControlChange = (updates: Partial<AdvisorControlValues>) => {
+    setFilters({
+      ...(updates.discipline !== undefined ? { discipline: updates.discipline } : {}),
+      ...(updates.boardType !== undefined ? { boardType: updates.boardType } : {}),
+      ...(updates.level !== undefined ? { level: updates.level } : {}),
+      ...(updates.barType !== undefined ? { barType: updates.barType === 'any' ? '' : updates.barType } : {}),
+      ...(updates.construction !== undefined ? { construction: updates.construction } : {}),
+      ...(updates.barPressure !== undefined ? { barPressure: updates.barPressure } : {}),
+      ...(updates.flyingStyle !== undefined ? { flyingStyle: updates.flyingStyle } : {}),
+      ...(updates.windKnots !== undefined ? { windKnots: updates.windKnots } : {}),
+      ...(updates.budget !== undefined ? { budget: updates.budget } : {}),
+      ...(updates.riderWeightKg !== undefined ? { riderWeightKg: updates.riderWeightKg } : {}),
+    });
   };
 
-  const resetAdvisor = () => {
-    track('advisor_profile_reset', { level });
-    router.replace('/results?advisor=sliders&style=70&shape=55&wave=20&handling=50&wind=50&level=intermediate&construction=all&budget=5000', { scroll: false });
-  };
-
-  const shareAdvisor = async () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('advisor', 'sliders');
-    url.searchParams.set('style', String(styleVal));
-    url.searchParams.set('shape', String(shapeVal));
-    url.searchParams.set('wave', String(waveVal));
-    url.searchParams.set('handling', String(handlingVal));
-    url.searchParams.set('wind', String(windSliderVal));
-    url.searchParams.set('level', level);
-    url.searchParams.set('construction', filters.construction);
-    url.searchParams.set('budget', String(budgetVal));
-
+  const shareResults = async () => {
+    const url = window.location.href;
     try {
       if (navigator.share) {
-        await navigator.share({ title: 'My FindMyKite matches', url: url.toString() });
+        await navigator.share({ title: 'FindMyKite matches', url });
       } else {
-        await navigator.clipboard.writeText(url.toString());
+        await navigator.clipboard.writeText(url);
         setShareStatus('copied');
         window.setTimeout(() => setShareStatus('idle'), 1800);
       }
-      track('advisor_profile_shared', { level });
+      track('advisor_profile_shared', { level: filters.level });
     } catch (error) {
       if (error instanceof DOMException && error.name === 'AbortError') return;
-      await navigator.clipboard.writeText(url.toString());
+      await navigator.clipboard.writeText(url);
       setShareStatus('copied');
       window.setTimeout(() => setShareStatus('idle'), 1800);
     }
   };
 
-  const eligibleKites = useMemo(() => {
-    const liveFilters = { ...filters, style: styleVal, shape: shapeVal, budget: budgetVal };
-    const filtered = applyFilters(kites, liveFilters);
-    if (sliderMode) {
-      return getSliderAdvisorMatches(filtered, {
-        version: 2,
-        style: styleVal,
-        shape: shapeVal,
-        wavePriority: waveVal,
-        handling: handlingVal,
-        wind: windSliderVal,
-        level,
-        construction: filters.construction,
-        budget: budgetVal < 5000 ? budgetVal : undefined,
-      });
-    }
-    if (advisorMode) {
-      return getAdvisorMatches(filtered, {
-        version: 2,
-        goal,
-        level,
-        feel,
-        wind,
-        construction: filters.construction,
-        budget: filters.budget < 5000 ? filters.budget : undefined,
-      });
-    }
-    return filtered
-      .map(kite => ({ ...kite, score: matchScore(kite, styleVal, shapeVal) }))
-      .sort((a, b) => b.score - a.score);
-  }, [advisorMode, budgetVal, feel, filters, goal, handlingVal, kites, level, shapeVal, sliderMode, styleVal, waveVal, wind, windSliderVal]);
+  const barPref: BarPreference =
+    filters.barType === 'high-y' || filters.barType === 'low-v' ? filters.barType : 'any';
 
-  const displayKites = advisorMode && !showAll && eligibleKites.length > 12
-    ? getDiverseAdvisorShortlist(eligibleKites as AdvisorMatch[], 12, 2)
-    : eligibleKites;
+  const summaryChips = [
+    DISCIPLINE_LABEL[filters.discipline],
+    filters.boardType,
+    filters.level,
+    `${filters.windKnots} kt`,
+    ...(filters.riderWeightKg ? [`${filters.riderWeightKg} kg`] : []),
+    ...(barPref !== 'any' ? [barPref.toUpperCase()] : []),
+    ...(filters.construction !== 'all' ? [filters.construction] : []),
+  ];
 
-  const resultSections = advisorMode
-    ? [
-        { title: 'Your top three', description: 'The clearest starting points, each with a slightly different case.', items: displayKites.slice(0, 3) },
-        { title: 'More strong options', description: 'Good fits worth exploring if the top three miss a detail that matters to you.', items: displayKites.slice(3) },
-      ]
-    : [{ title: '', description: '', items: displayKites }];
+  const topThree = displayKites.slice(0, 3);
+  const rest = displayKites.slice(3);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-6">
-        {advisorMode && (
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ocean">Your rider profile</p>
-        )}
-        <h1 className={advisorMode ? 'font-display text-5xl font-black text-slate' : 'text-2xl font-bold text-slate'}>
+      <div className="mb-6 border-b border-gray-200 pb-5">
+        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ocean">
+          Ranked by specs &amp; geometry
+        </p>
+        <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate">
           Your Kite Matches
         </h1>
-        <p className="text-sm text-gray-500">
-          {advisorMode && !showAll && eligibleKites.length > 12
-            ? `Showing a brand-diverse shortlist of 12 from ${eligibleKites.length} eligible kites`
-            : `${eligibleKites.length} eligible kites, ranked for fit`}
+        <p className="mt-1 font-mono text-xs text-gray-500">
+          {!showAll && rankedKites.length > 12
+            ? `Showing brand-diverse shortlist of 12 from ${rankedKites.length} eligible kites`
+            : `${rankedKites.length} eligible kites`}
         </p>
-        {advisorMode && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {(sliderMode
-              ? [styleZones[getActiveZone(styleVal)].label, level, handlingVal < 35 ? 'forgiving handling' : handlingVal > 65 ? 'performance handling' : 'balanced handling', windSliderVal < 35 ? 'light wind' : windSliderVal > 65 ? 'strong wind' : 'mixed wind']
-              : [goal.replace('-', ' '), level, `${feel} feel`, `${wind} wind`]
-            ).map(item => (
-              <span key={item} className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1 text-xs capitalize text-gray-600">
-                {item}
-              </span>
-            ))}
-          </div>
-        )}
+        <div className="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+          {summaryChips.map((chip) => (
+            <span
+              key={chip}
+              className="border border-gray-200 bg-card px-2.5 py-0.5 capitalize text-gray-600"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
       </div>
 
-      {sliderMode && (
-        <section className="mb-8 overflow-hidden rounded-2xl border border-ocean/20 bg-card/70">
-          <button
-            type="button"
-            onClick={() => {
-              const next = !advisorTunerOpen;
-              setAdvisorTunerOpen(next);
-              if (next) track('advisor_tuner_opened', { level });
-            }}
-            className="flex min-h-16 w-full items-center justify-between gap-4 px-4 py-3 text-left sm:px-5"
-            aria-expanded={advisorTunerOpen}
-          >
-            <div className="min-w-0">
-              <p className="text-xs font-semibold text-ocean">Live match controls</p>
-              <p className="truncate text-sm font-semibold text-slate">
-                Tune any preference and the ranking updates instantly
-              </p>
-            </div>
-            <div className="flex shrink-0 items-center gap-3">
-              <span className="hidden text-xs text-gray-400 sm:inline">{advisorTunerOpen ? 'Hide controls' : 'Tune results'}</span>
-              <svg className={`h-5 w-5 text-ocean transition-transform ${advisorTunerOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-
-          {advisorTunerOpen && (
-            <div className="border-t border-white/10 px-4 pb-5 pt-5 sm:px-5">
-              <AdvisorControls
-                compact
-                style={styleVal}
-                shape={shapeVal}
-                wavePriority={waveVal}
-                handling={handlingVal}
-                wind={windSliderVal}
-                level={level}
-                construction={filters.construction}
-                budget={budgetVal}
-                onSliderChange={updateAdvisorSlider}
-                onSliderCommit={(control, value) => track('advisor_preference_changed', { control, value, level, surface: 'results' })}
-                onLevelChange={value => {
-                  commitAdvisorParam('level', value);
-                  track('advisor_level_changed', { level: value, surface: 'results' });
-                }}
-                onConstructionChange={value => {
-                  setFilters({ construction: value });
-                  track('advisor_construction_changed', { construction: value, surface: 'results' });
-                }}
-              />
-              <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-4 sm:flex-row sm:justify-end">
-                <button type="button" onClick={resetAdvisor} className="min-h-11 rounded-lg border border-white/15 px-4 py-2 text-xs font-semibold text-gray-400 transition-colors hover:border-white/40 hover:text-slate">
-                  Reset profile
-                </button>
-                <button type="button" onClick={shareAdvisor} className="min-h-11 rounded-lg border border-ocean bg-ocean px-4 py-2 text-xs font-bold text-surface transition-colors hover:bg-white">
-                  {shareStatus === 'copied' ? 'Link copied ✓' : 'Share these matches'}
-                </button>
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-
-      {!advisorMode && <div className="mb-6 border border-gray-100 bg-white">
+      {/* Collapsible live match controls */}
+      <section className="mb-6 border border-gray-200 bg-card">
         <button
           type="button"
-          onClick={() => setSlidersOpen(!slidersOpen)}
-          className="w-full flex items-center justify-between p-4 text-left"
-          aria-expanded={slidersOpen}
+          onClick={() => setTunerOpen((v) => !v)}
+          className="flex min-h-12 w-full items-center justify-between gap-4 px-4 py-3 text-left"
+          aria-expanded={tunerOpen}
         >
-          <span className="font-semibold text-slate text-sm">Match Preferences</span>
-          <svg className={`w-5 h-5 text-gray-400 transition-transform ${slidersOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+          <div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ocean">
+              Match controls
+            </p>
+            <p className="text-sm font-semibold text-slate">
+              Adjust discipline, wind, weight, or bar setup
+            </p>
+          </div>
+          <span className="font-mono text-xs text-gray-500">
+            {tunerOpen ? 'Hide ↑' : 'Edit ↓'}
+          </span>
         </button>
-        {slidersOpen && (
-          <div className="px-4 pb-5 border-t border-gray-100 pt-4">
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div>
-                <div className="flex items-baseline justify-between mb-2">
-                  <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">Riding Style</label>
-                  <span className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}>
-                    {styleZones[getActiveZone(styleVal)].label}
-                  </span>
-                </div>
-                <input type="range" min={0} max={100} value={styleVal} onChange={event => setStyleVal(Number(event.target.value))} className="w-full" style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties} aria-label="Riding style preference" />
-                <div className="flex justify-between mt-1.5">
-                  {styleZones.map((zone, index) => (
-                    <span key={zone.label} className={`text-[10px] font-medium ${index === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}>{zone.label}</span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label className="mb-2 block text-xs font-semibold tracking-widest uppercase text-gray-500">Kite Shape & Aspect</label>
-                <input type="range" min={0} max={100} value={shapeVal} onChange={event => setShapeVal(Number(event.target.value))} className="w-full" style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties} aria-label="Kite character preference" />
-                <div className="flex justify-between mt-1.5">
-                  <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
-                  <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
-                </div>
-              </div>
+
+        {tunerOpen && (
+          <div className="border-t border-gray-200 p-4 sm:p-5">
+            <AdvisorControls
+              compact
+              discipline={filters.discipline}
+              boardType={filters.boardType}
+              level={filters.level}
+              barType={barPref}
+              construction={filters.construction}
+              barPressure={filters.barPressure}
+              flyingStyle={filters.flyingStyle}
+              windKnots={filters.windKnots}
+              budget={filters.budget}
+              riderWeightKg={filters.riderWeightKg}
+              onChange={handleControlChange}
+            />
+            <div className="mt-4 flex flex-col gap-2 border-t border-gray-200 pt-4 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={reset}
+                className="border border-gray-300 bg-surface px-4 py-2 text-xs font-semibold text-gray-600 hover:border-ocean hover:text-ocean"
+              >
+                Reset
+              </button>
+              <button
+                type="button"
+                onClick={shareResults}
+                className="border border-ocean bg-ocean px-4 py-2 text-xs font-semibold text-white hover:bg-ocean-dark"
+              >
+                {shareStatus === 'copied' ? 'Link copied ✓' : 'Copy share link'}
+              </button>
             </div>
           </div>
         )}
-      </div>}
+      </section>
 
       <div className="flex flex-col gap-4 lg:flex-row lg:gap-8">
         <KiteFilters kites={kites} />
-        <div className="flex-1 min-w-0">
-          <div className="space-y-10">
-            {resultSections.filter(section => section.items.length > 0).map((section, sectionIndex) => (
-              <section key={section.title || 'all-results'}>
-                {section.title && (
-                  <div className="mb-4">
-                    <h2 className="font-display text-2xl font-black text-slate">{section.title}</h2>
-                    <p className="text-sm text-gray-500">{section.description}</p>
-                  </div>
-                )}
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {section.items.map((kite, itemIndex) => {
-                    const advisorMatch = advisorMode ? kite as AdvisorMatch : null;
-                    const pickLabels = ['Best overall', 'Strong alternative', 'Wildcard pick'];
-                    return (
-                      <KiteCard
-                        key={kite.id}
-                        kite={kite}
-                        matchScore={kite.score}
-                        matchReasons={advisorMatch?.reasons}
-                        tradeoff={advisorMatch?.tradeoffs[0]}
-                        compactMatch={advisorMode}
-                        pickLabel={advisorMode && sectionIndex === 0 ? pickLabels[itemIndex] : advisorMode ? 'Good match' : undefined}
-                      />
-                    );
-                  })}
-                </div>
-              </section>
-            ))}
-          </div>
-          {displayKites.length === 0 && (
-            <div className="text-center py-20 text-gray-400">No kites match your filters. Try adjusting your criteria.</div>
+        <div className="flex-1 min-w-0 space-y-8">
+          {topThree.length > 0 && (
+            <section>
+              <div className="mb-3 flex items-baseline justify-between">
+                <h2 className="text-lg font-bold text-slate">Top three</h2>
+                <span className="font-mono text-[11px] text-gray-400">Highest spec alignment</span>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {topThree.map((kite, idx) => (
+                  <KiteCard
+                    key={kite.id}
+                    kite={kite}
+                    matchScore={kite.score}
+                    matchReasons={kite.reasons}
+                    tradeoff={kite.tradeoffs[0]}
+                    recommendedSize={kite.recommendedSize}
+                    compactMatch
+                    pickLabel={`#${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </section>
           )}
-          {advisorMode && eligibleKites.length > 12 && (
-            <div className="mt-8 text-center">
-              <button type="button" onClick={() => setShowAll(value => !value)} className="border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-gray-600 transition-colors hover:border-ocean hover:text-ocean">
-                {showAll ? 'Show diverse shortlist' : `Show all ${eligibleKites.length} eligible kites`}
+
+          {rest.length > 0 && (
+            <section>
+              <div className="mb-3 flex items-baseline justify-between">
+                <h2 className="text-lg font-bold text-slate">Also worth comparing</h2>
+                <span className="font-mono text-[11px] text-gray-400">{rest.length} kites</span>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {rest.map((kite) => (
+                  <KiteCard
+                    key={kite.id}
+                    kite={kite}
+                    matchScore={kite.score}
+                    matchReasons={kite.reasons}
+                    tradeoff={kite.tradeoffs[0]}
+                    recommendedSize={kite.recommendedSize}
+                    compactMatch
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {displayKites.length === 0 && (
+            <div className="border border-gray-200 bg-card py-16 text-center text-sm text-gray-500">
+              No kites match these constraints. Try widening budget, bar type, or construction.
+            </div>
+          )}
+
+          {rankedKites.length > 12 && (
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => setShowAll((v) => !v)}
+                className="border border-gray-300 bg-card px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-slate hover:border-ocean hover:text-ocean"
+              >
+                {showAll ? 'Show brand-diverse top 12' : `Show all ${rankedKites.length} eligible kites`}
               </button>
             </div>
           )}

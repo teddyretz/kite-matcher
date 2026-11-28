@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Kite } from '@/lib/types';
-import { useFilters, type SkillLevel } from '@/lib/useFilters';
+import type { Kite } from '@/lib/types';
+import { useFilters, type CanopyFilter, type SkillLevel } from '@/lib/useFilters';
 import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
 
 interface KiteFiltersProps {
@@ -10,9 +10,18 @@ interface KiteFiltersProps {
 }
 
 const SKILL_LEVELS: SkillLevel[] = ['beginner', 'intermediate', 'advanced'];
+const CANOPY_OPTIONS: Array<{ value: CanopyFilter; label: string }> = [
+  { value: '', label: 'All shapes' },
+  { value: 'delta', label: 'Delta' },
+  { value: 'hybrid', label: 'Hybrid' },
+  { value: 'bow', label: 'Bow' },
+  { value: 'open-c', label: 'Open-C' },
+  { value: 'c', label: 'C-Kite' },
+  { value: 'foil', label: 'Foil' },
+];
 
 export default function KiteFilters({ kites }: KiteFiltersProps) {
-  const { filters, setFilters } = useFilters();
+  const { filters, setFilters, reset } = useFilters();
   const [mobileOpen, setMobileOpen] = useState(false);
   // Dragging the price slider would otherwise rewrite the URL on every tick.
   const [budgetVal, setBudgetVal] = useDebouncedNumber(filters.budget, (v) => setFilters({ budget: v }));
@@ -35,17 +44,18 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
   };
 
   const filterContent = (
-    <div className="space-y-6">
-      {/* Year */}
+    <div className="space-y-5">
       <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Year</h4>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Year
+        </h4>
         <select
           aria-label="Filter by year"
           value={filters.year}
           onChange={(e) => setFilters({ year: e.target.value })}
-          className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
+          className="w-full border border-gray-200 px-2.5 py-1.5 font-mono text-xs"
         >
-          <option value="">All Years</option>
+          <option value="">All years</option>
           {years.map((y) => (
             <option key={y} value={y}>
               {y}
@@ -54,35 +64,86 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
         </select>
       </div>
 
-      {/* Brands */}
       <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Brand</h4>
-        <div className="space-y-1 max-h-48 overflow-y-auto">
-          {brands.map((brand) => (
-            <label key={brand} className="flex items-center gap-2 text-sm cursor-pointer hover:text-ocean">
-              <input
-                type="checkbox"
-                checked={filters.brands.includes(brand)}
-                onChange={() => toggleBrand(brand)}
-                className="rounded border-gray-300 text-ocean focus:ring-ocean"
-              />
-              {brand}
-            </label>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Canopy shape
+        </h4>
+        <select
+          aria-label="Filter by canopy shape"
+          value={filters.canopy}
+          onChange={(e) => setFilters({ canopy: e.target.value as CanopyFilter })}
+          className="w-full border border-gray-200 px-2.5 py-1.5 text-xs"
+        >
+          {CANOPY_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Bar system
+        </h4>
+        <div className="grid grid-cols-3 gap-1">
+          {([
+            ['', 'Any'],
+            ['low-v', 'Low-V'],
+            ['high-y', 'High-Y'],
+          ] as const).map(([val, label]) => (
+            <button
+              key={label}
+              type="button"
+              onClick={() => setFilters({ barType: val })}
+              aria-pressed={filters.barType === val}
+              className={`border py-1.5 text-xs font-semibold transition-colors ${
+                filters.barType === val
+                  ? 'border-ocean bg-ocean text-white'
+                  : 'border-gray-200 bg-surface text-gray-600 hover:border-gray-400'
+              }`}
+            >
+              {label}
+            </button>
           ))}
         </div>
       </div>
 
-      {/* Skill Level */}
       <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Skill Level</h4>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Construction
+        </h4>
+        <div className="grid grid-cols-2 gap-1">
+          {(['all', 'dacron', 'aluula', 'brainchild'] as const).map((val) => (
+            <button
+              key={val}
+              type="button"
+              onClick={() => setFilters({ construction: val })}
+              aria-pressed={filters.construction === val}
+              className={`border py-1.5 text-xs font-semibold capitalize transition-colors ${
+                filters.construction === val
+                  ? 'border-ocean bg-ocean text-white'
+                  : 'border-gray-200 bg-surface text-gray-600 hover:border-gray-400'
+              }`}
+            >
+              {val === 'all' ? 'Any' : val}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Skill level
+        </h4>
         <div className="space-y-1">
           {SKILL_LEVELS.map((skill) => (
-            <label key={skill} className="flex items-center gap-2 text-sm capitalize cursor-pointer hover:text-ocean">
+            <label key={skill} className="flex items-center gap-2 text-xs capitalize text-gray-600 cursor-pointer hover:text-ocean">
               <input
                 type="checkbox"
                 checked={filters.skill.includes(skill)}
                 onChange={() => toggleSkill(skill)}
-                className="rounded border-gray-300 text-ocean focus:ring-ocean"
+                className="accent-ocean"
               />
               {skill}
             </label>
@@ -90,75 +151,53 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
         </div>
       </div>
 
-      {/* Bar Type */}
       <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Bar Type</h4>
-        <select
-          aria-label="Filter by bar type"
-          value={filters.barType}
-          onChange={(e) => setFilters({ barType: e.target.value as typeof filters.barType })}
-          className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
-        >
-          <option value="">All</option>
-          <option value="high-y">High-Y</option>
-          <option value="low-v">Low-V</option>
-          <option value="both">Both</option>
-        </select>
-      </div>
-
-      {/* Aspect Ratio */}
-      <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Aspect Ratio</h4>
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Aspect ratio
+        </h4>
         <select
           aria-label="Filter by aspect ratio"
           value={filters.aspect}
           onChange={(e) => setFilters({ aspect: e.target.value as typeof filters.aspect })}
-          className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
+          className="w-full border border-gray-200 px-2.5 py-1.5 text-xs"
         >
           <option value="">All</option>
-          <option value="low">Low (C-kite)</option>
+          <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="medium-high">Medium-High</option>
-          <option value="high">High (Bow)</option>
+          <option value="high">High</option>
           <option value="very-high">Very High</option>
         </select>
       </div>
 
-      {/* Construction */}
       <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Construction</h4>
-        <select
-          aria-label="Filter by construction"
-          value={filters.construction}
-          onChange={(e) => setFilters({ construction: e.target.value as typeof filters.construction })}
-          className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2"
-        >
-          <option value="all">All</option>
-          <option value="dacron">Dacron only</option>
-          <option value="aluula">Aluula only</option>
-          <option value="brainchild">Brainchild only</option>
-        </select>
-      </div>
-
-      {/* Kite Type */}
-      <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">Kite Type</h4>
-        <label className="flex items-center gap-2 text-sm cursor-pointer hover:text-ocean">
-          <input
-            type="checkbox"
-            checked={filters.foilOnly}
-            onChange={(e) => setFilters({ foilOnly: e.target.checked })}
-            className="rounded border-gray-300 text-ocean focus:ring-ocean"
-          />
-          Foil kites only
-        </label>
-      </div>
-
-      {/* Price */}
-      <div>
-        <h4 className="text-sm font-semibold text-slate mb-2">
-          Max Price: {budgetVal >= 5000 ? 'No limit' : `$${budgetVal.toLocaleString()}`}
+        <h4 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Brand
         </h4>
+        <div className="space-y-1 max-h-44 overflow-y-auto pr-1">
+          {brands.map((brand) => (
+            <label key={brand} className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer hover:text-ocean">
+              <input
+                type="checkbox"
+                checked={filters.brands.includes(brand)}
+                onChange={() => toggleBrand(brand)}
+                className="accent-ocean"
+              />
+              {brand}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="mb-1.5 flex items-baseline justify-between">
+          <h4 className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+            Max price
+          </h4>
+          <span className="font-mono text-xs font-semibold tabular-nums text-ocean">
+            {budgetVal >= 5000 ? 'No limit' : `$${budgetVal.toLocaleString()}`}
+          </span>
+        </div>
         <input
           aria-label="Maximum price"
           type="range"
@@ -171,27 +210,38 @@ export default function KiteFilters({ kites }: KiteFiltersProps) {
           style={{ '--range-pct': `${((budgetVal - 500) / 4500) * 100}%` } as React.CSSProperties}
         />
       </div>
+
+      <button
+        type="button"
+        onClick={reset}
+        className="w-full border border-gray-300 bg-surface py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-gray-600 hover:border-ocean hover:text-ocean"
+      >
+        Reset filters
+      </button>
     </div>
   );
 
   return (
     <>
       <button
-        className="mb-4 min-h-11 w-full rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 lg:hidden"
+        type="button"
+        className="mb-4 min-h-10 w-full border border-gray-200 bg-card px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate lg:hidden"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        {mobileOpen ? 'Hide technical filters' : 'Show technical filters'}
+        {mobileOpen ? 'Hide filters' : 'Show filters'}
       </button>
 
-      <div className="hidden lg:block w-64 shrink-0">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sticky top-20">
-          <h3 className="font-bold text-slate mb-4">Technical filters</h3>
+      <div className="hidden lg:block w-60 shrink-0">
+        <div className="sticky top-18 border border-gray-200 bg-card p-4">
+          <h3 className="mb-4 border-b border-gray-200 pb-2 font-mono text-xs font-bold uppercase tracking-[0.1em] text-slate">
+            Filters
+          </h3>
           {filterContent}
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-white rounded-xl shadow-sm border border-gray-100 p-5 mb-4">
+        <div className="mb-4 border border-gray-200 bg-card p-4 lg:hidden">
           {filterContent}
         </div>
       )}

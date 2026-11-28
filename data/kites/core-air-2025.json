@@ -5,9 +5,16 @@
   "model": "Air",
   "year": 2025,
   "image": "/kites/core-air-2025.jpg",
-  "style_spectrum": 18,
-  "shape_spectrum": 60,
-  "wave_spectrum": 20,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 30,
+    "wave": 20,
+    "foil": 92,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "lightwind",
     "freeride",

@@ -9,43 +9,41 @@ const config: Config = {
     extend: {
       colors: {
         ocean: {
-          DEFAULT: "#3CB8E3",
-          light: "#79D3F1",
-          dark: "#1684A8",
+          DEFAULT: "#0E5A8A",
+          light: "#E6F0F7",
+          dark: "#093E61",
         },
         sand: {
-          DEFAULT: "#FF8358",
-          light: "#FFA080",
-          dark: "#D95B34",
+          DEFAULT: "#B44B1E",
+          light: "#FCEEE8",
+          dark: "#8A3511",
         },
         slate: {
-          DEFAULT: "#F4F8FA",
+          DEFAULT: "#17191C",
         },
-        surface: "#0C1A24",
-        card: "#122633",
-        // Inverted gray scale for dark-first design
-        // Low numbers = dark backgrounds/borders, High numbers = light text
+        surface: "#F6F5F0",
+        card: "#FFFFFF",
         gray: {
-          50:  "#122633",
-          100: "#1D3442",
-          200: "#2C4554",
-          300: "#466170",
-          400: "#8398A3",
-          500: "#A2B2BA",
-          600: "#BCC8CE",
-          700: "#D2DBDF",
-          800: "#E4EAED",
-          900: "#F4F8FA",
+          50:  "#F0EFE9",
+          100: "#E5E3DC",
+          200: "#D4D1C7",
+          300: "#B4B0A4",
+          400: "#78756C",
+          500: "#57544D",
+          600: "#3D3B36",
+          700: "#2A2925",
+          800: "#1D1C1A",
+          900: "#141413",
         },
       },
       fontFamily: {
-        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
-        display: ["var(--font-barlow)", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       keyframes: {
         badgePop: {
-          '0%':   { transform: 'scale(0.6)', opacity: '0' },
-          '60%':  { transform: 'scale(1.18)', opacity: '1' },
+          '0%':   { transform: 'scale(0.8)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
         slideUp: {
@@ -54,8 +52,8 @@ const config: Config = {
         },
       },
       animation: {
-        'badge-pop': 'badgePop 220ms ease-out',
-        'slide-up':  'slideUp 260ms ease-out',
+        'badge-pop': 'badgePop 180ms ease-out',
+        'slide-up':  'slideUp 220ms ease-out',
       },
     },
   },

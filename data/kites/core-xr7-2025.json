@@ -5,9 +5,16 @@
   "model": "XR7",
   "year": 2025,
   "image": "/kites/core-xr7-2025.jpg",
-  "style_spectrum": 88,
-  "shape_spectrum": 55,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 86,
+    "big_air": 92,
+    "wave": 10,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "megaloops",

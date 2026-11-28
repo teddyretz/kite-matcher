@@ -107,9 +107,11 @@ function writeKite(kite: ValidatedKite) {
 }
 
 function buildUserPrompt(kite: ValidatedKite, transcripts: YouTubeReview[]): string {
+  const ds = kite.discipline_scores
   const header = `Kite: ${kite.brand} ${kite.model} ${kite.year}
 Category: ${kite.summary}
-Style placement: style_spectrum=${kite.style_spectrum} (Foil 0-20, Surf 21-40, Freestyle 41-60, Freeride 61-80, Big Air 81-100), wave_spectrum=${kite.wave_spectrum}
+Disciplines (0-100): freeride=${ds.freeride}, big_air=${ds.big_air}, wave=${ds.wave}, foil=${ds.foil}, freestyle=${ds.freestyle}
+Shape & feel: canopy_shape=${kite.canopy_shape}, aspect_ratio=${kite.aspect_ratio}, bar_pressure=${kite.bar_pressure}, flying_style=${kite.flying_style}
 Tags: ${kite.style_tags.join(', ')}
 
 Review transcripts follow. Produce both a consolidated \`review\` and a per-source \`videos\` summary array (one entry per source, keyed by video_id).

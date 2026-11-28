@@ -5,9 +5,16 @@
   "model": "XS Pro",
   "year": 2025,
   "image": "/kites/eleveight-xs-pro-2025.jpg",
-  "style_spectrum": 87,
-  "shape_spectrum": 60,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 74,
+    "big_air": 97,
+    "wave": 10,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "megaloops",

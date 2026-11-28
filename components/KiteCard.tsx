@@ -4,86 +4,36 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { track } from '@vercel/analytics/react';
-import { Kite } from '@/lib/types';
+import type { Kite } from '@/lib/types';
+import { displayFitScore, type KiteSizeRecommendation } from '@/lib/matcher';
+import { primaryDisciplineForKite } from '@/lib/seo';
 import { useCompare } from './CompareContext';
 import { limitedEvidenceLabel } from '@/lib/reviewers';
 
-function getStyleZone(spectrum: number): string {
-  if (spectrum <= 20) return 'Foil';
-  if (spectrum <= 40) return 'Surf';
-  if (spectrum <= 60) return 'Freestyle';
-  if (spectrum <= 80) return 'Freeride';
-  return 'Big Air';
-}
-
-function StarRating({ score, sourceCount }: { score: number; sourceCount: number }) {
-  const full = Math.floor(score);
-  const hasHalf = score - full >= 0.3;
-  return (
-    <div className="flex items-center gap-0.5">
-      {[1, 2, 3, 4, 5].map(i => (
-        <svg
-          key={i}
-          className={`w-3.5 h-3.5 ${
-            i <= full
-              ? 'text-sand'
-              : i === full + 1 && hasHalf
-              ? 'text-sand/50'
-              : 'text-gray-200'
-          }`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-      <span className="ml-1 text-xs text-gray-400">
-        {score.toFixed(1)} · {sourceCount} {sourceCount === 1 ? 'source' : 'sources'}
-      </span>
-    </div>
-  );
-}
+const DISCIPLINE_LABEL: Record<string, string> = {
+  freeride: 'Freeride',
+  big_air: 'Big Air',
+  wave: 'Wave',
+  foil: 'Foil',
+  freestyle: 'Freestyle',
+};
 
 function KiteImage({ slug, model, brand, compact = false }: { slug: string; model: string; brand: string; compact?: boolean }) {
   const [imgError, setImgError] = useState(false);
-  const brandColors: Record<string, string> = {
-    Duotone:   '#00A3E0',
-    Cabrinha:  '#E31937',
-    Core:      '#FF6B00',
-    North:     '#E8EFFF',
-    Eleveight: '#6366F1', // unslop-ignore: manufacturer color used only for missing-image fallback
-    'F-One':   '#00B4D8',
-    Ozone:     '#22C55E',
-    Slingshot: '#EAB308',
-    Naish:     '#3B82F6',
-    Airush:    '#EC4899',
-    Reedin:    '#8B5CF6', // unslop-ignore: manufacturer color used only for missing-image fallback
-    Flysurfer: '#14B8A6',
-    Harlem:    '#F97316',
-  };
 
   if (imgError) {
-    const color = brandColors[brand] || '#3D5870';
     return (
-      <div
-        className={`w-full ${compact ? 'h-36 sm:h-44' : 'h-44'} flex items-center justify-center bg-gray-50`}
-        style={{ borderBottom: `1px solid ${color}20` }}
-      >
+      <div className={`w-full ${compact ? 'h-36' : 'h-40'} flex items-center justify-center border-b border-gray-200 bg-gray-50`}>
         <div className="text-center">
-          <div
-            className="font-display font-black italic text-3xl uppercase tracking-wide"
-            style={{ color }}
-          >
-            {brand}
-          </div>
-          <div className="text-xs text-gray-400 mt-1">{model}</div>
+          <div className="font-mono text-sm font-bold uppercase tracking-wider text-slate">{brand}</div>
+          <div className="mt-0.5 text-xs text-gray-500">{model}</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={`relative w-full ${compact ? 'h-36 sm:h-44' : 'h-44'} overflow-hidden bg-gray-50`}>
+    <div className={`relative w-full ${compact ? 'h-36' : 'h-40'} overflow-hidden border-b border-gray-200 bg-gray-50`}>
       <Image
         src={`/kites/${slug}.jpg`}
         alt={`${brand} ${model}`}
@@ -92,8 +42,6 @@ function KiteImage({ slug, model, brand, compact = false }: { slug: string; mode
         className="object-cover"
         onError={() => setImgError(true)}
       />
-      {/* Fade bottom into card */}
-      <div className="absolute inset-x-0 bottom-0 h-px bg-white/20" />
     </div>
   );
 }
@@ -103,133 +51,154 @@ interface KiteCardProps {
   matchScore?: number;
   matchReasons?: string[];
   tradeoff?: string;
+  recommendedSize?: KiteSizeRecommendation;
   compactMatch?: boolean;
   pickLabel?: string;
 }
 
-export default function KiteCard({ kite, matchScore, matchReasons, tradeoff, compactMatch = false, pickLabel }: KiteCardProps) {
+export default function KiteCard({
+  kite,
+  matchScore,
+  matchReasons,
+  tradeoff,
+  recommendedSize,
+  compactMatch = false,
+  pickLabel,
+}: KiteCardProps) {
   const { addToCompare, removeFromCompare, isInCompare } = useCompare();
   const inCompare = isInCompare(kite.slug);
-  const fitTier = pickLabel ?? (matchScore !== undefined && matchScore >= 80 ? 'Strong match' : matchScore !== undefined && matchScore >= 60 ? 'Good match' : 'Worth a look');
+  const primaryDiscipline = DISCIPLINE_LABEL[primaryDisciplineForKite(kite)] ?? 'Freeride';
+  const barLabel = kite.bar_type === 'high-y' ? 'High-Y' : kite.bar_type === 'low-v' ? 'Low-V' : 'High-Y / Low-V';
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-gray-50 shadow-[0_12px_35px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ocean/50">
+    <article className="flex flex-col border border-gray-200 bg-card transition-colors hover:border-ocean">
       <KiteImage slug={kite.slug} model={kite.model} brand={kite.brand} compact={compactMatch} />
 
-      <div className={`px-4 pt-1 ${compactMatch ? 'space-y-2 pb-4 sm:space-y-3 sm:pb-5' : 'space-y-3 pb-5'}`}>
-        {/* Brand + match score */}
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-ocean">
-            {kite.brand} / {kite.year}
-          </span>
+      <div className="flex flex-1 flex-col space-y-3 p-4">
+        {/* Header: Brand/year + fit score */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+              {kite.brand} · {kite.year}
+            </p>
+            <h3 className="mt-0.5 truncate text-lg font-bold tracking-tight text-slate">
+              {kite.model}
+            </h3>
+          </div>
           {matchScore !== undefined && (
-            <div className="text-right">
-              <span className={`block rounded-full border px-2.5 py-1 text-[10px] font-semibold ${
-                matchScore >= 80 ? 'text-ocean' :
-                matchScore >= 60 ? 'text-sand' :
-                'text-gray-400'
-              }`}>
-                {fitTier}
+            <div className="shrink-0 border border-ocean/30 bg-ocean-light px-2 py-1 text-right">
+              <span className="block font-mono text-sm font-bold tabular-nums leading-none text-ocean">
+                {displayFitScore(matchScore)}%
               </span>
+              {pickLabel && (
+                <span className="mt-0.5 block font-mono text-[9px] uppercase tracking-wider text-ocean-dark">
+                  {pickLabel}
+                </span>
+              )}
             </div>
           )}
         </div>
 
-        {/* Model name */}
-        <div>
-          <h3 className="font-display text-2xl font-black uppercase tracking-wide text-slate leading-tight">
-            {kite.model}
-          </h3>
-          {kite.structured_review?.rec_blurb && (
-            <p className={`text-xs text-gray-500 mt-1 leading-snug ${compactMatch ? 'line-clamp-1 sm:line-clamp-2' : 'line-clamp-2'}`}>
-              {kite.structured_review.rec_blurb}
-            </p>
-          )}
+        {/* Dense tabular spec strip */}
+        <div className="grid grid-cols-3 border border-gray-200 bg-surface font-mono text-[11px] tabular-nums">
+          <div className="border-r border-gray-200 px-2 py-1.5">
+            <span className="block text-[9px] uppercase text-gray-400">Wind</span>
+            <span className="font-semibold text-slate">{kite.wind_range_low}–{kite.wind_range_high}kt</span>
+          </div>
+          <div className="border-r border-gray-200 px-2 py-1.5">
+            <span className="block text-[9px] uppercase text-gray-400">Frame</span>
+            <span className="font-semibold text-slate">
+              {kite.strut_count === 0 ? '0-st' : `${kite.strut_count}-st`} · {kite.canopy_shape}
+            </span>
+          </div>
+          <div className="px-2 py-1.5">
+            <span className="block text-[9px] uppercase text-gray-400">Bar</span>
+            <span className="font-semibold text-slate">{barLabel}</span>
+          </div>
         </div>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-1">
-          {kite.teds_pick && (
-            <span className="rounded-md border border-sand/40 px-2 py-0.5 text-sand text-[9px] font-semibold">
-              Ted&apos;s Pick
-            </span>
-          )}
-          <span className="rounded-md border border-white/15 px-2 py-0.5 text-gray-600 text-[9px] font-semibold">
-            {getStyleZone(kite.style_spectrum)}
+        {/* Compact tags */}
+        <div className="flex flex-wrap gap-1 font-mono text-[10px]">
+          <span className="border border-gray-200 bg-gray-50 px-1.5 py-0.5 font-semibold text-gray-600">
+            {primaryDiscipline}
           </span>
           {kite.aluula && (
-            <span className="rounded-md border border-white/15 px-2 py-0.5 text-ocean text-[9px] font-semibold">
+            <span className="border border-ocean/40 bg-ocean-light px-1.5 py-0.5 font-semibold text-ocean">
               Aluula
             </span>
           )}
           {kite.brainchild && (
-            <span className="rounded-md border border-white/15 px-2 py-0.5 text-blue-400 text-[9px] font-semibold">
+            <span className="border border-gray-300 bg-gray-50 px-1.5 py-0.5 font-semibold text-slate">
               Brainchild
             </span>
           )}
-          {kite.snow_kite && (
-            <span className="rounded-md border border-white/15 px-2 py-0.5 text-sky-400 text-[9px] font-semibold">
-              Snow
-            </span>
-          )}
-          {kite.discontinued && (
-            <span className="rounded-md border border-white/15 px-2 py-0.5 text-gray-400 text-[9px] font-semibold">
-              Discontinued
+          {recommendedSize && (
+            <span className="border border-ocean bg-ocean px-1.5 py-0.5 font-semibold text-white">
+              Size {recommendedSize.minSize === recommendedSize.maxSize ? `${recommendedSize.minSize}m` : `${recommendedSize.minSize}–${recommendedSize.maxSize}m`}
             </span>
           )}
         </div>
+
+        {/* Verdict blurb */}
+        {kite.structured_review?.rec_blurb && (
+          <p className="line-clamp-2 text-xs leading-relaxed text-gray-600">
+            {kite.structured_review.rec_blurb}
+          </p>
+        )}
 
         {/* Rating + price */}
-        <div className="flex items-center justify-between">
-          {kite.structured_review?.rating && limitedEvidenceLabel(kite.structured_review.sources) ? (
-            <span className="text-[11px] text-gray-400">
-              <span className="border border-amber-300 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-700">
-                {limitedEvidenceLabel(kite.structured_review.sources)}
-              </span>{' '}
-              {kite.structured_review.rating.toFixed(1)}
-            </span>
-          ) : kite.structured_review?.rating ? (
-            <StarRating score={kite.structured_review.rating} sourceCount={kite.structured_review.sources.length} />
+        <div className="flex items-baseline justify-between border-t border-gray-100 pt-2.5 font-mono text-xs tabular-nums">
+          {kite.structured_review ? (
+            limitedEvidenceLabel(kite.structured_review.sources) ? (
+              <span className="text-gray-500">
+                {kite.structured_review.rating.toFixed(1)}/5 ·{' '}
+                <span className="font-bold uppercase text-sand">{limitedEvidenceLabel(kite.structured_review.sources)}</span>
+              </span>
+            ) : (
+              <span className="text-gray-600">
+                <strong className="text-slate">{kite.structured_review.rating.toFixed(1)}</strong>/5 ·{' '}
+                {kite.structured_review.sources.length}{' '}
+                {kite.structured_review.sources.length === 1 ? 'src' : 'srcs'}
+              </span>
+            )
           ) : (
-            <div />
+            <span className="text-gray-400">No synthesis yet</span>
           )}
-          <span className="text-sm font-bold text-slate">
-            ${kite.price_new.toLocaleString()}
-          </span>
+          <span className="font-bold text-slate">${kite.price_new.toLocaleString()}</span>
         </div>
 
+        {/* Match reasons / tradeoff */}
         {matchReasons && matchReasons.length > 0 && (
-          <div className="rounded-xl bg-ocean/[0.055] p-3">
-            <div className="flex items-start gap-2 text-[11px] leading-4 text-gray-600">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ocean" />
-              <span>{matchReasons[0]}</span>
-            </div>
-            <div>
-              <ul className="mt-2 space-y-1.5">
-              {matchReasons.slice(1, 2).map(reason => (
-                <li key={reason} className="flex gap-2 text-[11px] leading-4 text-gray-600">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ocean" />
-                  {reason}
+          <div className="border border-gray-200 bg-surface p-2.5 text-[11px] leading-4 text-gray-600">
+            <ul className="space-y-1">
+              {matchReasons.slice(0, 2).map((reason) => (
+                <li key={reason} className="flex gap-1.5">
+                  <span className="font-mono font-bold text-ocean">+</span>
+                  <span>{reason}</span>
                 </li>
               ))}
-              </ul>
-              {tradeoff && (
-                <p className="mt-2 border-t border-white/10 pt-2 text-[10px] leading-4 text-gray-500">
-                  <span className="font-bold text-sand">Tradeoff:</span> {tradeoff}
-                </p>
-              )}
-            </div>
+            </ul>
+            {tradeoff && (
+              <p className="mt-1.5 border-t border-gray-200 pt-1.5 text-[11px] text-sand">
+                <span className="font-mono font-bold">−</span> {tradeoff}
+              </p>
+            )}
           </div>
         )}
 
-        {/* Buttons */}
-        <div className="flex gap-2 pt-1">
+        {/* Actions */}
+        <div className="mt-auto flex gap-2 pt-1">
           <Link
             href={`/kite/${kite.slug}`}
-            onClick={() => track('kite_detail_opened', { slug: kite.slug, source: matchScore === undefined ? 'catalog' : 'results' })}
-            className="flex-1 rounded-lg bg-ocean px-3 py-2.5 text-center text-xs font-bold text-surface transition-colors hover:bg-white"
+            onClick={() =>
+              track('kite_detail_opened', {
+                slug: kite.slug,
+                source: matchScore === undefined ? 'catalog' : 'results',
+              })
+            }
+            className="flex-1 border border-slate bg-slate px-3 py-2 text-center text-xs font-semibold text-white transition-colors hover:border-ocean hover:bg-ocean"
           >
-            Read the field notes
+            Specs &amp; reviews
           </Link>
           <button
             type="button"
@@ -237,15 +206,18 @@ export default function KiteCard({ kite, matchScore, matchReasons, tradeoff, com
               if (inCompare) removeFromCompare(kite.slug);
               else {
                 addToCompare(kite.slug);
-                track('kite_added_to_compare', { slug: kite.slug, source: matchScore === undefined ? 'catalog' : 'results' });
+                track('kite_added_to_compare', {
+                  slug: kite.slug,
+                  source: matchScore === undefined ? 'catalog' : 'results',
+                });
               }
             }}
             aria-label={inCompare ? `Remove ${kite.model} from compare` : `Add ${kite.model} to compare`}
             aria-pressed={inCompare}
-            className={`min-h-11 min-w-11 rounded-lg border px-4 py-2 text-sm font-semibold transition-all duration-150 active:scale-90 ${
+            className={`min-h-9 min-w-9 border px-3 py-1.5 font-mono text-xs font-bold transition-colors ${
               inCompare
-                ? 'bg-ocean/15 border-ocean text-ocean ring-2 ring-ocean/30'
-                : 'border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-600'
+                ? 'border-ocean bg-ocean-light text-ocean'
+                : 'border-gray-300 bg-card text-gray-600 hover:border-ocean hover:text-ocean'
             }`}
           >
             {inCompare ? '✓' : '+'}

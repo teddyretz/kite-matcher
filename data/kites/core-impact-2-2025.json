@@ -5,9 +5,16 @@
   "model": "Impact 2",
   "year": 2025,
   "image": "/kites/core-impact-2-2025.jpg",
-  "style_spectrum": 48,
-  "shape_spectrum": 28,
-  "wave_spectrum": 8,
+  "discipline_scores": {
+    "freeride": 62,
+    "big_air": 30,
+    "wave": 8,
+    "foil": 50,
+    "freestyle": 82
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wakestyle",

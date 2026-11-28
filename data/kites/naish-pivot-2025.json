@@ -5,9 +5,16 @@
   "model": "Pivot",
   "year": 2025,
   "image": "/kites/naish-pivot-2025.jpg",
-  "style_spectrum": 67,
-  "shape_spectrum": 45,
-  "wave_spectrum": 50,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 60,
+    "wave": 82,
+    "foil": 50,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "all-around",
     "freeride",

@@ -5,9 +5,16 @@
   "model": "Pace Pro",
   "year": 2025,
   "image": "/kites/core-pace-pro-2025.jpg",
-  "style_spectrum": 88,
-  "shape_spectrum": 48,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 86,
+    "big_air": 97,
+    "wave": 10,
+    "foil": 58,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "big air",
     "kiteloop",

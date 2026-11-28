@@ -3,17 +3,18 @@
 @tailwind utilities;
 
 body {
-  color: #F4F8FA;
-  background: #0C1A24;
+  color: #17191C;
+  background: #F6F5F0;
 }
 
 :focus-visible {
-  outline: 2px solid #3CB8E3;
-  outline-offset: 3px;
+  outline: 2px solid #0E5A8A;
+  outline-offset: 2px;
 }
 
 [aria-current="page"] {
-  color: #F4F8FA;
+  color: #17191C;
+  border-color: #0E5A8A;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,31 +26,13 @@ body {
   }
 }
 
-/* A dry, printed grain keeps the interface closer to a gear annual than software UI. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.055;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 180px 180px;
-}
-
-/* Legacy utility mapping for the dark editorial theme. */
-.bg-white {
-  background-color: #122633 !important;
-}
-
-/* Range sliders: bright rigging line, no neon glow. */
+/* Range sliders: crisp daylight utility track for true continuums (wind, budget, weight). */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   height: 4px;
   border-radius: 2px;
-  background: #3A3C32;
+  background: #D4D1C7;
   outline: none;
   cursor: pointer;
 }
@@ -59,56 +42,56 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 2px;
   background: linear-gradient(
     to right,
-    #3CB8E3 var(--range-pct, 50%),
-    #3A3C32 var(--range-pct, 50%)
+    #0E5A8A var(--range-pct, 50%),
+    #D4D1C7 var(--range-pct, 50%)
   );
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #3CB8E3;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: #0E5A8A;
   cursor: pointer;
-  border: 3px solid #0C1A24;
-  box-shadow: none;
-  margin-top: -8px;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #0E5A8A;
+  margin-top: -7px;
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #3CB8E3;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: #0E5A8A;
   cursor: pointer;
-  border: 3px solid #0C1A24;
-  box-shadow: none;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #0E5A8A;
 }
 
 input[type="range"]::-moz-range-track {
   height: 4px;
   border-radius: 2px;
-  background: #3A3C32;
+  background: #D4D1C7;
 }
 
 /* Select elements */
 select {
-  background-color: #122633;
-  color: #F4F8FA;
-  border-color: #3A3C32;
+  background-color: #FFFFFF;
+  color: #17191C;
+  border-color: #D4D1C7;
 }
 
 select option {
-  background-color: #122633;
-  color: #F4F8FA;
+  background-color: #FFFFFF;
+  color: #17191C;
 }
 
 /* Text selection */
 ::selection {
-  background: #3CB8E3;
-  color: #0C1A24;
+  background: #0E5A8A;
+  color: #FFFFFF;
 }
 
 /* Scrollbar */
@@ -116,20 +99,11 @@ select option {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C1A24;
+  background: #F6F5F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3A3C32;
+  background: #B4B0A4;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #535649;
-}
-
-@keyframes editorial-in {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.editorial-in {
-  animation: editorial-in 650ms cubic-bezier(.2,.75,.25,1) both;
+  background: #78756C;
 }

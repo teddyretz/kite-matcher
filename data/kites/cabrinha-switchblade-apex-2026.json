@@ -5,9 +5,16 @@
   "model": "Switchblade Apex",
   "year": 2026,
   "image": "/kites/cabrinha-switchblade-apex-2026.jpg",
-  "style_spectrum": 65,
-  "shape_spectrum": 47,
-  "wave_spectrum": 37,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 88,
+    "wave": 32,
+    "foil": 22,
+    "freestyle": 48
+  },
+  "canopy_shape": "bow",
+  "bar_pressure": "heavy",
+  "flying_style": "sheet-and-go",
   "style_tags": [
     "freeride",
     "all-around",

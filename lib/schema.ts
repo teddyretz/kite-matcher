@@ -5,6 +5,17 @@ const BarType = z.enum(['high-y', 'low-v', 'both']);
 const TurningSpeed = z.enum(['slow', 'medium', 'medium-fast', 'fast', 'very-fast']);
 const Relaunch = z.enum(['easy', 'medium', 'hard']);
 const AspectRatio = z.enum(['low', 'medium', 'medium-high', 'high', 'very-high']);
+const CanopyShape = z.enum(['c', 'open-c', 'hybrid', 'delta', 'bow', 'foil']);
+const BarPressure = z.enum(['light', 'medium', 'heavy']);
+const FlyingStyle = z.enum(['sheet-and-go', 'balanced', 'active']);
+
+const DisciplineScores = z.object({
+  freeride: z.number().min(0).max(100),
+  big_air: z.number().min(0).max(100),
+  wave: z.number().min(0).max(100),
+  foil: z.number().min(0).max(100),
+  freestyle: z.number().min(0).max(100),
+});
 
 const YouTubeReview = z.object({
   source: z.literal('youtube'),
@@ -68,9 +79,10 @@ export const KiteSchema = z.object({
   year: z.number().int(),
   image: z.string(),
 
-  style_spectrum: z.number().min(0).max(100),
-  shape_spectrum: z.number().min(0).max(100),
-  wave_spectrum: z.number().min(0).max(100),
+  discipline_scores: DisciplineScores,
+  canopy_shape: CanopyShape,
+  bar_pressure: BarPressure,
+  flying_style: FlyingStyle,
   style_tags: z.array(z.string()),
   skill_level: z.array(SkillLevel),
 

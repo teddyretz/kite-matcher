@@ -1,0 +1,94 @@
+# Weekly automated ingestion of independent YouTube kite reviews.
+#
+# Queries vetted channels in data/review-sources.json via yt-dlp, appends new
+# transcripts to matched data/kites/<slug>.json files, regenerates
+# structured_review + per-video summaries via Claude, validates all kite JSON
+# files, and opens a Pull Request for human review before merging to main.
+#
+# Requires repo secret: ANTHROPIC_API_KEY
+
+name: Ingest independent reviews
+
+on:
+  schedule:
+    # Weekly on Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview matches without modifying files or opening a PR"
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: ingest-independent-reviews
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard — API key present
+        if: ${{ inputs.dry_run != true }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY secret is not set. Add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned yt-dlp
+        run: pip install "yt-dlp==2026.10.21"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ingest independent reviews
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            npx tsx scripts/ingest-independent-reviews.ts --dry-run
+          else
+            npx tsx scripts/ingest-independent-reviews.ts
+          fi
+
+      - name: Validate kite files
+        run: npm run validate-kites
+
+      - name: Open Pull Request for review
+        if: ${{ inputs.dry_run != true }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore(reviews): ingest new independent YouTube reviews"
+          branch: bot/ingest-independent-reviews
+          delete-branch: true
+          title: "chore(reviews): ingest new independent YouTube reviews"
+          body: |
+            Automated weekly ingestion from `data/review-sources.json`.
+
+            ### Review Checklist
+            - [ ] Confirm each matched video corresponds to the right kite model and year
+            - [ ] Spot-check regenerated `structured_review` and per-video `summary`
+            - [ ] Verify `npm run validate-kites` passed in CI before merging
+          labels: |
+            automated
+            reviews

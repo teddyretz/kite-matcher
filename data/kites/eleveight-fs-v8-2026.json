@@ -5,9 +5,16 @@
   "model": "FS V8",
   "year": 2026,
   "image": "/kites/eleveight-fs-v8-2026.jpg",
-  "style_spectrum": 56,
-  "shape_spectrum": 45,
-  "wave_spectrum": 12,
+  "discipline_scores": {
+    "freeride": 62,
+    "big_air": 88,
+    "wave": 12,
+    "foil": 22,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "medium",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "big air",
