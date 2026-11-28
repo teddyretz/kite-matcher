@@ -5,9 +5,16 @@
   "model": "Hyper Model",
   "year": 2026,
   "image": "/kites/reedin-hypermodel-2026.jpg",
-  "style_spectrum": 77,
-  "shape_spectrum": 68,
-  "wave_spectrum": 15,
+  "discipline_scores": {
+    "freeride": 88,
+    "big_air": 93,
+    "wave": 15,
+    "foil": 73,
+    "freestyle": 48
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "freeride",

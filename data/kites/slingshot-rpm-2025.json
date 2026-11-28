@@ -5,9 +5,16 @@
   "model": "RPM",
   "year": 2025,
   "image": "/kites/slingshot-rpm-2025.jpg",
-  "style_spectrum": 42,
-  "shape_spectrum": 35,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 45,
+    "big_air": 30,
+    "wave": 10,
+    "foil": 50,
+    "freestyle": 96
+  },
+  "canopy_shape": "c",
+  "bar_pressure": "heavy",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wakestyle",

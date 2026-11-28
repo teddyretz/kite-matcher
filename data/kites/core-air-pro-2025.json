@@ -5,9 +5,16 @@
   "model": "Air Pro",
   "year": 2025,
   "image": "/kites/core-air-pro-2025.jpg",
-  "style_spectrum": 20,
-  "shape_spectrum": 58,
-  "wave_spectrum": 18,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 93,
+    "wave": 88,
+    "foil": 100,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "lightwind",
     "big air",

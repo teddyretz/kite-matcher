@@ -5,9 +5,16 @@
   "model": "Pulse",
   "year": 2025,
   "image": "/kites/north-pulse-2025.jpg",
-  "style_spectrum": 46,
-  "shape_spectrum": 35,
-  "wave_spectrum": 12,
+  "discipline_scores": {
+    "freeride": 62,
+    "big_air": 30,
+    "wave": 12,
+    "foil": 50,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wakestyle",

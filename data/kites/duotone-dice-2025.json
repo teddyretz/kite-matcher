@@ -5,9 +5,16 @@
   "model": "Dice",
   "year": 2025,
   "image": "/kites/duotone-dice-2025.jpg",
-  "style_spectrum": 52,
-  "shape_spectrum": 45,
-  "wave_spectrum": 20,
+  "discipline_scores": {
+    "freeride": 86,
+    "big_air": 30,
+    "wave": 20,
+    "foil": 50,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "medium",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "freeride",

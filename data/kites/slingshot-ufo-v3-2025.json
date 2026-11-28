@@ -5,9 +5,16 @@
   "model": "UFO V3",
   "year": 2025,
   "image": "/kites/slingshot-ufo-v3-2025.jpg",
-  "style_spectrum": 10,
-  "shape_spectrum": 70,
-  "wave_spectrum": 20,
+  "discipline_scores": {
+    "freeride": 52,
+    "big_air": 30,
+    "wave": 20,
+    "foil": 92,
+    "freestyle": 25
+  },
+  "canopy_shape": "foil",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "foil",
     "ultralight",

@@ -5,9 +5,16 @@
   "model": "Breeze",
   "year": 2025,
   "image": "/kites/f-one-breeze-2025.jpg",
-  "style_spectrum": 8,
-  "shape_spectrum": 85,
-  "wave_spectrum": 25,
+  "discipline_scores": {
+    "freeride": 52,
+    "big_air": 30,
+    "wave": 25,
+    "foil": 92,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "foil",
     "lightwind",

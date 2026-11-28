@@ -27,12 +27,12 @@ export default function CompareDrawer() {
             kite ? (
               <div
                 key={slug}
-                className="flex shrink-0 items-center gap-1.5 border border-white/15 bg-surface px-2.5 py-1 text-xs sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
+                className="flex shrink-0 items-center gap-1.5 border border-gray-200 bg-surface px-2.5 py-1 text-xs sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
               >
-                <span className="font-medium whitespace-nowrap">{kite.brand} {kite.model}</span>
+                <span className="font-medium whitespace-nowrap text-slate">{kite.brand} {kite.model}</span>
                 <button
                   onClick={() => removeFromCompare(slug)}
-                  className="text-gray-400 hover:text-red-500 leading-none"
+                  className="text-gray-400 hover:text-sand leading-none"
                   aria-label={`Remove ${kite.model} from compare`}
                 >
                   &times;
@@ -41,14 +41,14 @@ export default function CompareDrawer() {
             ) : (
               <div
                 key={slug}
-                className="flex shrink-0 animate-pulse items-center gap-1.5 border border-white/10 bg-gray-100 px-2.5 py-1 text-xs text-gray-400 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
+                className="flex shrink-0 animate-pulse items-center gap-1.5 border border-gray-200 bg-gray-100 px-2.5 py-1 text-xs text-gray-500 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
                 aria-busy={kitesLoading || undefined}
               >
                 <span className="font-medium whitespace-nowrap">{kitesLoading ? 'Loading…' : slug}</span>
                 {!kitesLoading && (
                   <button
                     onClick={() => removeFromCompare(slug)}
-                    className="text-gray-400 hover:text-red-500 leading-none"
+                    className="text-gray-400 hover:text-sand leading-none"
                     aria-label={`Remove ${slug} from compare`}
                   >
                     &times;
@@ -61,20 +61,20 @@ export default function CompareDrawer() {
         <div className="flex gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={clearCompare}
-            className="text-xs sm:text-sm text-gray-500 hover:text-red-500 px-2 sm:px-3 py-1.5"
+            className="text-xs sm:text-sm text-gray-500 hover:text-sand px-2 sm:px-3 py-1.5"
           >
             Clear
           </button>
           <Link
             href={`/compare?kites=${compareKites.join(',')}`}
             aria-disabled={hasUnresolved && kitesLoading}
-            className={`px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
+            className={`border px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap ${
               hasUnresolved && kitesLoading
-                ? 'bg-gray-200 text-gray-400 pointer-events-none'
-                : 'bg-ocean text-[#080D16] hover:bg-ocean-light'
+                ? 'border-gray-200 bg-gray-100 text-gray-400 pointer-events-none'
+                : 'border-ocean bg-ocean text-white hover:bg-ocean-dark'
             }`}
           >
-            <span className="hidden sm:inline">Compare Now</span>
+            <span className="hidden sm:inline">Compare</span>
             <span className="sm:hidden">Compare</span>
           </Link>
         </div>

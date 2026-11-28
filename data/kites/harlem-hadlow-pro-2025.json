@@ -5,9 +5,16 @@
   "model": "Hadlow Pro",
   "year": 2025,
   "image": "/kites/harlem-hadlow-pro-2025.jpg",
-  "style_spectrum": 47,
-  "shape_spectrum": 32,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 45,
+    "big_air": 35,
+    "wave": 10,
+    "foil": 22,
+    "freestyle": 96
+  },
+  "canopy_shape": "c",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wakestyle",

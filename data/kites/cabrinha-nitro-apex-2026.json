@@ -5,9 +5,16 @@
   "model": "Nitro Apex",
   "year": 2026,
   "image": "/kites/cabrinha-nitro-apex-2026.jpg",
-  "style_spectrum": 88,
-  "shape_spectrum": 60,
-  "wave_spectrum": 8,
+  "discipline_scores": {
+    "freeride": 68,
+    "big_air": 92,
+    "wave": 8,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "megaloops",

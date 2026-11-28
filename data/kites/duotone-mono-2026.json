@@ -5,9 +5,16 @@
   "model": "Mono",
   "year": 2026,
   "image": "/kites/duotone-mono-2026.jpg",
-  "style_spectrum": 15,
-  "shape_spectrum": 68,
-  "wave_spectrum": 35,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 30,
+    "wave": 30,
+    "foil": 92,
+    "freestyle": 25
+  },
+  "canopy_shape": "foil",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "foil",
     "freeride",

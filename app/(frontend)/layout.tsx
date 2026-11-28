@@ -9,13 +9,13 @@ import CompareNavLink from "@/components/CompareNavLink";
 import SiteFooter from "@/components/SiteFooter";
 
 const navLinks = [
-  { href: "/", label: "Kite finder" },
-  { href: "/kites", label: "Kite index" },
-  { href: "/about", label: "The story" },
+  { href: "/", label: "Matcher" },
+  { href: "/kites", label: "Index" },
+  { href: "/about", label: "About" },
 ];
 
 const navLinkClass =
-  "border-b border-transparent pb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-gray-500 transition-colors duration-200 hover:border-ocean hover:text-white";
+  "border-b-2 border-transparent pb-1 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 transition-colors hover:border-ocean hover:text-slate";
 
 export default function FrontendLayout({
   children,
@@ -27,31 +27,41 @@ export default function FrontendLayout({
 
   return (
     <CompareProvider>
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-ocean focus:px-4 focus:py-3 focus:font-bold focus:text-[#080D16]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-ocean focus:bg-ocean focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:text-white"
+      >
         Skip to content
       </a>
-      <nav className="sticky top-0 z-50 border-b border-white/15 bg-surface/95 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 border-b border-gray-200 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 font-display text-xl font-black uppercase tracking-[-0.03em] text-white select-none">
-              <span className="grid h-7 w-7 place-items-center bg-ocean text-sm not-italic text-surface">FMK</span>
-              <span>Find My Kite</span>
+          <div className="flex h-14 items-center justify-between">
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 text-sm font-bold tracking-tight text-slate select-none"
+            >
+              <span className="grid h-7 w-7 place-items-center bg-slate font-mono text-[11px] font-bold tracking-tight text-white">
+                FMK
+              </span>
+              <span className="uppercase tracking-[0.06em]">FindMyKite</span>
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className={navLinkClass} aria-current={pathname === link.href ? 'page' : undefined}>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={navLinkClass}
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                >
                   {link.label}
                 </Link>
               ))}
               <CompareNavLink className={navLinkClass} />
             </div>
 
-            {/* Mobile toggle */}
             <button
-              className="md:hidden border border-white/15 p-2 text-gray-500 transition-colors hover:border-ocean hover:text-white"
+              className="md:hidden border border-gray-200 bg-card p-2 text-gray-600 transition-colors hover:border-ocean hover:text-slate"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -66,14 +76,13 @@ export default function FrontendLayout({
             </button>
           </div>
 
-          {/* Mobile menu */}
           {mobileOpen && (
-            <div className="space-y-1 border-t border-white/10 pb-4 pt-3 md:hidden">
+            <div className="space-y-1 border-t border-gray-200 pb-4 pt-3 md:hidden">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block border-b border-white/5 px-1 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 transition-colors hover:text-white"
+                  className="block border-b border-gray-100 px-1 py-2.5 text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-ocean"
                   onClick={() => setMobileOpen(false)}
                   aria-current={pathname === link.href ? 'page' : undefined}
                 >
@@ -81,7 +90,7 @@ export default function FrontendLayout({
                 </Link>
               ))}
               <CompareNavLink
-                className="block px-1 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 transition-colors hover:text-white"
+                className="block px-1 py-2.5 text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-ocean"
                 onClick={() => setMobileOpen(false)}
               />
             </div>

@@ -5,9 +5,16 @@
   "model": "Dice SLS",
   "year": 2027,
   "image": "/kites/duotone-dice-sls-2027.jpg",
-  "style_spectrum": 55,
-  "shape_spectrum": 45,
-  "wave_spectrum": 40,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 30,
+    "wave": 82,
+    "foil": 50,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "medium",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wave",

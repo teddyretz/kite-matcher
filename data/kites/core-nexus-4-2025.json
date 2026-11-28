@@ -5,9 +5,16 @@
   "model": "Nexus 4",
   "year": 2025,
   "image": "/kites/core-nexus-4-2025.jpg",
-  "style_spectrum": 52,
-  "shape_spectrum": 50,
-  "wave_spectrum": 42,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 30,
+    "wave": 82,
+    "foil": 50,
+    "freestyle": 82
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "freestyle",

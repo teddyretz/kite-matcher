@@ -5,9 +5,16 @@
   "model": "Code NXT V2",
   "year": 2026,
   "image": "/kites/slingshot-code-nxt-2026.jpg",
-  "style_spectrum": 84,
-  "shape_spectrum": 48,
-  "wave_spectrum": 15,
+  "discipline_scores": {
+    "freeride": 68,
+    "big_air": 97,
+    "wave": 15,
+    "foil": 58,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "big air",
     "megaloops",

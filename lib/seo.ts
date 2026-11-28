@@ -1,4 +1,4 @@
-import type { Kite } from './types';
+import type { DisciplineKey, Kite } from './types';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://findmykite.com';
 
@@ -8,62 +8,58 @@ export function brandSlug(brand: string): string {
 
 export interface StyleZone {
   slug: string;
+  discipline: DisciplineKey;
   label: string;
-  min: number;
-  max: number;
   blurb: string;
 }
 
-// Mirrors the style_spectrum zones: Foil(0-20), Surf(21-40), Freestyle(41-60),
-// Freeride(61-80), Big Air(81-100).
 export const STYLE_ZONES: StyleZone[] = [
   {
     slug: 'foil',
+    discipline: 'foil',
     label: 'Foil',
-    min: 0,
-    max: 20,
     blurb:
-      'Light, drifty kites built for hydrofoiling — easy low-end power, stable at the edge of the window, and forgiving when the wind goes soft.',
+      'Light, drifty kites built for hydrofoiling — strong low-end pull, stable at the edge of the window, and easy to keep airborne in lulls.',
   },
   {
     slug: 'surf',
+    discipline: 'wave',
     label: 'Surf & Wave',
-    min: 21,
-    max: 40,
     blurb:
-      'Wave kites prioritize drift, fast pivot turns, and instant depower so the kite stays out of your way on a wave face.',
+      'Wave kites built for drift, fast pivot turns, and instant depower so the canopy stays out of your way on a wave face.',
   },
   {
     slug: 'freestyle',
+    discipline: 'freestyle',
     label: 'Freestyle',
-    min: 41,
-    max: 60,
     blurb:
-      'Freestyle and C-style kites with the pop, slack, and predictable arc you need for unhooked tricks and kickers.',
+      'C and open-C kites with direct bar feel, line slack, and predictable pull for unhooked tricks and wakestyle.',
   },
   {
     slug: 'freeride',
+    discipline: 'freeride',
     label: 'Freeride',
-    min: 61,
-    max: 80,
     blurb:
-      'All-round kites that make sessions easy: forgiving relaunch, big depower range, and comfortable cruising for the widest range of riders.',
+      'All-round kites that cover the widest conditions: easy relaunch, broad depower, and predictable handling for everyday sessions.',
   },
   {
     slug: 'big-air',
+    discipline: 'big_air',
     label: 'Big Air',
-    min: 81,
-    max: 100,
     blurb:
-      'High-aspect boosting machines — maximum lift, hangtime, and loop recovery for riders chasing height.',
+      'High-aspect boosters built for vertical lift, hangtime, and reliable loop catch in strong wind.',
   },
 ];
 
+export function primaryDisciplineForKite(kite: Kite): DisciplineKey {
+  const entries = Object.entries(kite.discipline_scores) as Array<[DisciplineKey, number]>;
+  entries.sort((a, b) => b[1] - a[1]);
+  return entries[0][0];
+}
+
 export function styleZoneForKite(kite: Kite): StyleZone {
-  return (
-    STYLE_ZONES.find((z) => kite.style_spectrum >= z.min && kite.style_spectrum <= z.max) ??
-    STYLE_ZONES[STYLE_ZONES.length - 1]
-  );
+  const primary = primaryDisciplineForKite(kite);
+  return STYLE_ZONES.find((z) => z.discipline === primary) ?? STYLE_ZONES[3];
 }
 
 export function breadcrumbJsonLd(items: { name: string; url: string }[]): Record<string, unknown> {
@@ -125,9 +121,6 @@ export function kiteJsonLd(kite: Kite): Record<string, unknown> {
     },
   };
 
-  // Only emit AggregateRating when it reflects 2+ independent source
-  // reviewers. Single-source ratings are AI-distilled from one video and
-  // shouldn't be surfaced as star snippets in search.
   if (kite.structured_review && kite.structured_review.sources.length >= 2) {
     ld.aggregateRating = {
       '@type': 'AggregateRating',

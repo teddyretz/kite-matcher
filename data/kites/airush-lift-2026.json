@@ -5,9 +5,16 @@
   "model": "Lift V4",
   "year": 2026,
   "image": "/kites/airush-lift-2026.jpg",
-  "style_spectrum": 76,
-  "shape_spectrum": 58,
-  "wave_spectrum": 12,
+  "discipline_scores": {
+    "freeride": 88,
+    "big_air": 88,
+    "wave": 12,
+    "foil": 22,
+    "freestyle": 48
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "hangtime",

@@ -2,6 +2,19 @@ export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
 export type BarType = 'high-y' | 'low-v' | 'both';
 export type TurningSpeed = 'slow' | 'medium' | 'medium-fast' | 'fast' | 'very-fast';
 export type RelaunchDifficulty = 'easy' | 'medium' | 'hard';
+export type AspectRatio = 'low' | 'medium' | 'medium-high' | 'high' | 'very-high';
+export type CanopyShape = 'c' | 'open-c' | 'hybrid' | 'delta' | 'bow' | 'foil';
+export type BarPressure = 'light' | 'medium' | 'heavy';
+export type FlyingStyle = 'sheet-and-go' | 'balanced' | 'active';
+export type DisciplineKey = 'freeride' | 'big_air' | 'wave' | 'foil' | 'freestyle';
+
+export interface DisciplineScores {
+  freeride: number;
+  big_air: number;
+  wave: number;
+  foil: number;
+  freestyle: number;
+}
 
 export interface StructuredReview {
   rating: number;
@@ -56,10 +69,11 @@ export interface Kite {
   year: number;
   image: string;
 
-  // Style matching
-  style_spectrum: number;
-  shape_spectrum: number;
-  wave_spectrum: number;
+  // Discipline & character
+  discipline_scores: DisciplineScores;
+  canopy_shape: CanopyShape;
+  bar_pressure: BarPressure;
+  flying_style: FlyingStyle;
   style_tags: string[];
   skill_level: SkillLevel[];
   discontinued?: boolean;
@@ -67,7 +81,7 @@ export interface Kite {
   teds_pick?: boolean;
 
   // Specs
-  aspect_ratio: 'low' | 'medium' | 'medium-high' | 'high' | 'very-high';
+  aspect_ratio: AspectRatio;
   strut_count: number;
   bar_type: BarType;
   aluula: boolean;
@@ -86,10 +100,10 @@ export interface Kite {
   summary: string;
   best_for: string;
 
-  // Reviews — now an array of mixed entry types
+  // Reviews — array of mixed entry types
   reviews: ReviewEntry[];
 
-  // Structured review derived from YouTube transcripts (25 kites have this)
+  // Structured review derived from YouTube transcripts
   structured_review?: StructuredReview;
 
   // Shopping

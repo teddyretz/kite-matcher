@@ -3,35 +3,28 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Kite } from '@/lib/types';
-import { displayFitScore, matchScore } from '@/lib/matcher';
-import { useFilters, DEFAULT_FILTERS } from '@/lib/useFilters';
-import { useDebouncedNumber } from '@/lib/useDebouncedNumber';
-import SpectrumBar from '@/components/SpectrumBar';
+import type { DisciplineKey, Kite, SkillLevel } from '@/lib/types';
+import { displayFitScore, scoreKite } from '@/lib/matcher';
+import { filtersToRiderProfile, useFilters } from '@/lib/useFilters';
 
 const MAX_COMPARE = 3;
 
-const styleZones = [
-  { label: 'Foil',      color: 'text-teal-400'    },
-  { label: 'Surf',      color: 'text-emerald-400' },
-  { label: 'Freestyle', color: 'text-sand'        },
-  { label: 'Freeride',  color: 'text-blue-400'    },
-  { label: 'Big Air',   color: 'text-orange-400'  },
+const DISCIPLINES: Array<{ value: DisciplineKey; label: string }> = [
+  { value: 'freeride', label: 'Freeride' },
+  { value: 'big_air', label: 'Big Air' },
+  { value: 'wave', label: 'Wave' },
+  { value: 'foil', label: 'Foil' },
+  { value: 'freestyle', label: 'Freestyle' },
 ];
-function getActiveZone(value: number): number {
-  if (value <= 20) return 0;
-  if (value <= 40) return 1;
-  if (value <= 60) return 2;
-  if (value <= 80) return 3;
-  return 4;
-}
+
+const LEVELS: SkillLevel[] = ['beginner', 'intermediate', 'advanced'];
 
 export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const { filters, setFilters } = useFilters();
-  const [showOnlyDifferences, setShowOnlyDifferences] = useState(true);
+  const [showOnlyDifferences, setShowOnlyDifferences] = useState(false);
 
   const slugs = (searchParams.get('kites') ?? '').split(',').filter(Boolean);
   const bySlug = useMemo(() => new Map(allKites.map((k) => [k.slug, k])), [allKites]);
@@ -41,23 +34,13 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   );
   const missing = slugs.filter((s) => !bySlug.has(s));
 
-  // Local-state-with-debounced-commit: sliders stay snappy while the
-  // (relatively expensive) URL update fires 250ms after the last change.
-  const commitStyle = useCallback((v: number) => setFilters({ style: v }), [setFilters]);
-  const commitShape = useCallback((v: number) => setFilters({ shape: v }), [setFilters]);
-  const [styleVal, setStyleVal] = useDebouncedNumber(filters.style, commitStyle);
-  const [shapeVal, setShapeVal] = useDebouncedNumber(filters.shape, commitShape);
+  const profile = useMemo(() => filtersToRiderProfile(filters), [filters]);
 
-  const slidersAdjusted =
-    styleVal !== DEFAULT_FILTERS.style || shapeVal !== DEFAULT_FILTERS.shape;
-
-  // Score + sort. Always score; only show the score badge when sliders are
-  // off the default so we don't visually emphasize a meaningless 50/50 result.
-  const scoredKites = useMemo(() => {
+  const orderedKites = useMemo(() => {
     return kitesInCompare
-      .map((k) => ({ kite: k, score: matchScore(k, styleVal, shapeVal) }))
+      .map((kite) => ({ kite, score: scoreKite(kite, profile) }))
       .sort((a, b) => b.score - a.score);
-  }, [kitesInCompare, styleVal, shapeVal]);
+  }, [kitesInCompare, profile]);
 
   const updateKites = useCallback(
     (newSlugs: string[]) => {
@@ -84,81 +67,91 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
 
   const availableByBrand = useMemo(() => {
     const groups: Record<string, Kite[]> = {};
-    for (const k of available) {
-      (groups[k.brand] ??= []).push(k);
-    }
+    for (const k of available) (groups[k.brand] ??= []).push(k);
     return groups;
   }, [available]);
 
-  // Slider + dropdown header — always rendered, even when nothing is selected.
   const Header = (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6 mb-6 space-y-5">
-      <div className="grid sm:grid-cols-2 gap-5">
-        {/* Style slider */}
+    <div className="mb-6 space-y-4 border border-gray-200 bg-card p-4 sm:p-5">
+      <div className="grid gap-4 md:grid-cols-3">
         <div>
-          <div className="flex items-baseline justify-between mb-2">
-            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-              Riding Style
-            </label>
-            <span
-              className={`font-display font-bold italic text-base uppercase leading-none ${styleZones[getActiveZone(styleVal)].color}`}
-            >
-              {styleZones[getActiveZone(styleVal)].label}
-            </span>
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            value={styleVal}
-            onChange={(e) => setStyleVal(Number(e.target.value))}
-            className="w-full"
-            style={{ '--range-pct': `${styleVal}%` } as React.CSSProperties}
-            aria-label="Riding style preference"
-          />
-          <div className="flex justify-between mt-1.5">
-            {styleZones.map((zone, i) => (
-              <span
-                key={zone.label}
-                className={`text-[10px] font-medium ${i === getActiveZone(styleVal) ? zone.color : 'text-gray-400'}`}
+          <p className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-500">
+            Score for discipline
+          </p>
+          <div className="grid grid-cols-3 gap-1 sm:grid-cols-5 md:grid-cols-3">
+            {DISCIPLINES.map((d) => (
+              <button
+                key={d.value}
+                type="button"
+                aria-pressed={filters.discipline === d.value}
+                onClick={() => setFilters({ discipline: d.value })}
+                className={`border px-2 py-1.5 text-xs font-semibold transition-colors ${
+                  filters.discipline === d.value
+                    ? 'border-ocean bg-ocean text-white'
+                    : 'border-gray-200 bg-surface text-gray-600 hover:border-gray-400'
+                }`}
               >
-                {zone.label}
-              </span>
+                {d.label}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Shape slider */}
         <div>
-          <div className="flex items-baseline justify-between mb-2">
-            <label className="text-xs font-semibold tracking-widest uppercase text-gray-500">
-              Kite Shape & Aspect
+          <p className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-500">
+            Skill level
+          </p>
+          <div className="grid grid-cols-3 gap-1">
+            {LEVELS.map((lvl) => (
+              <button
+                key={lvl}
+                type="button"
+                aria-pressed={filters.level === lvl}
+                onClick={() => setFilters({ level: lvl })}
+                className={`border px-2 py-1.5 text-xs font-semibold capitalize transition-colors ${
+                  filters.level === lvl
+                    ? 'border-ocean bg-ocean text-white'
+                    : 'border-gray-200 bg-surface text-gray-600 hover:border-gray-400'
+                }`}
+              >
+                {lvl}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="mb-1.5 flex items-baseline justify-between">
+            <label htmlFor="compare-wind" className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-500">
+              Typical wind
             </label>
+            <span className="font-mono text-xs font-bold tabular-nums text-ocean">
+              {filters.windKnots} kt
+            </span>
           </div>
           <input
+            id="compare-wind"
             type="range"
-            min={0}
-            max={100}
-            value={shapeVal}
-            onChange={(e) => setShapeVal(Number(e.target.value))}
+            min={10}
+            max={35}
+            step={1}
+            value={filters.windKnots}
+            onChange={(e) => setFilters({ windKnots: Number(e.target.value) })}
             className="w-full"
-            style={{ '--range-pct': `${shapeVal}%` } as React.CSSProperties}
-            aria-label="Kite character preference"
           />
-          <div className="flex justify-between mt-1.5">
-            <span className="text-[10px] text-gray-400">Low Aspect · C-Kite</span>
-            <span className="text-[10px] text-gray-400">High Aspect · Bow</span>
+          <div className="mt-1 flex justify-between font-mono text-[10px] text-gray-400">
+            <span>10 kt</span>
+            <span>35 kt</span>
           </div>
         </div>
       </div>
 
-      {/* Add-kite dropdown */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 border-t border-gray-100">
-        <label className="text-xs font-semibold tracking-widest uppercase text-gray-500 shrink-0">
-          Add a kite
+      <div className="flex flex-col gap-2 border-t border-gray-200 pt-3 sm:flex-row sm:items-center">
+        <label className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-500 shrink-0">
+          Add kite
         </label>
         <select
-          className="flex-1 text-sm border border-gray-200 rounded-lg px-3 py-2 disabled:opacity-50"
+          className="flex-1 border border-gray-200 px-3 py-2 text-sm disabled:opacity-50"
           value=""
           disabled={slugs.length >= MAX_COMPARE}
           onChange={(e) => {
@@ -171,7 +164,7 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
           <option value="">
             {slugs.length >= MAX_COMPARE
               ? `Limit reached (${MAX_COMPARE} max) — remove one first`
-              : 'Pick a kite to add to the comparison…'}
+              : 'Pick a kite to add…'}
           </option>
           {Object.entries(availableByBrand).map(([brand, list]) => (
             <optgroup key={brand} label={brand}>
@@ -184,23 +177,19 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
           ))}
         </select>
       </div>
-
-      {slidersAdjusted && (
-        <p className="text-xs text-gray-500">
-          Columns ordered by match score against your sliders. Adjust to re-rank.
-        </p>
-      )}
     </div>
   );
 
   if (slugs.length === 0) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+        <h1 className="mb-5 text-2xl font-bold text-slate">Compare Kites</h1>
         {Header}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
-          <p className="text-gray-500 mb-4">Pick a kite from the dropdown above, or add one from any kite card.</p>
-          <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+        <div className="border border-gray-200 bg-card p-8 text-center">
+          <p className="mb-3 text-sm text-gray-500">Pick up to 3 kites above or add them from the index.</p>
+          <Link href="/kites" className="text-sm font-semibold text-ocean hover:underline">
+            Browse all kites →
+          </Link>
         </div>
       </div>
     );
@@ -209,174 +198,121 @@ export default function CompareContent({ allKites }: { allKites: Kite[] }) {
   if (kitesInCompare.length === 0) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+        <h1 className="mb-5 text-2xl font-bold text-slate">Compare Kites</h1>
         {Header}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
-          <p className="text-gray-500 mb-2">
-            We couldn&apos;t find {missing.length === 1 ? 'this kite' : 'these kites'}:
-          </p>
-          <p className="text-sm text-gray-400 mb-6 font-mono">{missing.join(', ')}</p>
-          <Link href="/kites" className="text-ocean hover:underline">Browse all kites</Link>
+        <div className="border border-gray-200 bg-card p-8 text-center">
+          <p className="mb-2 text-sm text-gray-500">Could not find: <span className="font-mono">{missing.join(', ')}</span></p>
+          <Link href="/kites" className="text-sm font-semibold text-ocean hover:underline">
+            Browse all kites →
+          </Link>
         </div>
       </div>
     );
   }
 
-  type SpecRow = { label: string; values: string[]; highlight: boolean };
-  const getVal = (k: Kite, field: string): string => {
-    switch (field) {
-      case 'brand': return k.brand;
-      case 'year': return k.year.toString();
-      case 'style_spectrum': return k.style_spectrum.toString();
-      case 'shape_spectrum': return k.shape_spectrum.toString();
-      case 'aspect_ratio': return k.aspect_ratio.replace('-', ' ');
-      case 'strut_count': return k.strut_count === 0 ? 'Strutless' : k.strut_count.toString();
-      case 'bar_type': return k.bar_type === 'high-y' ? 'High-Y' : k.bar_type === 'low-v' ? 'Low-V' : 'Both';
-      case 'turning_speed': return k.turning_speed;
-      case 'low_end_power': return `${k.low_end_power}/10`;
-      case 'depower_range': return `${k.depower_range}/10`;
-      case 'relaunch': return k.relaunch;
-      case 'wind_range': return `${k.wind_range_low}–${k.wind_range_high} kts`;
-      case 'sizes': return k.sizes.join(', ') + 'm';
-      case 'price': return `$${k.price_new.toLocaleString()}`;
-      case 'aluula': return k.aluula ? 'Yes' : 'No';
-      case 'brainchild': return k.brainchild ? 'Yes' : 'No';
-      case 'review_score': return k.structured_review ? k.structured_review.rating.toFixed(1) : '—';
-      default: return '';
-    }
-  };
-
-  const fields = [
-    'brand', 'year', 'style_spectrum', 'shape_spectrum', 'aspect_ratio',
-    'strut_count', 'bar_type', 'turning_speed', 'low_end_power', 'depower_range',
-    'relaunch', 'wind_range', 'sizes', 'price', 'aluula', 'brainchild', 'review_score',
+  const specRows: Array<{ label: string; get: (k: Kite) => string }> = [
+    { label: 'Canopy Shape', get: (k) => k.canopy_shape.toUpperCase() },
+    { label: 'Aspect Ratio', get: (k) => k.aspect_ratio.replace('-', ' ') },
+    { label: 'Struts', get: (k) => (k.strut_count === 0 ? 'Strutless' : String(k.strut_count)) },
+    { label: 'Bar System', get: (k) => (k.bar_type === 'high-y' ? 'High-Y' : k.bar_type === 'low-v' ? 'Low-V' : 'Both') },
+    { label: 'Bar Pressure', get: (k) => k.bar_pressure },
+    { label: 'Flying Style', get: (k) => k.flying_style.replace(/-/g, ' ') },
+    { label: 'Turning Speed', get: (k) => k.turning_speed },
+    { label: 'Low-End Power', get: (k) => `${k.low_end_power}/10` },
+    { label: 'Depower Range', get: (k) => `${k.depower_range}/10` },
+    { label: 'Relaunch', get: (k) => k.relaunch },
+    { label: 'Wind Range', get: (k) => `${k.wind_range_low}–${k.wind_range_high} kt` },
+    { label: 'Sizes', get: (k) => `${k.sizes.join(', ')}m` },
+    { label: 'Freeride', get: (k) => `${k.discipline_scores.freeride}/100` },
+    { label: 'Big Air', get: (k) => `${k.discipline_scores.big_air}/100` },
+    { label: 'Wave', get: (k) => `${k.discipline_scores.wave}/100` },
+    { label: 'Foil', get: (k) => `${k.discipline_scores.foil}/100` },
+    { label: 'Freestyle', get: (k) => `${k.discipline_scores.freestyle}/100` },
+    { label: 'Construction', get: (k) => (k.aluula ? 'Aluula' : k.brainchild ? 'Brainchild' : 'Dacron') },
+    { label: 'Retail Price', get: (k) => `$${k.price_new.toLocaleString()}` },
+    { label: 'Review Score', get: (k) => (k.structured_review ? `${k.structured_review.rating.toFixed(1)}/5` : '—') },
   ];
-  const labels: Record<string, string> = {
-    brand: 'Brand', year: 'Year', style_spectrum: 'Style Spectrum', shape_spectrum: 'Shape Spectrum',
-    aspect_ratio: 'Aspect Ratio', strut_count: 'Struts', bar_type: 'Bar Type',
-    turning_speed: 'Turning Speed', low_end_power: 'Low-End Power', depower_range: 'Depower Range',
-    relaunch: 'Relaunch', wind_range: 'Wind Range', sizes: 'Sizes', price: 'Price (New)',
-    aluula: 'Aluula', brainchild: 'Brainchild', review_score: 'Review Score',
-  };
 
-  // Order kites by score (highest match first) and compute per-row values in
-  // that same order.
-  const orderedKites = scoredKites;
-  const rows: SpecRow[] = fields.map((f) => {
-    const values = orderedKites.map(({ kite }) => getVal(kite, f));
-    const unique = new Set(values);
-    return { label: labels[f], values, highlight: unique.size > 1 };
+  const rows = specRows.map((row) => {
+    const values = orderedKites.map(({ kite }) => row.get(kite));
+    const highlight = new Set(values).size > 1;
+    return { label: row.label, values, highlight };
   });
 
-  function scoreBadgeClass(score: number): string {
-    if (score >= 80) return 'bg-ocean/15 text-ocean';
-    if (score >= 60) return 'bg-sand/15 text-sand';
-    return 'bg-gray-100 text-gray-500';
-  }
+  const visibleRows = showOnlyDifferences ? rows.filter((r) => r.highlight) : rows;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-slate mb-6">Compare Kites</h1>
+      <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
+        <h1 className="text-2xl font-bold text-slate">Compare Kites</h1>
+        <label className="flex items-center gap-2 font-mono text-xs text-gray-600 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={showOnlyDifferences}
+            onChange={(e) => setShowOnlyDifferences(e.target.checked)}
+            className="accent-ocean"
+          />
+          Differences only
+        </label>
+      </div>
 
       {Header}
 
       {missing.length > 0 && (
-        <div className="mb-4 border-l-2 border-sand bg-sand/[0.04] px-4 py-3 text-sm text-gray-700">
-          {missing.length === 1
-            ? <>Skipped <span className="font-mono">{missing[0]}</span> — kite not found.</>
-            : <>Skipped {missing.length} kites that couldn&apos;t be found: <span className="font-mono">{missing.join(', ')}</span></>}
+        <div className="mb-4 border-l-2 border-sand bg-sand-light px-4 py-2.5 text-xs text-slate">
+          Skipped unknown slug(s): <span className="font-mono">{missing.join(', ')}</span>
         </div>
       )}
 
-      <div className="hidden bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden md:block">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[480px]">
-            <thead>
-              <tr className="border-b border-gray-100">
-                <th className="text-left p-3 sm:p-4 w-28 sm:w-40 text-xs sm:text-sm font-medium text-gray-500">Spec</th>
-                {orderedKites.map(({ kite, score }) => (
-                  <th key={kite.id} className="p-3 sm:p-4 text-center align-top">
-                    <div className="flex flex-col items-center gap-1.5">
-                      <Link href={`/kite/${kite.slug}`} className="hover:text-ocean">
-                        <p className="font-bold text-slate text-sm sm:text-base">{kite.model}</p>
-                        <p className="text-[11px] sm:text-xs text-gray-500">{kite.brand} {kite.year}</p>
-                      </Link>
-                      {slidersAdjusted && (
-                        <span className={`px-2 py-0.5 text-[11px] font-bold rounded ${scoreBadgeClass(score)}`}>
-                          ≈{displayFitScore(score)}% fit
-                        </span>
-                      )}
-                      <button
-                        onClick={() => removeKite(kite.slug)}
-                        className="text-[11px] text-gray-400 hover:text-red-500"
-                        aria-label={`Remove ${kite.model} from compare`}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </th>
+      <div className="overflow-x-auto border border-gray-200 bg-card">
+        <table className="w-full min-w-[520px] border-collapse">
+          <thead>
+            <tr className="border-b border-gray-200 bg-gray-50">
+              <th className="w-36 p-3 text-left font-mono text-[10px] font-semibold uppercase tracking-wider text-gray-500">
+                Spec
+              </th>
+              {orderedKites.map(({ kite, score }) => (
+                <th key={kite.id} className="border-l border-gray-200 p-3 text-center align-top">
+                  <div className="flex flex-col items-center gap-1">
+                    <Link href={`/kite/${kite.slug}`} className="hover:text-ocean">
+                      <p className="text-sm font-bold text-slate">{kite.model}</p>
+                      <p className="font-mono text-[11px] font-normal text-gray-500">
+                        {kite.brand} {kite.year}
+                      </p>
+                    </Link>
+                    <span className="border border-ocean/30 bg-ocean-light px-2 py-0.5 font-mono text-[11px] font-bold tabular-nums text-ocean">
+                      {displayFitScore(score)}% fit
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removeKite(kite.slug)}
+                      className="font-mono text-[10px] uppercase tracking-wider text-gray-400 hover:text-sand"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {visibleRows.map((row) => (
+              <tr key={row.label} className={row.highlight ? 'bg-surface/60' : ''}>
+                <td className="p-3 font-mono text-[11px] font-semibold text-gray-500">{row.label}</td>
+                {row.values.map((val, i) => (
+                  <td
+                    key={i}
+                    className={`border-l border-gray-100 p-3 text-center font-mono text-xs tabular-nums capitalize ${
+                      row.highlight ? 'font-semibold text-slate' : 'text-gray-600'
+                    }`}
+                  >
+                    {val}
+                  </td>
                 ))}
               </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr key={row.label} className={`border-b border-gray-50 ${row.highlight ? 'bg-sand/5' : ''}`}>
-                  <td className="p-3 sm:p-4 text-xs sm:text-sm text-gray-500 font-medium">{row.label}</td>
-                  {row.values.map((val, i) => (
-                    <td key={i} className={`p-3 sm:p-4 text-center text-xs sm:text-sm capitalize ${row.highlight ? 'font-semibold text-slate' : 'text-gray-700'}`}>
-                      {val}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <section className="space-y-3 md:hidden" aria-labelledby="mobile-comparison-title">
-        <div className="sticky top-14 z-20 rounded-xl border border-white/10 bg-[#0D1421]/95 p-3 shadow-lg backdrop-blur-md">
-          <div className="flex items-center justify-between gap-3">
-            <h2 id="mobile-comparison-title" className="text-sm font-bold text-slate">Decision view</h2>
-            <label className="flex min-h-11 items-center gap-2 text-xs text-gray-500">
-              <input
-                type="checkbox"
-                checked={showOnlyDifferences}
-                onChange={event => setShowOnlyDifferences(event.target.checked)}
-                className="h-4 w-4 accent-cyan-400"
-              />
-              Differences only
-            </label>
-          </div>
-          <p className="text-[11px] text-gray-400">Every row keeps the kite names visible—no sideways table required.</p>
-        </div>
-
-        {rows
-          .filter(row => !showOnlyDifferences || row.highlight)
-          .map(row => (
-            <article key={row.label} className={`rounded-xl border p-4 ${row.highlight ? 'border-sand/20 bg-sand/[0.04]' : 'border-white/10 bg-white'}`}>
-              <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">{row.label}</h3>
-              <div className="space-y-2">
-                {row.values.map((value, index) => (
-                  <div key={orderedKites[index].kite.slug} className="flex items-baseline justify-between gap-4 border-t border-white/5 pt-2 first:border-0 first:pt-0">
-                    <span className="min-w-0 truncate text-xs text-gray-500">{orderedKites[index].kite.model}</span>
-                    <span className="text-right text-sm font-semibold capitalize text-slate">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </article>
-          ))}
-      </section>
-
-      {/* Style spectrum visual */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mt-8 space-y-4">
-        <h2 className="text-lg font-bold text-slate">Style Comparison</h2>
-        {orderedKites.map(({ kite }) => (
-          <div key={kite.id}>
-            <p className="text-sm font-medium text-gray-600 mb-1">{kite.brand} {kite.model}</p>
-            <SpectrumBar label="" value={kite.style_spectrum} leftLabel="Foiling" rightLabel="Big Air" />
-          </div>
-        ))}
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

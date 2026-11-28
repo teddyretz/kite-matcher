@@ -1,0 +1,18 @@
+[
+  {
+    "reviewer": "Jason Montreal",
+    "channel": "Plus-Sized Kite Reviews",
+    "channel_url": "https://www.youtube.com/@jasonofmontreal",
+    "commercial_tie": "independent",
+    "title_include": [
+      "Kite Review"
+    ],
+    "title_exclude": [
+      "Board Review",
+      "Tier List",
+      "First Session",
+      "First Impressions"
+    ],
+    "max_recent": 50
+  }
+]

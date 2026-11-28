@@ -5,9 +5,16 @@
   "model": "XLite 2",
   "year": 2025,
   "image": "/kites/core-xlite-2-2025.jpg",
-  "style_spectrum": 8,
-  "shape_spectrum": 72,
-  "wave_spectrum": 28,
+  "discipline_scores": {
+    "freeride": 58,
+    "big_air": 30,
+    "wave": 30,
+    "foil": 92,
+    "freestyle": 25
+  },
+  "canopy_shape": "foil",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "foil",
     "lightwind",
