@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
-const jakartaSans = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-barlow",
-  weight: ["400", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  variable: "--font-plex-mono",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FindMyKite — Independent Kite Review Aggregator",
+    default: "FindMyKite — Kite Specs, Sizing & Independent Reviews",
     template: "%s | FindMyKite",
   },
   description:
-    "Independent kite review aggregator and riding-style matcher, built from real reviews without sponsored rankings.",
+    "Match kites by discipline, bar system, wind range, and rider weight — with review sources labeled by commercial tie and zero sponsored rankings.",
   openGraph: {
     type: "website",
     siteName: "FindMyKite",
@@ -42,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jakartaSans.variable} ${barlowCondensed.variable} font-sans antialiased bg-surface text-slate`}
+        className={`${inter.variable} ${plexMono.variable} font-sans antialiased bg-surface text-slate`}
       >
         {children}
         <Analytics />

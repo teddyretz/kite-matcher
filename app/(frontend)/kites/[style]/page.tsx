@@ -24,7 +24,7 @@ export async function generateMetadata({
   const count = kites.filter((k) => styleZoneForKite(k).slug === zone.slug).length;
   const year = new Date().getFullYear();
   const title = `Best ${zone.label} Kites ${year} — ${count} Kites Ranked & Reviewed`;
-  const description = `${zone.blurb} Compare ${count} ${zone.label.toLowerCase()} kites ranked by review scores, with specs and where to buy.`;
+  const description = `${zone.blurb} Compare ${count} ${zone.label.toLowerCase()} kites with specs and source-labeled reviews.`;
   const url = `${SITE_URL}/kites/${zone.slug}`;
   return {
     title,
@@ -47,7 +47,7 @@ export default async function StylePage({ params }: { params: Promise<{ style: s
   const jsonLd = [
     kiteListJsonLd(`Best ${zone.label} kites ${year}`, kites),
     breadcrumbJsonLd([
-      { name: 'Browse', url: `${SITE_URL}/kites` },
+      { name: 'Index', url: `${SITE_URL}/kites` },
       { name: zone.label, url: `${SITE_URL}/kites/${zone.slug}` },
     ]),
   ];
@@ -59,38 +59,37 @@ export default async function StylePage({ params }: { params: Promise<{ style: s
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav className="text-sm text-gray-500 mb-6">
-        <Link href="/kites" className="hover:text-ocean">Browse</Link>
+      <nav className="mb-5 font-mono text-xs text-gray-500">
+        <Link href="/kites" className="hover:text-ocean">Index</Link>
         <span className="mx-2">/</span>
         <span className="text-slate">{zone.label}</span>
       </nav>
 
-      <h1 className="font-display font-black italic text-4xl sm:text-5xl uppercase tracking-tight text-white mb-3">
-        Best <span className="text-ocean">{zone.label}</span> Kites {year}
+      <h1 className="mb-2 text-3xl font-bold tracking-tight text-slate sm:text-4xl">
+        {zone.label} Kites ({year})
       </h1>
-      <p className="text-gray-500 max-w-2xl mb-2">{zone.blurb}</p>
-      <p className="text-sm text-gray-400 mb-8">
-        {reviewed} of these {kites.length} kites have review summaries — those rank first,
-        highest-rated on top. Not sure {zone.label.toLowerCase()} is your style?{' '}
-        <Link href="/" className="text-ocean hover:underline">Take the matcher</Link>.
+      <p className="mb-2 max-w-2xl text-sm text-gray-600">{zone.blurb}</p>
+      <p className="mb-6 font-mono text-xs text-gray-500">
+        {reviewed} of {kites.length} kites have review summaries. Want personalized sizing?{' '}
+        <Link href="/" className="text-ocean hover:underline">Open the matcher →</Link>
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {kites.map((kite) => (
           <KiteCard key={kite.id} kite={kite} />
         ))}
       </div>
 
-      <div className="mt-12 pt-8 border-t border-gray-100">
-        <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-3">
-          Other styles
+      <div className="mt-10 border-t border-gray-200 pt-6">
+        <h2 className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500">
+          Other disciplines
         </h2>
         <div className="flex flex-wrap gap-2">
           {STYLE_ZONES.filter((z) => z.slug !== zone.slug).map((z) => (
             <Link
               key={z.slug}
               href={`/kites/${z.slug}`}
-              className="border border-gray-200 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-500 transition-colors hover:border-ocean hover:text-ocean"
+              className="border border-gray-200 bg-card px-3 py-1.5 text-xs font-semibold text-gray-600 transition-colors hover:border-ocean hover:text-ocean"
             >
               {z.label}
             </Link>
