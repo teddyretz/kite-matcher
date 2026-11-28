@@ -5,9 +5,16 @@
   "model": "RS V6",
   "year": 2025,
   "image": "/kites/eleveight-rs-v6-2025.jpg",
-  "style_spectrum": 65,
-  "shape_spectrum": 65,
-  "wave_spectrum": 35,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 60,
+    "wave": 35,
+    "foil": 65,
+    "freestyle": 48
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "performance",

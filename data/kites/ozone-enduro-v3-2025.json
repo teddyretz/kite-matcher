@@ -5,9 +5,16 @@
   "model": "Enduro V3",
   "year": 2025,
   "image": "/kites/ozone-enduro-v3-2025.jpg",
-  "style_spectrum": 65,
-  "shape_spectrum": 55,
-  "wave_spectrum": 38,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 60,
+    "wave": 38,
+    "foil": 82,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "medium",
+  "flying_style": "active",
   "style_tags": [
     "freeride",
     "all-around",

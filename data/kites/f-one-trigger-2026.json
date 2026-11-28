@@ -5,9 +5,16 @@
   "model": "Trigger",
   "year": 2026,
   "image": "/kites/f-one-trigger-2026.jpg",
-  "style_spectrum": 72,
-  "shape_spectrum": 55,
-  "wave_spectrum": 10,
+  "discipline_scores": {
+    "freeride": 88,
+    "big_air": 88,
+    "wave": 10,
+    "foil": 22,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "freestyle",

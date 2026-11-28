@@ -5,9 +5,16 @@
   "model": "Reach",
   "year": 2025,
   "image": "/kites/north-reach-2025.jpg",
-  "style_spectrum": 35,
-  "shape_spectrum": 45,
-  "wave_spectrum": 45,
+  "discipline_scores": {
+    "freeride": 86,
+    "big_air": 30,
+    "wave": 88,
+    "foil": 65,
+    "freestyle": 25
+  },
+  "canopy_shape": "delta",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "all-around",

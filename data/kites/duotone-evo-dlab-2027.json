@@ -5,9 +5,16 @@
   "model": "Evo D/LAB",
   "year": 2027,
   "image": "/kites/duotone-evo-dlab-2027.jpg",
-  "style_spectrum": 75,
-  "shape_spectrum": 55,
-  "wave_spectrum": 35,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 93,
+    "wave": 82,
+    "foil": 73,
+    "freestyle": 76
+  },
+  "canopy_shape": "delta",
+  "bar_pressure": "light",
+  "flying_style": "sheet-and-go",
   "style_tags": [
     "freeride",
     "big air",

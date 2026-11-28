@@ -5,9 +5,16 @@
   "model": "Carve",
   "year": 2026,
   "image": "/kites/north-carve-2026.jpg",
-  "style_spectrum": 27,
-  "shape_spectrum": 40,
-  "wave_spectrum": 88,
+  "discipline_scores": {
+    "freeride": 64,
+    "big_air": 30,
+    "wave": 92,
+    "foil": 50,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "wave",
     "strapless",

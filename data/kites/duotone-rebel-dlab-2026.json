@@ -5,9 +5,16 @@
   "model": "Rebel D/LAB",
   "year": 2026,
   "image": "/kites/duotone-rebel-dlab-2026.jpg",
-  "style_spectrum": 92,
-  "shape_spectrum": 52,
-  "wave_spectrum": 8,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 97,
+    "wave": 8,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "bow",
+  "bar_pressure": "light",
+  "flying_style": "sheet-and-go",
   "style_tags": [
     "big air",
     "megaloops",

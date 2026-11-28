@@ -5,9 +5,16 @@
   "model": "Peak",
   "year": 2025,
   "image": "/kites/harlem-peak-2025.jpg",
-  "style_spectrum": 88,
-  "shape_spectrum": 52,
-  "wave_spectrum": 12,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 97,
+    "wave": 12,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "hangtime",

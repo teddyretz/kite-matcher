@@ -5,9 +5,16 @@
   "model": "Master Model",
   "year": 2026,
   "image": "/kites/reedin-mastermodel-2026.jpg",
-  "style_spectrum": 90,
-  "shape_spectrum": 72,
-  "wave_spectrum": 8,
+  "discipline_scores": {
+    "freeride": 68,
+    "big_air": 97,
+    "wave": 8,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "bow",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "megaloops",

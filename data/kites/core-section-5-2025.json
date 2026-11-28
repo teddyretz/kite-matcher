@@ -5,9 +5,16 @@
   "model": "Section 5",
   "year": 2025,
   "image": "/kites/core-section-5-2025.jpg",
-  "style_spectrum": 27,
-  "shape_spectrum": 32,
-  "wave_spectrum": 90,
+  "discipline_scores": {
+    "freeride": 64,
+    "big_air": 30,
+    "wave": 92,
+    "foil": 82,
+    "freestyle": 76
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "wave",
     "strapless",

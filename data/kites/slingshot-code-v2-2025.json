@@ -5,9 +5,16 @@
   "model": "Code V2",
   "year": 2025,
   "image": "/kites/slingshot-code-v2-2025.jpg",
-  "style_spectrum": 58,
-  "shape_spectrum": 50,
-  "wave_spectrum": 18,
+  "discipline_scores": {
+    "freeride": 88,
+    "big_air": 88,
+    "wave": 18,
+    "foil": 50,
+    "freestyle": 82
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "big air",

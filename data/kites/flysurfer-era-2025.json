@@ -5,9 +5,16 @@
   "model": "Era 2",
   "year": 2025,
   "image": "/kites/flysurfer-era-2025.jpg",
-  "style_spectrum": 83,
-  "shape_spectrum": 55,
-  "wave_spectrum": 18,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 50,
+    "wave": 32,
+    "foil": 22,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "medium",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "freeride",

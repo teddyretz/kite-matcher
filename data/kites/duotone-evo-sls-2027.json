@@ -5,9 +5,16 @@
   "model": "Evo SLS",
   "year": 2027,
   "image": "/kites/duotone-evo-sls-2027.jpg",
-  "style_spectrum": 70,
-  "shape_spectrum": 55,
-  "wave_spectrum": 45,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 88,
+    "wave": 82,
+    "foil": 65,
+    "freestyle": 76
+  },
+  "canopy_shape": "delta",
+  "bar_pressure": "medium",
+  "flying_style": "sheet-and-go",
   "style_tags": [
     "freeride",
     "big air",

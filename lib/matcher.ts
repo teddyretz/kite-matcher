@@ -1,134 +1,301 @@
-import { Kite, SkillLevel } from './types';
+import type {
+  AspectRatio,
+  BarPressure,
+  CanopyShape,
+  DisciplineKey,
+  FlyingStyle,
+  Kite,
+  SkillLevel,
+} from './types';
 
 export type KiteConstruction = 'all' | 'dacron' | 'aluula' | 'brainchild';
+export type BoardType = 'twin-tip' | 'surfboard' | 'hydrofoil';
+export type BarPreference = 'any' | 'high-y' | 'low-v';
+export type BarPressurePreference = 'any' | BarPressure;
+export type FlyingStylePreference = 'any' | FlyingStyle;
 
 export interface MatchConstraints {
   construction?: KiteConstruction;
+  barType?: BarPreference;
   budget?: number;
 }
 
-export interface MatchPreferencesV2 extends MatchConstraints {
-  version: 2;
-  style: number;
-  shape: number;
-  wave?: number;
-}
-
-export type RidingGoal = 'freeride' | 'big-air' | 'wave' | 'freestyle' | 'foil';
-export type FlightFeel = 'forgiving' | 'balanced' | 'performance';
-export type WindProfile = 'light' | 'mixed' | 'strong';
-
-export interface AdvisorPreferences extends MatchConstraints {
-  version: 2;
-  goal: RidingGoal;
+export interface RiderProfile extends MatchConstraints {
+  discipline: DisciplineKey;
+  secondaryDiscipline?: DisciplineKey;
+  boardType?: BoardType;
   level: SkillLevel;
-  feel: FlightFeel;
-  wind: WindProfile;
+  windKnots?: number;
+  barPressure?: BarPressurePreference;
+  flyingStyle?: FlyingStylePreference;
+  riderWeightKg?: number;
 }
 
-export interface AdvisorMatch extends Kite {
+export interface KiteSizeRecommendation {
+  idealSize: number;
+  minSize: number;
+  maxSize: number;
+  matchingSizes: number[];
+  note: string;
+}
+
+export interface UnifiedMatch extends Kite {
   score: number;
   fitLabel: 'Excellent fit' | 'Strong fit' | 'Good fit' | 'Worth a look';
   reasons: string[];
   tradeoffs: string[];
+  recommendedSize?: KiteSizeRecommendation;
 }
 
-export interface SliderAdvisorPreferences extends MatchConstraints {
-  version: 2;
-  style: number;
-  shape: number;
-  wavePriority: number;
-  handling: number;
-  wind: number;
-  level: SkillLevel;
-}
-
-const styleTargets: Record<RidingGoal, number> = {
-  foil: 10,
-  wave: 30,
-  freestyle: 50,
-  freeride: 70,
-  'big-air': 90,
+export const DEFAULT_RIDER_PROFILE: RiderProfile = {
+  discipline: 'freeride',
+  boardType: 'twin-tip',
+  level: 'intermediate',
+  barType: 'any',
+  construction: 'all',
+  barPressure: 'any',
+  flyingStyle: 'any',
+  windKnots: 18,
+  budget: 5000,
 };
 
-const turningValues: Record<Kite['turning_speed'], number> = {
+const DISCIPLINE_LABELS: Record<DisciplineKey, string> = {
+  freeride: 'freeride',
+  big_air: 'big air',
+  wave: 'wave',
+  foil: 'foil',
+  freestyle: 'freestyle',
+};
+
+const TURNING_VALUES: Record<Kite['turning_speed'], number> = {
   slow: 20,
-  medium: 40,
-  'medium-fast': 60,
-  fast: 80,
+  medium: 45,
+  'medium-fast': 65,
+  fast: 85,
   'very-fast': 100,
 };
 
-const relaunchValues: Record<Kite['relaunch'], number> = {
+const RELAUNCH_VALUES: Record<Kite['relaunch'], number> = {
   easy: 100,
   medium: 60,
   hard: 20,
 };
 
+const ASPECT_VALUES: Record<AspectRatio, number> = {
+  low: 20,
+  medium: 45,
+  'medium-high': 65,
+  high: 85,
+  'very-high': 100,
+};
+
+const CANOPY_DISCIPLINE_AFFINITY: Record<DisciplineKey, Record<CanopyShape, number>> = {
+  freeride: { delta: 100, hybrid: 95, bow: 88, 'open-c': 72, foil: 62, c: 35 },
+  big_air: { bow: 100, hybrid: 95, delta: 80, 'open-c': 75, foil: 68, c: 58 },
+  wave: { delta: 92, hybrid: 95, 'open-c': 72, bow: 60, foil: 45, c: 30 },
+  foil: { foil: 100, delta: 90, hybrid: 84, bow: 60, 'open-c': 48, c: 20 },
+  freestyle: { c: 100, 'open-c': 96, hybrid: 76, delta: 60, bow: 42, foil: 20 },
+};
+
+const PRESSURE_SCALE: Record<BarPressure, number> = {
+  light: 1,
+  medium: 2,
+  heavy: 3,
+};
+
+const FLYING_SCALE: Record<FlyingStyle, number> = {
+  'sheet-and-go': 1,
+  balanced: 2,
+  active: 3,
+};
+
+function clamp(n: number, min = 0, max = 100): number {
+  return Math.max(min, Math.min(max, n));
+}
+
 function closeness(actual: number, target: number): number {
   return Math.max(0, 100 - Math.abs(actual - target));
 }
 
-function styleFit(kite: Kite, goal: RidingGoal): number {
-  const spectrumFit = closeness(kite.style_spectrum, styleTargets[goal]);
-  if (goal !== 'wave') return spectrumFit;
-  return spectrumFit * 0.45 + closeness(kite.wave_spectrum, 90) * 0.55;
+/**
+ * Pure physics-based kite size estimate from rider weight, wind speed,
+ * board type, and kite low-end efficiency. Completely independent of reviews,
+ * brand, or commercial links.
+ */
+export function recommendKiteSizeRange(
+  kite: Pick<Kite, 'sizes' | 'low_end_power' | 'canopy_shape'>,
+  riderWeightKg: number,
+  windKnots = 18,
+  boardType: BoardType = 'twin-tip',
+): KiteSizeRecommendation {
+  const safeWeight = clamp(riderWeightKg, 40, 140);
+  const safeWind = clamp(windKnots, 8, 45);
+
+  const boardFactor =
+    boardType === 'hydrofoil' ? 0.72 : boardType === 'surfboard' ? 0.88 : 1.0;
+
+  // Baseline: 75kg twin-tip rider in 18 knots rides a ~10m kite.
+  let rawIdeal = (safeWeight / 75) * (18 / safeWind) * 10 * boardFactor;
+
+  // Adjust slightly for canopy efficiency / low-end pull.
+  if (kite.canopy_shape === 'foil') rawIdeal *= 0.92;
+  if (kite.low_end_power >= 9) rawIdeal -= 0.5;
+  else if (kite.low_end_power <= 5) rawIdeal += 0.5;
+
+  const idealSize = Math.max(4, Math.min(18, Math.round(rawIdeal * 2) / 2));
+  const targetMin = Math.max(3, Math.floor(idealSize - 1));
+  const targetMax = Math.min(19, Math.ceil(idealSize + 1));
+
+  const matchingSizes = kite.sizes.filter((s) => s >= targetMin && s <= targetMax);
+  let minSize = targetMin;
+  let maxSize = targetMax;
+  let note: string;
+
+  if (matchingSizes.length > 0) {
+    minSize = matchingSizes[0];
+    maxSize = matchingSizes[matchingSizes.length - 1];
+    note =
+      minSize === maxSize
+        ? `${minSize}m fits ${safeWeight} kg in ~${safeWind} kt (${boardType}).`
+        : `${minSize}–${maxSize}m covers ${safeWeight} kg in ~${safeWind} kt (${boardType}).`;
+  } else if (kite.sizes.length > 0) {
+    const sorted = [...kite.sizes].sort((a, b) => Math.abs(a - idealSize) - Math.abs(b - idealSize));
+    const closest = sorted[0];
+    minSize = closest;
+    maxSize = closest;
+    note = `Closest available size is ${closest}m (ideal ~${idealSize}m for ${safeWeight} kg in ${safeWind} kt).`;
+  } else {
+    note = `Estimated ~${idealSize}m for ${safeWeight} kg in ${safeWind} kt.`;
+  }
+
+  return { idealSize, minSize, maxSize, matchingSizes, note };
 }
 
-function feelFit(kite: Kite, feel: FlightFeel): number {
-  if (feel === 'forgiving') {
-    return kite.depower_range * 4.5 + relaunchValues[kite.relaunch] * 0.35 + closeness(turningValues[kite.turning_speed], 45) * 0.2;
-  }
-  if (feel === 'performance') {
-    return turningValues[kite.turning_speed] * 0.55 + closeness(kite.shape_spectrum, 80) * 0.25 + kite.depower_range * 2;
-  }
-  return closeness(turningValues[kite.turning_speed], 60) * 0.35 + kite.depower_range * 3.5 + kite.low_end_power * 3;
+export function kiteMatchesConstraints(kite: Kite, constraints: MatchConstraints): boolean {
+  const { construction = 'all', barType = 'any', budget } = constraints;
+
+  if (typeof budget === 'number' && budget < 5000 && kite.price_new > budget) return false;
+  if (construction === 'aluula' && !kite.aluula) return false;
+  if (construction === 'brainchild' && !kite.brainchild) return false;
+  if (construction === 'dacron' && (kite.aluula || kite.brainchild)) return false;
+
+  if (barType === 'high-y' && kite.bar_type === 'low-v') return false;
+  if (barType === 'low-v' && kite.bar_type === 'high-y') return false;
+
+  return true;
 }
 
-function windFit(kite: Kite, wind: WindProfile): number {
-  if (wind === 'light') {
-    return kite.low_end_power * 7 + closeness(kite.wind_range_low * 5, 50) * 0.3;
-  }
-  if (wind === 'strong') {
-    return kite.depower_range * 6 + Math.min(100, kite.wind_range_high * 2.5) * 0.4;
-  }
-  const rangeWidth = Math.max(0, kite.wind_range_high - kite.wind_range_low);
-  return Math.min(100, rangeWidth * 4) * 0.55 + kite.depower_range * 4.5;
+export function filterByMatchConstraints(kites: Kite[], constraints: MatchConstraints): Kite[] {
+  return kites.filter((kite) => kiteMatchesConstraints(kite, constraints));
 }
 
-function sliderHandlingFit(kite: Kite, handling: number): number {
-  const forgiveness = kite.depower_range * 5 + relaunchValues[kite.relaunch] * 0.5;
-  const performance = turningValues[kite.turning_speed] * 0.6 + closeness(kite.shape_spectrum, 80) * 0.4;
-  const weight = Math.max(0, Math.min(100, handling)) / 100;
-  return forgiveness * (1 - weight) + performance * weight;
-}
+function disciplineFit(kite: Kite, profile: RiderProfile): number {
+  const primary = kite.discipline_scores[profile.discipline];
+  let score = primary;
 
-function sliderWindFit(kite: Kite, wind: number): number {
-  const light = windFit(kite, 'light');
-  const mixed = windFit(kite, 'mixed');
-  const strong = windFit(kite, 'strong');
-  const value = Math.max(0, Math.min(100, wind));
-  if (value <= 50) {
-    const weight = value / 50;
-    return light * (1 - weight) + mixed * weight;
+  if (profile.secondaryDiscipline && profile.secondaryDiscipline !== profile.discipline) {
+    const secondary = kite.discipline_scores[profile.secondaryDiscipline];
+    score = primary * 0.75 + secondary * 0.25;
   }
-  const weight = (value - 50) / 50;
-  return mixed * (1 - weight) + strong * weight;
+
+  // Board-type synergy nudges without overriding primary discipline.
+  if (profile.boardType === 'hydrofoil') {
+    score = score * 0.8 + kite.discipline_scores.foil * 0.2;
+  } else if (profile.boardType === 'surfboard') {
+    score = score * 0.8 + kite.discipline_scores.wave * 0.2;
+  }
+
+  return clamp(score);
 }
 
-function riderLevelFit(kite: Kite, level: SkillLevel): number {
+function canopyAndAspectFit(kite: Kite, profile: RiderProfile): number {
+  const canopyScore = CANOPY_DISCIPLINE_AFFINITY[profile.discipline][kite.canopy_shape];
+
+  const targetAspect =
+    profile.discipline === 'big_air'
+      ? 90
+      : profile.discipline === 'foil'
+        ? 75
+        : profile.discipline === 'freeride'
+          ? 60
+          : profile.discipline === 'wave'
+            ? 45
+            : 35;
+
+  const aspectScore = closeness(ASPECT_VALUES[kite.aspect_ratio], targetAspect);
+  return canopyScore * 0.65 + aspectScore * 0.35;
+}
+
+function feelFit(kite: Kite, profile: RiderProfile): number {
+  const parts: number[] = [];
+
+  if (profile.barPressure && profile.barPressure !== 'any') {
+    const diff = Math.abs(PRESSURE_SCALE[kite.bar_pressure] - PRESSURE_SCALE[profile.barPressure]);
+    parts.push(diff === 0 ? 100 : diff === 1 ? 65 : 30);
+  }
+
+  if (profile.flyingStyle && profile.flyingStyle !== 'any') {
+    const diff = Math.abs(FLYING_SCALE[kite.flying_style] - FLYING_SCALE[profile.flyingStyle]);
+    parts.push(diff === 0 ? 100 : diff === 1 ? 65 : 25);
+  }
+
+  // Turning speed alignment for the chosen discipline & rider level.
+  const targetTurning =
+    profile.level === 'beginner'
+      ? 45
+      : profile.discipline === 'wave'
+        ? 85
+        : profile.discipline === 'big_air'
+          ? 80
+          : profile.discipline === 'freestyle'
+            ? 70
+            : 65;
+
+  parts.push(closeness(TURNING_VALUES[kite.turning_speed], targetTurning));
+
+  return parts.reduce((sum, v) => sum + v, 0) / parts.length;
+}
+
+function windAndWeightFit(kite: Kite, profile: RiderProfile): number {
+  const wind = profile.windKnots ?? 18;
+  const weight = profile.riderWeightKg;
+
+  // Check if the rider's typical wind sits inside the kite's published wind window.
+  let rangeFit = 100;
+  if (wind < kite.wind_range_low) {
+    rangeFit = clamp(100 - (kite.wind_range_low - wind) * 10);
+  } else if (wind > kite.wind_range_high) {
+    rangeFit = clamp(100 - (wind - kite.wind_range_high) * 10);
+  }
+
+  const lowEndBonus = wind <= 15 ? kite.low_end_power * 10 : kite.depower_range * 10;
+  let score = rangeFit * 0.6 + lowEndBonus * 0.4;
+
+  // When rider weight is supplied, reward kites whose available size lineup covers their needed size.
+  if (typeof weight === 'number' && Number.isFinite(weight)) {
+    const rec = recommendKiteSizeRange(kite, weight, wind, profile.boardType ?? 'twin-tip');
+    const sizeCoverage = rec.matchingSizes.length > 0 ? 100 : 55;
+    // Heavier riders benefit slightly more from low-end power in lighter winds.
+    const weightLowEnd = weight >= 90 && wind <= 20 ? kite.low_end_power * 10 : score;
+    score = score * 0.65 + sizeCoverage * 0.25 + weightLowEnd * 0.1;
+  }
+
+  return clamp(score);
+}
+
+function levelFit(kite: Kite, level: SkillLevel): number {
   if (level === 'beginner') {
-    return kite.depower_range * 6 + relaunchValues[kite.relaunch] * 0.4;
+    const sheetBonus = kite.flying_style === 'sheet-and-go' ? 100 : kite.flying_style === 'balanced' ? 75 : 35;
+    return clamp(
+      kite.depower_range * 4.5 +
+        RELAUNCH_VALUES[kite.relaunch] * 0.35 +
+        sheetBonus * 0.2,
+    );
   }
-
   if (level === 'intermediate') {
-    const rangeWidth = Math.min(100, Math.max(0, kite.wind_range_high - kite.wind_range_low) * 4);
-    return kite.depower_range * 4
-      + relaunchValues[kite.relaunch] * 0.25
-      + closeness(turningValues[kite.turning_speed], 60) * 0.2
-      + rangeWidth * 0.15;
+    const width = clamp((kite.wind_range_high - kite.wind_range_low) * 4);
+    return clamp(kite.depower_range * 4 + RELAUNCH_VALUES[kite.relaunch] * 0.25 + width * 0.35);
   }
-
   return 100;
 }
 
@@ -136,25 +303,126 @@ export function displayFitScore(score: number): number {
   return Math.max(0, Math.min(100, Math.round(score / 5) * 5));
 }
 
-export function fitLabel(score: number): AdvisorMatch['fitLabel'] {
+export function fitLabel(score: number): UnifiedMatch['fitLabel'] {
   if (score >= 88) return 'Excellent fit';
   if (score >= 78) return 'Strong fit';
   if (score >= 68) return 'Good fit';
   return 'Worth a look';
 }
 
+function buildReasons(kite: Kite, profile: RiderProfile): string[] {
+  const reasons: string[] = [];
+  const dScore = kite.discipline_scores[profile.discipline];
+  const dLabel = DISCIPLINE_LABELS[profile.discipline];
+
+  if (dScore >= 85) reasons.push(`Dedicated ${dLabel} score (${dScore}/100)`);
+  else if (dScore >= 70) reasons.push(`Strong ${dLabel} versatility (${dScore}/100)`);
+  else reasons.push(`Closest available ${dLabel} fit (${dScore}/100)`);
+
+  if (profile.level === 'beginner' && kite.relaunch === 'easy' && kite.depower_range >= 8) {
+    reasons.push('Easy relaunch and wide depower suit a progressing rider');
+  }
+  if (profile.barPressure && profile.barPressure !== 'any' && kite.bar_pressure === profile.barPressure) {
+    reasons.push(`Matches your ${profile.barPressure} bar pressure preference`);
+  }
+  if (profile.flyingStyle && profile.flyingStyle !== 'any' && kite.flying_style === profile.flyingStyle) {
+    reasons.push(`${kite.flying_style.replace(/-/g, ' ')} flying character`);
+  }
+
+  const wind = profile.windKnots ?? 18;
+  if (wind <= 15 && kite.low_end_power >= 8) {
+    reasons.push(`Strong low-end pull (${kite.low_end_power}/10) for ${wind} kt sessions`);
+  } else if (wind >= 24 && kite.wind_range_high >= 34) {
+    reasons.push(`Holds up to ${kite.wind_range_high} kt in powered wind`);
+  } else if (kite.wind_range_high - kite.wind_range_low >= 22) {
+    reasons.push(`Broad ${kite.wind_range_low}–${kite.wind_range_high} kt wind range`);
+  }
+
+  if (reasons.length < 2) {
+    reasons.push(`${kite.canopy_shape.toUpperCase()} canopy · ${kite.aspect_ratio.replace('-', ' ')} aspect`);
+  }
+  return reasons.slice(0, 3);
+}
+
+function buildTradeoffs(kite: Kite, profile: RiderProfile): string[] {
+  const tradeoffs: string[] = [];
+  const wind = profile.windKnots ?? 18;
+
+  if (kite.relaunch === 'hard') tradeoffs.push('Relaunch takes technique');
+  if (kite.low_end_power <= 5 && wind <= 18) tradeoffs.push('Needs solid wind to get going');
+  if (kite.depower_range <= 5 && wind >= 22) tradeoffs.push('Less forgiving in gusty top-end wind');
+  if (profile.level === 'beginner' && TURNING_VALUES[kite.turning_speed] >= 85) {
+    tradeoffs.push('Fast turning can feel twitchy while learning');
+  }
+  if (profile.barPressure && profile.barPressure !== 'any' && kite.bar_pressure !== profile.barPressure) {
+    tradeoffs.push(`Runs ${kite.bar_pressure} bar pressure (you asked for ${profile.barPressure})`);
+  }
+  if (kite.price_new >= 2500) tradeoffs.push(`$${kite.price_new.toLocaleString()} retail price`);
+
+  return tradeoffs.slice(0, 2);
+}
+
+/**
+ * Unified scoring function used across Homepage, Results, Browse, and Compare.
+ * Strictly decoupled from reviews, structured_review, brand, and buy_links.
+ */
+export function scoreKite(kite: Kite, profile: RiderProfile): number {
+  const weights =
+    profile.level === 'beginner'
+      ? { discipline: 0.34, canopy: 0.12, feel: 0.12, wind: 0.16, level: 0.26 }
+      : profile.level === 'intermediate'
+        ? { discipline: 0.46, canopy: 0.15, feel: 0.14, wind: 0.15, level: 0.1 }
+        : { discipline: 0.52, canopy: 0.16, feel: 0.16, wind: 0.16, level: 0 };
+
+  const raw =
+    disciplineFit(kite, profile) * weights.discipline +
+    canopyAndAspectFit(kite, profile) * weights.canopy +
+    feelFit(kite, profile) * weights.feel +
+    windAndWeightFit(kite, profile) * weights.wind +
+    levelFit(kite, profile.level) * weights.level;
+
+  return Math.round(clamp(raw));
+}
+
+export function getUnifiedMatches(kites: Kite[], profile: RiderProfile): UnifiedMatch[] {
+  return filterByMatchConstraints(kites, profile)
+    .filter((kite) => kite.skill_level.includes(profile.level))
+    .map((kite) => {
+      const score = scoreKite(kite, profile);
+      const recommendedSize =
+        typeof profile.riderWeightKg === 'number' && Number.isFinite(profile.riderWeightKg)
+          ? recommendKiteSizeRange(
+              kite,
+              profile.riderWeightKg,
+              profile.windKnots ?? 18,
+              profile.boardType ?? 'twin-tip',
+            )
+          : undefined;
+      return {
+        ...kite,
+        score,
+        fitLabel: fitLabel(score),
+        reasons: buildReasons(kite, profile),
+        tradeoffs: buildTradeoffs(kite, profile),
+        recommendedSize,
+      };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return b.discipline_scores[profile.discipline] - a.discipline_scores[profile.discipline];
+    });
+}
+
 /**
  * Builds a discovery shortlist without changing any underlying fit score.
- * Overflow candidates are appended only when the brand cap would leave the
- * shortlist short, so small categories still return the requested count.
  */
 export function getDiverseAdvisorShortlist(
-  matches: AdvisorMatch[],
+  matches: UnifiedMatch[],
   count = 12,
   maxPerBrand = 2,
-): AdvisorMatch[] {
-  const selected: AdvisorMatch[] = [];
-  const overflow: AdvisorMatch[] = [];
+): UnifiedMatch[] {
+  const selected: UnifiedMatch[] = [];
+  const overflow: UnifiedMatch[] = [];
   const brandCounts = new Map<string, number>();
 
   for (const match of matches) {
@@ -170,181 +438,26 @@ export function getDiverseAdvisorShortlist(
   return selected.concat(overflow.slice(0, Math.max(0, count - selected.length))).slice(0, count);
 }
 
-function sliderReasons(kite: Kite, preferences: SliderAdvisorPreferences): string[] {
-  const reasons: string[] = [];
-  const styleDifference = Math.abs(kite.style_spectrum - preferences.style);
-  if (styleDifference <= 10) reasons.push('Closely matches your riding-style target');
-  else if (styleDifference <= 20) reasons.push('Versatile fit for your selected style');
-
-  if (preferences.level === 'beginner' && kite.relaunch === 'easy' && kite.depower_range >= 8) reasons.push('Control and relaunch suit a newer rider');
-  if (preferences.level === 'intermediate' && kite.relaunch === 'easy' && kite.depower_range >= 7) reasons.push('Versatile platform with room to progress');
-  if (preferences.wavePriority >= 60 && kite.wave_spectrum >= 75) reasons.push('High wave score for drift-focused sessions');
-  if (preferences.handling <= 35 && kite.relaunch === 'easy') reasons.push('Easy relaunch supports a forgiving feel');
-  if (preferences.handling >= 65 && turningValues[kite.turning_speed] >= 80) reasons.push('Fast steering matches your performance bias');
-  if (preferences.wind <= 35 && kite.low_end_power >= 8) reasons.push('Strong low-end power for lighter wind');
-  if (preferences.wind >= 65 && kite.depower_range >= 8) reasons.push('Wide depower range for stronger wind');
-  if (preferences.wind > 35 && preferences.wind < 65 && kite.wind_range_high - kite.wind_range_low >= 20) reasons.push('Broad usable wind range');
-  if (reasons.length < 2) reasons.push(`Suitable for ${preferences.level} riders`);
-  return reasons.slice(0, 3);
-}
-
-function sliderTradeoffs(kite: Kite, preferences: SliderAdvisorPreferences): string[] {
-  const tradeoffs: string[] = [];
-  if (kite.relaunch === 'hard' && preferences.handling < 60) tradeoffs.push('Relaunch takes more technique');
-  if (kite.low_end_power <= 5 && preferences.wind <= 50) tradeoffs.push('Needs more wind to come alive');
-  if (kite.depower_range <= 5 && preferences.wind >= 50) tradeoffs.push('Less forgiving when conditions get gusty');
-  if (preferences.handling >= 65 && turningValues[kite.turning_speed] <= 40) tradeoffs.push('Steering may feel slower than requested');
-  if (preferences.level === 'beginner' && turningValues[kite.turning_speed] >= 80) tradeoffs.push('Fast steering may feel busy while progressing');
-  if (kite.price_new >= 2500) tradeoffs.push('Premium price is the main compromise');
-  return tradeoffs.slice(0, 2);
-}
-
-export function getSliderAdvisorMatches(kites: Kite[], preferences: SliderAdvisorPreferences): AdvisorMatch[] {
-  const waveWeight = Math.max(0, Math.min(100, preferences.wavePriority)) / 100 * 0.35;
-
-  const weights = preferences.level === 'beginner'
-    ? { style: 0.3, shape: 0.05, handling: 0.15, wind: 0.2, level: 0.3 }
-    : preferences.level === 'intermediate'
-      ? { style: 0.45, shape: 0.08, handling: 0.2, wind: 0.17, level: 0.1 }
-      : { style: 0.5, shape: 0.1, handling: 0.2, wind: 0.2, level: 0 };
-
-  return filterByMatchConstraints(kites, preferences)
-    .filter(kite => kite.skill_level.includes(preferences.level))
-    .map(kite => {
-      const styleScore = closeness(kite.style_spectrum, preferences.style) * (1 - waveWeight)
-        + closeness(kite.wave_spectrum, 90) * waveWeight;
-      const score = Math.round(
-        styleScore * weights.style
-        + closeness(kite.shape_spectrum, preferences.shape) * weights.shape
-        + sliderHandlingFit(kite, preferences.handling) * weights.handling
-        + sliderWindFit(kite, preferences.wind) * weights.wind
-        + riderLevelFit(kite, preferences.level) * weights.level,
-      );
-      return {
-        ...kite,
-        score,
-        fitLabel: fitLabel(score),
-        reasons: sliderReasons(kite, preferences),
-        tradeoffs: sliderTradeoffs(kite, preferences),
-      };
-    })
-    .sort((a, b) => b.score - a.score);
-}
-
-function advisorReasons(kite: Kite, preferences: AdvisorPreferences): string[] {
-  const goalFit = styleFit(kite, preferences.goal);
-  const goalLabel = preferences.goal.replace('-', ' ');
-  const reasons = [
-    goalFit >= 80
-      ? `Strong ${goalLabel} alignment`
-      : goalFit >= 65
-        ? `Good ${goalLabel} versatility`
-        : `Closest available ${goalLabel} fit`,
-  ];
-
-  if (preferences.feel === 'forgiving' && kite.relaunch === 'easy') reasons.push('Easy relaunch builds confidence');
-  else if (preferences.feel === 'performance' && turningValues[kite.turning_speed] >= 80) reasons.push('Fast steering suits an aggressive rider');
-  else if (kite.depower_range >= 8) reasons.push('Wide depower range adds control');
-
-  if (preferences.wind === 'light' && kite.low_end_power >= 8) reasons.push('Strong low-end power for lighter sessions');
-  else if (preferences.wind === 'strong' && kite.wind_range_high >= 35) reasons.push('High top end for stronger wind');
-  else if (preferences.wind === 'mixed' && kite.wind_range_high - kite.wind_range_low >= 20) reasons.push('Broad usable wind range');
-
-  if (kite.skill_level.includes(preferences.level)) reasons.push(`Suitable for ${preferences.level} riders`);
-  return reasons.slice(0, 3);
-}
-
-function advisorTradeoffs(kite: Kite, preferences: AdvisorPreferences): string[] {
-  const tradeoffs: string[] = [];
-  if (kite.relaunch === 'hard') tradeoffs.push('Relaunch takes more technique');
-  if (kite.low_end_power <= 5 && preferences.wind !== 'strong') tradeoffs.push('Needs more wind to come alive');
-  if (kite.depower_range <= 5) tradeoffs.push('Less forgiving when conditions get gusty');
-  if (preferences.feel === 'performance' && turningValues[kite.turning_speed] <= 40) tradeoffs.push('Steering may feel slower than requested');
-  if (kite.price_new >= 2500) tradeoffs.push('Premium price is the main compromise');
-  return tradeoffs.slice(0, 2);
-}
-
-export function getAdvisorMatches(kites: Kite[], preferences: AdvisorPreferences): AdvisorMatch[] {
-  return filterByMatchConstraints(kites, preferences)
-    .filter(kite => kite.skill_level.includes(preferences.level))
-    .map(kite => {
-      const score = Math.round(
-        styleFit(kite, preferences.goal) * 0.55
-        + feelFit(kite, preferences.feel) * 0.25
-        + windFit(kite, preferences.wind) * 0.2,
-      );
-      return {
-        ...kite,
-        score,
-        fitLabel: fitLabel(score),
-        reasons: advisorReasons(kite, preferences),
-        tradeoffs: advisorTradeoffs(kite, preferences),
-      };
-    })
-    .sort((a, b) => b.score - a.score);
-}
-
-export function kiteMatchesConstraints(kite: Kite, constraints: MatchConstraints): boolean {
-  const { construction = 'all', budget } = constraints;
-
-  if (typeof budget === 'number' && kite.price_new > budget) return false;
-  if (construction === 'aluula' && !kite.aluula) return false;
-  if (construction === 'brainchild' && !kite.brainchild) return false;
-  if (construction === 'dacron' && (kite.aluula || kite.brainchild)) return false;
-
-  return true;
-}
-
-export function filterByMatchConstraints(kites: Kite[], constraints: MatchConstraints): Kite[] {
-  return kites.filter(kite => kiteMatchesConstraints(kite, constraints));
-}
-
-export function matchScore(kite: Kite, styleValue: number, shapeValue: number, waveValue?: number): number {
-  const styleDiff = Math.abs(kite.style_spectrum - styleValue);
-  const shapeDiff = Math.abs(kite.shape_spectrum - shapeValue);
-
-  if (waveValue !== undefined && waveValue > 0) {
-    const waveDiff = Math.abs(kite.wave_spectrum - waveValue);
-    // When wave matters, split weight three ways
-    const score = 100 - (styleDiff * 0.4 + shapeDiff * 0.3 + waveDiff * 0.3);
-    return Math.max(0, Math.round(score));
-  }
-
-  // Default: style weighted slightly more than shape
-  const score = 100 - (styleDiff * 0.6 + shapeDiff * 0.4);
-  return Math.max(0, Math.round(score));
-}
-
-export function getTopMatches(kites: Kite[], styleValue: number, shapeValue: number, count: number = 3, waveValue?: number): (Kite & { score: number })[] {
-  return kites
-    .map(kite => ({ ...kite, score: matchScore(kite, styleValue, shapeValue, waveValue) }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, count);
-}
-
-export function getRankedMatchesV2(kites: Kite[], preferences: MatchPreferencesV2): (Kite & { score: number })[] {
-  const eligibleKites = filterByMatchConstraints(kites, preferences);
-
-  return eligibleKites
-    .map(kite => ({
-      ...kite,
-      score: matchScore(kite, preferences.style, preferences.shape, preferences.wave),
-    }))
-    .sort((a, b) => b.score - a.score);
-}
-
-export function getRelatedKites(kite: Kite, allKites: Kite[], count: number = 3): Kite[] {
+export function getRelatedKites(kite: Kite, allKites: Kite[], count = 3): Kite[] {
+  const keys: DisciplineKey[] = ['freeride', 'big_air', 'wave', 'foil', 'freestyle'];
   return allKites
-    .filter(k => k.id !== kite.id && !k.discontinued)
-    .map(k => ({
-      kite: k,
-      distance: Math.abs(k.style_spectrum - kite.style_spectrum) + Math.abs(k.shape_spectrum - kite.shape_spectrum),
-    }))
+    .filter((k) => k.id !== kite.id && !k.discontinued)
+    .map((k) => {
+      const discDist = Math.sqrt(
+        keys.reduce((sum, key) => {
+          const diff = k.discipline_scores[key] - kite.discipline_scores[key];
+          return sum + diff * diff;
+        }, 0),
+      );
+      const shapePenalty = k.canopy_shape === kite.canopy_shape ? 0 : 12;
+      const aspectDiff = Math.abs(ASPECT_VALUES[k.aspect_ratio] - ASPECT_VALUES[kite.aspect_ratio]) * 0.2;
+      return { kite: k, distance: discDist + shapePenalty + aspectDiff };
+    })
     .sort((a, b) => a.distance - b.distance)
     .slice(0, count)
-    .map(k => k.kite);
+    .map((entry) => entry.kite);
 }
 
 export function getActiveKites(kites: Kite[]): Kite[] {
-  return kites.filter(k => !k.discontinued);
+  return kites.filter((k) => !k.discontinued);
 }

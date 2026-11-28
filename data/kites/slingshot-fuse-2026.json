@@ -5,9 +5,16 @@
   "model": "Fuse",
   "year": 2026,
   "image": "/kites/slingshot-fuse-2026.jpg",
-  "style_spectrum": 22,
-  "shape_spectrum": 30,
-  "wave_spectrum": 92,
+  "discipline_scores": {
+    "freeride": 64,
+    "big_air": 30,
+    "wave": 92,
+    "foil": 82,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "wave",
     "strapless",

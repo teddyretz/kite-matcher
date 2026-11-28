@@ -5,9 +5,16 @@
   "model": "Stoke 3",
   "year": 2025,
   "image": "/kites/flysurfer-stoke-3-2025.jpg",
-  "style_spectrum": 48,
-  "shape_spectrum": 40,
-  "wave_spectrum": 55,
+  "discipline_scores": {
+    "freeride": 86,
+    "big_air": 30,
+    "wave": 82,
+    "foil": 50,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "light",
+  "flying_style": "active",
   "style_tags": [
     "freestyle",
     "wave",

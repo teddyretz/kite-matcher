@@ -5,9 +5,16 @@
   "model": "Thrive",
   "year": 2025,
   "image": "/kites/harlem-thrive-2025.jpg",
-  "style_spectrum": 72,
-  "shape_spectrum": 55,
-  "wave_spectrum": 38,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 93,
+    "wave": 82,
+    "foil": 50,
+    "freestyle": 48
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "freeride",
     "big air",

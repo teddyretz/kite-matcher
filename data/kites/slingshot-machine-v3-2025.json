@@ -5,9 +5,16 @@
   "model": "Machine V3",
   "year": 2025,
   "image": "/kites/slingshot-machine-v3-2025.jpg",
-  "style_spectrum": 44,
-  "shape_spectrum": 45,
-  "wave_spectrum": 5,
+  "discipline_scores": {
+    "freeride": 62,
+    "big_air": 88,
+    "wave": 5,
+    "foil": 22,
+    "freestyle": 82
+  },
+  "canopy_shape": "bow",
+  "bar_pressure": "heavy",
+  "flying_style": "balanced",
   "style_tags": [
     "big air",
     "old school",

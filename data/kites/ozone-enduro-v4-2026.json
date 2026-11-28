@@ -5,9 +5,16 @@
   "model": "Enduro V4",
   "year": 2026,
   "image": "/kites/ozone-enduro-v4-2026.jpg",
-  "style_spectrum": 65,
-  "shape_spectrum": 57,
-  "wave_spectrum": 40,
+  "discipline_scores": {
+    "freeride": 94,
+    "big_air": 60,
+    "wave": 40,
+    "foil": 50,
+    "freestyle": 88
+  },
+  "canopy_shape": "open-c",
+  "bar_pressure": "medium",
+  "flying_style": "active",
   "style_tags": [
     "freeride",
     "all-around",

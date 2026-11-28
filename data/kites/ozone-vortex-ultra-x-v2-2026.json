@@ -5,9 +5,16 @@
   "model": "Vortex Ultra-X V2",
   "year": 2026,
   "image": "/kites/ozone-vortex-ultra-x-v2-2026.jpg",
-  "style_spectrum": 88,
-  "shape_spectrum": 58,
-  "wave_spectrum": 12,
+  "discipline_scores": {
+    "freeride": 74,
+    "big_air": 97,
+    "wave": 12,
+    "foil": 73,
+    "freestyle": 76
+  },
+  "canopy_shape": "delta",
+  "bar_pressure": "light",
+  "flying_style": "sheet-and-go",
   "style_tags": [
     "big air",
     "kiteloops",

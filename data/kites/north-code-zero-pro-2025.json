@@ -5,9 +5,16 @@
   "model": "Code Zero Pro",
   "year": 2025,
   "image": "/kites/north-code-zero-pro-2025.jpg",
-  "style_spectrum": 12,
-  "shape_spectrum": 78,
-  "wave_spectrum": 65,
+  "discipline_scores": {
+    "freeride": 92,
+    "big_air": 30,
+    "wave": 82,
+    "foil": 92,
+    "freestyle": 25
+  },
+  "canopy_shape": "hybrid",
+  "bar_pressure": "light",
+  "flying_style": "balanced",
   "style_tags": [
     "foil",
     "lightwind",
